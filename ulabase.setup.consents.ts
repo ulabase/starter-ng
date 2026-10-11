@@ -45,7 +45,7 @@
  */
 import { defineSetup, step } from '@ulabase/cli';
 import type { FeatureConfig } from '@ulabase/cli';
-import accounts from './ulabase.setup.ts';
+import accounts, { appPointsAtService } from './ulabase.setup.ts';
 
 /**
  * Bump these when you publish new documents, and re-run the setup. Every user
@@ -168,7 +168,7 @@ export default defineSetup('Angular starter with consents gate', [
   // Accounts first, and not as a matter of taste: a gate that blocks users the
   // service cannot yet create has nothing to block, and the permission below
   // is written against the `users` collection the accounts feature owns.
-  ...accounts.steps,
+  ...accounts.steps.filter(s => s !== appPointsAtService),
 
   step('user schema stored', {
     check: ({ service }) => service.schemaExists(SCHEMA_ID),
@@ -292,4 +292,7 @@ export default defineSetup('Angular starter with consents gate', [
       });
     },
   }),
+
+  // last, as in the plain setup: the app is pointed at the service once the gate is in place too
+  appPointsAtService,
 ]);

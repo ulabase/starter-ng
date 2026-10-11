@@ -22,24 +22,10 @@ cd starter-ng
 npm install
 ```
 
-### 2. Point it at your service
+### 2. Create a service
 
-Create a **free service** at [ulabase.com](https://ulabase.com) and copy its URL
-from the service's *Connect* page. Put it in `src/environments/environment.dev.ts` — the file
-`ng serve` actually uses:
-
-```ts
-apiUrl: 'https://xxxxxx.ulabase.app',
-```
-
-> Use the URL of **your service**, not `api.ulabase.com`. That second one is Ulabase's
-> own control panel, and pointing the app at it makes every request fail.
-
-To keep that edit out of `git status`:
-
-```bash
-git update-index --assume-unchanged src/environments/environment.dev.ts
-```
+Create a **free service** at [ulabase.com](https://ulabase.com). Its id is the six characters at the
+start of its URL: you give it to the setup below.
 
 ### 3. Set the service up
 
@@ -52,6 +38,10 @@ npm install -g ulabase
 ulabase login                              # paste a token from ulabase.com
 ulabase setup --srv <srvId>
 ```
+
+The last step writes the service URL into `src/environments/environment.dev.ts` (`apiUrl`), the file `ng serve` uses.
+Set `src/environments/environment.ts` too when you build for production, and commit both
+when you publish your app.
 
 `<srvId>` is the six-character id of your service — the first label of its URL. Every step is a
 check and an apply, so running it twice writes nothing. `--dry-run` tells you what a service is

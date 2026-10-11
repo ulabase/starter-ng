@@ -772,6 +772,19 @@ code {
   margin: 0;
 }
 
+/* the commands of the setup step: one per line, copied as they are */
+.config-command {
+  margin: var(--space-2) 0;
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--color-border-strong);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: var(--text-sm, 0.875rem);
+  white-space: pre;
+  overflow-x: auto;
+}
+
 .config-steps {
   margin: 0;
   padding: 0;
