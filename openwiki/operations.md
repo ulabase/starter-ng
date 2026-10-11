@@ -3,7 +3,9 @@ type: Operations
 title: Operations & Runbook
 description: Build, serve, SSR deployment, environment configuration, CSS theming, porting guidance, and ulabase setup tooling for ulabase-starter-ng.
 tags: [operations, build, deploy, theming, porting, ulabase-setup, environment, ssr]
-resource: /angular.json
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-11T09:33:30.268Z
 sources:
   - id: openwiki-source-73378d4ee3f791429188ddb5
     resource: repo://angular.json
@@ -29,10 +31,7 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.6.1", at: "2026-10-01T12:12:05.121Z" }
-verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T12:12:05.121Z
+generated: { by: "openwiki/0.7.2", at: "2026-10-11T09:33:30.268Z" }
 ---
 
 # Operations & Runbook
@@ -158,23 +157,26 @@ The SSR server ([`src/server.ts`](../src/server.ts)):
 
 ## CSS theming
 
-`src/styles.css` is structured in 5 sections:
+`src/styles.css` is structured in 8 sections:
 
 1. **Design tokens** — CSS custom properties in `:root`. Change these to re-theme.
 2. **Dark mode** — overrides section 1 tokens under `:root.dark`.
-3. **Default skin** — shared primitives (`.card`, `.btn-*`, `.form-field`, `.form-error`, `.success-msg`, `.muted`, `.badge`, etc.) plus base resets (box-sizing, body, typography).
-4. **Auth pages** — login, signup, forgot/reset password, verify, accept-invite layout.
-5. **Config page** — `.config-page` and `.config-card` shown when `environment.apiUrl` is not set.
+3. **Base** — element-level defaults (`box-sizing`, body, typography, form controls, focus rings).
+4. **Default skin** — semantic class hooks for components (`.card`, `.btn-*`, `.form-field`, `.form-error`, `.success-msg`, `.muted`, `.badge`, etc.).
+5. **Auth pages** — login, signup, forgot/reset password, verify, accept-invite layout.
+6. **Config page** — `.config-page` and `.config-card` shown when `environment.apiUrl` is not set.
+7. **Responsive** — media queries for small screens.
+8. **Reduced motion** — `prefers-reduced-motion` media query.
 
 **Two restyling paths:**
 
 ### A. Tweak the skin (fastest — ~1 hour)
 1. Change tokens in section 1
-2. Adjust skin classes in section 3–5 if you want different shapes
+2. Adjust skin classes in sections 3–5 if you want different shapes
 3. Page-specific CSS stays in `src/app/pages/**/*.css`
 
 ### B. Adopt a UI framework (Material, Spartan, Tailwind)
-1. Delete sections 3–5 of `styles.css`
+1. Delete sections 3–6 of `styles.css`
 2. Reskin templates using the [semantic class hooks](../README.md#making-it-yours)
 3. See [`TEMPLATE_API.md`](../TEMPLATE_API.md) for what each template binds to
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:aeeef1e21bd2ab90ed66666f35cdf5e087af1df82a658f2862fc27bafb438774",
+  "pageVersion": "sha256:9e666b2b5a97869c4bdb38cef65fa254bbccee525b5c92a0bd9f101abec34ca7",
   "claims": [
     {
       "id": "claim_13e3495b41994c06acd94d3cafbb05a8",
@@ -140,10 +140,10 @@
     },
     {
       "id": "claim_b64a23473aa34ef39f94d9b8547f542d",
-      "statement": "@ulabase/cli (^0.12.0 dev dependency) provisions a Ulabase service via ulabase login and ulabase setup commands; setup files use defineSetup/step DSL with check/apply pairs, and --dry-run runs checks only to report what is missing.",
+      "statement": "@ulabase/cli (^0.13.2 dev dependency) provisions a Ulabase service via ulabase login and ulabase setup commands; setup files use defineSetup/step DSL with check/apply pairs, and --dry-run runs checks only to report what is missing.",
       "evidence": [
         {
-          "resource": "repo://package.json#L33-L33",
+          "resource": "repo://package.json#L32-L32",
           "version": "repo-lines-v1:sha256:22c1fdb8650163113f97434fd8ef4e474f52013e735236c2dc4ae9951a9de34b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJjMWZkYjg2NTAxNjMxMTNmOTc0MzRmZDhlZjRlNDc0ZjUyMDEzZTczNTIzNmMyZGM0YWU5OTUxYTlkZTM0YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJjMWZkYjg2NTAxNjMxMTNmOTc0MzRmZDhlZjRlNDc0ZjUyMDEzZTczNTIzNmMyZGM0YWU5OTUxYTlkZTM0YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjk5YjBjZGI3YmI0MzE0ZjhhZDE1ZDQzNWQ2YTlhNjRjOTRmMjAxM2Q3M2E0ZGI0MTc2NzllYTU0ZTY1YzAwMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2VmYmFiZjY0YzY0OWUzNWFlOTk3N2MyNDI0ZWZkNzNiYjNjZmM5OTIzM2FiOTFiZTEwNWU1NGM2MWU5YjFiMiJ9"
         },
         {
@@ -151,12 +151,12 @@
           "version": "repo-lines-v1:sha256:5c7f65f35743f82db7aaf6221bd0c1adb5c3b3c89e5ca13f022bd3f43b00db4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyM2NiNGMxM2Q2Nzc1OWQ1NGY3NjcxZDQ0MDM0OTcyZDA5MDNhMzlkMDhhZmFlNzNiYjk4MWViOWFiMGRjZjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY3MDA0NmVlMmFhYTRhMTU4M2Y2ZjAwYTA4Njc5ZmJlZDMzMjJhMDgxMjU3Y2E4N2RhNjkwNGU0Y2UwYjQ4NmUifQ"
         },
         {
-          "resource": "repo://ulabase.setup.ts#L30-L32",
+          "resource": "repo://ulabase.setup.ts#L31-L33",
           "version": "repo-lines-v1:sha256:b56e1c09603e6ea191ddd048dedc71c619699e56ea7f3cdbe7aabfe8540543dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM1MjUyMzk5ODdhNzQ2MDQ0ZDMyM2I0NzlkNjg3ZGZhNDE4NGM0N2E0ZjdkZTgyYjcwM2IxOGQ4MjM5YjM5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTcyMWUxNWYzODYxN2NjMWQwMGU3NjE3MGQ5MmJmYTc5YWQ5NjBiNjBlZTFiMGY5NDA4NzFiOWM4ZDg2M2Q2NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmJiOTRkYjg3ZDlkMjA1NjY0OWU3MTQ3NDBmYTRjZTZjZmEyY2MzMzg0YjUyZDI4YTFiYjczY2M2ZmVmYzIwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzFmNDI4OTc3NmY0NjE2Zjg5MTJjMzE3OWNjZjgyYWJlNWEyNzhkZDMyODA5Y2E0OThmMTVhMmY1NDJkMTY0ZSJ9"
         },
         {
-          "resource": "repo://ulabase.setup.ts#L81-L188",
-          "version": "repo-lines-v1:sha256:e6c9d960828ef39a479407cdfadb561856b638070b94f7e7e470064308d123c4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTA4LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJjYzBmYWE4MDFkODMxZTk2ZWYzYzgyODdlODQ0MmQ5OGYwZDZiMGNlODdlZWIzZWEzNDEyOTM0ODAxMjFkMTU3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI3MjEyOWMyNzM1MmI0OTU1NDhiMDcxYWUzNGFiOTA4MTE3Mjg3MzQyOGY2Zjg3ZjU0YjU4MGU1MTUzYzlhYTAyIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://ulabase.setup.ts#L82-L219",
+          "version": "repo-lines-v1:sha256:fb0e022863a76dd32a4ffcaad722bebc5fdfed06c4bc4bc49365119c3e79e73f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM4LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI3MjEyOWMyNzM1MmI0OTU1NDhiMDcxYWUzNGFiOTA4MTE3Mjg3MzQyOGY2Zjg3ZjU0YjU4MGU1MTUzYzlhYTAyIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         }
       ]
     },
@@ -166,7 +166,7 @@
       "evidence": [
         {
           "resource": "repo://ulabase.setup.consents.ts#L1-L48",
-          "version": "repo-lines-v1:sha256:a3ddac18131ecf9d13391cc3bf8f754da5dfd977999ac503aace0fbc74b23588:eyJzZWxlY3RlZExpbmVDb3VudCI6NDgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3YjYyYThhZWNkZWFiY2M4ZjNiNjUwZGM1MWJhMjU4ZDU2MWYzZDkyMjFmZjQ2ZmZiNDMwODAwMDE3OTEzNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjM2Q3MmUwZmRhOWQ5ODkwMTQxNWUwZmFhODViYTU1Njg1ZWQ4OTQ1ZjYxZGU2ZjRiOTE1YWE1NDUwN2IxMjYifQ"
+          "version": "repo-lines-v1:sha256:99127df3cb060ef7ba8c15b2a58db91980ad0d4b9e284e8d5010a88648d2a869:eyJzZWxlY3RlZExpbmVDb3VudCI6NDgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkNTlhOTAwMWJkMDgyNmYxYzRhZjRjNDlhYWM1ZWQ2MzQ4NWEwODI3YzU0NWNkZWNjOWE3ZTEzOGJmZDAzZjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjM2Q3MmUwZmRhOWQ5ODkwMTQxNWUwZmFhODViYTU1Njg1ZWQ4OTQ1ZjYxZGU2ZjRiOTE1YWE1NDUwN2IxMjYifQ"
         },
         {
           "resource": "repo://ulabase.setup.consents.ts#L167-L167",
@@ -177,7 +177,7 @@
           "version": "repo-lines-v1:sha256:5c7f65f35743f82db7aaf6221bd0c1adb5c3b3c89e5ca13f022bd3f43b00db4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyM2NiNGMxM2Q2Nzc1OWQ1NGY3NjcxZDQ0MDM0OTcyZDA5MDNhMzlkMDhhZmFlNzNiYjk4MWViOWFiMGRjZjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY3MDA0NmVlMmFhYTRhMTU4M2Y2ZjAwYTA4Njc5ZmJlZDMzMjJhMDgxMjU3Y2E4N2RhNjkwNGU0Y2UwYjQ4NmUifQ"
         },
         {
-          "resource": "repo://ulabase.setup.ts#L33-L63",
+          "resource": "repo://ulabase.setup.ts#L34-L64",
           "version": "repo-lines-v1:sha256:039155168d1f6b57dd46d3704e7e4bbd376c7c3439600f04ea0feb2268aab02f:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM0NjJlNmI0N2IzZjc2ZGFmMjk5MTg4NGUxNTBhNzdiM2ZjZDNmZjA2YWZjMmIwMzY1YjQ2MTcyZDYyYTEzNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1NmUxYzA5NjAzZTZlYTE5MWRkZDA0OGRlZGM3MWM2MTk2OTllNTZlYTdmM2NkYmU3YWFiZmU4NTQwNTQzZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyMmMxZDQyNGM4YmUzYTY1OTA0MzYyMGU0Nzc4NmNlNDQxOTI0NTVmMzI2YTUyNTFlYmY3ZmRiNjA0NDE0N2QifQ"
         }
       ]
@@ -226,7 +226,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-02T09:13:34.458Z"
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-11T09:33:30.268Z"
   }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:3cb24f45c89fa6715f3aecc6031094774d853caa9e2e69c93241bb90bd42d0d5",
+  "pageVersion": "sha256:7d16a614019090d19c0988374c23bbb18844bed9ae2fff0e21c214cb3ff7662e",
   "claims": [
     {
       "id": "claim_d1629cfaa9c04935b09eea9372ed4b3f",
@@ -127,8 +127,8 @@
       "statement": "The consents gate requires four server-side documents configured by ulabase.setup.consents.ts: a user schema with latestConsents/consents fields, collection validation, a permission that stamps versions via mergeRequest, and a Guards rule that blocks non-compliant users with 451.",
       "evidence": [
         {
-          "resource": "repo://ulabase.setup.consents.ts#L167-L295",
-          "version": "repo-lines-v1:sha256:955a11ac0f9491e21b69ba6b5639412a9ecb2ba625fce28eff3859940345fac6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTI5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxNWQ1NmUzNmRjYWUzZWNhNmY4MTE3MmY5MGVkMTg2MWQ5MmZjMGU5NjcwZTY4ZTg1MDc0ZGQxYWE4YWNiYzY3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0YzJjNzYxYzBhMjIyMWFhNzljNzA1OTY2NWQ1ZGMyNzg1MWNkOTNiYWY1ODg3ZDBmM2M2NzAyYjZiZmZhYjFhIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://ulabase.setup.consents.ts#L167-L298",
+          "version": "repo-lines-v1:sha256:ab1a16ab9ad1d645b71d51136a0e287e50c3acdf0fb6ea074739258943825a67:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMyLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxNWQ1NmUzNmRjYWUzZWNhNmY4MTE3MmY5MGVkMTg2MWQ5MmZjMGU5NjcwZTY4ZTg1MDc0ZGQxYWE4YWNiYzY3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0YzJjNzYxYzBhMjIyMWFhNzljNzA1OTY2NWQ1ZGMyNzg1MWNkOTNiYWY1ODg3ZDBmM2M2NzAyYjZiZmZhYjFhIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         },
         {
           "resource": "repo://ulabase.setup.consents.ts#L83-L116",
@@ -226,7 +226,7 @@
     },
     {
       "id": "claim_01dc6506053f4c9bb7f77fff255732e8",
-      "statement": "src/styles.css section 1 defines CSS custom properties for colour (--color-bg, --color-surface, --color-primary Ulabase amber, --color-link teal, --color-error), typography (--font-family system-ui, --font-mono, scale --text-xs to --text-2xl), space (--space-1 to --space-8), and shape (--radius-sm, --radius, --radius-lg, --border-width). Dark mode overrides tokens under :root.dark.",
+      "statement": "src/styles.css section 1 defines CSS custom properties for colour (--color-bg, --color-surface, --color-surface-sunken, --color-border, --color-border-strong, --color-text, --color-text-muted, --color-primary Ulabase amber, --color-primary-hover, --color-on-primary, --color-link teal, --color-success, --color-error, --color-error-bg, --color-on-error, --color-grid), typography (--font-family system-ui, --font-mono, scale --text-xs to --text-2xl, --leading-tight, --leading-normal, --tracking-label), space (--space-1 to --space-8), shape (--radius-sm, --radius, --radius-lg, --radius-pill, --border-width), motion (--transition, --shadow-popup), and focus (--focus-ring-width, --focus-ring-offset). Dark mode overrides tokens under :root.dark.",
       "evidence": [
         {
           "resource": "repo://src/styles.css#L130-L158",
@@ -247,10 +247,28 @@
           "version": "repo-lines-v1:sha256:e907f354768a884fc62daea15ed4f4dfbc0a14a2c512974c57fbd7e005c9083a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmODc1MDVkM2YxMTBiMzFlN2Y5MGIzNGEwNTVkYTc0NmU2Y2M3NzEyZTViNGM2Mzg1OWYxODEwNjM1ZGRjMjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
+    },
+    {
+      "id": "claim_82156d05f3f14b85bf01b90b9f0fe5a6",
+      "statement": "The Ulabase auth model has three states (unauthenticated, authenticated, consents-blocked) with transitions: login/signup moves to authenticated, logout or 401/expiry returns to unauthenticated, API 451 moves to consents-blocked, and accepting consents plus reload returns to authenticated.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.ts#L16-L39",
+          "version": "repo-lines-v1:sha256:0b346056ea53486288503bc368b0b08662825c83edf531b57abba56e0cb99c25:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjN2Q0ODQ4ODQ3OWQ4MWQ1NTg5NzhmZDk5MWM1M2Y3MjdhZTJhMzlmMGIxYjFiZTMzYTk5Y2IxMWM0YjY3ZTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5MjVlNDEzOTk5Y2VhMzIyMTgxYTQzNDIxY2VlN2Q0Mzk5ZmQxM2M5MmY1YTA3NWZjZWJiYzEyN2ExZTAwYjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJjMzM5MjNiZTE4ZTdhMjhmODJjZDNiYTNkNWI4ZjI3YTdjMjBkOTk5MjRhM2YzMWZmMjUxYzZlYjhjNTgxYjAifQ"
+        },
+        {
+          "resource": "repo://src/app/consents-gate.ts#L1-L60",
+          "version": "repo-lines-v1:sha256:f72485098353e5f6e7058ed493d87c3fd7454476c1484b3a1ddea7bb015b2057:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhZjMwNDE0NDViNjMzODcxN2RkNTNhNGZiYTVlZmQ4ZTRiNmI1OWI1NmYxNzkyNzMwMDE5ZTg3YTExMTEwZDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/app/consents.ts#L1-L33",
+          "version": "repo-lines-v1:sha256:df0bfabef71ecaef18eb9195ee5d27883ff6b11d68e83e4375226b5d932ed338:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYwZDJlYzZlMTE2MTMyNWI1ODBjNTVjNjgzOTFmMDgzNWFiOWQ4ZDU2M2JmNTcxNjg4NmJmOTgwMDlhMDljNmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T12:12:05.121Z"
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-11T09:33:30.268Z"
   }
 }

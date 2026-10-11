@@ -3,6 +3,9 @@ type: Domain Concepts
 title: Domain Concepts
 description: Ulabase auth model, teams, invitations, tokens, feature flags, the consents gate domain model, and the SSR/CSR boundary.
 tags: [domain, auth, teams, tokens, feature-flags, consents]
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-11T09:33:30.268Z
 sources:
   - id: openwiki-source-1b6b17b8afa47babcf26380f
     resource: repo://src/app/app.config.ts
@@ -32,10 +35,7 @@ sources:
     resource: repo://src/styles.css
   - id: openwiki-source-c1d5327fe44e08cda82fcf83
     resource: repo://ulabase.setup.consents.ts
-generated: { by: "openwiki/0.6.1", at: "2026-10-01T12:12:05.121Z" }
-verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T12:12:05.121Z
+generated: { by: "openwiki/0.7.2", at: "2026-10-11T09:33:30.268Z" }
 ---
 
 # Domain Concepts
@@ -49,6 +49,19 @@ The starter is a frontend for [Ulabase](https://ulabase.com), a hosted backend s
 - **Teams** are multi-tenant containers. Each user belongs to one or more teams.
 - **Roles** per team: `owner` or `member`. Owners can invite, remove, and manage team settings.
 - **Active team** — the JWT contains a `team` claim (`{ _id, role }`). `switchTeam()` reissues the JWT with a different active team.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Unauthenticated
+    Unauthenticated --> Authenticated: login/signup
+    Authenticated --> Authenticated: switchTeam
+    Authenticated --> Unauthenticated: logout or 401/expiry
+    Authenticated --> ConsentsBlocked: API returns 451
+    ConsentsBlocked --> Authenticated: accept consents and reload
+    ConsentsBlocked --> Unauthenticated: sign out
+```
+
+*Auth model state machine: the user transitions between unauthenticated, authenticated, and consents-blocked states.*
 
 ## Authentication flow
 
@@ -116,7 +129,7 @@ features: {
 
 **Default configs:**
 - `environment.ts` (production): all on except `oauthLogin`
-- `environment.dev.ts` (development): all on including `oauthLogin` with Google
+- `environment.dev.ts` (development): all on except `oauthLogin` (off until you create its OAuth client)
 
 ## Consents gate
 
@@ -161,6 +174,8 @@ The consents gate requires four server-side documents, configured by `ulabase se
 2. **Collection validation** — attaches the schema to `/users`.
 3. **Permission** (`userCanPatchOwnConsents`) — allows `PATCH /users/{userId}` only for the `consents` field. Its `mergeRequest` stamps the current versions and timestamp, and pushes to the `consents` history array.
 4. **Guards rule** (`consentsGate`) — blocks authenticated users whose `latestConsents` does not match current versions. Excludes `/auth/*`, `/token/*`, and the acceptance PATCH itself.
+
+The setup also configures JWT claims (see below) and ensures the Guards feature is installed.
 
 ### Version management
 
@@ -207,10 +222,12 @@ The `justSignedUp` signal (in `src/app/just-signed-up.ts`) is:
 ## Design token system
 
 `src/styles.css` section 1 defines CSS custom properties:
-- **Colour:** `--color-bg`, `--color-surface`, `--color-primary` (Ulabase amber), `--color-link` (teal), `--color-error`
-- **Typography:** `--font-family` (system-ui), `--font-mono` (for chrome labels), scale from `--text-xs` to `--text-2xl`
+- **Colour:** `--color-bg`, `--color-surface`, `--color-surface-sunken`, `--color-border`, `--color-border-strong`, `--color-text`, `--color-text-muted`, `--color-primary` (Ulabase amber), `--color-primary-hover`, `--color-on-primary`, `--color-link` (teal), `--color-success`, `--color-error`, `--color-error-bg`, `--color-on-error`, `--color-grid`
+- **Typography:** `--font-family` (system-ui), `--font-mono` (for chrome labels), scale from `--text-xs` to `--text-2xl`, `--leading-tight`, `--leading-normal`, `--tracking-label`
 - **Space:** `--space-1` through `--space-8`
-- **Shape:** `--radius-sm`, `--radius`, `--radius-lg`, `--border-width`
+- **Shape:** `--radius-sm`, `--radius`, `--radius-lg`, `--radius-pill`, `--border-width`
+- **Motion & elevation:** `--transition`, `--shadow-popup`
+- **Focus:** `--focus-ring-width`, `--focus-ring-offset`
 
 Dark mode overrides these tokens under `:root.dark`. The `ThemeService` toggles the `.dark` class on `<html>` and persists to `localStorage['rh-theme']`.
 
