@@ -1,0 +1,31 @@
+# Keeps a real service URL off this starter's main branch.
+#
+# `ulabase setup` writes the URL of the service it set up into the environment file, which is what
+# a developer wants in their own copy and commits when they publish their app. Here, in the starter
+# every clone starts from, it must stay empty: a URL committed to main would be the service every
+# new clone talks to. The check runs only in ulabase/starter-ng: a fork or a copy pushed elsewhere has another
+# name, and the job is skipped there.
+name: No service URL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    if: github.repository == 'ulabase/starter-ng'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: apiUrl is empty in every environment file
+        run: |
+          found=$(grep -nE "^\s*apiUrl:\s*'[^']+'" src/environments/*.ts || true)
+          if [ -n "$found" ]; then
+            echo "A service URL is committed in an environment file:"
+            echo "$found"
+            echo "Set apiUrl back to '' before merging into main."
+            exit 1
+          fi
+          echo "No service URL in src/environments."
