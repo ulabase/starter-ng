@@ -3,6 +3,9 @@ type: Quickstart
 title: Ulabase Starter — Angular
 description: Concise entrypoint for the ulabase-starter-ng repository. Routes readers through the wiki hierarchy based on their task (exploring, building a feature, porting, restyling, testing). Includes quick setup, documentation map, task routing table, and key dependencies.
 tags: [quickstart, angular, ulabase, starter]
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-11T09:33:30.268Z
 sources:
   - id: openwiki-source-5b54a58d1b51cd490b0e7162
     resource: repo://package.json
@@ -50,10 +53,7 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.6.1", at: "2026-10-01T12:12:05.121Z" }
-verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T12:12:05.121Z
+generated: { by: "openwiki/0.7.2", at: "2026-10-11T09:33:30.268Z" }
 ---
 
 # Ulabase Starter — Angular
@@ -98,7 +98,7 @@ ulabase setup --srv <srvId>                # <srvId> is the six-char id from you
 ng serve
 ```
 
-**Prerequisites:** Node.js 18+, a Ulabase service ([create one at ulabase.com](https://ulabase.com)), and Angular CLI.
+**Prerequisites:** Node.js 22.18 or later (it runs the TypeScript setup file), a Ulabase service ([create one at ulabase.com](https://ulabase.com)), and Angular CLI.
 
 **Want the consents gate?** Use the alternate setup file to add Terms of Service and Privacy Policy acceptance:
 
@@ -117,6 +117,14 @@ The app detects whether `apiUrl` points to a valid Ulabase service URL (e.g. `ht
 - **`/invitations/accept`** is deliberately unguarded — works for signed-out invitees, signed-in users, and new accounts
 
 Feature flags in `src/environments/environment*.ts` must match your service's **Sign-up Mgmt → Features** toggles. A flag that's off removes both the route and the UI that links to it. The `ulabase setup` tooling reads these flags and configures the service to match, eliminating the two-lists-that-must-agree problem.
+
+## Where to start
+
+1. **Just exploring?** Read this page, then [Architecture](architecture.md) for the big picture.
+2. **Building a feature?** Check [Workflows](workflows.md) for existing flows, then [Source Map](source-map.md) for where to look.
+3. **Porting to React/Vue?** Read [`PORTING.md`](../PORTING.md) first — it covers what's portable and what you must rebuild.
+4. **Restyling?** The CSS comment block at the top of [`styles.css`](../src/styles.css) maps every semantic class hook (`.card`, `.btn-primary`, `.form-field`, …) to what it represents. [`TEMPLATE_API.md`](../TEMPLATE_API.md) documents what each template binds to.
+5. **Running tests?** See [Testing](testing.md) for the manual checklist and automated test status.
 
 ## Documentation map
 
@@ -144,20 +152,11 @@ Feature flags in `src/environments/environment*.ts` must match your service's **
 
 | Package | Role |
 |---|---|
-| `@ulabase/kit` | TypeScript auth logic — plain Promise-based API, no framework coupling |
-| `@ulabase/kit-ng` | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor |
-| `ulabase` | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
+| `@ulabase/kit-ng` | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
+| `ulabase` CLI | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
 | `@angular/core` ^21.2 | Angular framework |
 | `@angular/ssr` ^21.2 | Server-side rendering |
 | `express` ^5.1 | SSR server |
-
-## Where to start
-
-1. **Just exploring?** Read this page, then [Architecture](architecture.md) for the big picture.
-2. **Building a feature?** Check [Workflows](workflows.md) for existing flows, then [Source Map](source-map.md) for where to look.
-3. **Porting to React/Vue?** Read [`PORTING.md`](../PORTING.md) first — it covers what's portable and what you must rebuild.
-4. **Restyling?** The CSS comment block at the top of [`styles.css`](../src/styles.css) maps every semantic class hook (`.card`, `.btn-primary`, `.form-field`, …) to what it represents. [`TEMPLATE_API.md`](../TEMPLATE_API.md) documents what each template binds to.
-5. **Running tests?** See [Testing](testing.md) for the manual checklist and automated test status.
 
 ## Task routing table
 

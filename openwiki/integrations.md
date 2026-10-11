@@ -40,10 +40,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.6.1", at: "2026-10-02T09:13:34.458Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-11T09:33:30.268Z" }
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-02T09:13:34.458Z
+  - by: openwiki/0.7.2
+    at: 2026-10-11T09:33:30.268Z
 ---
 
 # Integrations & Dependencies
@@ -84,7 +84,7 @@ provideRhAuth({ apiBaseUrl: environment.apiUrl, onError: consentsOnError })
 
 The `onError` callback receives every failure the kit encounters, including session restoration errors that no caller is waiting on. The starter uses this to detect `451` responses from the consents gate (see [`src/app/consents.ts`](../src/app/consents.ts)).
 
-**Version:** currently `^0.12.0` (see [`package.json`](../package.json)).
+**Version:** currently `^0.13.2` (see [`package.json`](../package.json)).
 
 **`auth.api()` method:** provides an authenticated `fetch` wrapper that attaches the bearer token and handles errors. Returns an `Observable<Response>`. Use it for custom API calls to your Ulabase service:
 
@@ -151,7 +151,7 @@ The `noauthchallenge` query parameter tells the Ulabase service not to challenge
 
 ## @ulabase/cli
 
-[`@ulabase/cli`](https://github.com/ulabase/kit/tree/main/packages/cli) is a dev dependency (`^0.12.0`) that provisions a Ulabase service to match what the starter expects.
+[`@ulabase/cli`](https://github.com/ulabase/kit/tree/main/packages/cli) is a dev dependency (`^0.13.2`) that provisions a Ulabase service to match what the starter expects.
 
 **Workflow:**
 
@@ -178,7 +178,7 @@ Each setup file exports a `defineSetup(...)` call containing an array of `step(.
 
 **What the setup configures:**
 1. Accounts plugin installation and feature flag alignment
-2. OAuth provider credentials (Google, GitHub) — only when the app's feature flags say so
+2. OAuth provider credentials (currently Google) — only when the app's feature flags say so
 3. CORS origin allowlist — ensures the app origin may call the service
 4. (With `ulabase.setup.consents.ts`) User document schema, guard rule, and consents permission
 
@@ -228,7 +228,7 @@ The workflow commits to branch `openwiki/update` and creates a PR via `peter-eva
 |---|---|---|
 | `@angular/build` | ^21.2.7 | Build system |
 | `@angular/cli` | ^21.2.7 | CLI tools |
-| `@ulabase/cli` | ^0.12.0 | Service provisioning (`ulabase setup`) |
+| `@ulabase/cli` | ^0.13.2 | Service provisioning (`ulabase setup`) |
 | `vitest` | ^4.0.8 | Test runner |
 | `jsdom` | ^28.0.0 | DOM implementation for tests |
 | `prettier` | ^3.8.1 | Code formatting |

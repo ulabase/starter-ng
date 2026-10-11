@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:0473b905aab6ffb19b02d317dccdc994d2c332da6010bf82c636fa12fdf9e5a5",
+  "pageVersion": "sha256:47e1547bc7ebb1acc038322a7594b103ae7751ce2ded81fcd89b817146ce2978",
   "claims": [
     {
       "id": "claim_6f1b662867fe42cd8fd78804832ebb59",
@@ -22,7 +22,7 @@
       "evidence": [
         {
           "resource": "repo://src/app/app.html#L3-L62",
-          "version": "repo-lines-v1:sha256:57ba3a569e2855f3592045fef1fc0a3c5865601f671252af8b4ad74e3275b00e:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiMzY3ZDJlMGRkZTA4YjA2NmJlNzM4NzRlM2FkMGQ1N2MwYjQxYmFmM2Y0NzU2MzgwNGM5N2Y3MDc1NmM3YzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY0M2Q2OWRiOTIxNDI5ZmYzZDVkMDQ2MTIzZmJlZmM0NDNmMTZhNjI0MWVmNmVjZWZkYjIxNTFiYzVlMTFjNGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "version": "repo-lines-v1:sha256:a4455d43ce4d3a0822fc77904e73c315735458dd62c25211746edd8125e12d2a:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiMzY3ZDJlMGRkZTA4YjA2NmJlNzM4NzRlM2FkMGQ1N2MwYjQxYmFmM2Y0NzU2MzgwNGM5N2Y3MDc1NmM3YzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY0M2Q2OWRiOTIxNDI5ZmYzZDVkMDQ2MTIzZmJlZmM0NDNmMTZhNjI0MWVmNmVjZWZkYjIxNTFiYzVlMTFjNGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
           "resource": "repo://src/environments/environment.dev.ts",
@@ -40,11 +40,11 @@
       "evidence": [
         {
           "resource": "repo://ulabase.setup.consents.ts",
-          "version": "repo-file-v1:sha256:1c30bcdb21e01641a8a89e5dbdbba4b2d2f7dfd1ca944c6f97e2960447905376"
+          "version": "repo-file-v1:sha256:188e69a0c42601e5023bfc7f75362146ceaf341402d7c4ed0bcf0d60859b7b44"
         },
         {
           "resource": "repo://ulabase.setup.ts",
-          "version": "repo-file-v1:sha256:a24af163abf447ccc8028e6d2113a8c6a0eee32a0fdb3f2448c4068f8d4bc437"
+          "version": "repo-file-v1:sha256:47e40d2c6fd89b0146ffbf874d37af3fcba203039dba502c9038271bf6772c79"
         }
       ]
     },
@@ -71,7 +71,7 @@
           "version": "repo-lines-v1:sha256:1bb0a1235d5053a82e4defc20495a442c2e3163c7d9d04ddfc5241a8ec5ee6f3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzNGJiNzg0ODhjYTcyYTRkM2Y2YzQ3ODAxOGY2MmI2YjNlNmMwMzdiMmM4ODZlMzNjOGIyNzUxNzk3NTA1OWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4NzY2OTk2YWM5ZDkyZjdkMjlkNzQxZGViYzA1ZDZiMDA5NmU1YjViZWY3OWJmZDgzYmVjYTQ5Yjg3YmIyNGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1MTgzN2JjZDIzMDMwOTU3ODA3YTI0ODdjYTMyMzc4Nzc0OTg2ZWRmMmQ1OWE1ZmVmNzRjNWUwMzU0NmVkMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjMThiYjhjMWNkMDY5M2Q4ZjVmOGNiZjc2NzE5ZjE2OTBjMDBmYjkxNDBkZmU1M2Y1NDI2MTk5MTMxMjQxNmEifQ"
         },
         {
-          "resource": "repo://ulabase.setup.ts#L57-L63",
+          "resource": "repo://ulabase.setup.ts#L58-L64",
           "version": "repo-lines-v1:sha256:685bf55d5cec1e11a0d85675b9f565d6cda8136fbbf7e0adaf0efd9c168f9e6b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQ4MmE4YTU3Mzk5ZjI1NjVkMzNmZWUwNjE1NmE1OTI4ZmRmMGMyNjQzNTMyZDg5ZDdjYTJjMTBhMWQ0MGJlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWExZDFhNjMzOTAyMjljNzk4MzQ3ZTgzYTA0MDU0NDFjOTQwMDAzNTI4NGFkMTY4YzFiZjZjZGYxZDcwYTM3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmUwYjdjNjAyNTliNDVlOWZlOGZlNDczZDA0ZDM2OWY0MjU3NmQ4MTkyYWEyOGY5YWZhNDM1MTk4OGM3YmE3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTIyYzFkNDI0YzhiZTNhNjU5MDQzNjIwZTQ3Nzg2Y2U0NDE5MjQ1NWYzMjZhNTI1MWViZjdmZGI2MDQ0MTQ3ZCJ9"
         }
       ]
@@ -124,21 +124,21 @@
     },
     {
       "id": "claim_5292fea02b284e0aa5a295ad1c7e5696",
-      "statement": "src/styles.css is structured in 5 sections: 1) Design tokens (CSS custom properties in :root and html.dark overrides), 2) Dark mode overrides, 3) Base resets (box-sizing, body, typography), 4) Shared primitives (.card, .btn-*, .form-field, .form-error, .success-msg, .muted, .badge), and 5) Auth page layout (.auth-page, .auth-card, .config-page).",
+      "statement": "src/styles.css is structured in 8 sections: 1) Design tokens (CSS custom properties in :root), 2) Dark mode overrides (:root.dark), 3) Base (element-level defaults for box-sizing, body, typography, form controls, focus rings), 4) Default skin (semantic class hooks: .card, .btn-*, .form-field, .form-error, .success-msg, .muted, .badge, etc.), 5) Auth pages (.auth-page, .auth-card layout), 6) Config page (.config-page, .config-card for when apiUrl is not set), 7) Responsive (media queries for small screens), 8) Reduced motion (prefers-reduced-motion media query).",
       "evidence": [
         {
-          "resource": "repo://src/styles.css",
-          "version": "repo-file-v1:sha256:03b531373bef22c3764943b1d21defc1d0f18ab7a926d2b743412c44b67dbf76"
+          "resource": "repo://src/styles.css#L1-L889",
+          "version": "repo-lines-v1:sha256:93cc7504620e829d89ca5cee25ea8a1f6c27fc59580a29634f3ac8e255b13e67:eyJzZWxlY3RlZExpbmVDb3VudCI6ODg5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI1YjMwM2Y3MGUyNTFhNDI2Zjc2YzM1ZWM3YTNjNDhjNGI0ZTc1Y2EzZWUxMjIyNTBjMWExMjFhZGY0NTc1MTNiIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         }
       ]
     },
     {
       "id": "claim_8c4691255fd749e4a8dbfe6a0ea177af",
-      "statement": "Two restyling paths exist: A) Tweak the skin by changing design tokens in section 1 and adjusting skin classes in sections 3-5 (~1 hour), or B) Adopt a UI framework by deleting sections 3-5 and reskinning templates using semantic class hooks (.card, .btn-primary, .form-field, .form-error, .success-msg, .muted, .badge).",
+      "statement": "Two restyling paths exist: A) Tweak the skin by changing design tokens in section 1 and adjusting skin classes in sections 3-5 (~1 hour), or B) Adopt a UI framework by deleting sections 3-6 and reskinning templates using semantic class hooks (.card, .btn-primary, .form-field, .form-error, .success-msg, .muted, .badge).",
       "evidence": [
         {
-          "resource": "repo://README.md",
-          "version": "repo-file-v1:sha256:190f8c97122e563d70813ffda65c3236bdc8dfba4e2e080916204aea91403ca8"
+          "resource": "repo://README.md#L83-L91",
+          "version": "repo-lines-v1:sha256:c5a17683b618ba708d3d3ef294c525db1ce93b7667c206c7be8fd063aedcc065:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjE2ZGIxNTdlMWEyYmNkZWFlYTNhZTkxMmE2NzgyODE5ODFhYTc3NTllZjdhYTI1ZDQxMGM3Nzk5NmQ5YjMzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjVkYWU3NGE5ZDY5YzkzNjlhODMxNTU5NDIyM2FlNmZiODM3ZTJkYzIzOGNhMzYxMWE3MTkxNDZkYjkzNDQwYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWRhMDFkMGU5NjYxOTMwYThkYjg2OTlhOTY0ZTJlZDk4ZTJiNGY4ODY1MzBjZDFhZTc1MTM3YTYzMzJmZDEyMyJ9"
         },
         {
           "resource": "repo://src/styles.css#L1-L34",
@@ -172,7 +172,7 @@
       "evidence": [
         {
           "resource": "repo://src/app/app.html",
-          "version": "repo-file-v1:sha256:c2cd0a915c9212664454359496fefd0feceba0b81c354f2e1856456db39669d0"
+          "version": "repo-file-v1:sha256:d42698fa1f7d32ad098a92315d8f527f7a6fb6e9052cb4b82e06279d83473fe8"
         },
         {
           "resource": "repo://src/environments/environment.dev.ts",
@@ -194,7 +194,7 @@
         },
         {
           "resource": "repo://package.json",
-          "version": "repo-file-v1:sha256:52571fd8ba42525e08ce2daa51778bd73462b3bc6ae434e2305034f14f4cefca"
+          "version": "repo-file-v1:sha256:0687859cd4d0662a5c1851c6f62406bfc6f5c69da843d7f5e2f53dae1c68d92f"
         },
         {
           "resource": "repo://src/app/app.routes.server.ts",
@@ -214,13 +214,13 @@
         },
         {
           "resource": "repo://src/styles.css",
-          "version": "repo-file-v1:sha256:03b531373bef22c3764943b1d21defc1d0f18ab7a926d2b743412c44b67dbf76"
+          "version": "repo-file-v1:sha256:93cc7504620e829d89ca5cee25ea8a1f6c27fc59580a29634f3ac8e255b13e67"
         }
       ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T12:12:05.121Z"
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-11T09:33:30.268Z"
   }
 }
