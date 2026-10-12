@@ -42,7 +42,10 @@ export class ConsentsGate {
         // cancelled the one that brought us here, and re-entering with a new
         // token and a readable user document is simpler to reason about than
         // replaying a failed navigation. It happens once, per user, ever.
-        window.location.assign('/');
+        // from the login page into the app; anywhere else back to the same page, signed in, so a
+        // flow under way (an invitation being accepted) is not lost on the way
+        if (window.location.pathname.startsWith('/auth')) window.location.assign('/');
+        else window.location.reload();
       },
       error: () => {
         this.error.set('We could not record your acceptance. Please try again.');

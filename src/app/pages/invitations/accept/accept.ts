@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RhAuthService } from '@ulabase/kit-ng';
+import { RhAuthService, getToken } from '@ulabase/kit-ng';
 import type { Invitation } from '@ulabase/kit-ng';
 import { Alert } from '../../../ui/alert/alert';
 
@@ -37,6 +37,9 @@ export class Accept {
   readonly showLoginPassword = signal(false);
 
   constructor() {
+    // the route has no guard, and the guards are what load the session: load it here, so a user
+    // already signed in (back from the consents gate, say) sees "Join team", not a login form
+    if (getToken()) this.auth.checkSession().subscribe({ error: () => undefined });
     if (!this.missingParams) {
       this.auth.getInvitation(this.email, this.token).subscribe({
         next: inv => {
@@ -44,6 +47,12 @@ export class Accept {
           this.loading.set(false);
         },
         error: (err: unknown) => {
+          // a signed-in user back on a link already used (the page reloads after the consents
+          // gate, once the invitation was accepted) belongs in the app, not on "invalid link"
+          if ((err as { status?: number })?.status === 404 && getToken()) {
+            this.router.navigateByUrl('/');
+            return;
+          }
           this.loading.set(false);
           this.error.set(this.messageFor(err));
         },

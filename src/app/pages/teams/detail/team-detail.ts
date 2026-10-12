@@ -125,8 +125,9 @@ export class TeamDetail implements OnInit {
     this.auth.invite(email, role).subscribe({
       next: () => {
         this.inviteSending.set(false);
-        this.inviteSent.set(true);
+        // reset first: the reset is a value change, which hides the message set before it
         this.inviteForm.reset({ email: '', role: 'member' });
+        this.inviteSent.set(true);
       },
       error: (err: unknown) => {
         this.inviteSending.set(false);
