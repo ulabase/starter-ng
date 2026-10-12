@@ -43,7 +43,7 @@
         <p id="error-password" class="field-error">Password is required.</p>
       }
 
-      <button type="submit" [disabled]="loading() || form.invalid">
+      <button type="submit" [disabled]="loading()">
         {{ loading() ? 'Logging in…' : 'Log in' }}
       </button>
     </form>

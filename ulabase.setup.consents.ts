@@ -70,7 +70,9 @@ const accepted = { tos: TOS_VERSION, pp: PP_VERSION, acceptedAt: '@now' };
  * as values while the schema is being stored. Declared as a plain string,
  * every acceptance is rejected.
  *
- * Note also what is **not** required. The document is validated as it is
+ * Note also what is **not** required. An invited user is written with no
+ * password and an empty profile, filled when the invitation is accepted: a
+ * schema requiring them refuses every invitation. The document is validated as it is
  * inserted, before the initial team is attached, so a schema demanding
  * `latestConsents`, `consents` or the team fields rejects every registration.
  *
@@ -84,7 +86,7 @@ const USER_SCHEMA = {
   title: 'User with consents',
   $schema: 'http://json-schema.org/draft-07/schema#',
   type: 'object',
-  required: ['_id', 'password', 'roles', 'profile'],
+  required: ['_id', 'roles'],
   properties: {
     _id: { type: 'string' },
     _etag: { type: 'object' },
@@ -92,7 +94,6 @@ const USER_SCHEMA = {
     roles: { type: 'array', items: { type: 'string' } },
     profile: {
       type: 'object',
-      required: ['name', 'surname'],
       properties: {
         name: { type: 'string' },
         surname: { type: 'string' },

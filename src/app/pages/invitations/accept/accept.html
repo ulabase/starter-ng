@@ -79,8 +79,9 @@
     }
   } @else {
     <div class="auth-card">
-      <h1>Invitation problem</h1>
-      <app-alert type="error" (close)="error.set(null)">{{ error() }}</app-alert>
+      <!-- a paragraph, not the alert: the alert dismisses itself and the page would be left empty -->
+      <h1>Invalid invitation link</h1>
+      <p>{{ error() ?? 'This invitation is invalid or has expired.' }}</p>
     </div>
   }
 </main>
