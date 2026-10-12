@@ -17,16 +17,14 @@
         at a Ulabase service.
       </p>
 
-      <div class="config-status">
-        @if (apiUrl) {
+      @if (apiUrl) {
+        <div class="config-status">
           <p>
             <code>apiUrl</code> is set to <code>{{ apiUrl }}</code>, which isn't a
-            Ulabase service — it must be an <code>https://</code> address.
+            Ulabase service: it must be an <code>https://</code> address.
           </p>
-        } @else {
-          <p><code>apiUrl</code> isn't set yet.</p>
-        }
-      </div>
+        </div>
+      }
 
       <ol class="config-steps">
         <li>
@@ -34,8 +32,8 @@
             <strong>Create a free service</strong>
             <p>
               At
-              <a href="https://ulabase.com" target="_blank" rel="noopener">ulabase.com</a>
-              — it takes less than a minute. Skip this if you already have one.
+              <a href="https://ulabase.com" target="_blank" rel="noopener">ulabase.com</a>, in less
+              than a minute. Skip this if you already have one.
             </p>
           </div>
         </li>
