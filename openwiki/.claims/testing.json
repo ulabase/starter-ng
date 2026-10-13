@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:b07a78d1949b78b276975d0112469764684524ab240ec67983771e5e804ff279",
+  "pageVersion": "sha256:9d02a92b090c4d4da4129ce3937929694f92b7659b13b8453f30865771dc9a97",
   "claims": [
     {
       "id": "claim_d44f8364cc8f4615b72545baeba0b9a0",
@@ -136,15 +136,19 @@
     },
     {
       "id": "claim_86c7892add0e41d3b644918b51f9b026",
-      "statement": "The invitation flow has three-way branching: new user (set password → activate), existing logged-out user (login then accept), and existing logged-in user (accept directly). Missing/invalid/expired token handling and OAuth from invitation page must also be tested.",
+      "statement": "The invitation flow has three-way branching: new user (set password → activate), existing logged-out user (login then accept), and existing logged-in user (accept directly). Missing/invalid/expired token handling and OAuth from invitation page must also be tested. The Accept component calls checkSession() in the constructor when getToken() is truthy to load the session, and handles 404 on getInvitation for signed-in users by redirecting to '/'.",
       "evidence": [
         {
           "resource": "repo://TEST-CASES.md#L33-L46",
           "version": "repo-lines-v1:sha256:365f55a454d44d19a6eaeb00f1a64af8c947f9f20d4d66f3333c46f73db51ad8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1OTE0MTc1ZTQ3NmRiNTg0MmM1M2E0NmZmMWFkZWFmYmUxZDY4YzA2NzJlNmM4NjQyZWRmZDcyZWY4MDM0MTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxMDBkZTJmNjdmMTJkNGY1ZDQzNDg2MTQ5NDQ2Y2U4MmRhYTkyMTliZWRkZGYyMTQ1MTQ5MTZkY2I4Y2I1ZjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRhN2Y2ZjRlOTU0ZjdkNTUzNDkwMjFjZDUxODA0ZDJlMDE2NzA5ZmJkMGUxODVmNDIwYjc0NmQyMDEzMjYzZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE1ODNhM2MyMzk1NTAzMTc0YThkMTJkMTcxZDBiZWUzZDk0YmJhZDgyM2JlMjgzNGJhNjU5MDQ2ZWQ3ZmQ2MjQifQ"
         },
         {
-          "resource": "repo://src/app/pages/invitations/accept/accept.ts",
-          "version": "repo-file-v1:sha256:20e090d8d415d2a8a57f8d09313a8b750c94ed4bb3b187541fce05c87f23d35c"
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L40-L42",
+          "version": "repo-lines-v1:sha256:02db1d02304b962d0f461cd9b9857f7a5addd6a8e446b12ace68253e6dbcf3f3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmVjZWQ0MDkzNmVkYzZlYzVkMTkxNGVkZGQxNjAwNTg2MDY4N2RkODg0OTk4ZGI3ODExZDZkODI4MzIyNGM1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmMwZjQ3YTBkN2E4ZWE1NDAwZmZmZjQ3MDdjZDQ4ODc5NDQ5NzRmMmMzODcwODI3NDMxZmI5YWY0ZDhjZTI1YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWU4ZDAxMDY2ODVlZTdjNjk5MTNlYTNhNTcxMTY0MGRhOTg0YWE1ODJkYTIxN2MzYzY5OGZkOGQ2MTE3ZTk4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTY3ZDdkODQyNDlmNTY0NTMzNDAyOTc3MzkwZGM3MDQxM2UzOTIwZDVmN2Y5NTNlZmZhZTFlODA0Mzk2NmY2MSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L49-L55",
+          "version": "repo-lines-v1:sha256:39eeb8e59bda94654730843595ff694eb42fa16b588803d9e2f6bb1cc6673fd0:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQwM2QyMTE3NTJiYjE0MmM3MWQzMjU4MDljMzZhOWY2YTVmNjJjYzg1MWI1NTY2Y2ViYzkzOGVkYmJiZDdlOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODgwMDVkNTcxMDZhMzYyZWIwMDBkYWYzZGE0Njc0YzgyYjUxOGZmNWEyZTJmNjdlZThlNzU3YTMzM2MyYWY2NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmE0NWNiMTgxYzcxNmUyNjg5NjZkZDY5OGVjYzhmNTNhNzQwNWU3MjJmYzIwNDlhY2U5YzE0NjdjYjVlMmExNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjBmZjJjNTc2OTg2NWMyNTg2ZWJjYThhYTM3YzNlYWZlZDZlZTZhMzAxNjI5ZTEwYmM1Njg2MThlMDUxNjM4NSJ9"
         }
       ]
     },
@@ -214,7 +218,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T10:27:04.869Z"
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-13T09:56:15.372Z"
   }
 }

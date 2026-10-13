@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:2fa3ca481d680d5f5eeaccb289c6b5b4f79877a20a68d82aab6b087fa290f0cc",
+  "pageVersion": "sha256:f27b79bb7369a3bf194cd4d2421f981376103e41c48da5d7eb122715377db27a",
   "claims": [
     {
       "id": "claim_2c280c21ab08438e8b90ba869e38ee6f",
@@ -14,11 +14,11 @@
     },
     {
       "id": "claim_0cee71ee8c094a0ba280a0c6600c4e73",
-      "statement": "The `ConsentsGate` component in `src/app/consents-gate.ts` sits outside the router outlet so it renders even when `authGuard` blocks navigation, covers the app with an acceptance form while the API answers `451`, and calls `auth.acceptConsents()` then reloads the page.",
+      "statement": "The `ConsentsGate` component in `src/app/consents-gate.ts` sits outside the router outlet so it renders even when `authGuard` blocks navigation, covers the app with an acceptance form while the API answers `451`, and calls `auth.acceptConsents()` then does a pathname-aware reload: redirects to `/` when on an auth page, otherwise reloads the current URL so in-progress flows like invitation acceptance are preserved.",
       "evidence": [
         {
-          "resource": "repo://src/app/consents-gate.ts#L1-L60",
-          "version": "repo-lines-v1:sha256:f72485098353e5f6e7058ed493d87c3fd7454476c1484b3a1ddea7bb015b2057:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhZjMwNDE0NDViNjMzODcxN2RkNTNhNGZiYTVlZmQ4ZTRiNmI1OWI1NmYxNzkyNzMwMDE5ZTg3YTExMTEwZDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "resource": "repo://src/app/consents-gate.ts#L32-L55",
+          "version": "repo-lines-v1:sha256:a898fa5cc51776ca3d447a953b65cfc547931e8746cd6b3c35135def1366d545:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhZTJmYWUzYjAyZGZiNGFlYjc0MDg4MzhmODUwODJiNzU2ZTc1ODVhYjcyN2U0ZTY2ZWNjMmUyNzNmMDk0NzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlM2ZmNDYxYjZiY2U4ZTFjOWVkNGNlNzc5MWY0YWI4MDY3NDA2YTU0NGJlM2I3NWRjYTE5NTRlOTg0MjQ3MjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwOTY1MGIxOGE1YWJlZTkzNmUyMmY3ZDA3Nzc1NDgxNTU0Y2I1YzQyMzhhYmJlODlhY2YzODkxM2I0MThjNDEifQ"
         }
       ]
     },
@@ -37,8 +37,8 @@
       "statement": "The `ulabase.setup.consents.ts` script extends `ulabase.setup.ts` with the consents gate by importing the accounts steps and adding a user schema with `latestConsents`/`consents` fields, a permission allowing users to PATCH their own consents, JWT claims for the two version strings, and a Guards rule that blocks users who haven't accepted the current ToS/Privacy Policy with HTTP 451.",
       "evidence": [
         {
-          "resource": "repo://ulabase.setup.consents.ts#L1-L298",
-          "version": "repo-lines-v1:sha256:188e69a0c42601e5023bfc7f75362146ceaf341402d7c4ed0bcf0d60859b7b44:eyJzZWxlY3RlZExpbmVDb3VudCI6Mjk4LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://ulabase.setup.consents.ts#L1-L299",
+          "version": "repo-lines-v1:sha256:8932882cc7f70277777b361bea3e2d9ac5179ca368628e87bf9cc58eb1cde37e:eyJzZWxlY3RlZExpbmVDb3VudCI6Mjk5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         }
       ]
     },
@@ -47,7 +47,7 @@
       "statement": "The two setup files share one definition of the accounts steps: `ulabase.setup.ts` exports them via `defineSetup`, and `ulabase.setup.consents.ts` spreads them with `...accounts.steps`. The consents file centralizes `TOS_VERSION` and `PP_VERSION` so bumping them and re-running the setup is the only action needed to publish new terms.",
       "evidence": [
         {
-          "resource": "repo://ulabase.setup.consents.ts#L167-L171",
+          "resource": "repo://ulabase.setup.consents.ts#L168-L172",
           "version": "repo-lines-v1:sha256:e70ad955058ac0baf816d6e4a891a4ce8553993158e051e114d903ae7c9b9d12:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTVkNTZlMzZkY2FlM2VjYTZmODExNzJmOTBlZDE4NjFkOTJmYzBlOTY3MGU2OGU4NTA3NGRkMWFhOGFjYmM2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY3MWU3YWExMzQyZjEwOTNkOTA2Nzc0ZTU4M2I4ZGU4YTg2YjExYzllZjcwYmNhY2U4ODRiOTRlODQ3YjdjOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGMyYzc2MWMwYTIyMjFhYTc5YzcwNTk2NjVkNWRjMjc4NTFjZDkzYmFmNTg4N2QwZjNjNjcwMmI2YmZmYWIxYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTNlZTE0YTc4ZTQ3OTMzN2EzNDY4YTA2NzA5MDdmYmRlZTg1ZmFjNWQ3NGRkNzE1N2U5ZmZlMmJlOTg4Njk5MSJ9"
         },
         {
@@ -55,10 +55,20 @@
           "version": "repo-lines-v1:sha256:b7b6899c89e54f60d51787b6fdd8e1d2be7f99371923107e61468f86372abacd:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Q1OWE5MDAxYmQwODI2ZjFjNGFmNGM0OWFhYzVlZDYzNDg1YTA4MjdjNTQ1Y2RlY2M5YTdlMTM4YmZkMDNmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWVjYjcwZDBkYTk1OTkzMDBkM2I2YzE1ZTM3MjkyZjhkM2RiODYzZTc4ZmM5YmViNzNlMzA2YTUxZWMzYzRhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQ1ZmMxYmZjZTg5NTI5N2Y2NDAyMGQ0NmEwOGYyMTRkZTU3YzFmYmI5YzMzMjc4NjQ2MDk0MjA4OWIxOTczNiJ9"
         }
       ]
+    },
+    {
+      "id": "claim_fecd4de2b65340acaa6636c01810d5e9",
+      "statement": "The `Accept` component in `src/app/pages/invitations/accept/accept.ts` calls `auth.checkSession()` in its constructor when a token is present so that users returning from the consents gate see the accept form rather than a login form, and redirects to `/` on 404 when the user already has a session (the invitation was already used).",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L39-L61",
+          "version": "repo-lines-v1:sha256:77701573706c41ce644cfce45f61dc88b1540a544b9482ac54ddc1adab93b8b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1NGIzM2QwZjI1YmQ5NDQ3ZjQyNDVjZmI4MTFhNTY4YTc4ZDRlNGMzMWJhMTg4OGU0Y2UyNmMzMWM0ZjBiZjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNkMmI0ODhmYWE5ZTgzZjg0ZTI4ZmY3OThhNDIxZmE4NzQ0NDdhODE4MmMxOGE2YjgzZDJkZjRlMWIzNGJiNDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ5NzIwNGJlMmYxOTE2OTAzYTQwMWQ5YzZlMDkwOTk5MGVlYjNhYWI5MTY0YmVjNjIzNjkwZDA5ODk1M2Y1NWIifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-10-11T09:33:30.268Z"
+    "at": "2026-10-13T09:56:15.372Z"
   }
 }

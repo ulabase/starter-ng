@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:881f82bd8a31b42c59b34b9361d41efa7153a9de310674937cd5c6501dce7633",
+  "pageVersion": "sha256:fc83d835ec7d3add7af761d8e90d89222b55b5e395f3c672ef2d3e97696c197e",
   "claims": [
     {
       "id": "claim_e330a82359b141a9b3c79a1b803d13df",
@@ -204,7 +204,7 @@
         },
         {
           "resource": "repo://src/app/consents-gate.ts",
-          "version": "repo-file-v1:sha256:f72485098353e5f6e7058ed493d87c3fd7454476c1484b3a1ddea7bb015b2057"
+          "version": "repo-file-v1:sha256:ebf2db2e4b996a442e6cb14be657380ded045322323c4c1ff63759d78b784a61"
         },
         {
           "resource": "repo://src/app/consents.ts",
@@ -242,11 +242,11 @@
     },
     {
       "id": "claim_8e448d9c03614c2b9bfb16039735a6fe",
-      "statement": "On consents acceptance, the gate calls auth.acceptConsents() and does a full page reload via window.location.assign('/') rather than a router navigation, because the guard already cancelled the original navigation.",
+      "statement": "On consents acceptance, the gate calls auth.acceptConsents() and performs pathname-aware post-accept navigation: if the current pathname starts with '/auth' it navigates to '/' via window.location.assign, otherwise it reloads the current page via window.location.reload, preserving in-progress flows such as invitation acceptance on non-auth pages while re-entering with a fresh token for auth-page users.",
       "evidence": [
         {
-          "resource": "repo://src/app/consents-gate.ts#L43-L45",
-          "version": "repo-lines-v1:sha256:b9f54dc03fedffab82e6cdff7b468b2b63b229d016a9a72fcdb6d042ccc416e2:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM2NWI4ZmE1NWVjNDU1N2ViOWNmZDZjYmNlMzk3MjMyMGQzZjQzN2Y4YWRhMDJkNTQ0ZDJjYWU1MDU3NmMwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ5NTFlZjJkNjYzMGFiMDYxMDBlOTM4Y2E0ZGM0ZDBmMjkzYzM5NTQ0OTQxZTEyYTEyYTMxMzU5ZTc1YTAxNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmMzYjY3MTQ3YjkwNmVlOTViOTlmMmZlZGNiYzc3YTg2YTE3ZjA4MGM0N2Q4NDVjYWIzN2FiNjNlN2VlNDIzYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWExOGQ5ODZkZjIwMGZmZDc4YjU1Nzk2MWEwOWE4MDY4YThmODAwYTVlYjcwNjQ3YjU0ZTI1NDJhODA2MGEzOCJ9"
+          "resource": "repo://src/app/consents-gate.ts#L41-L48",
+          "version": "repo-lines-v1:sha256:a93f918bb42e914aa852fd9816f8cbe6f3bdc1d7f38484419877fb6ca100efaa:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDBhNTFjZWM3NDNkNjMzYTJkOTQ0ZTUzMDFjZGRjOWJjNTkwNzczODkxYzUxNjQ4NDE5YTgyMGJhZDg5NTA4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI3NWM5ZDI2NTE0M2ZkMjhkNTY1NTY3ZjYxMTgxNDAxNDcyNTU1NDdhYzA0NWMxZjQ0OTc0YjE0ZmVlYTljNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTU3MDhhODk4MTQwOWUxYWFhYjRjYzFjMmJiMDUwNzY1MDhiODE3MjFjNzkwNjZhZWVhOTFhMTY2MzYxZDUwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWExOGQ5ODZkZjIwMGZmZDc4YjU1Nzk2MWEwOWE4MDY4YThmODAwYTVlYjcwNjQ3YjU0ZTI1NDJhODA2MGEzOCJ9"
         }
       ]
     },
@@ -255,7 +255,7 @@
       "statement": "The consentsBlocked signal is a plain module-level signal (not a service) because onError is handed to provideRhAuth while the injector is still being built. The sign-out action clears the signal so the next user on the same tab does not see the overlay.",
       "evidence": [
         {
-          "resource": "repo://src/app/consents-gate.ts#L54-L58",
+          "resource": "repo://src/app/consents-gate.ts#L57-L61",
           "version": "repo-lines-v1:sha256:bd512f30e7e33f7d3ea4efa40d1c9b911d1a39319a82b666d9a3bed28f4a637c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjZkYjgwNWRkNDkzMTJjN2UwODllYjUyY2IzNmRlZGZlYjhkZWU4ZWFiNWMzZjAyZmE3NzQ5MjJiODdjZDM5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzYyMWU5YmUzYjcwZDk2MjVhMTI1ODcyNWNlNTM2YzRjYzBmYWFiOTgxZTQwNzVjYjdlOGFiMWE3OGViMTc4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWUxMmI2MTE4OTQzZTMwYzAwNjgzM2U3ODE2MzBhNTNiMzJmNDE3ZWY1Zjk3OTVjM2YxMmYzMzA4MDI0YzVkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGY3MzlhMDZjMWNiYjEyNDRlMzM2M2QzOGJjZjlmYTUwY2U4NGZlZDM5OWMyMTkzYTNjN2YwOGQ1OTkxOGIyYSJ9"
         },
         {
@@ -290,7 +290,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T12:12:05.121Z"
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-13T09:56:15.372Z"
   }
 }

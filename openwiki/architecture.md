@@ -34,10 +34,10 @@ sources:
     resource: repo://src/main.ts
   - id: openwiki-source-d9b845a7425932c3767a237e
     resource: repo://src/server.ts
-generated: { by: "openwiki/0.6.1", at: "2026-10-01T12:12:05.121Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-13T09:56:15.372Z" }
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T12:12:05.121Z
+  - by: openwiki/0.7.2
+    at: 2026-10-13T09:56:15.372Z
 ---
 
 # Architecture Overview
@@ -267,7 +267,11 @@ sequenceDiagram
     Gate->>Auth: acceptConsents
     Auth->>API: POST consents acceptance
     API-->>Auth: Success
-    Gate->>App: Full page reload to /
+    alt On auth pages
+        Gate->>App: window.location.assign('/')
+    else On other pages
+        Gate->>App: window.location.reload()
+    end
 ```
 
 A server-side Guards rule blocks every API request from a user who has not accepted the current Terms of Service and Privacy Policy, returning HTTP `451 Unavailable for Legal Reasons`. Because `/users/me` is among the blocked requests, the very first thing the app does on load — restoring the session — is what trips the gate.
@@ -276,11 +280,12 @@ The mechanism has three parts:
 
 1. **`src/app/consents.ts`** — a plain module (not a service, because `onError` is handed to `provideRhAuth` before the injector is built) that exports a `consentsBlocked` signal and a `consentsOnError` function. The function sets the signal to `true` on any `451` status from the API.
 
-2. **`src/app/consents-gate.ts`** — a component placed in `app.html` **outside and before** `<router-outlet>`. This placement is critical: a blocked user has no session, so `authGuard` fails and navigation is cancelled — nothing inside the outlet ever renders. The gate shows a modal overlay with two checkboxes (Terms of Service and Privacy Policy), an "I accept" button, and a "Sign out" button. On acceptance it calls `auth.acceptConsents()` and does a full page reload (`window.location.assign('/')`) rather than a router navigation, because the guard already cancelled the original navigation and re-entering with a fresh token is simpler than replaying a failed one.
+2. **`src/app/consents-gate.ts`** — a component placed in `app.html` **outside and before** `<router-outlet>`. This placement is critical: a blocked user has no session, so `authGuard` fails and navigation is cancelled — nothing inside the outlet ever renders. The gate shows a modal overlay with two checkboxes (Terms of Service and Privacy Policy), an "I accept" button, and a "Sign out" button. On acceptance it calls `auth.acceptConsents()` and then performs pathname-aware post-accept navigation: if the current pathname starts with `/auth` (indicating the user was on a login or signup page), it navigates to `'/'` via `window.location.assign('/')`; otherwise it reloads the current page via `window.location.reload()`. This preserves in-progress flows (like invitation acceptance) that occur on non-auth pages, while still re-entering with a fresh token for auth-page users.
 
 3. **`src/app/app.config.ts`** — wires `consentsOnError` into `provideRhAuth({ onError: consentsOnError })`. The kit calls `onError` for every failure, including session restoration ones that no caller is waiting on — this is the only place that can distinguish "blocked by consents" from "simply signed out."
 
 **Key invariants:**
+- On consents acceptance, the gate calls `auth.acceptConsents()` then performs a pathname-aware navigation instead of a router navigation: if the current pathname starts with `/auth`, it navigates into the app via `window.location.assign('/')`; otherwise it stays on the same page, signed in, via `window.location.reload()`, so an in-progress flow (such as an invitation being accepted) is not lost.
 - The overlay is user experience, not enforcement. Remove it with dev tools and every request still returns `451`. The rule lives on the server.
 - The client does not know which document versions are current. The server's Guards rule decides what is being accepted; bumping versions requires no change and no redeploy on the client side.
 - The `consentsBlocked` signal is a plain module-level signal, not persisted. A sign-out clears it so the next user on the same tab does not see the overlay before making a single request.
@@ -328,4 +333,4 @@ When making changes to the architecture, follow this guidance:
 - **Start with:** `src/app/consents.ts` for the error handler and signal
 - **Check:** `src/app/consents-gate.ts` and `src/app/consents-gate.html` for the overlay
 - **Test with:** Simulated `451` responses from the API
-- **Validation:** Overlay appears on `451`, acceptance reloads the page, sign-out clears the blocked signal
+- **Validation:** Overlay appears on `451`, acceptance works for both auth pages and non-auth pages, sign-out clears the blocked signal
