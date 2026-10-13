@@ -38,10 +38,10 @@ sources:
     resource: repo://src/app/pages/invitations/accept/accept.ts
   - id: openwiki-source-a0abfed3f48fb645e980c9ea
     resource: repo://src/app/pages/teams/detail/team-detail.ts
-generated: { by: "openwiki/0.6.1", at: "2026-10-01T12:12:05.121Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-13T09:56:15.372Z" }
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T12:12:05.121Z
+  - by: openwiki/0.7.2
+    at: 2026-10-13T09:56:15.372Z
 ---
 
 # Key User Workflows
@@ -190,11 +190,13 @@ sequenceDiagram
 
 **Entry:** `/invitations/accept?email=...&token=...` (gated by `teamInvitations` flag)
 
-1. [`Accept`](../src/app/pages/invitations/accept/accept.ts) component calls `auth.getInvitation(email, token)` on init
-2. If `invitation.isNewUser === true`: shows "Set password" form
-3. User sets password → calls `auth.activate({ email, token, password })`
-4. `PATCH /auth/activate?delivery=body` returns `access_token` directly
-5. User is logged in and team member, redirected to home
+1. [`Accept`](../src/app/pages/invitations/accept/accept.ts) component has no route guard, so the constructor calls `auth.checkSession()` when `getToken()` is truthy — this handles users returning from the consents gate who already have a token but no loaded session
+2. Component calls `auth.getInvitation(email, token)` on init
+3. If `invitation.isNewUser === true`: shows "Set password" form
+4. User sets password → calls `auth.activate({ email, token, password })`
+5. `PATCH /auth/activate?delivery=body` returns `access_token` directly
+6. User is logged in and team member, redirected to home
+7. **Error handling:** if `getInvitation` returns 404 and the user has a token, redirects to `/` (handles the case where a signed-in user revisits an already-accepted invitation link after consents gate reload)
 
 ## Team invitations — existing user
 
@@ -272,7 +274,11 @@ sequenceDiagram
     Gate->>Auth: acceptConsents
     Auth->>Backend: POST consents accept
     Backend-->>Auth: 200 OK
-    Gate->>User: Full page reload via window.location.assign
+    alt On auth page
+        Gate->>User: window.location.assign('/')
+    else On other page
+        Gate->>User: window.location.reload()
+    end
     User->>App: Fresh load with readable user document
     App->>Auth: checkSession succeeds
     App-->>User: Normal app renders
@@ -287,7 +293,7 @@ sequenceDiagram
 3. [`ConsentsGate`](../src/app/consents-gate.ts) component sits in `app.html` **outside** the `<router-outlet>` — this placement is critical because `authGuard` cancels navigation when session restore fails, so nothing inside the outlet renders
 4. The overlay shows two checkboxes (Terms of Service, Privacy Policy) and an "I accept" button disabled until both are checked
 5. On accept: calls `auth.acceptConsents()` — the request carries no versions; the server's permission `mergeRequest` stamps both document versions and the timestamp
-6. On success: `window.location.assign('/')` triggers a full page reload rather than router navigation, because the guard already cancelled the original navigation
+6. On success: pathname-aware navigation — if on an auth page (`/auth`), `window.location.assign('/')` navigates to home; otherwise `window.location.reload()` reloads the current page, preserving in-progress flows (like invitation acceptance) rather than losing them
 7. On the fresh load the user document is readable, `authGuard` passes, and the normal app renders
 8. Alternative: "Sign out" button clears `consentsBlocked`, calls `auth.logout()`, and redirects to `/auth/login`
 

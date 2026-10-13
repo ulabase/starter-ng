@@ -8,14 +8,16 @@ sources:
     resource: repo://src/app/consents-gate.ts
   - id: openwiki-source-3629f9e95f35cf558c779f38
     resource: repo://src/app/consents.ts
+  - id: openwiki-source-0c503ef6a22fe483e758a9db
+    resource: repo://src/app/pages/invitations/accept/accept.ts
   - id: openwiki-source-c1d5327fe44e08cda82fcf83
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.6.1", at: "2026-10-01T12:12:05.121Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-13T09:56:15.372Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-10-11T09:33:30.268Z
+    at: 2026-10-13T09:56:15.372Z
 ---
 
 
@@ -90,7 +92,7 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 
 | File | Purpose |
 |---|---|
-| [`src/app/pages/invitations/accept/accept.ts`](../src/app/pages/invitations/accept/accept.ts) | Three-way branching: new user (set password → `activate`), logged-in user (accept directly), existing user (login then accept). Reads `email`+`token` from query params. |
+| [`src/app/pages/invitations/accept/accept.ts`](../src/app/pages/invitations/accept/accept.ts) | Three-way branching: new user (set password → `activate`), logged-in user (accept directly), existing user (login then accept). Reads `email`+`token` from query params. Constructor calls `checkSession()` when a token is present (so users returning from the consents gate see "Join team", not a login form) and redirects to `/` on 404 when the user already has a session. |
 | [`src/app/pages/invitations/accept/accept.html`](../src/app/pages/invitations/accept/accept.html) | Template with `isNewUser`, `isAuthenticated`, and login branches. |
 | [`src/app/pages/invitations/accept/accept.spec.ts`](../src/app/pages/invitations/accept/accept.spec.ts) | Unit test — verifies `Accept` creates correctly with mocked auth config |
 
@@ -128,7 +130,7 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 | File | Purpose |
 |---|---|
 | [`src/app/consents.ts`](../src/app/consents.ts) | Global signal `consentsBlocked` — raised on any `451` response from the service. Passed to `provideRhAuth` as `config.onError` during bootstrap. |
-| [`src/app/consents-gate.ts`](../src/app/consents-gate.ts) | Overlay component — covers the app with an acceptance form while the API answers `451`. Sits outside the router outlet so it renders even when `authGuard` blocks navigation. Calls `auth.acceptConsents()` then reloads. |
+| [`src/app/consents-gate.ts`](../src/app/consents-gate.ts) | Overlay component — covers the app with an acceptance form while the API answers `451`. Sits outside the router outlet so it renders even when `authGuard` blocks navigation. Calls `auth.acceptConsents()` then does a pathname-aware reload: redirects to `/` when on an auth page, otherwise reloads the current URL so in-progress flows are preserved. |
 | [`src/app/consents-gate.html`](../src/app/consents-gate.html) | Template with two checkboxes (ToS + Privacy Policy) gating the accept button. |
 
 ## Setup scripts

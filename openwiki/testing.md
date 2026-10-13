@@ -50,8 +50,8 @@ sources:
     resource: repo://tsconfig.spec.json
 generated: { by: "openwiki/0.6.1", at: "2026-10-01T10:27:04.869Z" }
 verified:
-  - by: openwiki/0.6.1
-    at: 2026-10-01T10:27:04.869Z
+  - by: openwiki/0.7.2
+    at: 2026-10-13T09:56:15.372Z
 ---
 
 # Testing Guidance

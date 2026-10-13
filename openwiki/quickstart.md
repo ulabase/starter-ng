@@ -3,9 +3,6 @@ type: Quickstart
 title: Ulabase Starter — Angular
 description: Concise entrypoint for the ulabase-starter-ng repository. Routes readers through the wiki hierarchy based on their task (exploring, building a feature, porting, restyling, testing). Includes quick setup, documentation map, task routing table, and key dependencies.
 tags: [quickstart, angular, ulabase, starter]
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-11T09:33:30.268Z
 sources:
   - id: openwiki-source-5b54a58d1b51cd490b0e7162
     resource: repo://package.json
@@ -53,7 +50,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-11T09:33:30.268Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-13T09:56:15.372Z" }
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-13T09:56:15.372Z
 ---
 
 # Ulabase Starter — Angular
@@ -66,7 +66,7 @@ Works for multi-tenant SaaS (invitations, team switcher) and simpler apps (auth 
 
 - **Signup, login, logout** — email/password and Google/GitHub OAuth
 - **Email verification, password reset**
-- **Team invitations** — one page (`/invitations/accept`) branching into new-user "set password" or existing-user "log in and accept"
+- **Team invitations** — one page (`/invitations/accept`) branching into new-user "set password", existing-user "log in and accept", or signed-in user "accept directly" (handles consents-gate reload)
 - **Team switcher** — shown only when the user belongs to more than one team
 - **Authenticated shell** with placeholder for your app content
 - **SSR for public routes**, CSR for the authenticated shell
@@ -152,8 +152,8 @@ Feature flags in `src/environments/environment*.ts` must match your service's **
 
 | Package | Role |
 |---|---|
-| `@ulabase/kit-ng` | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
-| `ulabase` CLI | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
+| `@ulabase/kit-ng` ^0.13.5 | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
+| `ulabase` CLI ^0.13.5 | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
 | `@angular/core` ^21.2 | Angular framework |
 | `@angular/ssr` ^21.2 | Server-side rendering |
 | `express` ^5.1 | SSR server |

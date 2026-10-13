@@ -3,9 +3,6 @@ type: Domain Concepts
 title: Domain Concepts
 description: Ulabase auth model, teams, invitations, tokens, feature flags, the consents gate domain model, and the SSR/CSR boundary.
 tags: [domain, auth, teams, tokens, feature-flags, consents]
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-11T09:33:30.268Z
 sources:
   - id: openwiki-source-1b6b17b8afa47babcf26380f
     resource: repo://src/app/app.config.ts
@@ -35,7 +32,10 @@ sources:
     resource: repo://src/styles.css
   - id: openwiki-source-c1d5327fe44e08cda82fcf83
     resource: repo://ulabase.setup.consents.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-11T09:33:30.268Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-13T09:56:15.372Z" }
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-13T09:56:15.372Z
 ---
 
 # Domain Concepts
@@ -104,6 +104,10 @@ The invitation flow has three paths through a single page (`/invitations/accept`
 | Existing user, logged in | `false` | Logged in | `acceptInvite` directly |
 
 Invitations carry `email` + `token` as query params. The token is validated by `getInvitation()`.
+
+**Session restoration:** When `getToken()` is truthy, the Accept component calls `checkSession()` to restore the session. This ensures a user returning from the consents gate sees "Join team" instead of a login form.
+
+**404 handling:** If `getInvitation()` returns 404 and the user is signed in (`getToken()` is truthy), the component redirects to `/`. This handles the case where a user returns to an already-accepted invitation after a consents gate reload.
 
 **Resend cooldown:** 5 minutes. Implemented with a reactive `now` signal ticking every 30s to keep the countdown accurate in zoneless Angular.
 
@@ -192,7 +196,7 @@ The setup adds `latestConsents/tos` and `latestConsents/pp` to the JWT's `accoun
 ### Client-side architecture
 
 - `consents.ts` — a plain module (not a service) exporting `consentsBlocked` signal and `consentsOnError` function. Plain module because `onError` is passed to `provideRhAuth` during injector construction, before DI is available.
-- `consents-gate.ts` — the overlay component. Two checkbox signals (`acceptedTos`, `acceptedPp`) gate the Accept button. On accept, calls `auth.acceptConsents()` then reloads. On sign-out, clears the blocked flag before redirecting.
+- `consents-gate.ts` — the overlay component. Two checkbox signals (`acceptedTos`, `acceptedPp`) gate the Accept button. On accept, calls `auth.acceptConsents()` then performs a pathname-aware reload: if on `/auth/*`, navigates to `/`; otherwise reloads the current page. This preserves any in-progress flow (e.g., invitation acceptance). On sign-out, clears the blocked flag before redirecting.
 - The gate is opt-in at the server level: if no Guards rule exists, no request is ever answered `451`, and the acceptance dialog never appears. No client-side flag is needed.
 
 ## SSR / CSR boundary

@@ -3,9 +3,6 @@ type: Operations
 title: Operations & Runbook
 description: Build, serve, SSR deployment, environment configuration, CSS theming, porting guidance, and ulabase setup tooling for ulabase-starter-ng.
 tags: [operations, build, deploy, theming, porting, ulabase-setup, environment, ssr]
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-11T09:33:30.268Z
 sources:
   - id: openwiki-source-73378d4ee3f791429188ddb5
     resource: repo://angular.json
@@ -32,6 +29,9 @@ sources:
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
 generated: { by: "openwiki/0.7.2", at: "2026-10-11T09:33:30.268Z" }
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-13T09:56:15.372Z
 ---
 
 # Operations & Runbook

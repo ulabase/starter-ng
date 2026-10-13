@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:38fb2d586c91426bb7a7c855ffe57afd956996af090129d670ccdefdfe1b8282",
+  "pageVersion": "sha256:e95d882c71eb747edcdea8cec3e1661ac12e287e73d981e8e7674cfb3193c28a",
   "claims": [
     {
       "id": "claim_859950199b044a018e8dac3739bbb4d1",
@@ -102,11 +102,11 @@
     },
     {
       "id": "claim_0e7076924c564df5b1298774274a72b1",
-      "statement": "The invitation acceptance flow for new users calls auth.getInvitation on init, shows a set-password form when isNewUser is true, then calls auth.activate which uses bearer-mode delivery (PATCH /auth/activate?delivery=body) to return the access_token directly.",
+      "statement": "The invitation acceptance flow for new users calls auth.checkSession() in the constructor when getToken() is truthy (to handle users returning from the consents gate), calls auth.getInvitation on init, shows a set-password form when isNewUser is true, then calls auth.activate which uses bearer-mode delivery (PATCH /auth/activate?delivery=body) to return the access_token directly. If getInvitation returns 404 and the user has a token, the component redirects to '/' to handle already-accepted invitation links.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L39-L63",
-          "version": "repo-lines-v1:sha256:d2620ee786c8b817aecd795402b9f061e2536fb8864cb6352ce3719522499cb9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1NGIzM2QwZjI1YmQ5NDQ3ZjQyNDVjZmI4MTFhNTY4YTc4ZDRlNGMzMWJhMTg4OGU0Y2UyNmMzMWM0ZjBiZjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyZDExY2FmNDNlOTdlZjM2OWU2YmVlZDFhMjY4YmQwNTgzOGYyOWI5ZGQyNTRiZjY5YmE2NDg4NDE0NzIzNGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNkMmI0ODhmYWE5ZTgzZjg0ZTI4ZmY3OThhNDIxZmE4NzQ0NDdhODE4MmMxOGE2YjgzZDJkZjRlMWIzNGJiNDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkZWYwNTAwNTE0M2RjYmVmMDk0OTg3NjZlYjZmZmFlYmQwYmNjMmE0M2NiZWM1Njk3M2JhY2NiZDcyZmI5NjMifQ"
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L39-L72",
+          "version": "repo-lines-v1:sha256:6c2fd95358092768fdecc65d3a73bb23ac09fc94286d714b6c1d5556b1e39908:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1NGIzM2QwZjI1YmQ5NDQ3ZjQyNDVjZmI4MTFhNTY4YTc4ZDRlNGMzMWJhMTg4OGU0Y2UyNmMzMWM0ZjBiZjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyZDExY2FmNDNlOTdlZjM2OWU2YmVlZDFhMjY4YmQwNTgzOGYyOWI5ZGQyNTRiZjY5YmE2NDg4NDE0NzIzNGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNkMmI0ODhmYWE5ZTgzZjg0ZTI4ZmY3OThhNDIxZmE4NzQ0NDdhODE4MmMxOGE2YjgzZDJkZjRlMWIzNGJiNDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkZWYwNTAwNTE0M2RjYmVmMDk0OTg3NjZlYjZmZmFlYmQwYmNjMmE0M2NiZWM1Njk3M2JhY2NiZDcyZmI5NjMifQ"
         }
       ]
     },
@@ -115,7 +115,7 @@
       "statement": "For existing users accepting an invitation, if already logged in the component calls auth.acceptInvite directly; if not logged in it shows a login form, calls auth.login first, then auth.acceptInvite.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L66-L86",
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L75-L95",
           "version": "repo-lines-v1:sha256:21cce83ba17daab540188b9fd0c54d23fb04678efa32adc884455886e8495a43:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MTczMzRmMzhjNGZlMGUyZWVkNGEwZmE0Mzk2Yjc0YzMzMDdmNzEwNGFlOTkzYzQyOWQxYzRmNTNiZjhiZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMTJiNjExODk0M2UzMGMwMDY4MzNlNzgxNjMwYTUzYjMyZjQxN2VmNWY5Nzk1YzNmMTJmMzMwODAyNGM1ZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkODUyMzgwYWVjOGI4MjhhYjFkZDI4ZjBhOGU3MjEwMzUxZDY1MTQ5ZGRjN2QwYzMxMDUxY2U5NDY3MjdiNmMifQ"
         }
       ]
@@ -125,7 +125,7 @@
       "statement": "Team switching calls auth.switchTeam which hits POST /auth/switch-team?delivery=body returning a new token, updating the session immediately without a page reload.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L228-L254",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L229-L255",
           "version": "repo-lines-v1:sha256:baa86b2226da2470375200bc4d81c649d0bf6c2aa054150ab63a68bcf8d2e4c7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzNjFkNTJmOWUwODA5ZDVkNTgyMjc2N2IzZWZlYzc4OWY5ZWU2NTY1Y2Y3ZGQ0ODhlYzc1ODNhZmUzMzFkZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhOTg0ZGI0ZGE3ZWYxYjYwY2Y2OThkZWI2M2U5NzdjZmM5NjM3NzMzNjk0ZmM5YjY3NmU1NTY2ZGViZGQ1MmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
         }
       ]
@@ -135,7 +135,7 @@
       "statement": "The team detail page implements a 5-minute resend cooldown for invitations using a ticking now signal updated every 30 seconds, which keeps the countdown label accurate in zoneless Angular where Date.now() is not a reactive source.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L158-L188",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L159-L189",
           "version": "repo-lines-v1:sha256:a4d15686169da987145d2187dda0d88676c490998626ebdfca34c25661f6a387:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2MWQ1ZjY3YjZhMTkyYWRmNDEwM2JlZDM1ODQ2MjAwMTFkMzJlMTc0OWZmMTgyZGE4ZTFmZGQ0ZDg1ZjJiOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlMzU4ZDQ0MTNiODJlOWNhMTlkOTZjMjBmNjFhNDc3MTk5MjVhYjRmMTc0ZjUwMzAxODQ0ZjUzODdjNTJjMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzMDg2NmNlMzFkYmNhYTdmODM2YjI1M2UwYmVhOGI3OTY1YWRhNzE0NWU3YzZhN2JmNGI2Nzg1YTA0YWQ3MDcifQ"
         },
         {
@@ -149,11 +149,11 @@
       "statement": "Role changes and member removal in team management optimistically update the local member list; owners cannot remove themselves.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L143-L153",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L144-L154",
           "version": "repo-lines-v1:sha256:d403083c98025242cbbc57e60a2dd6c982382913f918a491e9afc5f7401c3283:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2ZTVkZDQzNjcxOTNlYjRiOTEzZjQyY2QwYTQ5OTMzMmUyNWI0MjRiZTBkOTU5NDFlYTM4MmMyMWZhOWM5ZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMTJiNjExODk0M2UzMGMwMDY4MzNlNzgxNjMwYTUzYjMyZjQxN2VmNWY5Nzk1YzNmMTJmMzMwODAyNGM1ZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI1ODE0NjZlOGQyODU5YTdhNDVjODMwMzkzNzYzYmNmNTJmMDM5NWZiNjg2NDc0ZmM2ZmM1NjA5MTU4MGExZjUifQ"
         },
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L190-L202",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L191-L203",
           "version": "repo-lines-v1:sha256:bf8cb6d5504884ac0f6ec98997d890ca868d5106f416de26a6cfcfc9758a1a07:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllNTA4OTRiZmYyMmU5NjhiZDQ1YzBhODQxYTEwZWU3MWM4ZDU4MjU1MmM4ZThmM2RiNzNhYjEwYjE5YWUzYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg4NGYxMWEyYzdlNTdiOWZhMTBjNTdkMzBjNmY2NTdlNmQ1YTM2NWFmM2JlZjVhMDZkMjkwYTdjNDE3OWQzNjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5YTgxYmRmMTMyZWRmNzk1MjdlYTZkMzkyODJmMGE2N2YwODNiYWM0ZmFkY2QyOWNkODE5OTgxMzZmMDg5NTMifQ"
         }
       ]
@@ -163,7 +163,7 @@
       "statement": "Team deletion reloads the team list after success; if remaining teams exist but none is active, it auto-switches to the first remaining team before navigating to /teams.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L228-L254",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L229-L255",
           "version": "repo-lines-v1:sha256:baa86b2226da2470375200bc4d81c649d0bf6c2aa054150ab63a68bcf8d2e4c7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzNjFkNTJmOWUwODA5ZDVkNTgyMjc2N2IzZWZlYzc4OWY5ZWU2NTY1Y2Y3ZGQ0ODhlYzc1ODNhZmUzMzFkZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhOTg0ZGI0ZGE3ZWYxYjYwY2Y2OThkZWI2M2U5NzdjZmM5NjM3NzMzNjk0ZmM5YjY3NmU1NTY2ZGViZGQ1MmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
         }
       ]
@@ -260,11 +260,11 @@
     },
     {
       "id": "claim_0738fb066313406cbaa9f65997a38d01",
-      "statement": "On successful consents acceptance, the gate performs a full page reload via window.location.assign('/') rather than router navigation, because the guard already cancelled the original navigation.",
+      "statement": "On successful consents acceptance, the gate performs pathname-aware navigation: if on an auth page (/auth), window.location.assign('/') navigates to home; otherwise window.location.reload() reloads the current page, preserving in-progress flows like invitation acceptance rather than losing them.",
       "evidence": [
         {
-          "resource": "repo://src/app/consents-gate.ts#L40-L46",
-          "version": "repo-lines-v1:sha256:cf2c14ec90ccd2680cbf7bba3c5849cb7cbc151d2af96324051e718bf64bc496:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQ3YmU1YWQyYzg0MDJkM2ZkYWE2ZGQwNGFkNzEyOWUwODU4MDBkYzhmMGVhZjE4OGNkYWUzN2RhMDM2MDNkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk3OGUyNTAzYjhjZjM3YTA2ZjdkNmYwYTNhNmI2ZmUzNTY5MWZiY2FiNTBiODc3NWNhYjZmYWJjNzFjNTkyYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTIwMDliY2YyOGFmNGVhMDFiN2M0MjI0OTAxMTI5NjYyMTQ3NjMzYzU2NTI4NjA0ZjI0MmFhY2U3MmY3MmRhNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjU3YTI5ZWY5Zjg1NjFkNDE5ZTQ4ZTNjM2M1ZGY1ODcyZmVjMjBmYzQ4MzI1NDA0NmFkYTcxMDI3YTFlOGQxOSJ9"
+          "resource": "repo://src/app/consents-gate.ts#L40-L48",
+          "version": "repo-lines-v1:sha256:4656d8b60e55366226021cd6dbfa2cb5d4cdb88d20f2cffdcde4cea330a3faab:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQ3YmU1YWQyYzg0MDJkM2ZkYWE2ZGQwNGFkNzEyOWUwODU4MDBkYzhmMGVhZjE4OGNkYWUzN2RhMDM2MDNkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI3NWM5ZDI2NTE0M2ZkMjhkNTY1NTY3ZjYxMTgxNDAxNDcyNTU1NDdhYzA0NWMxZjQ0OTc0YjE0ZmVlYTljNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTIwMDliY2YyOGFmNGVhMDFiN2M0MjI0OTAxMTI5NjYyMTQ3NjMzYzU2NTI4NjA0ZjI0MmFhY2U3MmY3MmRhNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWExOGQ5ODZkZjIwMGZmZDc4YjU1Nzk2MWEwOWE4MDY4YThmODAwYTVlYjcwNjQ3YjU0ZTI1NDJhODA2MGEzOCJ9"
         }
       ]
     },
@@ -273,7 +273,7 @@
       "statement": "The sign-out action in the consents gate clears the consentsBlocked signal before calling auth.logout, so the next user to sign in on the same tab does not immediately see the overlay.",
       "evidence": [
         {
-          "resource": "repo://src/app/consents-gate.ts#L54-L59",
+          "resource": "repo://src/app/consents-gate.ts#L57-L62",
           "version": "repo-lines-v1:sha256:a6d8b50cb56f033c3d7fedc998c3bab9861ebb6db2bd5d61bf4e1da937db7875:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjZkYjgwNWRkNDkzMTJjN2UwODllYjUyY2IzNmRlZGZlYjhkZWU4ZWFiNWMzZjAyZmE3NzQ5MjJiODdjZDM5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWUxMmI2MTE4OTQzZTMwYzAwNjgzM2U3ODE2MzBhNTNiMzJmNDE3ZWY1Zjk3OTVjM2YxMmYzMzA4MDI0YzVkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
         }
       ]
@@ -290,7 +290,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.6.1",
-    "at": "2026-10-01T12:12:05.121Z"
+    "by": "openwiki/0.7.2",
+    "at": "2026-10-13T09:56:15.372Z"
   }
 }
