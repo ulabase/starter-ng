@@ -1,32 +1,14 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:3edfe6276b3ba09b591b2639d079e0104a38ebc3f3099c0fd048679ad303f52e",
+  "pageVersion": "sha256:4112a74c12717e8cbdd2e77be62dd5c0ea50d119526cda36be3bb76f426b5b45",
   "claims": [
     {
-      "id": "claim_13e3495b41994c06acd94d3cafbb05a8",
-      "statement": "@ulabase/kit is the core TypeScript library providing Promise-based auth, team, invitation, member, profile, and token management functions with no framework coupling, handling all HTTP calls, token storage in localStorage, and session logic.",
-      "evidence": [
-        {
-          "resource": "repo://package.json#L23-L23",
-          "version": "repo-lines-v1:sha256:1bd361ca46e4a1c93baf6d0b763004cdddebc41c90e91c254777972495186c30:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJkMzYxY2E0NmU0YTFjOTNiYWY2ZDBiNzYzMDA0Y2RkZGViYzQxYzkwZTkxYzI1NDc3Nzk3MjQ5NTE4NmMzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJkMzYxY2E0NmU0YTFjOTNiYWY2ZDBiNzYzMDA0Y2RkZGViYzQxYzkwZTkxYzI1NDc3Nzk3MjQ5NTE4NmMzMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
-        },
-        {
-          "resource": "repo://src/app/pages/auth/signup/signup.ts#L4-L4",
-          "version": "repo-lines-v1:sha256:f18c338dea37731e4ce48ed7d4889d8e971fd35b4af9262b5980749398db2fbc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjE4YzMzOGRlYTM3NzMxZTRjZTQ4ZWQ3ZDQ4ODlkOGU5NzFmZDM1YjRhZjkyNjJiNTk4MDc0OTM5OGRiMmZiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjE4YzMzOGRlYTM3NzMxZTRjZTQ4ZWQ3ZDQ4ODlkOGU5NzFmZDM1YjRhZjkyNjJiNTk4MDc0OTM5OGRiMmZiYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjQ0NGE1YWFkZWNiMjFlNGU2OGM5M2E0YWFhMWM2NDk4MmQ0ODAxMjBiYzNmNmQ2MWFkNmFmNjIyNTE2NjgwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjhhODdhZTE1ODE2NWE3MTZjNDY0Y2M2Mzg3OWIwNDlhM2VmZjQ3YWU3ZjI2M2Y1ZTA1ZDlmMzllMzY2N2VhYyJ9"
-        },
-        {
-          "resource": "repo://src/app/pages/home/home.ts#L14-L14",
-          "version": "repo-lines-v1:sha256:f18c338dea37731e4ce48ed7d4889d8e971fd35b4af9262b5980749398db2fbc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjE4YzMzOGRlYTM3NzMxZTRjZTQ4ZWQ3ZDQ4ODlkOGU5NzFmZDM1YjRhZjkyNjJiNTk4MDc0OTM5OGRiMmZiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjE4YzMzOGRlYTM3NzMxZTRjZTQ4ZWQ3ZDQ4ODlkOGU5NzFmZDM1YjRhZjkyNjJiNTk4MDc0OTM5OGRiMmZiYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTFhMzllM2Y4Zjg4N2JiYTliMTQ3MTRkOWJkYTdhYjNkZjcyMTgzMmE5ZGQyYTdlYmEyOWEyNmNmMDYxMjhjZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDg2MTA1NWRiMzM2YzAwNzIxN2I3NjZlOGYxMzkzN2EwZDhlOTgyMmNjMDgzYjQ3NTYxOTY4MTA1NTcwYzYwNSJ9"
-        }
-      ]
-    },
-    {
       "id": "claim_542c5ac2d3bd493d811ec62e545e670d",
-      "statement": "@ulabase/kit-ng is the Angular adapter (version ^0.13.5) that provides RhAuthService as an injectable service wrapping kit functions as Observables with reactive signals (user, teams, isAuthenticated), authGuard/publicGuard route guards, an HTTP interceptor for bearer token attachment, and the provideRhAuth provider function.",
+      "statement": "@ulabase/kit-ng is the Angular adapter (version ^0.13.6) that provides RhAuthService as an injectable service wrapping kit functions as Observables with reactive signals (user, teams, isAuthenticated), authGuard/publicGuard route guards, an HTTP interceptor for bearer token attachment, and the provideRhAuth provider function.",
       "evidence": [
         {
           "resource": "repo://package.json#L23-L23",
-          "version": "repo-lines-v1:sha256:1bd361ca46e4a1c93baf6d0b763004cdddebc41c90e91c254777972495186c30:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJkMzYxY2E0NmU0YTFjOTNiYWY2ZDBiNzYzMDA0Y2RkZGViYzQxYzkwZTkxYzI1NDc3Nzk3MjQ5NTE4NmMzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJkMzYxY2E0NmU0YTFjOTNiYWY2ZDBiNzYzMDA0Y2RkZGViYzQxYzkwZTkxYzI1NDc3Nzk3MjQ5NTE4NmMzMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
+          "version": "repo-lines-v1:sha256:c71c790af5f7c4634d55beefe7a4e293fcbdcd385e34c71569f3ec4c83944df1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcxYzc5MGFmNWY3YzQ2MzRkNTViZWVmZTdhNGUyOTNmY2JkY2QzODVlMzRjNzE1NjlmM2VjNGM4Mzk0NGRmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcxYzc5MGFmNWY3YzQ2MzRkNTViZWVmZTdhNGUyOTNmY2JkY2QzODVlMzRjNzE1NjlmM2VjNGM4Mzk0NGRmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
         },
         {
           "resource": "repo://src/app/app.config.ts#L3-L3",
@@ -140,11 +122,11 @@
     },
     {
       "id": "claim_b64a23473aa34ef39f94d9b8547f542d",
-      "statement": "@ulabase/cli (^0.13.5 dev dependency) provisions a Ulabase service via ulabase login and ulabase setup commands; setup files use defineSetup/step DSL with check/apply pairs, and --dry-run runs checks only to report what is missing.",
+      "statement": "@ulabase/cli (^0.13.6 dev dependency) provisions a Ulabase service via ulabase login and ulabase setup commands; setup files use defineSetup/step DSL with check/apply pairs, and --dry-run runs checks only to report what is missing.",
       "evidence": [
         {
           "resource": "repo://package.json#L34-L34",
-          "version": "repo-lines-v1:sha256:c8e7ff7a04b9d6d9caa444e5779d4abd95a73f55ad10594c52bdf468ef06c7fb:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzhlN2ZmN2EwNGI5ZDZkOWNhYTQ0NGU1Nzc5ZDRhYmQ5NWE3M2Y1NWFkMTA1OTRjNTJiZGY0NjhlZjA2YzdmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzhlN2ZmN2EwNGI5ZDZkOWNhYTQ0NGU1Nzc5ZDRhYmQ5NWE3M2Y1NWFkMTA1OTRjNTJiZGY0NjhlZjA2YzdmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU5NGVhNTVkNDA2OTk0NGRiZTAwZGZiZmYxNWZjNjMwMDZlNWI3NmMzYjZmZGNlOTZkMzk3NGQxNWI0OTczNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTUwZGQ0NmM3ZTY0YjRjYmE0ZTBhYzkzOTA0YzhlYmQ0OTQ3MWVlNTk2NWU0YTRhNDZlYTA1MDg0Y2NhNTRiYSJ9"
+          "version": "repo-lines-v1:sha256:ba5a99638413145f9e546ce9cda06b1fe229d20c63985b23dd6d8d1e626ece53:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE1YTk5NjM4NDEzMTQ1ZjllNTQ2Y2U5Y2RhMDZiMWZlMjI5ZDIwYzYzOTg1YjIzZGQ2ZDhkMWU2MjZlY2U1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE1YTk5NjM4NDEzMTQ1ZjllNTQ2Y2U5Y2RhMDZiMWZlMjI5ZDIwYzYzOTg1YjIzZGQ2ZDhkMWU2MjZlY2U1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU5NGVhNTVkNDA2OTk0NGRiZTAwZGZiZmYxNWZjNjMwMDZlNWI3NmMzYjZmZGNlOTZkMzk3NGQxNWI0OTczNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTUwZGQ0NmM3ZTY0YjRjYmE0ZTBhYzkzOTA0YzhlYmQ0OTQ3MWVlNTk2NWU0YTRhNDZlYTA1MDg0Y2NhNTRiYSJ9"
         },
         {
           "resource": "repo://ulabase.setup.ts#L1-L13",
@@ -227,6 +209,6 @@
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-10-13T09:56:15.372Z"
+    "at": "2026-10-17T07:24:16.051Z"
   }
 }

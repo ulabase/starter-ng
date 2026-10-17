@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:97c191e60787fa008b6f7e222cfdf6c12d6f19ade7103647f0629ace28a8d519",
+  "pageVersion": "sha256:dad3086ba75d09e4e4621640ee5fd34b3c6b3efc2ed2b9f3cf62940fa6e842f2",
   "claims": [
     {
       "id": "claim_6f1b662867fe42cd8fd78804832ebb59",
@@ -137,7 +137,7 @@
       "statement": "Two restyling paths exist: A) Tweak the skin by changing design tokens in section 1 and adjusting skin classes in sections 3-5 (~1 hour), or B) Adopt a UI framework by deleting sections 3-6 and reskinning templates using semantic class hooks (.card, .btn-primary, .form-field, .form-error, .success-msg, .muted, .badge).",
       "evidence": [
         {
-          "resource": "repo://README.md#L83-L91",
+          "resource": "repo://README.md#L85-L93",
           "version": "repo-lines-v1:sha256:c5a17683b618ba708d3d3ef294c525db1ce93b7667c206c7be8fd063aedcc065:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjE2ZGIxNTdlMWEyYmNkZWFlYTNhZTkxMmE2NzgyODE5ODFhYTc3NTllZjdhYTI1ZDQxMGM3Nzk5NmQ5YjMzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjVkYWU3NGE5ZDY5YzkzNjlhODMxNTU5NDIyM2FlNmZiODM3ZTJkYzIzOGNhMzYxMWE3MTkxNDZkYjkzNDQwYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWRhMDFkMGU5NjYxOTMwYThkYjg2OTlhOTY0ZTJlZDk4ZTJiNGY4ODY1MzBjZDFhZTc1MTM3YTYzMzJmZDEyMyJ9"
         },
         {
@@ -194,7 +194,7 @@
         },
         {
           "resource": "repo://package.json",
-          "version": "repo-file-v1:sha256:e12a304e28fc4821e23d9fa2bf291050ffe1679f13e5db30fc386ec49f0e8bcf"
+          "version": "repo-file-v1:sha256:745e6a90c71d7ce0de31e3f0d215fc74c4fc93e8652207ac7c39742f024ffbb9"
         },
         {
           "resource": "repo://src/app/app.routes.server.ts",
@@ -221,6 +221,6 @@
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-10-13T09:56:15.372Z"
+    "at": "2026-10-17T07:24:16.051Z"
   }
 }
