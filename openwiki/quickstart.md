@@ -50,10 +50,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-13T09:56:15.372Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-17T07:24:16.051Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-10-13T09:56:15.372Z
+    at: 2026-10-17T07:24:16.051Z
 ---
 
 # Ulabase Starter — Angular
@@ -81,7 +81,7 @@ Works for multi-tenant SaaS (invitations, team switcher) and simpler apps (auth 
 ```bash
 # 1. Clone and install
 git clone https://github.com/ulabase/starter-ng.git
-cd ulabase-starter-ng
+cd starter-ng
 npm install
 
 # 2. Point to your Ulabase service
@@ -152,8 +152,8 @@ Feature flags in `src/environments/environment*.ts` must match your service's **
 
 | Package | Role |
 |---|---|
-| `@ulabase/kit-ng` ^0.13.5 | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
-| `ulabase` CLI ^0.13.5 | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
+| `@ulabase/kit-ng` ^0.13.6 | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
+| `ulabase` CLI ^0.13.6 | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
 | `@angular/core` ^21.2 | Angular framework |
 | `@angular/ssr` ^21.2 | Server-side rendering |
 | `express` ^5.1 | SSR server |

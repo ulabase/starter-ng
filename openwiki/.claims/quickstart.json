@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:206df642dba65315e5f52480700ae4d30fca1974f5bbde679b833cf34690055a",
+  "pageVersion": "sha256:137554f5aed0b3d10fc906a9f698830d3e7cecfa12b4696f13cc9fec6ad93a93",
   "claims": [
     {
       "id": "claim_b2e21d58823c4fc7be8063a4812231ef",
@@ -8,7 +8,7 @@
       "evidence": [
         {
           "resource": "repo://package.json#L23-L23",
-          "version": "repo-lines-v1:sha256:1bd361ca46e4a1c93baf6d0b763004cdddebc41c90e91c254777972495186c30:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJkMzYxY2E0NmU0YTFjOTNiYWY2ZDBiNzYzMDA0Y2RkZGViYzQxYzkwZTkxYzI1NDc3Nzk3MjQ5NTE4NmMzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJkMzYxY2E0NmU0YTFjOTNiYWY2ZDBiNzYzMDA0Y2RkZGViYzQxYzkwZTkxYzI1NDc3Nzk3MjQ5NTE4NmMzMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
+          "version": "repo-lines-v1:sha256:c71c790af5f7c4634d55beefe7a4e293fcbdcd385e34c71569f3ec4c83944df1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcxYzc5MGFmNWY3YzQ2MzRkNTViZWVmZTdhNGUyOTNmY2JkY2QzODVlMzRjNzE1NjlmM2VjNGM4Mzk0NGRmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcxYzc5MGFmNWY3YzQ2MzRkNTViZWVmZTdhNGUyOTNmY2JkY2QzODVlMzRjNzE1NjlmM2VjNGM4Mzk0NGRmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
         },
         {
           "resource": "repo://src/app/app.config.ts#L3-L3",
@@ -51,7 +51,7 @@
       "statement": "Quick setup requires Node.js 22.18 or later (it runs the TypeScript setup file), a Ulabase service (create one at ulabase.com), and Angular CLI. The four steps are: clone and install, point to service (edit environment.dev.ts), run ulabase setup to configure the service, and start with ng serve.",
       "evidence": [
         {
-          "resource": "repo://README.md#L12-L81",
+          "resource": "repo://README.md#L14-L83",
           "version": "repo-lines-v1:sha256:ea8c8ea032f5deaf3dbfc42fd788bf65a84a8ceb23835ca0ff9610cb44232f3d:eyJzZWxlY3RlZExpbmVDb3VudCI6NzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhMDVhZDY1YTljMWJhZjBlM2VkMGE2NTM5MThhMDQxZWI4NmEwYjA1ZWIwODZlMDAxNGFmZGZiYWQwNmE3NTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5MmEzZmYxMjdiMDYwYjgwYzNiMDljOTdjOTBiODFlZjNjNGVmNmI4N2M1ZDA1MGFhMzYxMjAxNzRjYTVkNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIwN2Y1OGI0NWM4NGEzNmUxZGE0ZWM4MmIxYjNjN2M4ZjFjN2M3YmYwOTQ5YTNiZmM5MGNmZTBkNDRmZWJlZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1ZjM3OWYwOTBmYjM5NjM3ZmEyZWFhNGVjMWM5MzQ3NDVkMzQ5ZmZlZTc0OGQyYzExM2NlZjc0YTk2ZTQ0NTkifQ"
         },
         {
@@ -136,7 +136,7 @@
         },
         {
           "resource": "repo://README.md",
-          "version": "repo-file-v1:sha256:7a12b47bc86bf1756eb3b5a27d0f75f5cc68546c4a8892d5eac0e0f4954909c0"
+          "version": "repo-file-v1:sha256:26a00f0afd66c812367637d9a2c5cb3e068c411c44041ee9d99c6ae897b04acb"
         },
         {
           "resource": "repo://TEMPLATE_API.md",
@@ -158,19 +158,19 @@
     },
     {
       "id": "claim_6096413fe8ab453285f8eb3d092fd25d",
-      "statement": "Key dependencies are @ulabase/kit-ng ^0.13.5 (Angular adapter that provides RhAuthService, guards, and HTTP interceptor, with @ulabase/kit as its dependency), ulabase CLI ^0.13.5 (dev tooling for ulabase setup), @angular/core ^21.2, @angular/ssr ^21.2, and express ^5.1.",
+      "statement": "Key dependencies are @ulabase/kit-ng ^0.13.6 (Angular adapter that provides RhAuthService, guards, and HTTP interceptor, with @ulabase/kit as its dependency), ulabase CLI ^0.13.6 (dev tooling for ulabase setup), @angular/core ^21.2, @angular/ssr ^21.2, and express ^5.1.",
       "evidence": [
         {
           "resource": "repo://package.json#L14-L39",
-          "version": "repo-lines-v1:sha256:853146cebf3a97ebca6f54dd41fb4ce6d0b09723c8bbab6548a7bcc3bf11e06c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJhM2I0NjlkOWUwOTc1NzIyNDY2NjczNGM5ZWY3YjI1NGQ4ODUzNGY1ZDViYjcwOTg5NjA4MDVjNTUzZGMzMDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNWNkMmZiNGYzZGY4ODQ1MTUyNTViMzk1MjNmMmY4YjU0NzJiZWVhOWY1NjZmZmNhMjA0ZGI4MDI1NjEwNDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5ZGNkYTllYjQ4MzgyNTA5YzVlOTUxNTVhY2E4ZmI4ZjFmNzI4ZTlhNmY2Y2RlMWYwNDk1ZjgyNTI1YjZiYTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5MzVkZjIzMWMwMDQ1N2NlYWNlMTFlYWQ5YTU3MDk2NTBlZmIyMzY4ZTRkZDAyNzhkNTU2ZGNjM2UwN2UxMTgifQ"
+          "version": "repo-lines-v1:sha256:e3e3da673369f3b88f746985773b534803339c978eb91907b757ad0241132dc7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJhM2I0NjlkOWUwOTc1NzIyNDY2NjczNGM5ZWY3YjI1NGQ4ODUzNGY1ZDViYjcwOTg5NjA4MDVjNTUzZGMzMDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNWNkMmZiNGYzZGY4ODQ1MTUyNTViMzk1MjNmMmY4YjU0NzJiZWVhOWY1NjZmZmNhMjA0ZGI4MDI1NjEwNDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5ZGNkYTllYjQ4MzgyNTA5YzVlOTUxNTVhY2E4ZmI4ZjFmNzI4ZTlhNmY2Y2RlMWYwNDk1ZjgyNTI1YjZiYTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5MzVkZjIzMWMwMDQ1N2NlYWNlMTFlYWQ5YTU3MDk2NTBlZmIyMzY4ZTRkZDAyNzhkNTU2ZGNjM2UwN2UxMTgifQ"
         },
         {
           "resource": "repo://package.json#L23-L23",
-          "version": "repo-lines-v1:sha256:1bd361ca46e4a1c93baf6d0b763004cdddebc41c90e91c254777972495186c30:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJkMzYxY2E0NmU0YTFjOTNiYWY2ZDBiNzYzMDA0Y2RkZGViYzQxYzkwZTkxYzI1NDc3Nzk3MjQ5NTE4NmMzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJkMzYxY2E0NmU0YTFjOTNiYWY2ZDBiNzYzMDA0Y2RkZGViYzQxYzkwZTkxYzI1NDc3Nzk3MjQ5NTE4NmMzMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
+          "version": "repo-lines-v1:sha256:c71c790af5f7c4634d55beefe7a4e293fcbdcd385e34c71569f3ec4c83944df1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcxYzc5MGFmNWY3YzQ2MzRkNTViZWVmZTdhNGUyOTNmY2JkY2QzODVlMzRjNzE1NjlmM2VjNGM4Mzk0NGRmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcxYzc5MGFmNWY3YzQ2MzRkNTViZWVmZTdhNGUyOTNmY2JkY2QzODVlMzRjNzE1NjlmM2VjNGM4Mzk0NGRmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
         },
         {
           "resource": "repo://package.json#L34-L34",
-          "version": "repo-lines-v1:sha256:c8e7ff7a04b9d6d9caa444e5779d4abd95a73f55ad10594c52bdf468ef06c7fb:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzhlN2ZmN2EwNGI5ZDZkOWNhYTQ0NGU1Nzc5ZDRhYmQ5NWE3M2Y1NWFkMTA1OTRjNTJiZGY0NjhlZjA2YzdmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzhlN2ZmN2EwNGI5ZDZkOWNhYTQ0NGU1Nzc5ZDRhYmQ5NWE3M2Y1NWFkMTA1OTRjNTJiZGY0NjhlZjA2YzdmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU5NGVhNTVkNDA2OTk0NGRiZTAwZGZiZmYxNWZjNjMwMDZlNWI3NmMzYjZmZGNlOTZkMzk3NGQxNWI0OTczNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTUwZGQ0NmM3ZTY0YjRjYmE0ZTBhYzkzOTA0YzhlYmQ0OTQ3MWVlNTk2NWU0YTRhNDZlYTA1MDg0Y2NhNTRiYSJ9"
+          "version": "repo-lines-v1:sha256:ba5a99638413145f9e546ce9cda06b1fe229d20c63985b23dd6d8d1e626ece53:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE1YTk5NjM4NDEzMTQ1ZjllNTQ2Y2U5Y2RhMDZiMWZlMjI5ZDIwYzYzOTg1YjIzZGQ2ZDhkMWU2MjZlY2U1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE1YTk5NjM4NDEzMTQ1ZjllNTQ2Y2U5Y2RhMDZiMWZlMjI5ZDIwYzYzOTg1YjIzZGQ2ZDhkMWU2MjZlY2U1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU5NGVhNTVkNDA2OTk0NGRiZTAwZGZiZmYxNWZjNjMwMDZlNWI3NmMzYjZmZGNlOTZkMzk3NGQxNWI0OTczNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTUwZGQ0NmM3ZTY0YjRjYmE0ZTBhYzkzOTA0YzhlYmQ0OTQ3MWVlNTk2NWU0YTRhNDZlYTA1MDg0Y2NhNTRiYSJ9"
         }
       ]
     },
@@ -221,6 +221,6 @@
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-10-13T09:56:15.372Z"
+    "at": "2026-10-17T07:24:16.051Z"
   }
 }
