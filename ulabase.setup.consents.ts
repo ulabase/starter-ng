@@ -43,7 +43,7 @@
  * It does not write the Terms or the Privacy Policy — those are `public/`, and
  * they are yours. It only decides which *versions* the service demands.
  */
-import { defineSetup, step } from '@ulabase/cli';
+import { defineSetup, isApiError, step } from '@ulabase/cli';
 import type { FeatureConfig } from '@ulabase/cli';
 import accounts, { appPointsAtService } from './ulabase.setup.ts';
 
@@ -162,6 +162,17 @@ const CONDITION = [
 
 const CLAIMS = ['latestConsents/tos', 'latestConsents/pp'];
 
+/** A schema as a string with sorted keys, without what the store adds or rewrites. */
+const canonical = (schema: object): string => {
+  const { _id, _etag, $schema, _$schema, ...rest } = schema as Record<string, unknown>;
+  const sorted = (v: unknown): unknown =>
+    Array.isArray(v) ? v.map(sorted)
+    : v && typeof v === 'object'
+      ? Object.fromEntries(Object.keys(v).sort().map(k => [k, sorted((v as Record<string, unknown>)[k])]))
+      : v;
+  return JSON.stringify(sorted(rest));
+};
+
 const rules = (config: FeatureConfig): unknown[] =>
   (config['rules'] as unknown[] | undefined) ?? [];
 
@@ -172,7 +183,17 @@ export default defineSetup('Angular starter with consents gate', [
   ...accounts.steps.filter(s => s !== appPointsAtService),
 
   step('user schema stored', {
-    check: ({ service }) => service.schemaExists(SCHEMA_ID),
+    // The stored schema has to be this one, not just exist: a service set up with
+    // an older version keeps refusing what this one allows.
+    async check({ service }) {
+      try {
+        const res = await service.fetch(`/schemas/${SCHEMA_ID}`);
+        return canonical(await res.json()) === canonical(USER_SCHEMA);
+      } catch (err) {
+        if (isApiError(err) && err.status === 404) return false;
+        throw err;
+      }
+    },
     apply: ({ service }) => service.putSchema(SCHEMA_ID, USER_SCHEMA),
   }),
 
