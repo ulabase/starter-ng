@@ -162,13 +162,17 @@ const CONDITION = [
 
 const CLAIMS = ['latestConsents/tos', 'latestConsents/pp'];
 
-/** A schema as a string with sorted keys, without what the store adds or rewrites. */
+/**
+ * A schema as a string with sorted keys, without what the store adds: `_id`, `_etag`, `$schema`,
+ * and `$id`/`id`, the schema's own address. The store reads `_$date` back as `$date`, so both are
+ * compared unescaped.
+ */
 const canonical = (schema: object): string => {
-  const { _id, _etag, $schema, _$schema, ...rest } = schema as Record<string, unknown>;
+  const { _id, _etag, $schema, _$schema, $id, id, ...rest } = schema as Record<string, unknown>;
   const sorted = (v: unknown): unknown =>
     Array.isArray(v) ? v.map(sorted)
     : v && typeof v === 'object'
-      ? Object.fromEntries(Object.keys(v).sort().map(k => [k, sorted((v as Record<string, unknown>)[k])]))
+      ? Object.fromEntries(Object.keys(v).sort().map(k => [k.replace(/^_\$/, '$'), sorted((v as Record<string, unknown>)[k])]))
       : v;
   return JSON.stringify(sorted(rest));
 };
