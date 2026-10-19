@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:f303ddbafc9dbe5d25638635f0fb228c44f1cd72142e015bcfd7fe3572f2f998",
+  "pageVersion": "sha256:e76484b499922e6d747d97e0ebab92ce62fd7ff12e37d3c18ff99e466eeccd60",
   "claims": [
     {
       "id": "claim_d1629cfaa9c04935b09eea9372ed4b3f",
@@ -127,8 +127,8 @@
       "statement": "The consents gate requires four server-side documents configured by ulabase.setup.consents.ts: a user schema with latestConsents/consents fields, collection validation, a permission that stamps versions via mergeRequest, and a Guards rule that blocks non-compliant users with 451.",
       "evidence": [
         {
-          "resource": "repo://ulabase.setup.consents.ts#L168-L299",
-          "version": "repo-lines-v1:sha256:ab1a16ab9ad1d645b71d51136a0e287e50c3acdf0fb6ea074739258943825a67:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMyLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxNWQ1NmUzNmRjYWUzZWNhNmY4MTE3MmY5MGVkMTg2MWQ5MmZjMGU5NjcwZTY4ZTg1MDc0ZGQxYWE4YWNiYzY3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0YzJjNzYxYzBhMjIyMWFhNzljNzA1OTY2NWQ1ZGMyNzg1MWNkOTNiYWY1ODg3ZDBmM2M2NzAyYjZiZmZhYjFhIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://ulabase.setup.consents.ts#L183-L324",
+          "version": "repo-lines-v1:sha256:5832e11906b854c1f5847e353f0656e90f1107320d688754e86692c8c205f229:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQyLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxNWQ1NmUzNmRjYWUzZWNhNmY4MTE3MmY5MGVkMTg2MWQ5MmZjMGU5NjcwZTY4ZTg1MDc0ZGQxYWE4YWNiYzY3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0YzJjNzYxYzBhMjIyMWFhNzljNzA1OTY2NWQ1ZGMyNzg1MWNkOTNiYWY1ODg3ZDBmM2M2NzAyYjZiZmZhYjFhIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         },
         {
           "resource": "repo://ulabase.setup.consents.ts#L85-L117",
@@ -141,7 +141,7 @@
       "statement": "TOS and PP versions are defined as constants (TOS_VERSION, PP_VERSION) in ulabase.setup.consents.ts. All four server documents derive from these values. Publishing new terms means bumping the constants and re-running ulabase setup; every user meets the form again on their next request.",
       "evidence": [
         {
-          "resource": "repo://ulabase.setup.consents.ts#L260-L295",
+          "resource": "repo://ulabase.setup.consents.ts#L285-L320",
           "version": "repo-lines-v1:sha256:61bb3204eef5b835755b0b6f6ddeb8cd77fc51636fd8e642903f24bd6671900f:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyNmE0MTQ1MmIwMTVkNzk5Y2ExMDkwNTI5YWQwYTI2MTk1MjcwZDFlOTdiMjMwZDY5N2E3NGNjMzEzYzZhNDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZTZmY2RkNGQ3Mjc0ODdlOGI4ZDdhNDM3N2YwNjJjZDFiY2U1OTQ0NGQ2ZDczYWE4OGNhNTg0OGY5NGI0ZTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmZjA4YjUzZGJiNWUzN2MzNTIxMDllODQzOGQxMmYyNzVmNWYwYTJkZjZiZWVhMWExYjYyNDYyNDI1N2ZiYzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU1ZTI2Y2Q5MjM2NmY2MGQ4ZWQ5MmQwMjM5ZjA3ZmVmNzRjYWMxNGFhNjlhZGRmOWMyY2MwZDExZWIwMGE0NjMifQ"
         },
         {
@@ -159,7 +159,7 @@
           "version": "repo-lines-v1:sha256:4bb93358150cc115e30752b7ebea212679a6225d930d21c0222f812c6f849702:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGJiOTMzNTgxNTBjYzExNWUzMDc1MmI3ZWJlYTIxMjY3OWE2MjI1ZDkzMGQyMWMwMjIyZjgxMmM2Zjg0OTcwMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGJiOTMzNTgxNTBjYzExNWUzMDc1MmI3ZWJlYTIxMjY3OWE2MjI1ZDkzMGQyMWMwMjIyZjgxMmM2Zjg0OTcwMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjc4ZmI2Y2U3NGEyMmU5MTJkZmE1ZjQ0ZGY3ZGJiOTRiN2IyOWZhNmJhZGYyZGI4NmM2NmNmM2U5NGQwOWI1NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjhjMzEwZDc3OGQ4MWNiOTY5NmQxZjA0MDY1OTQ1NTliYjMwMWVlNTY2MDc1MGFjOTg4ZDk1MWU3MmQ2YWU4NiJ9"
         },
         {
-          "resource": "repo://ulabase.setup.consents.ts#L226-L253",
+          "resource": "repo://ulabase.setup.consents.ts#L251-L278",
           "version": "repo-lines-v1:sha256:9d37d3e6a363b91d369e72b52f1ab716d1c3963465c87f873099c950c0eb02b0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcyMzBhYjg1ZDg0ZDViNzI1N2RhMDQzYmFhMzIxZDQ2ZDYxZTM2MmVlMDA5MWM2NDVlMjExZmNkMDUwMjJiZWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZTZmY2RkNGQ3Mjc0ODdlOGI4ZDdhNDM3N2YwNjJjZDFiY2U1OTQ0NGQ2ZDczYWE4OGNhNTg0OGY5NGI0ZTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0NDliNTZkYWQ2OTczMWRlYWFhMzc3NDFiYWUzNWM1NWVlMjY5YWI0ZWI4ZTRhZDM1ODQ4YTYwNWFkYTViNjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIyMDQ3ZmQzNjk2Zjc1ZTVkNjA4Zjc0Y2M2OGFhNmQ5OGZmZGJlMjUzMWZhMDYxMzNiOGEyMzE5NGJmMjZjOWEifQ"
         }
       ]
@@ -269,6 +269,6 @@
   ],
   "verification": {
     "by": "openwiki/0.7.2",
-    "at": "2026-10-13T09:56:15.372Z"
+    "at": "2026-10-19T08:21:09.342Z"
   }
 }

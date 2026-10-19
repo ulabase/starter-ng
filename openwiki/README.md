@@ -5,11 +5,11 @@ description: Entry point for the OpenWiki documentation directory. Points to the
 tags: [documentation, openwiki, quickstart, architecture, workflows]
 verified:
   - by: openwiki/0.7.2
-    at: 2026-10-17T07:24:16.051Z
+    at: 2026-10-19T08:21:09.342Z
 sources:
   - id: openwiki-source-4e7cd7f381c92e8c5d89f5c1
     resource: repo://NOTES.md
-generated: { by: "openwiki/0.7.2", at: "2026-10-17T07:24:16.051Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
 ---
 
 # OpenWiki Documentation
@@ -37,10 +37,6 @@ The quickstart guide links to all major topic pages:
 - [Root README](../README.md) — project overview and setup instructions
 - [NOTES.md](../NOTES.md) — detailed customization and implementation notes
 
-## More
+## Generated Index
 
-- [OpenWiki Quickstart](quickstart.md) — concise entrypoint for the OpenWiki documentation
-
-## Documentation
-
-For detailed architecture, workflows, source map, and other project documentation, see the **[quickstart guide](quickstart.md)** — it serves as the primary entry point and routes you to the right topic page for your task.
+- [OpenWiki Index](index.md) — auto-generated index of all OpenWiki content

@@ -8,6 +8,8 @@ sources:
     resource: repo://src/app/app.config.ts
   - id: openwiki-source-d3086358408fd7acf5360013
     resource: repo://src/app/app.html
+  - id: openwiki-source-407c70ba325b6f9e6aa4707e
+    resource: repo://src/app/app.routes.ts
   - id: openwiki-source-533e7761316e2fac327194b8
     resource: repo://src/app/app.ts
   - id: openwiki-source-4ccad2ecb9cb8ac59e327578
@@ -36,12 +38,22 @@ sources:
     resource: repo://src/app/pages/auth/verify/verify.ts
   - id: openwiki-source-0c503ef6a22fe483e758a9db
     resource: repo://src/app/pages/invitations/accept/accept.ts
+  - id: openwiki-source-0980df84d522a6755217a044
+    resource: repo://src/app/pages/shell/shell.html
+  - id: openwiki-source-9fd5be7b4a86f1a62c53cab3
+    resource: repo://src/app/pages/shell/shell.ts
+  - id: openwiki-source-18c6764cc67ac87370b274d4
+    resource: repo://src/app/pages/teams/detail/team-detail.html
   - id: openwiki-source-a0abfed3f48fb645e980c9ea
     resource: repo://src/app/pages/teams/detail/team-detail.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-13T09:56:15.372Z" }
+  - id: openwiki-source-b3a716361f88bb3ea09515bc
+    resource: repo://src/app/pages/teams/new/new-team.ts
+  - id: openwiki-source-15a66680fea3945936cdfe8f
+    resource: repo://src/app/pages/teams/teams.ts
+generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-10-13T09:56:15.372Z
+    at: 2026-10-19T08:21:09.342Z
 ---
 
 # Key User Workflows
@@ -108,7 +120,8 @@ sequenceDiagram
 2. Component calls `auth.login(email, password)` — this also loads teams in the same round trip
 3. On success: `router.navigateByUrl('/')` → redirected to home
 4. On 401: shows "Invalid email or password."
-5. Logout: `auth.logout()` → redirects to `/auth/login`
+5. The login page also surfaces backend link failures: it reads `?error=...` query params (e.g. an expired verification link the backend handled directly) and shows "This link is invalid or has expired." up front
+6. Logout: `auth.logout()` → redirects to `/auth/login`
 
 **Session persistence:** after login, the token is stored in localStorage. A hard refresh preserves the session because `checkSession()` reads the stored token and fetches the user.
 
@@ -158,7 +171,7 @@ sequenceDiagram
 1. User enters email
 2. Component calls `auth.forgotPassword(email)`
 3. API always returns 202 regardless of whether the email exists (prevents email enumeration)
-4. Shows same confirmation either way: "If an account exists for that address, we sent a link"
+4. Shows same confirmation either way: "If an account exists for that address, we sent a link" — even errors land on the same confirmation
 5. User clicks reset link → arrives at `/auth/reset-password?email=...&token=...`
 6. User enters new password (min 8 chars)
 7. Component calls `auth.resetPassword({ email, token, password })`
@@ -203,7 +216,7 @@ sequenceDiagram
 1. Same invitation link, but `isNewUser === false`
 2. **If already logged in:** shows "Join {teamName}" with a single button → calls `auth.acceptInvite(token)`
 3. **If not logged in:** shows login form → `auth.login()` then `auth.acceptInvite(token)`
-4. New team appears in the team switcher
+4. New team appears in the team list at `/teams`
 
 ## Team switching
 
@@ -213,7 +226,7 @@ sequenceDiagram
 4. Session updates immediately with the new active team — no page reload
 5. While switching, a "Switching…" indicator replaces the team row actions
 
-**Note:** the team switcher in the Shell header is only visible when `auth.teams().length > 1`.
+**Note:** the Shell header has no team switcher — team switching lives entirely on the `/teams` page. The header's avatar menu shows the active team name only (read from `auth.teams().find(t => t.active)`).
 
 ## Team management
 
@@ -221,8 +234,8 @@ sequenceDiagram
 
 ### Members
 - Owner sees full member list with role dropdowns and remove buttons
-- Role change: `auth.updateMemberRole(email, role)` — optimistically updates the local list
-- Remove: confirmation step ("Remove? Yes/No") → `auth.removeMember(email)` — owners can't remove themselves
+- Role change: `auth.updateMemberRole(email, role)` — the local list is updated only after the server confirms
+- Remove: confirmation step ("Remove? Yes/No") → `auth.removeMember(email)` — owners can't remove themselves (their own row shows no actions)
 
 ### Invitations
 - Owner sees invite form (email + role) and pending invitations list
@@ -235,6 +248,10 @@ sequenceDiagram
 - Danger zone: delete team → confirmation dialog (`role="alertdialog"`) → `auth.deleteTeam()`
 - Delete only works when no other members remain (backend enforces with 409)
 - After successful deletion, the component reloads the team list. If remaining teams exist but none is active, it auto-switches to the first remaining team before navigating to `/teams`
+
+### Creating a team
+- **Entry:** `/teams/new` (linked from the team list's "+ New team" button)
+- Form takes a team name → `auth.createTeam(teamName)` → navigates back to `/teams`
 
 ## Account management
 
@@ -345,7 +362,7 @@ fetchData() {
 - **Start with:** `src/app/pages/teams/` for team list and detail components
 - **Check:** `src/app/pages/invitations/accept/` for invitation acceptance flow
 - **Test with:** Manual flows from TEST-CASES.md
-- **Important files:** `teams.ts`, `team-detail.ts`, `accept.ts`
+- **Important files:** `teams.ts`, `team-detail.ts`, `accept.ts`, `new-team.ts`
 
 ### Account management changes
 - **Start with:** `src/app/pages/account/account.ts` for profile and password changes

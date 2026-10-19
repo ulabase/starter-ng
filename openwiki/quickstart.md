@@ -3,6 +3,10 @@ type: Quickstart
 title: Ulabase Starter — Angular
 description: Concise entrypoint for the ulabase-starter-ng repository. Routes readers through the wiki hierarchy based on their task (exploring, building a feature, porting, restyling, testing). Includes quick setup, documentation map, task routing table, and key dependencies.
 tags: [quickstart, angular, ulabase, starter]
+generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
+verified:
+  - by: openwiki/0.7.2
+    at: 2026-10-19T08:21:09.342Z
 sources:
   - id: openwiki-source-5b54a58d1b51cd490b0e7162
     resource: repo://package.json
@@ -50,10 +54,6 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-17T07:24:16.051Z" }
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-17T07:24:16.051Z
 ---
 
 # Ulabase Starter — Angular
