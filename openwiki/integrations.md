@@ -38,10 +38,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-17T07:24:16.051Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-10-17T07:24:16.051Z
+    at: 2026-10-19T08:21:09.342Z
 ---
 
 # Integrations & Dependencies
@@ -172,7 +172,7 @@ Each setup file exports a `defineSetup(...)` call containing an array of `step(.
 - `fromEnv` — resolves a secret from environment variables at apply time
 - `isRedacted` — detects whether a stored secret reads back as bullets
 - `isApiError` — type guard for API error responses (used to treat `409 Plugin already installed` as success)
-- `AdminClient`, `PluginConfig` — types for the admin API
+- `AdminClient`, `FeatureConfig` — types for the admin API
 
 **What the setup configures:**
 1. Accounts plugin installation and feature flag alignment

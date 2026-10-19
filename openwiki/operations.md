@@ -28,10 +28,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-11T09:33:30.268Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-10-17T07:24:16.051Z
+    at: 2026-10-19T08:21:09.342Z
 ---
 
 # Operations & Runbook
@@ -81,6 +81,35 @@ The repository includes two setup files that configure a Ulabase service to matc
 | `ulabase.setup.ts` | Configures the accounts plugin (registration, verification, password reset, OAuth, team invitations) and CORS origin allowlist |
 | `ulabase.setup.consents.ts` | Extends `ulabase.setup.ts` with a consents gate (Terms of Service and Privacy Policy acceptance) |
 
+```mermaid
+flowchart TD
+    A[ulabase.setup.ts] --> B[Accounts plugin]
+    A --> C[CORS origin allowlist]
+    A --> D[Feature flag derivation]
+    
+    E[ulabase.setup.consents.ts] --> F[Imports accounts setup]
+    E --> G[User schema with consents]
+    E --> H[Guard rule]
+    E --> I[JWT claims]
+    E --> J[Permission for consents PATCH]
+    
+    F --> A
+    
+    B --> K[Registration & verification]
+    B --> L[Password reset]
+    B --> M[OAuth credentials]
+    B --> N[Team invitations]
+    
+    D -->|"emailRegistration"| K
+    D -->|"passwordReset"| L
+    D -->|"oauthLogin"| M
+    D -->|"teamInvitations"| N
+    
+    style A fill:#e1f5fe
+    style E fill:#e8f5e8
+    style D fill:#fff3e0
+```
+
 ### Check/apply pattern
 
 Each setup step follows a **check/apply** pattern:
@@ -119,6 +148,33 @@ The setup tooling **imports the same environment the app uses** (`environment.de
 
 **Key benefit:** Turning a feature off in the app and re-running the setup turns it off on the service too, because there is no second place to forget.
 
+```mermaid
+flowchart LR
+    A[environment.dev.ts] --> B[ulabase.setup.ts]
+    
+    B --> C{Feature flags}
+    
+    C -->|emailRegistration: true| D[Enable registration]
+    C -->|emailRegistration: true| E[Enable verification]
+    C -->|passwordReset: true| F[Enable password-reset]
+    C -->|teamInvitations: true| G[Enable invitations]
+    C -->|oauthLogin: true| H[Enable OAuth]
+    
+    H --> I{oauthProviders includes 'google'?}
+    I -->|Yes| J[Configure Google OAuth]
+    I -->|No| K[Skip OAuth setup]
+    
+    D --> L[Ulabase service]
+    E --> L
+    F --> L
+    G --> L
+    J --> L
+    
+    style A fill:#e1f5fe
+    style B fill:#e8f5e8
+    style L fill:#fff3e0
+```
+
 ### Consents gate
 
 The consents gate (`ulabase.setup.consents.ts`) adds:
@@ -128,6 +184,35 @@ The consents gate (`ulabase.setup.consents.ts`) adds:
 4. A guard rule that blocks users who haven't accepted the current versions
 
 **Version management:** The `TOS_VERSION` and `PP_VERSION` constants in the file control which versions are required. Bump these when publishing new documents and re-run the setup.
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as Angular App
+    participant S as Ulabase Service
+    participant G as Guard Rule
+    
+    U->>A: Makes API request
+    A->>S: Request with JWT token
+    S->>G: Check guard rule
+    G->>G: Evaluate condition
+    
+    alt User hasn't accepted current versions
+        G-->>S: Block (451)
+        S-->>A: 451 Unavailable For Legal Reasons
+        A-->>U: Show consents dialog
+        U->>A: Accept Terms & Privacy
+        A->>S: PATCH /users/{userId} with consents
+        S->>S: Update latestConsents & consents history
+        S-->>A: Success
+    else User has accepted current versions
+        G-->>S: Allow
+        S-->>A: Success response
+    end
+    
+    Note over S: JWT claims include latestConsents/tos and latestConsents/pp
+    Note over G: Condition checks both TOS_VERSION and PP_VERSION
+```
 
 ## SSR deployment
 
@@ -155,6 +240,23 @@ The SSR server ([`src/server.ts`](../src/server.ts)):
 - Auth pages (login, signup, forgot/reset password): **Prerender** — static HTML
 - Verify, invitations, all authenticated routes: **Client** — rendered in browser only
 
+<!-- openwiki: mermaid parse failed and this diagram was converted to a text fence so it does not break rendering. Fix the diagram source and restore the mermaid fence. Parser error: Heuristic: an unescaped angle bracket inside a label breaks rendering; rephrase the label. -->
+```text
+flowchart TD
+    A[Request arrives] --> B{Static file?}
+    B -->|Yes| C[Serve from /browser<br/>1-year cache]
+    B -->|No| D{Route render mode}
+    D -->|Prerender| E[Serve pre-built HTML]
+    D -->|Client| F[Delegate to AngularNodeAppEngine]
+    F --> G[Client-side render]
+    
+    style C fill:#e1f5fe
+    style E fill:#e8f5e8
+    style G fill:#fff3e0
+```
+
+The SSR server routes requests based on render mode configuration in `app.routes.server.ts`.
+
 ## CSS theming
 
 `src/styles.css` is structured in 8 sections:
@@ -167,6 +269,36 @@ The SSR server ([`src/server.ts`](../src/server.ts)):
 6. **Config page** — `.config-page` and `.config-card` shown when `environment.apiUrl` is not set.
 7. **Responsive** — media queries for small screens.
 8. **Reduced motion** — `prefers-reduced-motion` media query.
+
+```mermaid
+flowchart TD
+    A[styles.css] --> B[1. Design tokens]
+    A --> C[2. Dark mode]
+    A --> D[3. Base]
+    A --> E[4. Default skin]
+    A --> F[5. Auth pages]
+    A --> G[6. Config page]
+    A --> H[7. Responsive]
+    A --> I[8. Reduced motion]
+    
+    B -->|"Change :root vars"| J[Re-theme entire app]
+    C -->|":root.dark overrides"| K[Dark mode support]
+    D --> L[Element defaults]
+    E --> M[Semantic class hooks]
+    F --> N[Auth page layouts]
+    G --> O[Config screen]
+    H --> P[Mobile responsiveness]
+    I --> Q[Accessibility]
+    
+    style B fill:#e1f5fe
+    style C fill:#f3e5f5
+    style D fill:#e8f5e8
+    style E fill:#fff3e0
+    style F fill:#fce4ec
+    style G fill:#f1f8e9
+    style H fill:#e0f7fa
+    style I fill:#f9fbe7
+```
 
 **Two restyling paths:**
 

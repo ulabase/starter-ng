@@ -1,7 +1,7 @@
 ---
 type: "Reference"
 title: "Source Map"
-description: "File-by-file guide organized by domain, covering root configuration, app bootstrap, auth pages, consents gate, setup scripts, and static assets."
+description: "File-by-file guide organized by domain, covering root configuration, environments, app bootstrap, app root, shared UI, auth pages, invitation flow, team management, account, shell, home placeholder, consents gate, setup scripts, static assets, and specs/docs."
 tags: ["source-map", "reference", "angular", "ulabase", "consents"]
 sources:
   - id: openwiki-source-76b992238575041d25a8d7ba
@@ -14,10 +14,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-13T09:56:15.372Z" }
+generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
 verified:
   - by: openwiki/0.7.2
-    at: 2026-10-13T09:56:15.372Z
+    at: 2026-10-19T08:21:09.342Z
 ---
 
 
