@@ -114,12 +114,25 @@ export default defineSetup('Angular starter', [
     apply: ({ admin, srvId }) => install(admin, srvId, 'accounts'),
   }),
 
+  // The app's name goes on the sign-in page and in every email the service sends: the Branding
+  // of the service, a feature always on, configured like every other. Color and logo stay as
+  // the console set them: the whole configuration is replaced, so they are read first.
+  step('branding carries the app name', {
+    async check({ admin, srvId }) {
+      const current = await admin.getFeatureConfig(srvId, 'branding');
+      return current['name'] === APP_NAME;
+    },
+    async apply({ admin, srvId }) {
+      const current = await admin.getFeatureConfig(srvId, 'branding');
+      await admin.updateFeatureConfig(srvId, 'branding', { ...current, name: APP_NAME });
+    },
+  }),
+
   step('accounts configured to match the app', {
     async check({ admin, srvId }) {
       const config = await admin.getFeatureConfig(srvId, 'accounts');
       const current = section(config, 'features');
       return (
-        config['app-name'] === APP_NAME &&
         config['frontend-url'] === APP_URL &&
         config['frontend-app-url'] === APP_URL &&
         Object.entries(features).every(([k, v]) => current[k] === v)
@@ -133,7 +146,6 @@ export default defineSetup('Angular starter', [
       // fields here would write bullets over a real secret.
       await admin.updateFeatureConfig(srvId, 'accounts', {
         ...current,
-        'app-name': APP_NAME,
         // Where the links in verification, reset and invitation emails point.
         // Wrong, and every one of those emails is a dead end — which is the
         // kind of failure nobody sees until a real user hits it.
