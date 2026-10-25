@@ -258,21 +258,18 @@ export default defineSetup('Angular starter with consents gate', [
     // it is readable by anyone holding the token; the `consents` history in
     // particular grows at every acceptance and no decision reads it.
     async check({ admin, srvId }) {
-      const res = await admin.fetch(`/auth-config/${encodeURIComponent(srvId)}`);
-      const config = (await res.json()) as { 'account-properties-claims'?: string[] };
-      const current = config['account-properties-claims'] ?? [];
+      // the claims are the configuration of `auth`, a feature always on, configured like every other
+      const config = await admin.getFeatureConfig(srvId, 'auth');
+      const current = (config['account-properties-claims'] as string[] | undefined) ?? [];
       return CLAIMS.every(c => current.includes(c));
     },
     async apply({ admin, srvId }) {
-      const res = await admin.fetch(`/auth-config/${encodeURIComponent(srvId)}`);
-      const config = (await res.json()) as { 'account-properties-claims'?: string[] };
-      const current = config['account-properties-claims'] ?? [];
-      await admin.fetch(`/auth-config/${encodeURIComponent(srvId)}`, {
-        method: 'PATCH',
-        // Added, not replaced: a service may carry claims of its own.
-        body: JSON.stringify({
-          'account-properties-claims': [...new Set([...current, ...CLAIMS])],
-        }),
+      const config = await admin.getFeatureConfig(srvId, 'auth');
+      const current = (config['account-properties-claims'] as string[] | undefined) ?? [];
+      // Added, not replaced: a service may carry claims of its own.
+      await admin.updateFeatureConfig(srvId, 'auth', {
+        ...config,
+        'account-properties-claims': [...new Set([...current, ...CLAIMS])],
       });
     },
   }),
