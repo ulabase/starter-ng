@@ -72,7 +72,10 @@ jobs:
           MESSAGE: ${{ inputs.message }}
           OPENWIKI_PROVIDER: openrouter
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENWIKI_MODEL_ID: xiaomi/mimo-v2.5-pro
+          OPENWIKI_MODEL_ID: xiaomi/mimo-v2.6-pro
+          # Only the first-party endpoint: OpenRouter routes this model to several providers, and
+          # some answer the runtime's requests with a 400 (AtlasCloud, 2026-10-26).
+          OPENWIKI_OPENROUTER_PROVIDER_ONLY: xiaomi
           LANGCHAIN_TRACING_V2: "false"
 
       - name: Create OpenWiki update pull request
