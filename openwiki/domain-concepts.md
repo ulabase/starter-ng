@@ -3,9 +3,6 @@ type: Domain Concepts
 title: Domain Concepts
 description: Ulabase auth model, teams, invitations, tokens, feature flags, the consents gate domain model, and the SSR/CSR boundary.
 tags: [domain, auth, teams, tokens, feature-flags, consents]
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-19T08:21:09.342Z
 sources:
   - id: openwiki-source-1b6b17b8afa47babcf26380f
     resource: repo://src/app/app.config.ts

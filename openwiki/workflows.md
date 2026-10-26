@@ -51,9 +51,6 @@ sources:
   - id: openwiki-source-15a66680fea3945936cdfe8f
     resource: repo://src/app/pages/teams/teams.ts
 generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-19T08:21:09.342Z
 ---
 
 # Key User Workflows

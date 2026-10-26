@@ -49,9 +49,6 @@ sources:
   - id: openwiki-source-cfec35e61a853579c60d6d5d
     resource: repo://tsconfig.spec.json
 generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-19T08:21:09.342Z
 ---
 
 # Testing Guidance
