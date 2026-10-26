@@ -35,9 +35,6 @@ sources:
   - id: openwiki-source-d9b845a7425932c3767a237e
     resource: repo://src/server.ts
 generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
-verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-19T08:21:09.342Z
 ---
 
 # Architecture Overview
