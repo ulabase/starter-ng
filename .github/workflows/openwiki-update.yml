@@ -75,9 +75,10 @@ jobs:
           OPENWIKI_MODEL_ID: xiaomi/mimo-v2.6-pro
           # Only DeepInfra: of the providers serving this model, Xiaomi and Novita mis-parse its
           # parallel tool calls (XML leaks into the content, the worker ends "without submit_plan")
-          # and AtlasCloud answers with a 400 (2026-10-26/27). DeepInfra's shared pool can return a
-          # 429: the page is skipped and the next update picks it up again.
+          # and AtlasCloud answers with a 400 (2026-10-26/27).
           OPENWIKI_OPENROUTER_PROVIDER_ONLY: deepinfra
+          # DeepInfra's shared pool answers 429 at busy hours, fatal in the planner: retried with backoff.
+          NODE_OPTIONS: --import=${{ github.workspace }}/.github/openwiki-retry.mjs
           LANGCHAIN_TRACING_V2: "false"
 
       - name: Create OpenWiki update pull request
