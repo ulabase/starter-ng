@@ -4,7 +4,9 @@ name: OpenWiki Update
 # wiki last did, on every release, and by hand when needed. The pull request merges by itself.
 on:
   schedule:
-    - cron: "0 3 * * *"
+    # 07:17 UTC, night across the US for DeepInfra's shared pool; off the hour, since GitHub
+    # delayed the "0 3" schedule by about five hours
+    - cron: "17 7 * * *"
   push:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+'
