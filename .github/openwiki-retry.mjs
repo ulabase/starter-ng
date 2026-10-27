@@ -2,7 +2,7 @@
 // comes back 429. DeepInfra's shared pool answers 429 engine_overloaded without a Retry-After,
 // which LangChain does not retry and OpenWiki treats as fatal in the planner and as a skip in a
 // page. The pool frees up within minutes, so waiting is enough.
-const DELAYS_S = [30, 60, 120, 240];
+const DELAYS_S = [30, 60, 120, 240, 480];
 const orig = globalThis.fetch;
 
 const sleep = (ms, signal) => new Promise((resolve, reject) => {
