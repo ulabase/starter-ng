@@ -7,6 +7,7 @@
     } @else if (error) {
       <h1>Verification failed</h1>
       <p>The verification link is invalid or has expired.</p>
+      <p>Use <a routerLink="/auth/forgot-password">Forgot password?</a> to get a new link: it also verifies your email.</p>
       <p class="auth-links"><a routerLink="/auth/login">Back to log in</a></p>
     } @else {
       <h1>Verifying your email…</h1>
