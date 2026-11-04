@@ -87,6 +87,9 @@
       @if (resendSuccessEmail()) {
         <app-alert type="success" (close)="resendSuccessEmail.set(null)">Invitation resent to {{ resendSuccessEmail() }}!</app-alert>
       }
+      @if (resendError()) {
+        <app-alert type="error" (close)="resendError.set(null)">{{ resendError() }}</app-alert>
+      }
       <ul class="member-list">
         @for (invite of invitations(); track invite.email) {
           <li class="member-row" [class.expired]="invite.expired">

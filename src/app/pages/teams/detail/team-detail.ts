@@ -35,6 +35,8 @@ export class TeamDetail implements OnInit {
   protected readonly invitationsLoading = signal(true);
   protected readonly resendingEmail = signal<string | null>(null);
   protected readonly resendSuccessEmail = signal<string | null>(null);
+  // the server's reason when it refuses a resend: too many for this invitation, or too soon
+  protected readonly resendError = signal<string | null>(null);
   private readonly resendCooldowns = signal<Record<string, number>>({});
   private static readonly RESEND_COOLDOWN_MS = 5 * 60 * 1000;
 
@@ -107,6 +109,9 @@ export class TeamDetail implements OnInit {
     this.invitationsLoading.set(true);
     this.auth.listInvitations().subscribe({
       next: invitations => {
+        // the last send of each pending invitation, so the resend button counts down from it: the service
+        // refuses a resend within 5 minutes of it
+        this.resendCooldowns.update(cooldowns => withLastSends(cooldowns, invitations));
         this.invitations.set(invitations);
         this.invitationsLoading.set(false);
       },
@@ -159,6 +164,7 @@ export class TeamDetail implements OnInit {
   resendInvite(invite: PendingInvitation): void {
     this.resendingEmail.set(invite.email);
     this.resendSuccessEmail.set(null);
+    this.resendError.set(null);
     this.auth.resendInvite(invite.email).subscribe({
       next: () => {
         // Same timestamp for both, so the countdown starts at a clean 5m
@@ -169,7 +175,11 @@ export class TeamDetail implements OnInit {
         this.resendCooldowns.update(cooldowns => ({ ...cooldowns, [invite.email]: at }));
         this.now.set(at);
       },
-      error: () => this.resendingEmail.set(null),
+      error: (err: unknown) => {
+        this.resendingEmail.set(null);
+        const e = err as { message?: string };
+        this.resendError.set(e?.message ?? 'Something went wrong. Please try again.');
+      },
     });
   }
 
@@ -253,4 +263,14 @@ export class TeamDetail implements OnInit {
       },
     });
   }
+}
+
+/** The cooldowns with each pending invitation's last send, when later than the one already known. */
+function withLastSends(cooldowns: Record<string, number>, invitations: PendingInvitation[]): Record<string, number> {
+  const next = { ...cooldowns };
+  for (const invite of invitations) {
+    const at = invite.createdAt && !invite.expired ? Date.parse(invite.createdAt) : NaN;
+    if (!Number.isNaN(at) && at > (next[invite.email] ?? 0)) next[invite.email] = at;
+  }
+  return next;
 }
