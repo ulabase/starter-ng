@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:27634ec00cbacb1ef41655ec8ecb75a935c430dc448bfccf686e6bbbca05d80d",
+  "pageVersion": "sha256:8675056710df78b001ffbe0e7c5f3699c0f2f871ad3757a940955a67aecf1fcc",
   "claims": [
     {
       "id": "claim_2c280c21ab08438e8b90ba869e38ee6f",
@@ -24,21 +24,29 @@
     },
     {
       "id": "claim_bf9b2f0192834c23a57b67286fde71a7",
-      "statement": "The `ulabase.setup.ts` script provides declarative setup for the accounts plugin: installs the plugin, configures feature flags derived from `environment.dev.ts`, sets Google OAuth credentials if enabled, and adds the app origin to the CORS allowlist.",
+      "statement": "The `ulabase.setup.ts` script provides declarative setup for the accounts side of the service: installs the `accounts` plugin, sets the `branding` feature's `name` to `APP_NAME` (env `APP_NAME`, default 'Ulabase Starter') while preserving console-set color/logo, configures `frontend-url`/`frontend-app-url` and derives the server's `features` toggles from `environment.dev.ts`, sets Google OAuth credentials if the app offers Google, adds the app origin to the `origin-allowlist`, and finally points `environment.dev.ts` `apiUrl` at the service via `appPointsAtService`.",
       "evidence": [
         {
-          "resource": "repo://ulabase.setup.ts#L1-L219",
-          "version": "repo-lines-v1:sha256:47e40d2c6fd89b0146ffbf874d37af3fcba203039dba502c9038271bf6772c79:eyJzZWxlY3RlZExpbmVDb3VudCI6MjE5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://ulabase.setup.ts#L36-L64",
+          "version": "repo-lines-v1:sha256:e7fa0509581f36807e4a7576745825fa1d9dc45727fe2fb9ccedc2c913f272d9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzMDc1ZWYxNDNlN2VmZGUwOWFiYzllZTMwODI2YTdkMjdkNGFiNGZkMzQ0Yzc2YzQzYTg0YjFlN2YyZjc0YTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRiYTc5ODRlZDVjMWYxMjg2YzAyMjNmNjZjZDg1NTcwYzRkOGM3YzhkNzMyMWIyMWQyMzFkZGJiYjgzZThmMzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyMmMxZDQyNGM4YmUzYTY1OTA0MzYyMGU0Nzc4NmNlNDQxOTI0NTVmMzI2YTUyNTFlYmY3ZmRiNjA0NDE0N2QifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L96-L231",
+          "version": "repo-lines-v1:sha256:cf731074a5f28518cd93335eef3592e9454cf438cd90075d56b00bbd0eda37e9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJmMTljMDdlYTJkNTAyZmQ1NTNkZTgzNWE4MzU3YjYxMTg5YTBkNjE5OGE1M2ExZDlhY2E1OGY2Mjg1MGMzY2E5IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI4NzE4ZDc0MjNiY2JjMzEwMWU3MjY3YTY3NDhkZDA3NDRlZDVhYWJlOWRmOGU4Yzc5YjJlOGJmMDM3YWM3MDVhIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         }
       ]
     },
     {
       "id": "claim_6176e9d47fb740609e42fbd68753f3b8",
-      "statement": "The `ulabase.setup.consents.ts` script extends `ulabase.setup.ts` with the consents gate by importing the accounts steps and adding a user schema with `latestConsents`/`consents` fields, a permission allowing users to PATCH their own consents, JWT claims for the two version strings, and a Guards rule that blocks users who haven't accepted the current ToS/Privacy Policy with HTTP 451.",
+      "statement": "The `ulabase.setup.consents.ts` script extends `ulabase.setup.ts` with the consents gate by spreading the accounts steps (minus `appPointsAtService`, kept last) and adding a user schema with `latestConsents`/`consents` fields, a permission allowing users to PATCH their own `consents` (server stamps `latestConsents` and pushes to the `consents` history), JWT claims `latestConsents/tos` and `latestConsents/pp` appended to the `auth` feature's `account-properties-claims` config (there is no separate `/auth-config` endpoint), and a `guards` rule that blocks users who haven't accepted the current ToS/Privacy Policy with HTTP 451.",
       "evidence": [
         {
-          "resource": "repo://ulabase.setup.consents.ts#L1-L324",
-          "version": "repo-lines-v1:sha256:99ce3ce036e5fb0c80977d294a69a449d66ce3154f883d075f8aa1e3c94221b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MzI0LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://ulabase.setup.consents.ts#L183-L321",
+          "version": "repo-lines-v1:sha256:2a289b5a8ccdd0b92625d8ce587c47a0494725ae046b2508608e84910a9a52df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM5LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxNWQ1NmUzNmRjYWUzZWNhNmY4MTE3MmY5MGVkMTg2MWQ5MmZjMGU5NjcwZTY4ZTg1MDc0ZGQxYWE4YWNiYzY3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0YzJjNzYxYzBhMjIyMWFhNzljNzA1OTY2NWQ1ZGMyNzg1MWNkOTNiYWY1ODg3ZDBmM2M2NzAyYjZiZmZhYjFhIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        },
+        {
+          "resource": "repo://ulabase.setup.consents.ts#L48-L49",
+          "version": "repo-lines-v1:sha256:b7b6899c89e54f60d51787b6fdd8e1d2be7f99371923107e61468f86372abacd:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Q1OWE5MDAxYmQwODI2ZjFjNGFmNGM0OWFhYzVlZDYzNDg1YTA4MjdjNTQ1Y2RlY2M5YTdlMTM4YmZkMDNmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGJlZWJiNjgzZTJmZTBlYjVlY2ZlNjViY2YwZmQ1ZDViZjM0YzE3YzU4NjNmMTg5MjQ4NDBiNzdjNTJmZDFlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQ1ZmMxYmZjZTg5NTI5N2Y2NDAyMGQ0NmEwOGYyMTRkZTU3YzFmYmI5YzMzMjc4NjQ2MDk0MjA4OWIxOTczNiJ9"
         }
       ]
     },
@@ -65,10 +73,66 @@
           "version": "repo-lines-v1:sha256:77701573706c41ce644cfce45f61dc88b1540a544b9482ac54ddc1adab93b8b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1NGIzM2QwZjI1YmQ5NDQ3ZjQyNDVjZmI4MTFhNTY4YTc4ZDRlNGMzMWJhMTg4OGU0Y2UyNmMzMWM0ZjBiZjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNkMmI0ODhmYWE5ZTgzZjg0ZTI4ZmY3OThhNDIxZmE4NzQ0NDdhODE4MmMxOGE2YjgzZDJkZjRlMWIzNGJiNDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ5NzIwNGJlMmYxOTE2OTAzYTQwMWQ5YzZlMDkwOTk5MGVlYjNhYWI5MTY0YmVjNjIzNjkwZDA5ODk1M2Y1NWIifQ"
         }
       ]
+    },
+    {
+      "id": "claim_e380a4993c6c407190f19c0b39105bac",
+      "statement": "The `Login` component surfaces backend `?error=` redirect messages on load, mapping `invalid_token` and `token_expired` verification failures to messages that direct the user to 'Forgot password?' (a new link that also verifies the email).",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L8-L38",
+          "version": "repo-lines-v1:sha256:f24977d49aae3364f4de144dd97c8507d025a916456a12b96b90a1d2d6e4036c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkMTJjMmVhZDgzOTIwZjBmNmViYjg2ZjRjMTkyNjExOWE2ZTViZDUzN2FjMmE5ZGY2NGM4NGJhOTMzNWI2OWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY4YTg3YWUxNTgxNjVhNzE2YzQ2NGNjNjM4NzliMDQ5YTNlZmY0N2FlN2YyNjNmNWUwNWQ5ZjM5ZTM2NjdlYWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZiNTc0YzIyYTM5YTIyNGMxYTg1N2QzNDI5YzM3MGJhNTNmNWQ2MDk4ZWVmMWY1YjVjNGU1NzAwYjg2NzZhZTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_99b17b3cbc364814807c5f7ce8ceb536",
+      "statement": "The `Verify` template renders three states: missing query params ('Invalid link'), verification failure (with a 'Forgot password?' recovery link that also verifies the email), and an in-progress spinner; `verify.ts` calls `auth.verify()` only in the browser when params are present and no error was passed.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/verify/verify.html#L1-L17",
+          "version": "repo-lines-v1:sha256:53a4f4e7594dd4e4e54ff3c904b8abe88f892ab81e3b52f0a504d029c1a879a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRkODZkZDY5MTAzNDRkNGY3ZjkwNmYyNmVjMGU1ZDMyODZhN2ZlMjlkMTQ4MjZlMDI0NjliZjk4MTc3MTI0YzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1MjlhODIxYmE0ODhiMDhkNzk2ODgwN2UzOTVmMjJmODIwYWY5OWQ0MWY4MmZmZTc3ZGUxODIwMGQyMDA3YjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/verify/verify.ts#L1-L34",
+          "version": "repo-lines-v1:sha256:b6cedc6edf6979d8ce3360e5a4431e02446884f986fc45b8952b7fcfc865bea1:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlNjA1YTVlYzg4Yjk4ODY3YWE5MmFhNGU5ZDI1YTczZTQ1OWViODY2NmUwZjIwOGM5ZTM1MzgyMjhmOTBhMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d5527c5358a8490896ff215e4399cbb7",
+      "statement": "Team detail enforces a 5-minute invitation resend cooldown derived from each invitation's last send (seeded from `createdAt` and reset on a successful resend), driven by a ticking `now` signal updated every 30s so the countdown label stays accurate under zoneless change detection; the template renders `Wait {n}m` / `Resend` accordingly.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.html#L108-L120",
+          "version": "repo-lines-v1:sha256:e5acca4faba841383367be1e39f1269b81c7fdf16738da4bccdb9009d2efc3a8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxNjM3OGMxZDJkNTYzYjdiOTA1ODg1MWRhMDY5ZmZmZmM5YWQ4YTUwY2ZiNWRiZTYyYWZhNTJlYTA4ZTYyOGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQzODJmMjUyNDAxMTJiNjExNGUzZDMxNTg4ZDU2ODAxNjA1Y2YxMWI2NWFlMDczZjk0OTk0YTNiYzBhOThmMzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA1ZTI5NzhiZjA2OWM3YWI0MmM1OWRjYmMwNDg5NDIzNGMxZjFkNjBmNDJiMzlhM2Y4ZDU1NTk3ODY2OTMxYWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM0MDU5ZjExZTcwMWYyY2EzNTIwOGY3YWZkYzQ3ZjQyYWQyNGU5ODk1ZjUzZWJjOWI0YTRlM2M3YWM5ZmJiNDYifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L183-L199",
+          "version": "repo-lines-v1:sha256:38652604aa71f722fd9ee7d1381b417d4687f030fd18f22e5ee0ef57d4e36044:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyZDExY2FmNDNlOTdlZjM2OWU2YmVlZDFhMjY4YmQwNTgzOGYyOWI5ZGQyNTRiZjY5YmE2NDg4NDE0NzIzNGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRhYzA1NDIwODUxMWFlNmU4OTI4OTQ2ZjZjNTQ2MTNiOTY0ODA2NWRmNzA0OTI2MWMxOTNmM2I1NTlkM2M4NjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzMDg2NmNlMzFkYmNhYTdmODM2YjI1M2UwYmVhOGI3OTY1YWRhNzE0NWU3YzZhN2JmNGI2Nzg1YTA0YWQ3MDcifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L39-L50",
+          "version": "repo-lines-v1:sha256:6635450645047f2a1eb7ce5a1012f493cf1273faca105e39ba7ac87f5efcd370:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM0ZTExNmQ1NmYzMDdjMGQxYzVmNjc5ZTBmZTRhNDAzNjNmZjgyMzhkMmVlZTA5ZWRjMDA1ZDQwNjNhMWM2ZWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhMzk1MDdmOTdhZmQxNDI4NDQ1Y2M3OGIzYTg4MmI2YmVlNzIwMjdjMjFmN2FiZTViYWE3ODFiMzBhN2UyNTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyNzkwNmVlNDc4NWRjYWQ1Y2FkZGFhZDkxYjY1MjA1NjkyYjkxZjQ5MmFhN2Y3YjljMmMxNGY1ZTc1OWI5ZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmYWE2ZGE5MDNjYWZiNmI3YjJjNWUwNDdjZTAwNzg4Yzg4N2M2ZjcyMGQzN2FlNDE4Zjg1YWRkZTEzYTBjOTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c90dc554be546cfbe6f69eaf9485fbf",
+      "statement": "The OpenWiki update workflow (`.github/workflows/openwiki-update.yml`) runs nightly (when code changed since the last wiki update), on release tags, and on manual dispatch; it installs OpenWiki, runs `openwiki code --update` (or `--init`) pinned to `xiaomi/mimo-v2.6-pro` on DeepInfra only, and auto-merges the resulting PR. `.github/openwiki-retry.mjs` is preloaded via `NODE_OPTIONS=--import` to retry OpenRouter 429 responses with exponential backoff (30s–480s).",
+      "evidence": [
+        {
+          "resource": "repo://.github/openwiki-retry.mjs#L1-L26",
+          "version": "repo-lines-v1:sha256:486cca28314636e900c362359d766a6b93f4701b82c741a07fb34c04d8b3079e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc0Mjg0NzdjYTM1MDNhNzRmZWRiZjZlYjQ5N2QzYzcxYjc5NmI4ZmYxMjVlODJkMGQyNDJiZTE5NzZhNWYyMTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L113",
+          "version": "repo-lines-v1:sha256:0443790999013a628c7f8ad0d45007081b6f1fadd07bf5019e66be579b1ad11f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEzLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwNjAyNzg3YWY2ZGNjMDgzNGRlMTIxY2JiMWNiOTVmOTQ1OWI3MjFlYWIwMzQ5ZjEwNTAxYjk5NmMxYzc3ZmZmIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJlZjNkMWIxYjMwMjhmMGE0OTUzNGMwZjE3MmI5MWNlZmEwMWZkNzIzMmZmNjQzNGU1NzVlY2Q1MzllMzBjNjA3IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.7.2",
-    "at": "2026-10-19T08:21:09.342Z"
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-05T15:32:19.341Z"
   }
 }

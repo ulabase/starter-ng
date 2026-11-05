@@ -30,6 +30,10 @@ sources:
     resource: repo://src/app/pages/auth/reset-password/reset-password.ts
   - id: openwiki-source-cc2a121090704e17ef477a1b
     resource: repo://src/app/pages/auth/signup/signup.ts
+  - id: openwiki-source-03114a222c1d480c1768dc28
+    resource: repo://src/app/pages/auth/verify/verify.html
+  - id: openwiki-source-589e48d9bfc28be24f331f93
+    resource: repo://src/app/pages/auth/verify/verify.spec.ts
   - id: openwiki-source-3815a7c2c47aef567cc71dbc
     resource: repo://src/app/pages/auth/verify/verify.ts
   - id: openwiki-source-4ee5b369bfab7a3e360fd7bd
@@ -48,10 +52,10 @@ sources:
     resource: repo://TEST-CASES.md
   - id: openwiki-source-cfec35e61a853579c60d6d5d
     resource: repo://tsconfig.spec.json
-generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
 verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-19T08:21:09.342Z
+  - by: openwiki/0.9.0
+    at: 2026-11-05T15:32:19.341Z
 ---
 
 # Testing Guidance
@@ -75,7 +79,7 @@ verified:
 | `src/app/pages/account/account.spec.ts` | `Account` |
 | `src/app/pages/shell/shell.spec.ts` | `Shell` |
 
-Most specs follow the same pattern: configure `TestBed` with `provideRouter([])` and a mock `RH_AUTH_CONFIG`, then assert `expect(component).toBeTruthy()`. The `OauthButtons` spec omits both the router and `RH_AUTH_CONFIG` (the component has no router dependency) and instead sets its `providers` input via `setInput()`. No form submission, navigation, guard, or HTTP behavior is tested.
+Most specs follow the same pattern: configure `TestBed` with `provideRouter([])` and a mock `RH_AUTH_CONFIG`, then assert `expect(component).toBeTruthy()`. The `OauthButtons` spec omits both the router and `RH_AUTH_CONFIG` (the component has no router dependency) and instead sets its `providers` input via `setInput()`. No form submission, navigation, guard, or HTTP behavior is tested. In particular, `login.spec.ts` and `verify.spec.ts` assert only component creation — they do not exercise or assert any error-message copy or link messaging.
 
 **Test runner:** Vitest via `@angular/build:unit-test` builder (configured in `angular.json`). Run with:
 
@@ -107,6 +111,7 @@ The full checklist is in [`TEST-CASES.md`](../TEST-CASES.md). Key sections:
 - OAuth button rendering and URL construction
 - Form validation (required fields, email format, password length)
 - Error message display for each HTTP status code
+- Expired-verification error copy: when a verification link fails with `token_expired`, the login page shows a message that points to **"Forgot password?"** and states that it also verifies the account (see `ERROR_MESSAGES` in `login.ts`). The verify page template (`verify.html`) shows the same guidance for an expired link. Neither `login.spec.ts` nor `verify.spec.ts` asserts this copy — verify it manually.
 - Network tab: verify no extra `POST /token` after activate/reset-password (bearer mode returns token directly)
 
 ### Invitation flow (`pages/invitations/*`)

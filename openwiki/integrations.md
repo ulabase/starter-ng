@@ -4,6 +4,8 @@ title: Integrations & Dependencies
 description: "@ulabase/kit, kit-ng, Ulabase service, OAuth providers, the ulabase CLI tool, and OpenWiki CI integration."
 tags: [integrations, kit, ulabase, oauth, ci, cli]
 sources:
+  - id: openwiki-source-da4c48207f961ff0d7aa1fff
+    resource: repo://.github/openwiki-retry.mjs
   - id: openwiki-source-6d4b4e707b8d60b6ccfa3425
     resource: repo://.github/workflows/openwiki-update.yml
   - id: openwiki-source-5b54a58d1b51cd490b0e7162
@@ -38,7 +40,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
+verified:
+  - by: openwiki/0.9.0
+    at: 2026-11-05T15:32:19.341Z
 ---
 
 # Integrations & Dependencies
@@ -171,11 +176,16 @@ Each setup file exports a `defineSetup(...)` call containing an array of `step(.
 - `isApiError` — type guard for API error responses (used to treat `409 Plugin already installed` as success)
 - `AdminClient`, `FeatureConfig` — types for the admin API
 
-**What the setup configures:**
-1. Accounts plugin installation and feature flag alignment
-2. OAuth provider credentials (currently Google) — only when the app's feature flags say so
-3. CORS origin allowlist — ensures the app origin may call the service
-4. (With `ulabase.setup.consents.ts`) User document schema, guard rule, and consents permission
+**What the setup configures** — the steps of [`ulabase.setup.ts`](../ulabase.setup.ts), in the order they run:
+
+1. **Accounts feature installed** — `installFeature('accounts')`, treating `409 Plugin already installed` as the success it is
+2. **Branding carries the app name** — the branding feature's `name` is set to `APP_NAME` (env `APP_NAME`, default `Ulabase Starter`), the name on the sign-in page and in every email the service sends; color and logo stay as the console set them, preserved by read-modify-write
+3. **Accounts configured to match the app** — `frontend-url` and `frontend-app-url` are set to `APP_URL` (env `APP_URL`, default `http://localhost:4200`), and the server's feature toggles are derived from the same `environment.dev.ts` the app imports (`registration` and `verification` both from `emailRegistration`, then `password-reset`, `invitations`, `oauth`)
+4. **Google OAuth credentials** — only when the app's flags say it offers Google (`oauthLogin` on and `oauthProviders` including `google`); `client-id`/`client-secret` are resolved with `fromEnv('GOOGLE_CLIENT_ID')`/`fromEnv('GOOGLE_CLIENT_SECRET')` only when not already stored, so a re-run against a configured service needs no secrets
+5. **The app origin may call the service** — installs `origin-allowlist` if needed and adds `APP_URL` to `allowed-origins` (added, never replaced, so a service reached from several origins keeps them all)
+6. **`appPointsAtService`** — last, on purpose: it writes the service URL into the `apiUrl` line of `src/environments/environment.dev.ts`, so a setup that stopped halfway leaves the "connect your service" screen rather than a sign-up page that fails
+
+(With [`ulabase.setup.consents.ts`](../ulabase.setup.consents.ts)) the user document schema, its attachment to `/users`, the consents permission, and the guard rule are inserted after the accounts steps and before `appPointsAtService`, which the consents file re-imports so it stays last.
 
 ```mermaid
 flowchart TD
@@ -196,13 +206,14 @@ flowchart TD
 
 The repository has an OpenWiki GitHub Actions workflow at [`.github/workflows/openwiki-update.yml`](../.github/workflows/openwiki-update.yml):
 
-- **Schedule:** cron `0 3 * * *` (nightly at 03:00 UTC), push of version tags (`[0-9]+.[0-9]+.[0-9]+`), and manual `workflow_dispatch`
-- **Change detection:** on scheduled runs the workflow compares the repo since the last `openwiki/` commit and skips the run when nothing changed, avoiding unnecessary API cost; release-tag and manual runs always proceed
-- **Action:** runs `openwiki code --update --print` (or `--init` on the first run when no wiki exists), creates a PR with documentation updates
-- **Model:** `xiaomi/mimo-v2.5-pro` via OpenRouter
-- **Tracing:** disabled
+- **Triggers:** nightly cron `17 7 * * *` (07:17 UTC — deliberately off the hour, since GitHub delayed a previous `0 3` schedule by hours), push of version tags (`[0-9]+.[0-9]+.[0-9]+`), and manual `workflow_dispatch` with an optional `message` input passed to OpenWiki as an instruction for that run
+- **Change detection:** on scheduled runs only, the workflow takes the last commit that touched `openwiki/` and counts files changed since it, excluding `openwiki/`, `AGENTS.md`, and `CLAUDE.md`. If nothing else changed it stops before installing OpenWiki or spending API credits. Release-tag and manual runs always proceed.
+- **Action:** checks out `main` (also on tag runs, where the checkout is a detached HEAD from which no pull request can be opened and the wiki describes `main` anyway), runs `openwiki code --update --print` (or `--init` when no wiki exists yet), and creates a PR with documentation updates
+- **Model:** `xiaomi/mimo-v2.6-pro` via OpenRouter, pinned to the `deepinfra` upstream (`OPENWIKI_OPENROUTER_PROVIDER_ONLY`) because the other providers serving this model mis-parse its parallel tool calls or answer `400`
+- **429 retry:** `NODE_OPTIONS` preloads [`.github/openwiki-retry.mjs`](../.github/openwiki-retry.mjs), which wraps `fetch` to retry OpenRouter `/chat/completions` calls that answer `429` with backoff (`30, 60, 120, 240, 480` seconds) and gives up on the attempt after the 480s delay; only requests with a replayable string body are retried. DeepInfra's shared pool answers `429 engine_overloaded` without a `Retry-After`, which LangChain does not retry and OpenWiki treats as fatal in the planner.
+- **Tracing:** disabled (`LANGCHAIN_TRACING_V2: "false"`)
 
-The workflow commits to branch `openwiki/update` and creates a PR via `peter-evans/create-pull-request`. It updates paths under `openwiki/`, `AGENTS.md`, and `CLAUDE.md`. The PR is auto-merged (squash, delete branch) so the wiki stays current without manual intervention.
+The workflow commits to branch `openwiki/update` and creates a PR via `peter-evans/create-pull-request` limited to `openwiki/`, `AGENTS.md`, and `CLAUDE.md`. The PR is auto-merged (squash, delete branch) so the wiki stays current without manual intervention.
 
 ## Angular ecosystem
 

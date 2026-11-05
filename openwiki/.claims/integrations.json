@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:8b1b7415b4b614fc1da0d030396d599da0d8544e17a74c88cd334827dc228bb8",
+  "pageVersion": "sha256:57cc46cdf8d0f07722db063fdee8fc8455032d99fd1ecd6266260daa0dc07ad5",
   "claims": [
     {
       "id": "claim_542c5ac2d3bd493d811ec62e545e670d",
@@ -122,7 +122,7 @@
     },
     {
       "id": "claim_b64a23473aa34ef39f94d9b8547f542d",
-      "statement": "@ulabase/cli (^0.13.6 dev dependency) provisions a Ulabase service via ulabase login and ulabase setup commands; setup files use defineSetup/step DSL with check/apply pairs, and --dry-run runs checks only to report what is missing.",
+      "statement": "@ulabase/cli (^0.13.6 dev dependency) provisions a Ulabase service via ulabase login and ulabase setup commands; setup files use defineSetup/step DSL with check/apply pairs, and --dry-run runs checks only to report what is missing. ulabase.setup.ts's step list (in run order) installs the accounts feature (treating 409 Plugin already installed as success), sets branding's name to APP_NAME via read-modify-write so console-set color and logo survive, configures accounts with frontend-url/frontend-app-url set to APP_URL and feature toggles derived from the same environment.dev.ts the app imports (registration and verification both from emailRegistration, then password-reset, invitations, oauth), adds Google OAuth credentials from GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET via fromEnv only when not already stored and only when the app's flags offer Google, adds APP_URL to the origin-allowlist's allowed-origins (added, never replaced), and finally runs the exported appPointsAtService step which writes the service URL into the apiUrl line of environment.dev.ts so a half-finished setup leaves the connect-your-service screen rather than a failing sign-up page.",
       "evidence": [
         {
           "resource": "repo://package.json#L34-L34",
@@ -133,12 +133,20 @@
           "version": "repo-lines-v1:sha256:5c7f65f35743f82db7aaf6221bd0c1adb5c3b3c89e5ca13f022bd3f43b00db4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyM2NiNGMxM2Q2Nzc1OWQ1NGY3NjcxZDQ0MDM0OTcyZDA5MDNhMzlkMDhhZmFlNzNiYjk4MWViOWFiMGRjZjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY3MDA0NmVlMmFhYTRhMTU4M2Y2ZjAwYTA4Njc5ZmJlZDMzMjJhMDgxMjU3Y2E4N2RhNjkwNGU0Y2UwYjQ4NmUifQ"
         },
         {
-          "resource": "repo://ulabase.setup.ts#L31-L33",
-          "version": "repo-lines-v1:sha256:b56e1c09603e6ea191ddd048dedc71c619699e56ea7f3cdbe7aabfe8540543dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM1MjUyMzk5ODdhNzQ2MDQ0ZDMyM2I0NzlkNjg3ZGZhNDE4NGM0N2E0ZjdkZTgyYjcwM2IxOGQ4MjM5YjM5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTcyMWUxNWYzODYxN2NjMWQwMGU3NjE3MGQ5MmJmYTc5YWQ5NjBiNjBlZTFiMGY5NDA4NzFiOWM4ZDg2M2Q2NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmZlZTcyMGJkMDViODliOTljYTY2MTBlYjg3OTM5MzA0NjgzZDY4ZDU3ODZhNzJjYTVkZTIwYjExMmExYzg0NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzFmNDI4OTc3NmY0NjE2Zjg5MTJjMzE3OWNjZjgyYWJlNWEyNzhkZDMyODA5Y2E0OThmMTVhMmY1NDJkMTY0ZSJ9"
+          "resource": "repo://ulabase.setup.ts#L111-L230",
+          "version": "repo-lines-v1:sha256:0ee216fbdbc19c7ee79a805e903a8487c0ae80138beed3c72c11f7aa8255f070:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIwLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJjYzBmYWE4MDFkODMxZTk2ZWYzYzgyODdlODQ0MmQ5OGYwZDZiMGNlODdlZWIzZWEzNDEyOTM0ODAxMjFkMTU3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIxNmEzMThhMjAwZDc3N2YwMmEwNmVkZWNkZGJiZTZlMWUwNzFmM2QxMmMxOGU2ZjhkM2FmYTI4MWVhNzk1MTZlIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIxMzgzYWMxOTk4YWQ4ODI4ODQ1YzcwZWRmZjlkMjVmY2M3ODk1N2Y1NTMwYTc5ODM4ZDUxODRhMWUxNzBmZTQyIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MSwiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIn0"
         },
         {
-          "resource": "repo://ulabase.setup.ts#L82-L219",
-          "version": "repo-lines-v1:sha256:fb0e022863a76dd32a4ffcaad722bebc5fdfed06c4bc4bc49365119c3e79e73f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM4LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJlYWYyMmNmMDczMjU5MmMyNDcxNDFjYmU2MWVmYTExMDEyNjEyZjVhMzEyMmI5YWY5YmJhZjUyZjU3MjRkMTk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI3MjEyOWMyNzM1MmI0OTU1NDhiMDcxYWUzNGFiOTA4MTE3Mjg3MzQyOGY2Zjg3ZjU0YjU4MGU1MTUzYzlhYTAyIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://ulabase.setup.ts#L31-L31",
+          "version": "repo-lines-v1:sha256:0c525239987a746044d323b479d687dfa4184c47a4f7de82b703b18d8239b392:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM1MjUyMzk5ODdhNzQ2MDQ0ZDMyM2I0NzlkNjg3ZGZhNDE4NGM0N2E0ZjdkZTgyYjcwM2IxOGQ4MjM5YjM5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM1MjUyMzk5ODdhNzQ2MDQ0ZDMyM2I0NzlkNjg3ZGZhNDE4NGM0N2E0ZjdkZTgyYjcwM2IxOGQ4MjM5YjM5MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmZlZTcyMGJkMDViODliOTljYTY2MTBlYjg3OTM5MzA0NjgzZDY4ZDU3ODZhNzJjYTVkZTIwYjExMmExYzg0NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDdiOTA5ZjFiZDVhZGRlN2Q5MWY3MmU5MjYyZDAzN2U0ZGFiYTJhZmQ2ZDhhYTU3NTEyMmU3YmQ3Y2Y5MzNhYSJ9"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L44-L57",
+          "version": "repo-lines-v1:sha256:a6cb91f8418c1dd11d2dc0b7ac728d6c6c81d2147d3b317be621bb4d0ca1488e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxOGE4YzQ1ZmViYTIxZmEzMDZjYmNiMjViOTI5OGE0OGVjM2Y1ZjgwZTk2MTFmMmE2OGNkNzU0YzU1NGNkYTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3MmE0MjkzODJiMmUxNDcxOGUwZTM3YjA1NzBhOGExNzAyOTkxZmNkODQ5OGNkODQwNjBhOGJmNGYwNTAxN2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc1OGNmZDQ1OGM4ODdlZDM2NzI2YmE2YzEzZTNlN2MxZmVhYWNiZDhiYmY0MjUyY2MwZDAzZGZmMGYyZDE0ZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFkZGE3ZWMyYjUwNGRmNWZmZDAxYTg4YWUzOTg2OTZmNzNiYjA5NjgwY2FlMzEzMWEyMDJkYWNiY2U0MTdiY2QifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L96-L111",
+          "version": "repo-lines-v1:sha256:48ebaa6247ca58edf2de8a8aefcb467bb185977de7a3a9712f63babe7b6356a1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxOWMwN2VhMmQ1MDJmZDU1M2RlODM1YTgzNTdiNjExODlhMGQ2MTk4YTUzYTFkOWFjYTU4ZjYyODUwYzNjYTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNjMGZhYTgwMWQ4MzFlOTZlZjNjODI4N2U4NDQyZDk4ZjBkNmIwY2U4N2VlYjNlYTM0MTI5MzQ4MDEyMWQxNTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3MThkNzQyM2JjYmMzMTAxZTcyNjdhNjc0OGRkMDc0NGVkNWFhYmU5ZGY4ZThjNzliMmU4YmYwMzdhYzcwNWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1MzljODAyNjczZGUyNTYzZmNjN2Y3OWUwYTUzMGNkYjk1YjMzYTQ4ZjUxMWZmYzA2NmMwMTg2OGM4OTcyZTUifQ"
         }
       ]
     },
@@ -166,11 +174,27 @@
     },
     {
       "id": "claim_2fdd7216bf484cc5a457fb99df0ac736",
-      "statement": "The OpenWiki GitHub Actions workflow runs on a nightly cron schedule (0 3 * * *), on push of version tags matching [0-9]+.[0-9]+.[0-9]+, and on manual workflow_dispatch; it uses xiaomi/mimo-v2.5-pro via OpenRouter, checks whether source files changed since the last wiki update before spending API credits on scheduled runs, and creates a PR on branch openwiki/update updating paths under openwiki/, AGENTS.md, and CLAUDE.md; the PR is auto-merged (squash, delete branch).",
+      "statement": "The OpenWiki GitHub Actions workflow runs on a nightly cron schedule (17 7 * * * i.e. 07:17 UTC, deliberately off the hour), on push of version tags matching [0-9]+.[0-9]+.[0-9]+, and on manual workflow_dispatch with an optional message input passed to OpenWiki as a per-run instruction. On scheduled runs it gates on changed paths: it finds the last commit touching openwiki/ and counts files changed since it excluding openwiki/, AGENTS.md, and CLAUDE.md, stopping before any API spend when nothing else changed; release-tag and manual runs always proceed. It checks out main (even on tag runs, where a detached HEAD cannot open a PR), runs openwiki code --update --print (or --init when no wiki exists) with OPENWIKI_MODEL_ID xiaomi/mimo-v2.6-pro via OpenRouter pinned to the deepinfra upstream and NODE_OPTIONS importing .github/openwiki-retry.mjs, then creates a PR on branch openwiki/update limited to openwiki/, AGENTS.md, and CLAUDE.md which is auto-merged (squash, delete branch). openwiki-retry.mjs wraps fetch to retry OpenRouter /chat/completions requests that answer 429 with backoff delays of 30, 60, 120, 240, and 480 seconds, returning the 429 as-is after the final 480s attempt; only requests with a replayable string body are retried, and DeepInfra's 429 engine_overloaded responses (no Retry-After) would otherwise be fatal in the OpenWiki planner.",
       "evidence": [
         {
-          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L105",
-          "version": "repo-lines-v1:sha256:50e64f7f44d5b5d5c6db179b0d1dee682c7b2d1b81d09aff1e33d02ab82b1533:eyJzZWxlY3RlZExpbmVDb3VudCI6MTA1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwNjAyNzg3YWY2ZGNjMDgzNGRlMTIxY2JiMWNiOTVmOTQ1OWI3MjFlYWIwMzQ5ZjEwNTAxYjk5NmMxYzc3ZmZmIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJlZjNkMWIxYjMwMjhmMGE0OTUzNGMwZjE3MmI5MWNlZmEwMWZkNzIzMmZmNjQzNGU1NzVlY2Q1MzllMzBjNjA3IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+          "resource": "repo://.github/openwiki-retry.mjs#L5-L23",
+          "version": "repo-lines-v1:sha256:30049902ece6f9605f98968c26d5c1a8388d68099cfef23bc29e82ede392ed37:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwZDhjYzNlM2RhOTdkMDBkYTZkMzUwMWEwM2QwMmZkZTNiM2JkOGQyMDY0ZWRmMDJhOTlmMjVjZWIxYTRjZDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA1YTA0N2U5YzcxZDkxY2NhYWQ0MzZkNTNkZWRlZGE0ZDdhYTZjODMxNjlhNWIwZDA2MWViNDNkMzFiODU3YzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdjMzc2NWMyN2YwN2NmNWQ5MGM5ODEwZWE0M2UxZTRlNTkzYWJmYjIwNzNmODJhZTI4ZTMxODUwMWUyYzY1OTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJlYWQ4OThmMjUwYzI5YTdlYmViNDM5YWFmM2ZhNjZkMDQ3MDJhOWYwNTQxYzE3MjA5ZmU5MWU1MDdmZDBiMjAifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L46-L58",
+          "version": "repo-lines-v1:sha256:2d402c74f6bfcc0a75b01a252b2355c9b1977430566a649c58822b7ba39b8ca7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmZmNmMjUwZDQwMjY2ZTc4ZjM3NGEzYWM4OTcwMzE4YzRhZGI5MDlhNjc2MGMzYzlkOGUyZDk3OWU1NzM1NWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExYjExOWM4NmYzZGI2MGFhZThiMzdhOWFmMGRlNmIxYzk3NjBhOGE5MjEyMzg4NWZiOGY5OGJhMzdhMDAxZDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY2NmQ4N2ExOTc3ZTMxOTgzZjVjYjhhNmEyYzE4Y2QzOWRlNzc4Y2NiNzc2NWZkYjZiZGE3MmExY2NiNjRmMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIzZjNiODgwMmIzMTBmZjJhZGQwMDI2YjgyZWUyZTllNTcxNTkxMmVhZjA4MWFmODZjZTExMGRkNjQyZmMxYTEifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L67-L86",
+          "version": "repo-lines-v1:sha256:c9d6f457eacc80a63ebd98952b3bf14c4405d29a3bfa6bf9e2f32e9ba9bbbf96:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1Zjg4MDY1YjZjYWViNjlkZTBlOTQzZWYxNGE2OTZlMTNhODNlOTQzMzdiODIyMWFjNzZjODJmMTY0YmIyNTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZDQ3YjY2NjQyNTQ1OWFhZjBlM2I1ODc3NzcxOTMxMzY5NzViYzg2NjJjOThhOTBmNmFhZmUyYjMxNTZlMWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzOWE0YjNjMzg3NWJiZjNiMjkyN2E3NzAxOWVhZGNlMWY0ODhhN2E0OTgyMjI3MzBiZTY4ZTNjMDk2NDE2YmQifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L7-L18",
+          "version": "repo-lines-v1:sha256:33664c352c0e5e6060d21b2c5ee9e50b0c9697a7464a252316d4eb71f0ee1c5b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNiNTk4YTY1YmUwZWU5ZDJjYzFkNjAyYzA5YWY0NWRmNjQ0NWQ4ZDEyMDFlYjNkM2IyNDVjYTQ4NDVkMjc3ZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxYmQ1YWYyOGQ3MWUyNGM0OWMyOTU0NGFlZjU0MjkzODAxMGIwN2I1ZTAzNjI0OTM5YTg5NTJmODgyMjJkOTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAyNTcyNmY4MmVmZDAzYWIzMzM3MDViZGI3YjJiM2M3NDhhMzNjYjdkYTcyZTUwOTQxMzk0NGRhNGNlM2Y4NjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM5NDYyZDVmMmMyMDdlNmI0ZjgyODQzZDkxNTRmZjBiYmFkMDM0MzkyNGIyYzNjNGJhYmQ5OWI4N2NjZDRiODIifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L88-L113",
+          "version": "repo-lines-v1:sha256:0e7aff15b71291a7fe84fdb7befb4b3b4e50a67e3ab8a1064b81c91c95f03f09:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1Zjg4MDY1YjZjYWViNjlkZTBlOTQzZWYxNGE2OTZlMTNhODNlOTQzMzdiODIyMWFjNzZjODJmMTY0YmIyNTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmM2QxYjFiMzAyOGYwYTQ5NTM0YzBmMTcyYjkxY2VmYTAxZmQ3MjMyZmY2NDM0ZTU3NWVjZDUzOWUzMGM2MDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEyMGM1YjAyMDQyYzViNWQ0NzE0M2M0YTYwZjUxZWVjMDYxZDAyYjM3Mzc5YTQ5MGI5OWU4NzFiMTIxMjY1YTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -208,7 +232,7 @@
     }
   ],
   "verification": {
-    "by": "openwiki/0.7.2",
-    "at": "2026-10-19T08:21:09.342Z"
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-05T15:32:19.341Z"
   }
 }

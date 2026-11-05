@@ -4,17 +4,34 @@ title: "Source Map"
 description: "File-by-file guide organized by domain, covering root configuration, environments, app bootstrap, app root, shared UI, auth pages, invitation flow, team management, account, shell, home placeholder, consents gate, setup scripts, static assets, and specs/docs."
 tags: ["source-map", "reference", "angular", "ulabase", "consents"]
 sources:
+  - id: openwiki-source-da4c48207f961ff0d7aa1fff
+    resource: repo://.github/openwiki-retry.mjs
+  - id: openwiki-source-6d4b4e707b8d60b6ccfa3425
+    resource: repo://.github/workflows/openwiki-update.yml
   - id: openwiki-source-76b992238575041d25a8d7ba
     resource: repo://src/app/consents-gate.ts
   - id: openwiki-source-3629f9e95f35cf558c779f38
     resource: repo://src/app/consents.ts
+  - id: openwiki-source-136a04e418a9969c28b1c30f
+    resource: repo://src/app/pages/auth/login/login.ts
+  - id: openwiki-source-03114a222c1d480c1768dc28
+    resource: repo://src/app/pages/auth/verify/verify.html
+  - id: openwiki-source-3815a7c2c47aef567cc71dbc
+    resource: repo://src/app/pages/auth/verify/verify.ts
   - id: openwiki-source-0c503ef6a22fe483e758a9db
     resource: repo://src/app/pages/invitations/accept/accept.ts
+  - id: openwiki-source-18c6764cc67ac87370b274d4
+    resource: repo://src/app/pages/teams/detail/team-detail.html
+  - id: openwiki-source-a0abfed3f48fb645e980c9ea
+    resource: repo://src/app/pages/teams/detail/team-detail.ts
   - id: openwiki-source-c1d5327fe44e08cda82fcf83
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
+verified:
+  - by: openwiki/0.9.0
+    at: 2026-11-05T15:32:19.341Z
 ---
 
 
@@ -33,6 +50,14 @@ generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
 | [`.prettierrc`](../.prettierrc) | Prettier formatting config |
 | [`.gitignore`](../.gitignore) | Standard Angular ignores + `.vscode` |
 | [`LICENSE`](../LICENSE) | MIT License — Copyright (c) 2026 SoftInstigate Srl SB |
+
+## GitHub automation
+
+| File | Purpose |
+|---|---|
+| [`.github/workflows/openwiki-update.yml`](../.github/workflows/openwiki-update.yml) | Keeps the wiki current without manual effort: nightly cron (when code changed since the last wiki update), on every release tag, and via `workflow_dispatch` (with an optional message). Installs OpenWiki, runs `openwiki code --update` (or `--init`) against `main`, opens a PR limited to `openwiki`/`AGENTS.md`/`CLAUDE.md`, and auto-merges it. Pins the model to `xiaomi/mimo-v2.6-pro` on DeepInfra only. |
+| [`.github/openwiki-retry.mjs`](../.github/openwiki-retry.mjs) | Preloaded via `NODE_OPTIONS=--import` by the OpenWiki workflow. Wraps `globalThis.fetch` to retry OpenRouter `/chat/completions` requests that return 429 with exponential backoff (30s→480s), because DeepInfra's shared pool answers `429 engine_overloaded` without a `Retry-After` header that LangChain would otherwise treat as fatal. Only string-body requests are replayed. |
+| [`.github/workflows/no-service-url.yml`](../.github/workflows/no-service-url.yml) | Guard for the starter repository (`ulabase/starter-ng` only) — fails the build if any `src/environments/*.ts` file commits a non-empty `apiUrl`, so every clone starts with the "connect your service" screen. |
 
 ## Environments
 
@@ -78,9 +103,9 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 
 | Directory | Component | Key behavior |
 |---|---|---|
-| [`src/app/pages/auth/login/`](../src/app/pages/auth/login/) | `Login` | Email/password form. Calls `auth.login()`. Shows OAuth buttons if `oauthLogin` flag is on. |
+| [`src/app/pages/auth/login/`](../src/app/pages/auth/login/) | `Login` | Email/password form. Calls `auth.login()`. Shows OAuth buttons if `oauthLogin` flag is on. Surfaces backend `?error=` redirect messages, including `token_expired`/`invalid_token` verification failures that point the user to "Forgot password?" (a new link that also verifies the email). |
 | [`src/app/pages/auth/signup/`](../src/app/pages/auth/signup/) | `Signup` | Registration form with first/last name. Calls `auth.register()` with auto-generated team name. |
-| [`src/app/pages/auth/verify/`](../src/app/pages/auth/verify/) | `Verify` | Email verification — calls `auth.verify()` which returns a redirect URL with `#access_token=...`. Client-rendered only. |
+| [`src/app/pages/auth/verify/`](../src/app/pages/auth/verify/) | `Verify` | Email verification — calls `auth.verify()` which returns a redirect URL with `#access_token=...`. Client-rendered only. `verify.html` shows three states: missing params ("Invalid link"), verification failure (with a "Forgot password?" recovery link that also verifies the email), and in-progress. |
 | [`src/app/pages/auth/forgot-password/`](../src/app/pages/auth/forgot-password/) | `ForgotPassword` | Email form. API always returns 202 regardless of whether email exists. |
 | [`src/app/pages/auth/reset-password/`](../src/app/pages/auth/reset-password/) | `ResetPassword` | New password form. Reads `email` and `token` from query params. Calls `auth.resetPassword()`. |
 | [`src/app/pages/auth/oauth-buttons/`](../src/app/pages/auth/oauth-buttons/) | `OauthButtons` | Shared component — renders provider buttons that link to `oauthUrl(provider)`. |
@@ -99,7 +124,8 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 |---|---|
 | [`src/app/pages/teams/teams.ts`](../src/app/pages/teams/teams.ts) | Team list — loads teams, shows active/switch buttons. |
 | [`src/app/pages/teams/new/new-team.ts`](../src/app/pages/teams/new/new-team.ts) | Create team form. Calls `auth.createTeam()`. |
-| [`src/app/pages/teams/detail/team-detail.ts`](../src/app/pages/teams/detail/team-detail.ts) | Team detail — members list, invitations, invite form, team settings, danger zone (delete). Owner-only sections gated by `isOwner()`. Reactive cooldown timer for invite resend. |
+| [`src/app/pages/teams/detail/team-detail.ts`](../src/app/pages/teams/detail/team-detail.ts) | Team detail — members list, invitations, invite form, team settings, danger zone (delete). Owner-only sections gated by `isOwner()`. Resend invitation cooldown: a 5-minute countdown derived from each invitation's last send (seeded from `createdAt` and reset on success), driven by a ticking `now` signal updated every 30s so the "Wait 3m" label stays accurate under zoneless change detection. |
+| [`src/app/pages/teams/detail/team-detail.html`](../src/app/pages/teams/detail/team-detail.html) | Team detail template — members list with owner-gated role/remove controls, invite form, pending-invitation list with countdown-labeled resend buttons (`Wait {n}m` / `Resend`), team settings form, and delete-team danger zone with confirmation. |
 
 ## Account
 
@@ -134,10 +160,10 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 
 | File | Purpose |
 |---|---|
-| [`ulabase.setup.ts`](../ulabase.setup.ts) | Declarative setup for the accounts plugin — installs the plugin, configures feature flags (derived from `environment.dev.ts`), sets Google OAuth credentials if enabled, and adds the app origin to the CORS allowlist. Run with `ulabase setup --srv <srvId>`. |
-| [`ulabase.setup.consents.ts`](../ulabase.setup.consents.ts) | Extends `ulabase.setup.ts` with the consents gate — imports the accounts steps, then adds a user schema with `latestConsents`/`consents` fields, a permission allowing users to PATCH their own consents, JWT claims for the two version strings, and a Guards rule that blocks users who haven't accepted the current ToS/Privacy Policy with HTTP 451. Run with `ulabase setup --srv <srvId> --file ulabase.setup.consents.ts`. |
+| [`ulabase.setup.ts`](../ulabase.setup.ts) | Declarative setup for the accounts side of the service. Installs the `accounts` plugin; sets the `branding` feature's `name` to `APP_NAME` (env `APP_NAME`, default "Ulabase Starter") while preserving console-set color/logo; configures `frontend-url`/`frontend-app-url` and derives the server's `features` toggles from `environment.dev.ts`; sets Google OAuth credentials if the app offers Google; adds the app origin to the `origin-allowlist`; and finally points `environment.dev.ts` `apiUrl` at the service (`appPointsAtService`). Run with `ulabase setup --srv <srvId>`. |
+| [`ulabase.setup.consents.ts`](../ulabase.setup.consents.ts) | Extends `ulabase.setup.ts` with the consents gate. Spreads the accounts steps (minus `appPointsAtService`, kept last) and adds: a user schema with `latestConsents`/`consents` fields; a permission allowing users to PATCH their own `consents` (server stamps `latestConsents` and pushes to the `consents` history); JWT claims `latestConsents/tos` and `latestConsents/pp` appended to the `auth` feature's `account-properties-claims` config (there is no separate `/auth-config` endpoint); and a `guards` rule that blocks users who haven't accepted the current ToS/Privacy Policy with HTTP 451. Run with `ulabase setup --srv <srvId> --file ulabase.setup.consents.ts`. |
 
-The two setup files share one definition of the accounts steps (`ulabase.setup.ts` exports them via `defineSetup`; `ulabase.setup.consents.ts` spreads them with `...accounts.steps`). The consents file centralizes `TOS_VERSION` and `PP_VERSION` so bumping them and re-running the setup is the only action needed to publish new terms — the server stamps the versions and the client never knows what they are.
+The two setup files share one definition of the accounts steps (`ulabase.setup.ts` exports them via `defineSetup`; `ulabase.setup.consents.ts` spreads them with `...accounts.steps.filter(s => s !== appPointsAtService)`, keeping `appPointsAtService` last). The consents file centralizes `TOS_VERSION` and `PP_VERSION` so bumping them and re-running the setup is the only action needed to publish new terms — the server stamps the versions and the client never knows what they are.
 
 ## Static assets
 

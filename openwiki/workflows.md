@@ -1,8 +1,8 @@
 ---
 type: Workflow
 title: Key User Workflows
-description: Step-by-step flows for signup, login, OAuth, email verification, password reset, team invitations, team management, account management, and the consents gate acceptance flow.
-tags: [workflows, auth, teams, invitations, consents]
+description: Step-by-step flows for signup and email verification, login and OAuth, password reset, team membership and invitation lifecycle, account management, the consents gate, and service provisioning.
+tags: [workflows, auth, teams, invitations, consents, provisioning]
 sources:
   - id: openwiki-source-1b6b17b8afa47babcf26380f
     resource: repo://src/app/app.config.ts
@@ -34,6 +34,8 @@ sources:
     resource: repo://src/app/pages/auth/reset-password/reset-password.ts
   - id: openwiki-source-cc2a121090704e17ef477a1b
     resource: repo://src/app/pages/auth/signup/signup.ts
+  - id: openwiki-source-03114a222c1d480c1768dc28
+    resource: repo://src/app/pages/auth/verify/verify.html
   - id: openwiki-source-3815a7c2c47aef567cc71dbc
     resource: repo://src/app/pages/auth/verify/verify.ts
   - id: openwiki-source-0c503ef6a22fe483e758a9db
@@ -50,10 +52,14 @@ sources:
     resource: repo://src/app/pages/teams/new/new-team.ts
   - id: openwiki-source-15a66680fea3945936cdfe8f
     resource: repo://src/app/pages/teams/teams.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
+  - id: openwiki-source-8d236ec39d0e441a38b5d676
+    resource: repo://src/environments/environment.dev.ts
+  - id: openwiki-source-34f568b222540eb11aa44859
+    resource: repo://ulabase.setup.ts
+generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
 verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-19T08:21:09.342Z
+  - by: openwiki/0.9.0
+    at: 2026-11-05T15:32:19.341Z
 ---
 
 # Key User Workflows
@@ -110,6 +116,8 @@ sequenceDiagram
 
 **Key detail:** the `?flow=signup` marker is a one-shot signal. It's set only on the redirect after a fresh signup (email verification or OAuth), consumed once by `App`, and never persisted. The welcome banner copy must not claim "email verified" because OAuth signups also trigger it.
 
+**Expired or invalid links:** a dead verification link is not a dead end. The [`Verify`](../src/app/pages/auth/verify/verify.html) error state and the login page's `token_expired` message ([`login.ts`](../src/app/pages/auth/login/login.ts) `ERROR_MESSAGES`) both point at **Forgot password?** — that flow issues a new link and also verifies the account.
+
 **Change navigation:** When modifying signup flow, edit `src/app/pages/auth/signup/signup.ts` for the registration form and `src/app/pages/auth/verify/verify.ts` for email verification. Test with `ng test` and manual flows from TEST-CASES.md. Verify the welcome banner appears only for fresh signups.
 
 ## Login / logout
@@ -120,7 +128,7 @@ sequenceDiagram
 2. Component calls `auth.login(email, password)` — this also loads teams in the same round trip
 3. On success: `router.navigateByUrl('/')` → redirected to home
 4. On 401: shows "Invalid email or password."
-5. The login page also surfaces backend link failures: it reads `?error=...` query params (e.g. an expired verification link the backend handled directly) and shows "This link is invalid or has expired." up front
+5. The login page also surfaces backend link failures via `?error=...` query params (the backend redirects here when a link it handled directly fails). `invalid_token` shows "This link is invalid or has expired."; `token_expired` points at **Forgot password?** — that flow gets a new link and also verifies the account
 6. Logout: `auth.logout()` → redirects to `/auth/login`
 
 **Session persistence:** after login, the token is stored in localStorage. A hard refresh preserves the session because `checkSession()` reads the stored token and fetches the user.
@@ -177,6 +185,8 @@ sequenceDiagram
 7. Component calls `auth.resetPassword({ email, token, password })`
 8. `PATCH /auth/reset-password?delivery=body` returns `access_token` directly in the response body — no follow-up `POST /token` (this is bearer-mode delivery; same pattern used by `activate` and `switch-team`)
 9. User is logged in automatically, redirected to home
+
+**Also the verification recovery path:** an expired or invalid verification link sends the user here (see **Signup & email verification** above). Completing this flow also verifies the account — the recovery path the UI offers when a verification link is dead.
 
 ## Team invitations — new user
 
@@ -240,8 +250,9 @@ sequenceDiagram
 ### Invitations
 - Owner sees invite form (email + role) and pending invitations list
 - Invite: `auth.invite(email, role)` — 409 shows "already a member"
-- Resend: `auth.resendInvite(email)` — 5-minute cooldown with reactive countdown timer
-- Cooldown uses a ticking `now` signal updated every 30s so the countdown label stays accurate in zoneless Angular
+- Resend: `auth.resendInvite(email)` — 5-minute cooldown that counts down from the invitation's last send (each non-expired invitation's `createdAt` is recorded when the pending list loads; a successful resend restarts the countdown from that moment)
+- A refused resend surfaces the service's reason (too many resends for this invitation, or too soon) through `resendError`, not a generic failure message
+- The cooldown is enforced reactively: a `now` signal ticks every 30 seconds so the countdown label and disabled button stay accurate in zoneless Angular, where `Date.now()` is not a reactive source
 
 ### Team settings
 - Name and description form → `auth.updateTeam({ name, description })`
@@ -349,6 +360,40 @@ fetchData() {
 ```
 
 **Change navigation:** When modifying the home page demo, edit `src/app/pages/home/home.ts` for the fetch logic and `src/app/pages/home/home.html` for the template. Test with `ng serve` and verify the demo button works when connected to a Ulabase service with a `/demo` collection.
+
+## Service provisioning
+
+**Entry:** `ulabase setup --srv <srvId>` (optionally `--dry-run` to report what is missing, or `--file ulabase.setup.consents.ts` for the consents variant)
+
+This is the end-to-end flow that stands up the Ulabase service the app talks to. Each step in [`ulabase.setup.ts`](../ulabase.setup.ts) has a `check` and an `apply`: against an already-configured service nothing is written and every step reports satisfied.
+
+```mermaid
+flowchart TD
+    A["ulabase setup --srv srvId"] --> B["Install accounts feature"]
+    B --> C["Branding name set to APP_NAME"]
+    C --> D["Accounts config matches the app"]
+    D --> E{"App offers Google OAuth"}
+    E -- yes --> F["Google OAuth credentials filled"]
+    E -- no --> G["Skip OAuth step"]
+    F --> H["App origin added to origin-allowlist"]
+    G --> H
+    H --> I["appPointsAtService writes apiUrl last"]
+```
+
+The setup steps and their ordering in `ulabase.setup.ts`; Google OAuth credentials are provisioned only when the app offers Google.
+
+What the setup provisions, in order:
+
+1. **`accounts` feature installed** — already installed (409) is success, not failure.
+2. **Branding carries the app name** — `APP_NAME` (env `APP_NAME`, default `Ulabase Starter`) is written to the `branding` feature config. This is the name on the sign-in page and in every email the service sends (verification, reset, invitation). The whole config is replaced, so it is read first and the console-set color and logo are preserved.
+3. **Accounts configured to match the app** — `frontend-url` and `frontend-app-url` are set to `APP_URL` (env `APP_URL`, default `http://localhost:4200`); the server's feature toggles are derived from the same [`environment.dev.ts`](../src/environments/environment.dev.ts) the app imports: `registration` and `verification` from `emailRegistration`, `password-reset` from `passwordReset`, `invitations` from `teamInvitations`, `oauth` from `oauthLogin`. The flags are stated once — turning a toggle off in the app and re-running setup turns it off on the service too.
+4. **Google OAuth credentials** — only when `oauthLogin` is on and `oauthProviders` includes `'google'`. Fills `client-id` / `client-secret` from `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` **only when they are not already stored**, so a re-run against a configured service needs no secrets in the environment.
+5. **Origin allowlist** — adds `APP_URL` to the `origin-allowlist` feature (installs it if missing). Added, never replaced, so a service reached from more than one origin keeps both.
+6. **`appPointsAtService` last** — writes the service URL into the `apiUrl` line of [`environment.dev.ts`](../src/environments/environment.dev.ts) (comments and flags untouched). Last on purpose: a setup that stopped halfway leaves the "connect your service" screen, not a sign-up page that fails.
+
+**Consents variant:** `ulabase setup --srv <srvId> --file ulabase.setup.consents.ts` runs this same flow and then adds the consents gate's schema, guard, permissions, and JWT claims. Bumping `TOS_VERSION` / `PP_VERSION` and re-running is the whole upgrade.
+
+**Change navigation:** when the app's feature flags, app name, or served origin change, re-run `ulabase setup` so the service follows. Details live in [`operations.md`](operations.md) and [`integrations.md`](integrations.md).
 
 ## Change navigation for workflows
 
