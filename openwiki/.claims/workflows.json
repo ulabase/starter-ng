@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:ef9f7ac90318032318f75f6d12c57a3b5022032d236241a939463f572dde17e7",
+  "pageVersion": "sha256:1bcc56575725d08201849486a2243ee1c4cb2366e415c8b21b654b8f4fdd50e7",
   "claims": [
     {
       "id": "claim_859950199b044a018e8dac3739bbb4d1",
@@ -47,7 +47,7 @@
       "statement": "The Login component calls auth.login(email, password), which also loads teams in the same round trip, then navigates to '/'; on 401 it shows 'Invalid email or password'. It also surfaces a backend-handled link failure read from the ?error query param. The session token is stored in localStorage, so a hard refresh preserves the session via checkSession().",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/auth/login/login.ts#L34-L57",
+          "resource": "repo://src/app/pages/auth/login/login.ts#L36-L59",
           "version": "repo-lines-v1:sha256:93bb84aa6736058cd36c0f28f270ac2aeefa32f8867a8e57506561775add71b9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkNDYyNjk2M2IxMmI5NjA4OTJjZGNhMjc5YjFmMTY3YjUxMGY2YjUzNDg3M2MxZWMxMWZiMzc0MmQwOTAyYWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0NTFmNGI0NGYyOWI4NTUyODFiYWEzODkwYWRmNTRjZjQzY2ZiZWYzNzY0Y2FlYzdiMDI0M2MzZjVhZGY3ZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkODUyMzgwYWVjOGI4MjhhYjFkZDI4ZjBhOGU3MjEwMzUxZDY1MTQ5ZGRjN2QwYzMxMDUxY2U5NDY3MjdiNmMifQ"
         }
       ]
@@ -125,22 +125,34 @@
       "statement": "Team switching calls auth.switchTeam which hits POST /auth/switch-team?delivery=body returning a new token, updating the session immediately without a page reload.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L229-L255",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L239-L265",
           "version": "repo-lines-v1:sha256:baa86b2226da2470375200bc4d81c649d0bf6c2aa054150ab63a68bcf8d2e4c7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzNjFkNTJmOWUwODA5ZDVkNTgyMjc2N2IzZWZlYzc4OWY5ZWU2NTY1Y2Y3ZGQ0ODhlYzc1ODNhZmUzMzFkZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhOTg0ZGI0ZGE3ZWYxYjYwY2Y2OThkZWI2M2U5NzdjZmM5NjM3NzMzNjk0ZmM5YjY3NmU1NTY2ZGViZGQ1MmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
         }
       ]
     },
     {
       "id": "claim_4f115dbbc6904657b5ccd7e81822d1fd",
-      "statement": "The team detail page implements a 5-minute resend cooldown for invitations using a ticking now signal updated every 30 seconds, which keeps the countdown label accurate in zoneless Angular where Date.now() is not a reactive source.",
+      "statement": "The team detail page enforces a 5-minute invitation resend cooldown that counts down from the invitation's last send: each non-expired pending invitation's createdAt seeds the cooldown when the list loads (withLastSends), and a successful resend restarts it from that moment. A refused resend surfaces the service's reason (too many resends for this invitation, or too soon) via resendError. The cooldown is reactive in zoneless Angular — a now signal ticks every 30 seconds so the Wait {n}m label and the disabled Resend button stay accurate, because Date.now() is not a reactive source.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L159-L189",
-          "version": "repo-lines-v1:sha256:a4d15686169da987145d2187dda0d88676c490998626ebdfca34c25661f6a387:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2MWQ1ZjY3YjZhMTkyYWRmNDEwM2JlZDM1ODQ2MjAwMTFkMzJlMTc0OWZmMTgyZGE4ZTFmZGQ0ZDg1ZjJiOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlMzU4ZDQ0MTNiODJlOWNhMTlkOTZjMjBmNjFhNDc3MTk5MjVhYjRmMTc0ZjUwMzAxODQ0ZjUzODdjNTJjMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzMDg2NmNlMzFkYmNhYTdmODM2YjI1M2UwYmVhOGI3OTY1YWRhNzE0NWU3YzZhN2JmNGI2Nzg1YTA0YWQ3MDcifQ"
+          "resource": "repo://src/app/pages/teams/detail/team-detail.html#L90-L117",
+          "version": "repo-lines-v1:sha256:ae50672ea6374ddb83bed994425567a34c2768c4bb9f44b460fdd735b5b3b710:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlZDgxNjY2YTkwODk3OTdlY2RjNzUwMzVhMWNjOWVmNjU0YjM3ZDE4ODUzNzEzNjFjNTkwNDI1ZThlMDY5ZGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkMWVmNDhlYzgxM2UxZGIwYTZkNWIzZWQ4NzQ2YjdhNDNiYjgzZTk3MWYyMDgyZTM4NmQ5Y2UzNmI5N2M0ZjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJiOWZiMGFkNjJmYWM4OGE4YmE0YzM1MzIxN2Y2OTg0ZDFkNTRmNzA5MTFmMDJlYzMxZGEwMzM3MTY0ODEzMmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMwMTM2NGNlYjI2YTZmMzA5YjI0YmRjZWJjY2NiNDI2MGM5OGRkMTgxNTZiNjhiODdiMmI0ZDI5ODNkM2Q4NDkifQ"
         },
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L38-L55",
-          "version": "repo-lines-v1:sha256:94f483f3552acb5853da1ce0fd5ec454b7ec963907ccdc54bcbf7f8c8e66cd95:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwNDc5MjRlNTJhZjlmNmViYWQ4NTZlODI3NGI0MjY0ZTM1Yjg1YjIwMTdmOTgzZDkyMGRkMmYwNzQ0OGM1OTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0NzI0ODJjNWQ5MTFiNjhlYTQ3OTQwYjVmYTFhNmMxOWMwMmUyZmM4ZmZjODJhMzkyOWUyNzdlMTRkYzM2NjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNjMjU3N2ViM2M5NmNkZmE5MjkxYjcyYzRkYmVhMDU0MTFmZjdkMmFmYTlmZjAwOGJiMTY3OTk4MWY2M2U0OTEifQ"
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L108-L120",
+          "version": "repo-lines-v1:sha256:7d58a0af0ff8e20e9f0d64a524b29959b8a0c9bcc093ab2d2c2c9cf385561f87:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxODg3NGZjYjBiZjY1ZDBmMTg5ODA0MmU5ZTM0ZTdhNjEzYTllZDQ5ZWFkMWFmY2RlZThmYTY5Njk2YWU0NTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMTJiNjExODk0M2UzMGMwMDY4MzNlNzgxNjMwYTUzYjMyZjQxN2VmNWY5Nzk1YzNmMTJmMzMwODAyNGM1ZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ5NzZhNWRjOGQ1ZTAzMmI3NzllZTFkYTkyNTE3Yzg2MzhhN2FjMmFhYjQyOTk1YmUwNjNlNTUwZjJkOWQwY2UifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L164-L199",
+          "version": "repo-lines-v1:sha256:174882f6c9126a701dd009996b3fc77aedfde4c81465d134c04e176a945f05de:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2MWQ1ZjY3YjZhMTkyYWRmNDEwM2JlZDM1ODQ2MjAwMTFkMzJlMTc0OWZmMTgyZGE4ZTFmZGQ0ZDg1ZjJiOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlMzU4ZDQ0MTNiODJlOWNhMTlkOTZjMjBmNjFhNDc3MTk5MjVhYjRmMTc0ZjUwMzAxODQ0ZjUzODdjNTJjMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzMDg2NmNlMzFkYmNhYTdmODM2YjI1M2UwYmVhOGI3OTY1YWRhNzE0NWU3YzZhN2JmNGI2Nzg1YTA0YWQ3MDcifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L268-L276",
+          "version": "repo-lines-v1:sha256:e183b999a9a0d476dbfb5bd228f0d68c412def1c3c7dd061a8a3bac5647764b5:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMyM2Y1NGEwMmFkMGE4OGZiNWQ2Yzg5YTE2Y2YzYjRjMjZiZjExZmNmNDU5YWQwZjM3YWFhN2ZjMjU4YTk1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI1ODBlOTY0ZjgzYTQ3M2Y0M2Q0NDM4NDYyOTQ5ZDY4YjU2MDBmZGE3ODdmMTYzNzQ1ZDAwZGU4OWNiZjM2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L36-L59",
+          "version": "repo-lines-v1:sha256:4d9306682181722c1f3bd9515dbbdf7242b619fee875749ae314d16ee4984188:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjljMjFiMzI2MDZmNTA4Nzk2MDg1MGVlNmZlOGI0OGZkZDNhMDczMGU2YjM2YTAxNzVlMTdhYjJlOTQ1NjlhZjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyNjEyMTQ1NzEyYzc4ZGEzYWY0YmY3MGIzMGMwNmYwYmI2ZWQ2OTU5YTM3YzFiZTE0NDI5NDFlZGY0NmQyZTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0NTk4OWVkM2RhMmEwZDNlMGQxZTZhMzllMDM2ZTEyYzdiY2IxN2Q1MTk3MzY0OWIxMzE0YjA0ZDQ2NDgwNGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI5NjAwZGI4YzU5YThhZWI0MjE2Y2MwZGRkNzIxODZkNmQ3YTk4ZGFlOTgyYjk1YWU2YjAzYzFlYzhjNWZhYzUifQ"
         }
       ]
     },
@@ -153,11 +165,11 @@
           "version": "repo-lines-v1:sha256:62d0e7319fc332cc9b785e845e3f55224467c7939ff33a089ed7b1263206fa4f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM0NTY2YTFmMDdjZTlkYWMxMjNhZTc3ZjVkY2VkNDEwZGI4NzBmM2M5YzBjNzFlZjllNDU2Nzc0NWFlZmI3NDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkYzg4NGMxMDA3ZTllZTM3YTFlNTY3NWIzMjhjOTgzYmZhYzViNWFjMWNiZDhiNmRlYjdmOGVlNTRjMmJkOTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU3ZTY3ZDk2ZWJkMGExOGE2MGRlYjI2OTIzM2NmZmM5OGUzNDc3NDNkOTZhODg4Y2M1NzNhNWVhZjIwYTczMzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4OWMzNTlmNTRjZGU2NWMzN2MxNTg0OTAzN2Y0NGVmYTg2ZmNiNGI3MjQ2MmYwNWNkZGJlYTg5NGJlNDdiODIifQ"
         },
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L144-L154",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L149-L159",
           "version": "repo-lines-v1:sha256:d403083c98025242cbbc57e60a2dd6c982382913f918a491e9afc5f7401c3283:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2ZTVkZDQzNjcxOTNlYjRiOTEzZjQyY2QwYTQ5OTMzMmUyNWI0MjRiZTBkOTU5NDFlYTM4MmMyMWZhOWM5ZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMTJiNjExODk0M2UzMGMwMDY4MzNlNzgxNjMwYTUzYjMyZjQxN2VmNWY5Nzk1YzNmMTJmMzMwODAyNGM1ZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI1ODE0NjZlOGQyODU5YTdhNDVjODMwMzkzNzYzYmNmNTJmMDM5NWZiNjg2NDc0ZmM2ZmM1NjA5MTU4MGExZjUifQ"
         },
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L191-L203",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L201-L213",
           "version": "repo-lines-v1:sha256:bf8cb6d5504884ac0f6ec98997d890ca868d5106f416de26a6cfcfc9758a1a07:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllNTA4OTRiZmYyMmU5NjhiZDQ1YzBhODQxYTEwZWU3MWM4ZDU4MjU1MmM4ZThmM2RiNzNhYjEwYjE5YWUzYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg4NGYxMWEyYzdlNTdiOWZhMTBjNTdkMzBjNmY2NTdlNmQ1YTM2NWFmM2JlZjVhMDZkMjkwYTdjNDE3OWQzNjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5YTgxYmRmMTMyZWRmNzk1MjdlYTZkMzkyODJmMGE2N2YwODNiYWM0ZmFkY2QyOWNkODE5OTgxMzZmMDg5NTMifQ"
         }
       ]
@@ -167,7 +179,7 @@
       "statement": "Team deletion reloads the team list after success; if remaining teams exist but none is active, it auto-switches to the first remaining team before navigating to /teams.",
       "evidence": [
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L229-L255",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L239-L265",
           "version": "repo-lines-v1:sha256:baa86b2226da2470375200bc4d81c649d0bf6c2aa054150ab63a68bcf8d2e4c7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzNjFkNTJmOWUwODA5ZDVkNTgyMjc2N2IzZWZlYzc4OWY5ZWU2NTY1Y2Y3ZGQ0ODhlYzc1ODNhZmUzMzFkZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhOTg0ZGI0ZGE3ZWYxYjYwY2Y2OThkZWI2M2U5NzdjZmM5NjM3NzMzNjk0ZmM5YjY3NmU1NTY2ZGViZGQ1MmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
         }
       ]
@@ -333,10 +345,92 @@
           "version": "repo-lines-v1:sha256:d435943e7dee4509231fbf33a7110d049d97ae9f2941ce61f5f72808a85e56be:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwYjk4ZTU3MzJkMDQwYzc0NjE1Y2ZiMTJkOTQxZTBlNGMxNTVmNTUzNGZkNGYyMDU4ZjI2ODliMjA0YzhjNWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyZDExY2FmNDNlOTdlZjM2OWU2YmVlZDFhMjY4YmQwNTgzOGYyOWI5ZGQyNTRiZjY5YmE2NDg4NDE0NzIzNGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZhNDFkNzNjNDUyMmJlYTM5ZmY4MTVlMjRiY2YxMzExODUzMWQ2NzFlYjNjZjUzMTIxODg1ZTExYTFjNDcyNGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmNzM5YTA2YzFjYmIxMjQ0ZTMzNjNkMzhiY2Y5ZmE1MGNlODRmZWQzOTljMjE5M2EzYzdmMDhkNTk5MThiMmEifQ"
         }
       ]
+    },
+    {
+      "id": "claim_5712005ac3864fc1bfb6eca7ffba30fd",
+      "statement": "When a verification link is expired or invalid, both the Verify page error state and the Login page's token_expired message direct the user to Forgot password, whose flow also verifies the account — the current recovery path for a dead verification link.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L9-L13",
+          "version": "repo-lines-v1:sha256:e56df8014ea8d457b66b159eb2a3e9be16c61a473e217a3398676ee67fe9c2ce:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNlODllZWZjMDYzNzAwN2EwMmFmZjYyYTZiNTdkYjRmMzdmOTFmYWQ1YjNjMTRiNmQzZmUwYjRmZjRkNWUxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWExZDFhNjMzOTAyMjljNzk4MzQ3ZTgzYTA0MDU0NDFjOTQwMDAzNTI4NGFkMTY4YzFiZjZjZGYxZDcwYTM3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I4ZDVkZTZlODJmZDU1NTU5ZWU4NzNiYTQ5NjJlY2FmZTVjMDA2NGZiOWM5NTk1NTRkMDZmYjI3NDExYjM3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDIzNDUzYWM2Mjk4MTI2ZDZkNmI4N2VhOTAxNDI1ZTU2Mjk4ZDRiZjE4NzZjY2YwYzRjNzkzYWJmNmM2MWE0ZSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/verify/verify.html#L7-L11",
+          "version": "repo-lines-v1:sha256:38dbfa5449b6b2ec9b49c3d6632441a55ee1b9da1e6a41ee78a4c5701171703a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTdhOWE0ZTAzY2IyNTA2MTRlYTUzNGE2ZjgyOTZiZjY3MGIyOTU1NjZkNTZkNjkxZGFkMjg1ODVhNDNhNWZhNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjVhYjM3YzE1NzIxN2I2MWJiMzc3ZjQ0ZmRiY2ZmNWJmNWYxNDc4M2QzMDQ4YWU5OTc5OGQ0YWE1NDIwMmM1NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjVhNGUzYjlhODIzNzZlZGZlMWNkZjU3NWQ3ODI4ZjQwZGMwMWU2NzNhMTkzZjMyNzQ1MzE3YzAyMmI5ZmYwMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmQ2MTJlNmI1MWM0NzY5MmRlNDUxMDNkODFiNDQ4MTFhOTAwYzJlMDg4NWNiMTkzMGUwZjhhZjRjYmQwNmI1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_dd8997a706194dbdb31ac4c64e8df880",
+      "statement": "The setup script derives the service's accounts feature toggles from the same environment.dev.ts the app imports (registration and verification from emailRegistration, password-reset from passwordReset, invitations from teamInvitations, oauth from oauthLogin), so app and server flags are stated once and cannot drift.",
+      "evidence": [
+        {
+          "resource": "repo://src/environments/environment.dev.ts#L11-L18",
+          "version": "repo-lines-v1:sha256:4b6b08a0264c4454c5b823ba94b1f93e64dd8d79b291968eacae34b47872a0ba:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjRjNjE5ZmZkNmI5MjFjNTI3OTExZWRlMTQ3MWM5MTQ5YTFkZTg2NTUzNDE4NWIwOWY2Nzg1MGRjMzMwZDU2MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWExZDFhNjMzOTAyMjljNzk4MzQ3ZTgzYTA0MDU0NDFjOTQwMDAzNTI4NGFkMTY4YzFiZjZjZGYxZDcwYTM3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDJiMmQzMDcyNzRlYmUxNzYzNTkyMzgzNmUwMjlhNDg0NDZkYzQwNTQwNDU2YmIxNWU2NTYyYjhkYTc1YmNiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L42-L63",
+          "version": "repo-lines-v1:sha256:c441b199b1839fa54e0df9cd9f239cb7ef20e1577171c37952ad4d8af74df410:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3MGU0ZDk0MmJkYjRkYzg4Y2ZmNzFjM2ZjZTQ5YWM1MDliYTg5MTQzMmU1NWE2YWI2MTAzYmEwYzYxMWQ1NzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0OTAwYjk4YzFmOTVmNTFkNmVjM2NjNmY1MmZmMDE3MzM4MDdmNjQyMGMyMjQ1MDI0MzliZGMwZTRkZTcyZDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNhNjlhZjNhZTQwMmZjNzI5Njg1NjczZjA5ZjVlMjNjODhiZjFkM2U3NGFmZGZiN2VkZGFjYzFmNzA2MzA0ZWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlZWNhOWFmY2U1ZjIwMzVkOTdjYjgwNGEwNjI4MmE0YTEyMjM5ZWM1YTI0YWJiNmFlZmVlNzAzZTQ4YjhjODIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b290f0e922a348d38445c0fc82e2839b",
+      "statement": "The setup writes APP_NAME (env APP_NAME, default 'Ulabase Starter') into the branding feature config — the name on the sign-in page and in every email the service sends — reading the current config first so console-set color and logo survive the full-config replacement.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L120-L129",
+          "version": "repo-lines-v1:sha256:387b8ca4dbe509f0c2d463102f778b2bf04399c5824bc60cb0a7f5ce69f8bb8c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYyMjEzMDE3ZGIzMDUyZDNkNmI0NzFlN2JhOTg0MjhjN2M1MzM1MmRkNjkyNTEzMDc5Y2Y3YWE0NjNiM2QzMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZTZmY2RkNGQ3Mjc0ODdlOGI4ZDdhNDM3N2YwNjJjZDFiY2U1OTQ0NGQ2ZDczYWE4OGNhNTg0OGY5NGI0ZTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJmZDUzZmI0YmQxMjQzNjdmOTBjN2U3ZDU1MjMyYzU3ZmFhY2Q4OTFhZjllNDQ5MGE4MDU3OTA2OGY5NTkwODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk2YTM5MGFiMzU1ZGYwNThkYjUwZjQxNjA5NDdiMTEyNDViNDU1YTBiNjFmYzAwODY4ZGYwZGZhZmFjMTY1YmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_923c61f7a2064ec48ef6bf857dd9df82",
+      "statement": "The setup sets the accounts frontend-url and frontend-app-url to APP_URL, which is where verification, reset and invitation email links point and where a verified or signed-in user lands after the backend redirects with the token fragment.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L131-L157",
+          "version": "repo-lines-v1:sha256:3ac1de755552b9b7b9a1ed3f74a758ad2d9ca86569883020742e87a6da5d695b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlMzBlZjA1NTdhNmExZThkMTM4YzAwYTU0MzY5MDExZjBjOTE3NWZlNGYzMTJmMDA0MWVjNDM0MDI5NTMxMzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxN2FmMTEwMWM5N2I3YzJmNTI1NDA3ODJlNjM0Y2M0NDQwZjBlOTcwMzQxZTUyZjk3NTIzMTFkNzhiN2Q3ZDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRiMDg2ZDQ2NjNhYmFiZGE5ZjJmZTIzZWU4NjAyM2UxNTQyMmQwOWU2YzI1ZTU3ODBkZDMyZGExNzNlYTI3NjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRiMDg2ZDQ2NjNhYmFiZGE5ZjJmZTIzZWU4NjAyM2UxNTQyMmQwOWU2YzI1ZTU3ODBkZDMyZGExNzNlYTI3NjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_410838c9719b41d991603c6979993fcf",
+      "statement": "The Google OAuth credentials step is included only when the app offers Google (oauthLogin on and oauthProviders including 'google'); client-id and client-secret are resolved from GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET only when not already stored on the service, so a re-run against a configured service needs no secrets in the environment.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L164-L197",
+          "version": "repo-lines-v1:sha256:4ffdc234813e0537a36de6c0a17611d50eb5d0eaf4d69537bcbf9f4f71205d2a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ODU4ODM2MjU4YmYzMzkyOWQwNjMwYWU0YWVkM2YwMTYyNGU1NzkxZWRhYzE2ZmVhZmE2ZWViMzUxN2I2MTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI2OGY3YzRhZTExMmZkNmVjMmY1ZjJiNTRlNzAwYzk4ODU3MTY1OGM4Y2Q0ZjE5YzljOWQzYTZiNzFhN2ZjMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjYTlmMDA4ZDMxNjA1NzVjZTg2ZjE3MTYxMDMzOTNjMDg5MjE0N2IxMDc0YTZkNTg0MGFiMTNkZDQ0YjA3MTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxYjNkZWIzZTBmYWY0ZDEzMDYzMzI5YWY1OGM2MjhhZGZiZTE2ZTBiMDVlY2Y2OTk3MjgwODg3MzdiOGEwYmQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_53a4549110424a75936a0590143a42c0",
+      "statement": "The setup adds the app origin to the origin-allowlist's allowed-origins (installing the feature if missing), appending rather than replacing so a service reached from more than one origin keeps them all.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L204-L227",
+          "version": "repo-lines-v1:sha256:e8960deced0c2fc1f00d58a2a671089097c7a1f8c5caa22990754b54d9d2d4e8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjMTJmNGFlYzkwYTBkNTcyMmUwZmIwNmEwODA2NGM2Mzk1NTNhZWExNzhjZTA3NTA0MWNhNmE3MWIyNjQ0NjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxN2FmMTEwMWM5N2I3YzJmNTI1NDA3ODJlNjM0Y2M0NDQwZjBlOTcwMzQxZTUyZjk3NTIzMTFkNzhiN2Q3ZDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlhOTQxNmNhOGRhZjhkY2IzZmE3MDQ5YTMyN2QyNjMzYjFkMWM1ZTQxNjU2OWM0MzJkNDA1MmZiM2YwNmY4NGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiNThlYjcyNWU3OGMzM2Y1YzFlZWNmMDZlNGU4OWI1ZmNkMTUzNDUwMzMyOTExMWU3YjQ3ZDg3NjYzMWY0NTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_df8bfa3ca0f64ec384c4e56b19d725e6",
+      "statement": "appPointsAtService runs last in the setup: it writes the service URL into the apiUrl line of environment.dev.ts only after every other step is in place, so a setup that stops halfway leaves the connect-your-service screen rather than a sign-up page that fails.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L228-L231",
+          "version": "repo-lines-v1:sha256:9682e524ffc6a898ef7c3ea47982d25b3acfd8453ac117a639efb9c4e946717d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWYwY2RiOTcyYTdiZmI3ZWQyNDZmOWZmNjcyMzg1ZTU1ZjQ5NjhmYzExMDQzZGM1YjY4NGQ1MWRmYTMxZGJjYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlMjZjZDkyMzY2ZjYwZDhlZDkyZDAyMzlmMDdmZWY3NGNhYzE0YWE2OWFkZGY5YzJjYzBkMTFlYjAwYTQ2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGE1YzdmOGQ0NGYwMDM1NTExMTA1NGIzNTAzYjgyNGRlMzE0Y2NiOTdjNDRjNWMwZjQxODliNWFjNDM5MTFjZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L96-L109",
+          "version": "repo-lines-v1:sha256:b1b7a6c3125dac4f6a58904dd0004de5d6f4dbd4b193f63280cdbb28f70f4964:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxOWMwN2VhMmQ1MDJmZDU1M2RlODM1YTgzNTdiNjExODlhMGQ2MTk4YTUzYTFkOWFjYTU4ZjYyODUwYzNjYTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3MThkNzQyM2JjYmMzMTAxZTcyNjdhNjc0OGRkMDc0NGVkNWFhYmU5ZGY4ZThjNzliMmU4YmYwMzdhYzcwNWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkMGM5MjE0YWZiMGQxYzQ4ZTFkOTcyN2M5NzM3NjZjNGUwNTQ2NzJiODE3YmEyMzllZDY1OWMwMjM4ODkwOWUifQ"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.7.2",
-    "at": "2026-10-19T08:21:09.342Z"
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-05T15:32:19.341Z"
   }
 }

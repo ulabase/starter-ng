@@ -12,4 +12,4 @@ okf_version: "0.2"
 - [OpenWiki Documentation](README.md) - Entry point for the OpenWiki documentation directory. Points to the quickstart guide and provides the documentation map linking to all topic pages.
 - [Source Map](source-map.md) - File-by-file guide organized by domain, covering root configuration, environments, app bootstrap, app root, shared UI, auth pages, invitation flow, team management, account, shell, home placeholder, consents gate, setup scripts, static assets, and specs/docs.
 - [Testing Guidance](testing.md) - Manual test checklist, automated test status, what to test when changing key areas, and Browser DevTools verification guidance for ulabase-starter-ng.
-- [Key User Workflows](workflows.md) - Step-by-step flows for signup, login, OAuth, email verification, password reset, team invitations, team management, account management, and the consents gate acceptance flow.
+- [Key User Workflows](workflows.md) - Step-by-step flows for signup and email verification, login and OAuth, password reset, team membership and invitation lifecycle, account management, the consents gate, and service provisioning.

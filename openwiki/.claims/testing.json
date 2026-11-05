@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:3205e5ff95b0a787450a52747773bbbd417db7abc4e223b3d7713a2c8cfc30dc",
+  "pageVersion": "sha256:d14114115b19fcf9631c92b0225c6de3472340135558363e6a11a0c81c307331",
   "claims": [
     {
       "id": "claim_d44f8364cc8f4615b72545baeba0b9a0",
@@ -114,7 +114,7 @@
         },
         {
           "resource": "repo://src/app/pages/auth/login/login.ts",
-          "version": "repo-file-v1:sha256:0102220baf9d2229a2868f3d2510055564df9a5758ec2c770a54e48c9066df4f"
+          "version": "repo-file-v1:sha256:efab484e4d54f0c0495cd33f1671d15b67160b475d08fe3a16c7dfb2b8578725"
         },
         {
           "resource": "repo://src/app/pages/auth/oauth-buttons/oauth-buttons.ts",
@@ -161,7 +161,7 @@
           "version": "repo-lines-v1:sha256:1aeccca3bdd8c4c31a2e3121f5c9c82911afe82ee5de48f5a29d2ea49b930dda:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWU0ZWM3ZDI4OTEwY2NhMWVlZTQ0OGQwNDU3ODY5NDU0ZTc1N2Y4NDczYTRkMmU5ZGZhMDNhNDAyYTk5YzI3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE1NTllMTkyOGJjZTVjNjU1MWQ0NjQwYmNkZmMyMzJiZjRhYTA5ODM3OTUxZWMzOGU1MGY3NzNhMzM2YzJjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTcwMGZkYjFlOTc4ZDllZjJkZDc3NDc2MmQ2N2ZhNzBiOGQ1NTVlNmYzNjM2YTVkMGIxMzE2ZWJlYmNiZGU2MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzgwODQzMjA3NGFhNmZlZDBlZjU1ODYxYmNiOGQzODNiYzdhZGI5OGE5YzQxZDdhZmQ5YjAxYmU4NTk2ZDRmMSJ9"
         },
         {
-          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L39-L39",
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L41-L41",
           "version": "repo-lines-v1:sha256:6d63dc539eb26e0533f7a127c62af7d29f693545ee1fd598e06147f666444e1e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ2M2RjNTM5ZWIyNmUwNTMzZjdhMTI3YzYyYWY3ZDI5ZjY5MzU0NWVlMWZkNTk4ZTA2MTQ3ZjY2NjQ0NGUxZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ2M2RjNTM5ZWIyNmUwNTMzZjdhMTI3YzYyYWY3ZDI5ZjY5MzU0NWVlMWZkNTk4ZTA2MTQ3ZjY2NjQ0NGUxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWYzMjM2OTEyOTMyNGM3ZWZlZGI5YWFlMTI2ZmEwNTBjZWIxNTQwMmFjNDNjNDc2MTA1ZmJjNzMzYmY0MDEwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGI2YTdlNjVlYjg5M2YxY2NiZThhMzE3ZTIzNjVlZmE0M2I0YTQ3N2Y4NTYyMDQ2NDlkMzZhN2ExNWI4MTM2OSJ9"
         }
       ]
@@ -215,10 +215,36 @@
           "version": "repo-file-v1:sha256:d42a32a0448823988740596e808268e34359e5d94996ff80322018b0a00ca984"
         }
       ]
+    },
+    {
+      "id": "claim_f941f648274442019e2f397ff72a83f4",
+      "statement": "When the backend redirects to the login page with ?error=token_expired, the Login component surfaces a message directing users to \"Forgot password?\" and explaining that it also verifies the email; the Verify page template shows the same expired-link guidance. Neither login.spec.ts nor verify.spec.ts asserts this copy — both only assert component creation via expect(component).toBeTruthy(), so the messaging must be verified manually.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/login/login.spec.ts#L25-L27",
+          "version": "repo-lines-v1:sha256:ad5cfb68508aaab158bb09be9a1959f504fdac7944c17735d3c123039302701b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTAyZTI1ZjhiYTc5OTQzYzllMDdmYzgzZGY1YmQwZGEyNDVkNmFhMjI1ZTE4YzM2ZGIwNmFkZGE3NGE4YTIxZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjJkY2FkNmY0ZDQyYjE4MzczMTcyMzU1MTcxNjFkMTc5MWE0OGNlZGZkYzE4NzYxN2U1YTcwNWM0MWFlNTE4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L36-L40",
+          "version": "repo-lines-v1:sha256:6da340a99569a33247636f0227fb7272813380b22b32a374e3aba716bbabc377:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ0NjI2OTYzYjEyYjk2MDg5MmNkY2EyNzliMWYxNjdiNTEwZjZiNTM0ODczYzFlYzExZmIzNzQyZDA5MDJhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTVlZjAxYmMwOGRiYzNiNjNlNGU3NWVhM2QyNmE1Yjk0MTg5MTg3N2UyN2FkODkxMzI5Yzg0MTFkN2Q4ZGM0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzQ1MWY0YjQ0ZjI5Yjg1NTI4MWJhYTM4OTBhZGY1NGNmNDNjZmJlZjM3NjRjYWVjN2IwMjQzYzNmNWFkZjdkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTdlNDJlMGY1OTM2YTY0NDQyNzA2MGYyNzlhMzI4NzczOTdkNTQwMzAyMjMzYWI5YmMyMGIxYWZmYTJmZTE4NCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L8-L12",
+          "version": "repo-lines-v1:sha256:964298fc56992235caf4213ba7c38ec2391281c8b1d02a8473202db50cc12d66:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE5OTdkZmI1MDc1M2VmZTFhZmI5OTEyNTM1YjQ1MDU5MGUxNGJlMTJkOGFmZDdhZDQ0Nzc5ZGZjMGM0YjliMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjhhODdhZTE1ODE2NWE3MTZjNDY0Y2M2Mzg3OWIwNDlhM2VmZjQ3YWU3ZjI2M2Y1ZTA1ZDlmMzllMzY2N2VhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzU4MzYwMzQxNjAxMmQ4OWNkMzMzYmY4NzU2OGQyNjJmODRkNzllNjdhYmM2OTQzN2I0ZDIwYTU4YzU5MmM4OCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/verify/verify.html#L9-L10",
+          "version": "repo-lines-v1:sha256:576ce680e49383a77228f1330ebad4f8523b94a2f4fdec199baa995bdfb14ceb:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjgxNGQxZDFiMWExOGE1ZDQxM2U2OWY5MzNiZTRmNmY0YTBhZmU2OTk0OTlkZmVlNGE2ZTEyNTVlMDExM2NjMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGM3YzUzMjk4YWQxNmFiM2E2OTkwYjFlNTQ0NjUxMmU2MmI4NzI1MDMwMmI5MzRjMDFlM2UwZTY5YmQ3YTNhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTU2MDVhNTViNzQwNTRhNzQxZGNkZDQ2ZDcxOTI0MDU4MmYyYzZlNzQ0ZDMyN2E5ZjUzZjliZDk5Y2E0MDRlZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWQ5YWEyYzU1ZGE1ZDAzZjFjNzQ2MDZjOWZjYzRkNTliZmU1NWRhODAzM2EyY2VkNmFhM2EyNTU4ZjIzYWZkMyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/verify/verify.spec.ts#L27-L29",
+          "version": "repo-lines-v1:sha256:ad5cfb68508aaab158bb09be9a1959f504fdac7944c17735d3c123039302701b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTAyZTI1ZjhiYTc5OTQzYzllMDdmYzgzZGY1YmQwZGEyNDVkNmFhMjI1ZTE4YzM2ZGIwNmFkZGE3NGE4YTIxZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjJkY2FkNmY0ZDQyYjE4MzczMTcyMzU1MTcxNjFkMTc5MWE0OGNlZGZkYzE4NzYxN2U1YTcwNWM0MWFlNTE4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiJ9"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.7.2",
-    "at": "2026-10-19T08:21:09.342Z"
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-05T15:32:19.341Z"
   }
 }

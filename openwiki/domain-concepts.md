@@ -32,7 +32,10 @@ sources:
     resource: repo://src/styles.css
   - id: openwiki-source-c1d5327fe44e08cda82fcf83
     resource: repo://ulabase.setup.consents.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
+verified:
+  - by: openwiki/0.9.0
+    at: 2026-11-05T15:32:19.341Z
 ---
 
 # Domain Concepts
@@ -106,7 +109,7 @@ Invitations carry `email` + `token` as query params. The token is validated by `
 
 **404 handling:** If `getInvitation()` returns 404 and the user is signed in (`getToken()` is truthy), the component redirects to `/`. This handles the case where a user returns to an already-accepted invitation after a consents gate reload.
 
-**Resend cooldown:** 5 minutes. Implemented with a reactive `now` signal ticking every 30s to keep the countdown accurate in zoneless Angular.
+**Resend cooldown:** The service refuses a resend within 5 minutes of an invitation's last send. The client starts each pending invitation's countdown from that last send — `withLastSends` records `createdAt` for non-expired invites when invitations load — and a refused resend surfaces the service's reason (too many resends, or too soon) through `resendError`. A zoneless `now` signal ticking every 30 seconds keeps the countdown and the disabled Resend button live.
 
 ## Feature flags
 
@@ -169,14 +172,14 @@ A blocked user has no session — `authGuard` fails and cancels navigation. Noth
 
 ### Server-side setup
 
-The consents gate requires four server-side documents, configured by `ulabase setup --srv <srvId> --file ulabase.setup.consents.ts`:
+The consents gate's setup file reuses the accounts setup steps, then applies its own:
 
 1. **User schema** (`userConsentsSchema`) — validates the `users` collection, adding `latestConsents` (object with `tos`, `pp`, `acceptedAt`) and `consents` (array history) fields.
 2. **Collection validation** — attaches the schema to `/users`.
 3. **Permission** (`userCanPatchOwnConsents`) — allows `PATCH /users/{userId}` only for the `consents` field. Its `mergeRequest` stamps the current versions and timestamp, and pushes to the `consents` history array.
-4. **Guards rule** (`consentsGate`) — blocks authenticated users whose `latestConsents` does not match current versions. Excludes `/auth/*`, `/token/*`, and the acceptance PATCH itself.
-
-The setup also configures JWT claims (see below) and ensures the Guards feature is installed.
+4. **JWT claims** — adds `latestConsents/tos` and `latestConsents/pp` to the `auth` feature's `account-properties-claims` via `getFeatureConfig` / `updateFeatureConfig` (see below).
+5. **Guards feature install** — ensures the guards feature is installed.
+6. **Guards rule** (`consentsGate`) — blocks authenticated users whose `latestConsents` does not match current versions. Excludes `/auth/*`, `/token/*`, and the acceptance PATCH itself. Returns `451`.
 
 ### Version management
 
@@ -188,7 +191,7 @@ TOS and PP versions are defined as constants (`TOS_VERSION`, `PP_VERSION`) in `u
 
 ### JWT claims
 
-The setup adds `latestConsents/tos` and `latestConsents/pp` to the JWT's `account-properties-claims`. The Guards rule reads these from the token, not the database, so the gate works without a database round-trip per request.
+The setup's "two claims travel in the token" step adds `latestConsents/tos` and `latestConsents/pp` to the JWT's `account-properties-claims` through the `auth` feature's configuration: it reads the feature config with `getFeatureConfig(srvId, 'auth')`, appends the two claim paths to the existing list (a union, never a replace), and writes it back with `updateFeatureConfig(srvId, 'auth')`. There is no separate `/auth-config` endpoint. The Guards rule's condition reads `@user.latestConsents.tos` / `@user.latestConsents.pp` from the token claims, not the database, so the gate evaluates without a database round-trip per request.
 
 ### Client-side architecture
 
