@@ -1,9 +1,11 @@
 ---
 type: Quickstart
-title: Ulabase Starter — Angular
-description: Concise entrypoint for the ulabase-starter-ng repository. Routes readers through the wiki hierarchy based on their task (exploring, building a feature, porting, restyling, testing). Includes quick setup, documentation map, task routing table, and key dependencies.
+title: Ulabase Starter — Angular Quickstart
+description: Concise entrypoint that routes readers through the wiki by task (explore, build a feature, port, restyle, test) and carries the quick setup, key dependencies, and task-routing table.
 tags: [quickstart, angular, ulabase, starter]
-generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
+verified:
+  - by: openwiki/0.9.0
+    at: 2026-11-10T15:38:04.761Z
 sources:
   - id: openwiki-source-5b54a58d1b51cd490b0e7162
     resource: repo://package.json
@@ -31,6 +33,8 @@ sources:
     resource: repo://src/app/pages/auth/login/login.ts
   - id: openwiki-source-cc2a121090704e17ef477a1b
     resource: repo://src/app/pages/auth/signup/signup.ts
+  - id: openwiki-source-03114a222c1d480c1768dc28
+    resource: repo://src/app/pages/auth/verify/verify.html
   - id: openwiki-source-be9f7de43e6b35b73dbb2aae
     resource: repo://src/app/pages/home/home.ts
   - id: openwiki-source-0c503ef6a22fe483e758a9db
@@ -51,6 +55,7 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
+generated: { by: "openwiki/0.9.0", at: "2026-11-10T15:38:04.761Z" }
 ---
 
 # Ulabase Starter — Angular
@@ -62,7 +67,7 @@ Works for multi-tenant SaaS (invitations, team switcher) and simpler apps (auth 
 ## What's included
 
 - **Signup, login, logout** — email/password and Google/GitHub OAuth
-- **Email verification, password reset**
+- **Email verification, password reset** — when a verification link expires, the login page shows *"This verification link has expired. Use \"Forgot password?\" below to get a new link: it also verifies your email."* (`ERROR_MESSAGES.token_expired` in [`login.ts`](../src/app/pages/auth/login/login.ts)); [`verify.html`](../src/app/pages/auth/verify/verify.html) shows the same guidance.
 - **Team invitations** — one page (`/invitations/accept`) branching into new-user "set password", existing-user "log in and accept", or signed-in user "accept directly" (handles consents-gate reload)
 - **Team switcher** — shown only when the user belongs to more than one team
 - **Authenticated shell** with placeholder for your app content
@@ -86,7 +91,7 @@ npm install
 # Then tell git to ignore local changes:
 git update-index --assume-unchanged src/environments/environment.dev.ts
 
-# 3. Set the service up (installs accounts plugin, configures features & CORS)
+# 3. Set the service up (accounts install, branding name, accounts config, OAuth, origin allowlist)
 npm install -g ulabase
 ulabase login                              # paste a token from ulabase.com
 ulabase setup --srv <srvId>                # <srvId> is the six-char id from your service URL
@@ -97,6 +102,8 @@ ng serve
 
 **Prerequisites:** Node.js 22.18 or later (it runs the TypeScript setup file), a Ulabase service ([create one at ulabase.com](https://ulabase.com)), and Angular CLI.
 
+Each `ulabase setup` step is a check and an apply (idempotent; `--dry-run` reports what is missing without writing). The step order in [`ulabase.setup.ts`](../ulabase.setup.ts) is: accounts plugin install, branding name (`APP_NAME` env, default `Ulabase Starter`, read-modify-write preserving console color/logo), accounts config (`frontend-url`/`frontend-app-url` and feature toggles derived from `environment.dev.ts`), conditional Google OAuth credentials, origin-allowlist, and `appPointsAtService` last (writes `apiUrl` only once everything above is in place).
+
 **Want the consents gate?** Use the alternate setup file to add Terms of Service and Privacy Policy acceptance:
 
 ```bash
@@ -104,6 +111,8 @@ ulabase setup --srv <srvId> --file ulabase.setup.consents.ts
 ```
 
 Replace `public/terms.html` and `public/privacy.html` — they are placeholders.
+
+The consents setup appends the JWT claims `latestConsents/tos` and `latestConsents/pp` to the `auth` feature's `account-properties-claims` config (added, not replaced); there is no separate `/auth-config` endpoint.
 
 ## How it works
 
@@ -149,8 +158,8 @@ Feature flags in `src/environments/environment*.ts` must match your service's **
 
 | Package | Role |
 |---|---|
-| `@ulabase/kit-ng` ^0.13.6 | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
-| `ulabase` CLI ^0.13.6 | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
+| `@ulabase/kit-ng` ^0.14.0 | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
+| `ulabase` CLI (`@ulabase/cli`) ^0.14.0 | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
 | `@angular/core` ^21.2 | Angular framework |
 | `@angular/ssr` ^21.2 | Server-side rendering |
 | `express` ^5.1 | SSR server |
@@ -175,7 +184,7 @@ Use this table to find the right starting point for common changes:
 | **Dependencies** | [Integrations](integrations.md) | `package.json` | `@ulabase/kit`, `@ulabase/kit-ng` | Dependency audit | `npm audit` |
 | **Testing** | [Testing](testing.md) | `src/app/**/*.spec.ts`, `TEST-CASES.md` | Vitest configuration, test cases | Test execution | `ng test` |
 | **New API endpoints** | [Integrations](integrations.md) | `@ulabase/kit`, `@ulabase/kit-ng` | `RhAuthService`, `auth.api()`, kit functions | Manual API test | `ng serve` and test API calls |
-| **Service setup** (ulabase CLI) | [Operations](operations.md) | `ulabase.setup.ts`, `ulabase.setup.consents.ts` | `defineSetup`, `step`, feature flag derivation | `ulabase setup --dry-run` | `ulabase setup --srv <srvId> --dry-run` |
+| **Service setup** (ulabase CLI) | [Operations](operations.md) | `ulabase.setup.ts`, `ulabase.setup.consents.ts` | `defineSetup`, `step`, feature flag derivation, `appPointsAtService` | `ulabase setup --dry-run` | `ulabase setup --srv <srvId> --dry-run` |
 | **Porting to other frameworks** | [Operations](operations.md) | `PORTING.md`, `TEMPLATE_API.md` | Portable layers, reactive auth layer | Manual parity test | Compare with Angular original |
 
 ## Backlog

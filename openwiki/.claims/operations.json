@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:3772d7129bd5f389809a59f951f0877fef2f7235f39be9ab9e7e9b115b342bb1",
+  "pageVersion": "sha256:ab6e7f57c5066c4e1247d32a38e087131807ce7243c3b524df45d256497f2e20",
   "claims": [
     {
       "id": "claim_6f1b662867fe42cd8fd78804832ebb59",
@@ -198,7 +198,7 @@
         },
         {
           "resource": "repo://package.json",
-          "version": "repo-file-v1:sha256:745e6a90c71d7ce0de31e3f0d215fc74c4fc93e8652207ac7c39742f024ffbb9"
+          "version": "repo-file-v1:sha256:51cce34e83faba9e5a204af4a96a5afad5fccb249a52aadf36ae9e578d86e0af"
         },
         {
           "resource": "repo://src/app/app.routes.server.ts",
@@ -343,10 +343,34 @@
           "version": "repo-file-v1:sha256:df0bfabef71ecaef18eb9195ee5d27883ff6b11d68e83e4375226b5d932ed338"
         }
       ]
+    },
+    {
+      "id": "claim_a6ab67bbdd044fa28871eb6722f27239",
+      "statement": "package.json npm scripts expose the Angular CLI commands (start → ng serve, build → ng build, watch → ng build --watch --configuration development, test → ng test) and add serve:ssr:ulabase-starter-ng, which starts the built SSR Express server via node dist/ulabase-starter-ng/server/server.mjs.",
+      "evidence": [
+        {
+          "resource": "repo://package.json#L4-L11",
+          "version": "repo-lines-v1:sha256:19c2aae4d047ee10d6378ddfaf7873d3c3abe0c71673be937ec7c04ec5cac5c4:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ4MzNkNTk0OWMwM2E0MGNhOTUyNDkxNjEwYTY2NTk2NDRiM2FhNDY2MzYyZjc5OTAyMGRiZjE5ODE1NDdkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzlhM2IzNWI3ZDg3OGUyNDdlNTJiNGU5YzgzZDcyMTgxMzBkZDdhNTUzZmIzOGRmNDNiZGRhOGRlNTUzZDQ0OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDZmYWQxOTJmZjQzYjk0MGYyNjU5YzU3ZjVjMmQ2MmU0NDEyM2ZhNWY3NDM5ZDExY2I2MGYyM2RkYjFiMDZiMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c625d2552af4494cb04122aecd6072d4",
+      "statement": "The 0.14.0 dependency bump pins @ulabase/kit-ng and @ulabase/cli at ^0.14.0; unit tests run on vitest ^4.0.8 with jsdom ^28.0.0 as devDependencies, and tsconfig.spec.json includes vitest/globals types so spec files use Vitest matchers and lifecycle hooks without explicit imports.",
+      "evidence": [
+        {
+          "resource": "repo://package.json#L23-L38",
+          "version": "repo-lines-v1:sha256:7fb4d29165d6b177a2b3beafdcd841a4539be03dfa2dd73d7e6ee4e16fb678bf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1ZTYzM2Y2MmQyNWEyNWFlNTMxYjQ0ZWEwZWZkZWEyMDQzNDUwNWVhZDRkN2ExMTFkZjZkODJiNDFjNDZkNDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYyMTI0MmQ1MmY3ZDA3NjAzMGM4MmU3OWMwMGQyZGMzNGNmY2Y4YjFlYzA5MzlhZGI5ZGQ3YjIzZGIyMzNhYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiYjBjMDZkMDMyZmZhNTUzZWRiZmQ1MThhMDRhMWM2Yzg5Y2JkODdiNmQxNWExMWU5YTM3ZTIyZTcyMWEzOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyODQ1MGRhNWNhNmI0MmJjZjRlNWFiNDFiOGFhNGE4NzMzMWQwNjgzMjMwYzMxMTk1ZTBjMDBlYmIzZGFkZjgifQ"
+        },
+        {
+          "resource": "repo://tsconfig.spec.json#L5-L8",
+          "version": "repo-lines-v1:sha256:2d9517a83e2b2af95baf8568d92e84eb37a939a571656d710ffea9d91fe05af1:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWIwY2Q5NzRlZTZmMzY2NjAyMjQzNGE2ZGU4MGRkOWYxMDdmOTkwZjBkOTgzMzVmNGRhYzY5ZjBkYTJhY2Q5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjBkMTJlMzQ0NTgxN2QwNWU4MTEzZDU4NDA3OTNhM2E4ZDc1Zjk5ODBjY2RmNjY1NDJkOTZmOGQ0MThiMGUyNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWZlNzM5YmE2NDA4OWU1M2VhNzg2NTc2YzYyMDc1ZGRhM2YxMGYzOGJlNWRkNTc5YmM3YTMyYjdlYmFiNmIyOSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.9.0",
-    "at": "2026-11-05T15:32:19.341Z"
+    "at": "2026-11-10T15:38:04.761Z"
   }
 }

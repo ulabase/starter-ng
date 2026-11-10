@@ -28,14 +28,16 @@ sources:
     resource: repo://src/server.ts
   - id: openwiki-source-146419bb9b2415894a6bd677
     resource: repo://src/styles.css
+  - id: openwiki-source-cfec35e61a853579c60d6d5d
+    resource: repo://tsconfig.spec.json
   - id: openwiki-source-c1d5327fe44e08cda82fcf83
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-10T15:38:04.761Z" }
 verified:
   - by: openwiki/0.9.0
-    at: 2026-11-05T15:32:19.341Z
+    at: 2026-11-10T15:38:04.761Z
 ---
 
 # Operations & Runbook
@@ -56,9 +58,14 @@ ng build
 # Watch mode
 ng build --watch --configuration development
 
-# Run tests
+# Run tests (Vitest via @angular/build:unit-test)
 ng test
+
+# Serve the SSR build (npm script)
+npm run serve:ssr:ulabase-starter-ng
 ```
+
+The `package.json` scripts wrap these Angular CLI commands (`start` → `ng serve`, `build` → `ng build`, `watch`, `test` → `ng test`) and add `serve:ssr:ulabase-starter-ng` for the SSR server. The 0.14.0 dependency bump pins `@ulabase/kit-ng` and `@ulabase/cli` at `^0.14.0`; unit tests run with `vitest` `^4.0.8` and `jsdom` `^28.0.0` as devDependencies (Vitest globals are enabled via `tsconfig.spec.json`).
 
 ## Environment configuration
 
@@ -259,7 +266,8 @@ The production build outputs:
 ng build
 
 # Start the Express server
-node dist/ulabase-starter-ng/server/server.mjs
+npm run serve:ssr:ulabase-starter-ng
+# equivalent to: node dist/ulabase-starter-ng/server/server.mjs
 # → http://localhost:4000 (or PORT env var)
 ```
 
@@ -425,7 +433,7 @@ If the demo button shows an error, check:
 ### For SSR deployment changes
 - **Start with:** `src/server.ts` for Express server configuration
 - **Check:** `src/app/app.routes.server.ts` for render mode assignments
-- **Test with:** `ng build && node dist/ulabase-starter-ng/server/server.mjs`
+- **Test with:** `ng build && npm run serve:ssr:ulabase-starter-ng`
 - **Validation:** Server starts on PORT or defaults to 4000, auth pages are prerendered
 
 ### For CSS theming changes
