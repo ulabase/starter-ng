@@ -30,6 +30,8 @@ sources:
     resource: repo://src/app/pages/auth/oauth-buttons/oauth-buttons.ts
   - id: openwiki-source-be9f7de43e6b35b73dbb2aae
     resource: repo://src/app/pages/home/home.ts
+  - id: openwiki-source-a5dacf315e55912826af14f9
+    resource: repo://src/app/pages/invitations/accept/accept.html
   - id: openwiki-source-9fd5be7b4a86f1a62c53cab3
     resource: repo://src/app/pages/shell/shell.ts
   - id: openwiki-source-8d236ec39d0e441a38b5d676
@@ -40,10 +42,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-10T15:38:04.761Z" }
 verified:
   - by: openwiki/0.9.0
-    at: 2026-11-05T15:32:19.341Z
+    at: 2026-11-10T15:38:04.761Z
 ---
 
 # Integrations & Dependencies
@@ -84,7 +86,7 @@ provideRhAuth({ apiBaseUrl: environment.apiUrl, onError: consentsOnError })
 
 The `onError` callback receives every failure the kit encounters, including session restoration errors that no caller is waiting on. The starter uses this to detect `451` responses from the consents gate (see [`src/app/consents.ts`](../src/app/consents.ts)).
 
-**Version:** currently `^0.13.6` (see [`package.json`](../package.json)).
+**Version:** currently `^0.14.0` (see [`package.json`](../package.json)).
 
 **`auth.api()` method:** provides an authenticated `fetch` wrapper that attaches the bearer token and handles errors. Returns an `Observable<Response>`. Use it for custom API calls to your Ulabase service:
 
@@ -151,7 +153,7 @@ The `noauthchallenge` query parameter tells the Ulabase service not to challenge
 
 ## @ulabase/cli
 
-[`@ulabase/cli`](https://github.com/ulabase/kit/tree/main/packages/cli) is a dev dependency (`^0.13.6`) that provisions a Ulabase service to match what the starter expects.
+[`@ulabase/cli`](https://github.com/ulabase/kit/tree/main/packages/cli) is a dev dependency (`^0.14.0`) that provisions a Ulabase service to match what the starter expects.
 
 **Workflow:**
 
@@ -234,7 +236,7 @@ The workflow commits to branch `openwiki/update` and creates a PR via `peter-eva
 |---|---|---|
 | `@angular/build` | ^21.2.7 | Build system |
 | `@angular/cli` | ^21.2.7 | CLI tools |
-| `@ulabase/cli` | ^0.13.6 | Service provisioning (`ulabase setup`) |
+| `@ulabase/cli` | ^0.14.0 | Service provisioning (`ulabase setup`) |
 | `vitest` | ^4.0.8 | Test runner |
 | `jsdom` | ^28.0.0 | DOM implementation for tests |
 | `prettier` | ^3.8.1 | Code formatting |
