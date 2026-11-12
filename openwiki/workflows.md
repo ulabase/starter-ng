@@ -4,6 +4,10 @@ title: Key User Workflows
 description: Step-by-step flows for signup and email verification, login and OAuth, password reset, team membership and invitation lifecycle, account management, the consents gate, and service provisioning.
 tags: [workflows, auth, teams, invitations, consents, provisioning]
 sources:
+  - id: openwiki-source-5093b074f16e0b77479219b2
+    resource: repo://package-lock.json
+  - id: openwiki-source-5b54a58d1b51cd490b0e7162
+    resource: repo://package.json
   - id: openwiki-source-1b6b17b8afa47babcf26380f
     resource: repo://src/app/app.config.ts
   - id: openwiki-source-d3086358408fd7acf5360013
@@ -56,10 +60,10 @@ sources:
     resource: repo://src/environments/environment.dev.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-12T16:00:22.284Z" }
 verified:
   - by: openwiki/0.9.0
-    at: 2026-11-05T15:32:19.341Z
+    at: 2026-11-12T16:00:22.284Z
 ---
 
 # Key User Workflows
@@ -131,7 +135,7 @@ sequenceDiagram
 5. The login page also surfaces backend link failures via `?error=...` query params (the backend redirects here when a link it handled directly fails). `invalid_token` shows "This link is invalid or has expired."; `token_expired` points at **Forgot password?** — that flow gets a new link and also verifies the account
 6. Logout: `auth.logout()` → redirects to `/auth/login`
 
-**Session persistence:** after login, the token is stored in localStorage. A hard refresh preserves the session because `checkSession()` reads the stored token and fetches the user.
+**Session persistence:** after login, the token is stored in localStorage. A hard refresh preserves the session because `checkSession()` reads the stored token, fetches the user, and loads the teams as a side effect (no HTTP call when no token is stored). The session-check behavior ships in `@ulabase/kit` `0.14.1` as resolved by [`package-lock.json`](../package-lock.json) (the starter declares `@ulabase/kit-ng: ^0.14.0` in [`package.json`](../package.json)) — the installed kit is the source of truth for any further session-check semantics.
 
 ## OAuth (Google / GitHub)
 

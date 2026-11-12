@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:1bcc56575725d08201849486a2243ee1c4cb2366e415c8b21b654b8f4fdd50e7",
+  "pageVersion": "sha256:e6ee3f3ce07c7063916bca8d56e34db597896cb784c5a15c5f1e7f7c0d41ad56",
   "claims": [
     {
       "id": "claim_859950199b044a018e8dac3739bbb4d1",
@@ -44,8 +44,16 @@
     },
     {
       "id": "claim_9f54b40b49c441e9ac13e2000f51b30a",
-      "statement": "The Login component calls auth.login(email, password), which also loads teams in the same round trip, then navigates to '/'; on 401 it shows 'Invalid email or password'. It also surfaces a backend-handled link failure read from the ?error query param. The session token is stored in localStorage, so a hard refresh preserves the session via checkSession().",
+      "statement": "The Login component calls auth.login(email, password), which also loads teams in the same round trip, then navigates to '/'; on 401 it shows 'Invalid email or password'. It also surfaces a backend-handled link failure read from the ?error query param. Session persistence relies on kit: the token is stored in localStorage, and a hard refresh preserves the session because checkSession() reads the stored token, fetches the user, and loads teams as a side effect (no HTTP call when no token is stored). The session-check behavior ships in @ulabase/kit 0.14.1 as resolved by package-lock.json, while the starter declares @ulabase/kit-ng ^0.14.0 in package.json.",
       "evidence": [
+        {
+          "resource": "repo://package-lock.json#L4127-L4148",
+          "version": "repo-lines-v1:sha256:025a7673af3f6d5cbc55b242eec2047ed09569ce16b88356c349c097426bf5a2:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyOTIzMjY0NDNiODYwMTk0ZjdmZTVlZjgxOTQ2MjhhMjBlZWZhMmRkZjc4N2M3YjE2MWM5M2Y3NjhhYWE1ODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmMGNkYjk3MmE3YmZiN2VkMjQ2ZjlmZjY3MjM4NWU1NWY0OTY4ZmMxMTA0M2RjNWI2ODRkNTFkZmEzMWRiY2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3N2M3MmNiMzhkNTRlMDRlOTZiMmMyMzRjNzNmMGU1NTQ3OGZjNzc4ZGExZTU4Yjg4Yzg3NGE1ZDA5ZjQ1M2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjExMTg3NmE2YjlmZDgwZDcwMGQ1ZDIyMWNmMWE1ODc4YmRiOGMyOTczYzM1MWFkZGRiODc2ODg0NWVjM2JkOTMifQ"
+        },
+        {
+          "resource": "repo://package.json#L23-L23",
+          "version": "repo-lines-v1:sha256:55e633f62d25a25ae531b44ea0efdea20434505ead4d7a111df6d82b41c46d42:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlNjMzZjYyZDI1YTI1YWU1MzFiNDRlYTBlZmRlYTIwNDM0NTA1ZWFkNGQ3YTExMWRmNmQ4MmI0MWM0NmQ0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlNjMzZjYyZDI1YTI1YWU1MzFiNDRlYTBlZmRlYTIwNDM0NTA1ZWFkNGQ3YTExMWRmNmQ4MmI0MWM0NmQ0MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
+        },
         {
           "resource": "repo://src/app/pages/auth/login/login.ts#L36-L59",
           "version": "repo-lines-v1:sha256:93bb84aa6736058cd36c0f28f270ac2aeefa32f8867a8e57506561775add71b9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkNDYyNjk2M2IxMmI5NjA4OTJjZGNhMjc5YjFmMTY3YjUxMGY2YjUzNDg3M2MxZWMxMWZiMzc0MmQwOTAyYWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0NTFmNGI0NGYyOWI4NTUyODFiYWEzODkwYWRmNTRjZjQzY2ZiZWYzNzY0Y2FlYzdiMDI0M2MzZjVhZGY3ZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkODUyMzgwYWVjOGI4MjhhYjFkZDI4ZjBhOGU3MjEwMzUxZDY1MTQ5ZGRjN2QwYzMxMDUxY2U5NDY3MjdiNmMifQ"
@@ -431,6 +439,6 @@
   ],
   "verification": {
     "by": "openwiki/0.9.0",
-    "at": "2026-11-05T15:32:19.341Z"
+    "at": "2026-11-12T16:00:22.284Z"
   }
 }

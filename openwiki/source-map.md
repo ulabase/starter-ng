@@ -1,13 +1,21 @@
 ---
 type: "Reference"
 title: "Source Map"
-description: "File-by-file guide organized by domain, covering root configuration, environments, app bootstrap, app root, shared UI, auth pages, invitation flow, team management, account, shell, home placeholder, consents gate, setup scripts, static assets, and specs/docs."
+description: "File-by-file guide organized by domain, covering root configuration (with declared vs lock-resolved dependency versions), environments, app bootstrap, app root, shared UI, auth pages, invitation flow, team management, account, shell, home placeholder, consents gate, setup scripts, static assets, agent guidance, and specs/docs."
 tags: ["source-map", "reference", "angular", "ulabase", "consents"]
 sources:
   - id: openwiki-source-da4c48207f961ff0d7aa1fff
     resource: repo://.github/openwiki-retry.mjs
   - id: openwiki-source-6d4b4e707b8d60b6ccfa3425
     resource: repo://.github/workflows/openwiki-update.yml
+  - id: openwiki-source-8037e2358a2c4f9b2c722a11
+    resource: repo://AGENTS.md
+  - id: openwiki-source-a2371d6362e5db4bc834ad03
+    resource: repo://CLAUDE.md
+  - id: openwiki-source-5093b074f16e0b77479219b2
+    resource: repo://package-lock.json
+  - id: openwiki-source-5b54a58d1b51cd490b0e7162
+    resource: repo://package.json
   - id: openwiki-source-76b992238575041d25a8d7ba
     resource: repo://src/app/consents-gate.ts
   - id: openwiki-source-3629f9e95f35cf558c779f38
@@ -28,10 +36,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.9.0", at: "2026-11-05T15:32:19.341Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-12T16:00:22.284Z" }
 verified:
   - by: openwiki/0.9.0
-    at: 2026-11-05T15:32:19.341Z
+    at: 2026-11-12T16:00:22.284Z
 ---
 
 
@@ -41,7 +49,8 @@ verified:
 
 | File | Purpose |
 |---|---|
-| [`package.json`](../package.json) | Dependencies, scripts (`ng serve`, `ng build`, `ng test`) |
+| [`package.json`](../package.json) | Dependencies and scripts (`ng serve`, `ng build`, `ng test`). Declares `@ulabase/kit-ng` and `@ulabase/cli` at the range `^0.14.0` — a declared range, not the installed version. |
+| [`package-lock.json`](../package-lock.json) | Resolved install for every dependency. Resolves `@ulabase/kit-ng`, `@ulabase/cli`, and the `@ulabase/kit` core each to `0.14.1`. Treat the lockfile as the source of truth for installed versions and `package.json` for the declared ranges; never conflate the two. |
 | [`angular.json`](../angular.json) | Angular CLI config — build options, SSR entry, budgets |
 | [`tsconfig.json`](../tsconfig.json) | TypeScript strict mode, Angular compiler options |
 | [`tsconfig.app.json`](../tsconfig.app.json) | App-specific TS config |
@@ -50,6 +59,8 @@ verified:
 | [`.prettierrc`](../.prettierrc) | Prettier formatting config |
 | [`.gitignore`](../.gitignore) | Standard Angular ignores + `.vscode` |
 | [`LICENSE`](../LICENSE) | MIT License — Copyright (c) 2026 SoftInstigate Srl SB |
+| [`AGENTS.md`](../AGENTS.md) | OpenWiki agent guidance — the just-in-time retrieval policy for AI agents. States that `openwiki/` is optional JIT context (not required startup reading), directs agents to use `openwiki_search`/`openwiki_read` only when retrieval is warranted, treats source code and tests as authoritative over wiki briefs, prefers the narrowest quiet validation, and tells agents to refresh generated pages via the documented maintenance process rather than hand-editing them. Bracketed by `<!-- OPENWIKI:START -->`/`<!-- OPENWIKI:END -->` markers that OpenWiki owns. |
+| [`CLAUDE.md`](../CLAUDE.md) | Claude Code entry point — a tiny file whose only substantive content is the `@AGENTS.md` import (Claude Code file-include syntax) inside OpenWiki's `<!-- OPENWIKI:START -->`/`<!-- OPENWIKI:END -->` markers, so Claude inherits the same agent guidance without a second copy drifting. |
 
 ## GitHub automation
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:d289db7f34c9e5bd234b97bcc5bb0db14e3b79b7e3c3e8a2a325c1424ab29db9",
+  "pageVersion": "sha256:ba8951b328cdbc71ea3ae64c3e98a34b08a38374f125aedd90d34b3c32406ecc",
   "claims": [
     {
       "id": "claim_e330a82359b141a9b3c79a1b803d13df",
@@ -32,7 +32,7 @@
     },
     {
       "id": "claim_a42c800819834d03bf3ca6e89a4acef7",
-      "statement": "Routes declare their SSR render mode in app.routes.server.ts: auth pages (login, signup, forgot-password, reset-password) use Prerender mode, while authenticated routes, verify, and invitations/accept use Client mode because they require live API calls or the in-memory token.",
+      "statement": "Routes declare their SSR render mode in app.routes.server.ts: auth pages (login, signup, forgot-password, reset-password) use Prerender mode, while authenticated routes, verify, and invitations/accept use Client mode because they require live API calls or the browser-stored token.",
       "evidence": [
         {
           "resource": "repo://src/app/app.routes.server.ts",
@@ -66,7 +66,7 @@
     },
     {
       "id": "claim_d9eb294483bf46e093fd95cdf756d257",
-      "statement": "Authenticated routes cannot be server-rendered because the bearer token lives in an in-memory signal, not in a cookie.",
+      "statement": "Authenticated routes cannot be server-rendered because the bearer token is persisted by kit in the browser (localStorage), not in a cookie the server receives; session state is exposed as Angular signals by RhAuthService.",
       "evidence": [
         {
           "resource": "repo://src/app/app.routes.server.ts#L51-L55",
@@ -75,6 +75,10 @@
         {
           "resource": "repo://src/app/app.ts#L4-L4",
           "version": "repo-lines-v1:sha256:19d0126162754dcae26e6a95be06b8b3ce16e87759dd291c7f47cc3edc3bf46a:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTlkMDEyNjE2Mjc1NGRjYWUyNmU2YTk1YmUwNmI4YjNjZTE2ZTg3NzU5ZGQyOTFjN2Y0N2NjM2VkYzNiZjQ2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTlkMDEyNjE2Mjc1NGRjYWUyNmU2YTk1YmUwNmI4YjNjZTE2ZTg3NzU5ZGQyOTFjN2Y0N2NjM2VkYzNiZjQ2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjFkOTI2ZjVlZjVmMjc5MjUzMDMxNGMwODYxMWJkODZkN2QzYmRmMjZlNGMxNjkxZjZlOTAxODI3ODYwYTI3MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODliMTM2OGQ3MTI0ODgwZjlkMTVhMzc4NWIxNDc5Mjg1YWEwY2M5NGJkOTM3MTAwNDllZjZmYmZhNzMyMGU3MiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L58-L81",
+          "version": "repo-lines-v1:sha256:b94eaf92fbb5bd1a64668cebf96acaa871f53bcbe33029874db7fc3942cb5f6a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1ZjU4N2UzYjM5ZmQxNzg0YWVhZTdhMTRmYWFmMWRlYTFkMDEzMmZjYzEwYmYyMTE2NjQ4OTQ3N2JmMGJhNjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5ZWY0YjcwNzU1YzU5ZTI2MDQwMzk2OGE0ZDliYTMwNTA2MDU4NWIwMzNjNzQzMDIwZTZhNGQ3NWIyOTI0NGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM2N2E1OTkxNTdkOTlmMzhiNmFhYWM1NTg0OTVkOGZlY2QwNjRjOWZlYjQ2ZDkwOGE5ZWMyZjg2OWUwNjk3MDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxZGY0NWVjOWEzMTAzYzhkYzgyMDNjYWNiYjA0YzczNzRkZTA5MTNmNGFmZmU2ZTM4Mjk3ZjFlODczOGYxODMifQ"
         }
       ]
     },
@@ -287,10 +291,42 @@
           "version": "repo-lines-v1:sha256:7d1917695ff20a231cb214ad1ba93316a812075991fbebc0d6d46f0ba3456ad4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5YWE1MTc4MTE2ZTZiY2U0ZDY3Nzk1NzAzNjlkZmNjMmIwYjdiNTMzMzViMDc4MGRhMzE2YTc1M2JkZTUxODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyZDExY2FmNDNlOTdlZjM2OWU2YmVlZDFhMjY4YmQwNTgzOGYyOWI5ZGQyNTRiZjY5YmE2NDg4NDE0NzIzNGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFhZWI3M2JiNDI0NmQzOGRiYzY0ZTVjMTlkYjAwODM0MWY4N2FkMWE2Yzc4YTgxOTA4NDhjZTc5ZmQ3NzkxZjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2N2E1OTkxNTdkOTlmMzhiNmFhYWM1NTg0OTVkOGZlY2QwNjRjOWZlYjQ2ZDkwOGE5ZWMyZjg2OWUwNjk3MDkifQ"
         }
       ]
+    },
+    {
+      "id": "claim_63198ae9bb614fc7956dc9b0fff14b04",
+      "statement": "Token storage/persistence is kit's concern (localStorage); session state — user(), teams(), isAuthenticated() — is exposed as Angular signals by RhAuthService in kit-ng. The two are distinct: storage holds the bearer token, signals reflect loaded session data.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.ts#L4-L4",
+          "version": "repo-lines-v1:sha256:19d0126162754dcae26e6a95be06b8b3ce16e87759dd291c7f47cc3edc3bf46a:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTlkMDEyNjE2Mjc1NGRjYWUyNmU2YTk1YmUwNmI4YjNjZTE2ZTg3NzU5ZGQyOTFjN2Y0N2NjM2VkYzNiZjQ2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTlkMDEyNjE2Mjc1NGRjYWUyNmU2YTk1YmUwNmI4YjNjZTE2ZTg3NzU5ZGQyOTFjN2Y0N2NjM2VkYzNiZjQ2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjFkOTI2ZjVlZjVmMjc5MjUzMDMxNGMwODYxMWJkODZkN2QzYmRmMjZlNGMxNjkxZjZlOTAxODI3ODYwYTI3MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODliMTM2OGQ3MTI0ODgwZjlkMTVhMzc4NWIxNDc5Mjg1YWEwY2M5NGJkOTM3MTAwNDllZjZmYmZhNzMyMGU3MiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L4-L4",
+          "version": "repo-lines-v1:sha256:414714f45bc41d905e497ea02761b91da43b8fd8d7350ebb0bcd569cf4fdf235:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDE0NzE0ZjQ1YmM0MWQ5MDVlNDk3ZWEwMjc2MWI5MWRhNDNiOGZkOGQ3MzUwZWJiMGJjZDU2OWNmNGZkZjIzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDE0NzE0ZjQ1YmM0MWQ5MDVlNDk3ZWEwMjc2MWI5MWRhNDNiOGZkOGQ3MzUwZWJiMGJjZDU2OWNmNGZkZjIzNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGY2MzhkMTllMjVmOTAwNzk1MTc1NWI2YmQwMmJhZGY4ZmRkOTUyMjk5MGUzYzk4ZGE2YzNhM2Y4ODc4YzU1NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMThmNzYyNjBlNTg1NjIxMmIwNDA4NjdjNDBhOGViMWIzY2NkNmNlZjU5YzBiOGZkZmI0NjVjMTUwMzE1NTAwMSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L58-L81",
+          "version": "repo-lines-v1:sha256:b94eaf92fbb5bd1a64668cebf96acaa871f53bcbe33029874db7fc3942cb5f6a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1ZjU4N2UzYjM5ZmQxNzg0YWVhZTdhMTRmYWFmMWRlYTFkMDEzMmZjYzEwYmYyMTE2NjQ4OTQ3N2JmMGJhNjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5ZWY0YjcwNzU1YzU5ZTI2MDQwMzk2OGE0ZDliYTMwNTA2MDU4NWIwMzNjNzQzMDIwZTZhNGQ3NWIyOTI0NGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM2N2E1OTkxNTdkOTlmMzhiNmFhYWM1NTg0OTVkOGZlY2QwNjRjOWZlYjQ2ZDkwOGE5ZWMyZjg2OWUwNjk3MDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxZGY0NWVjOWEzMTAzYzhkYzgyMDNjYWNiYjA0YzczNzRkZTA5MTNmNGFmZmU2ZTM4Mjk3ZjFlODczOGYxODMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6db92d0586124fb0b99e972f0526531a",
+      "statement": "The starter declares @ulabase/kit-ng at ^0.14.0 in package.json while package-lock.json resolves both @ulabase/kit and @ulabase/kit-ng to 0.14.1.",
+      "evidence": [
+        {
+          "resource": "repo://package-lock.json#L4127-L4139",
+          "version": "repo-lines-v1:sha256:7bff7f734bf5f6f5ad5d1fd114456dacf5d8ea162b9318679641ef147e7f49f5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyOTIzMjY0NDNiODYwMTk0ZjdmZTVlZjgxOTQ2MjhhMjBlZWZhMmRkZjc4N2M3YjE2MWM5M2Y3NjhhYWE1ODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwNTVlZDgwZGQ1ZjU3ZjZkYmIxYmE1NWIwYWMxMTVkMmI5ZmVkYWViNTlhZjM1ZTBhYTNmMmVjMWJlNWYxNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3N2M3MmNiMzhkNTRlMDRlOTZiMmMyMzRjNzNmMGU1NTQ3OGZjNzc4ZGExZTU4Yjg4Yzg3NGE1ZDA5ZjQ1M2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFlOTk3MTlhMjJiZjYxMzVlYTZmMzkzYzc1MWQyZDQ2MjEyNjYwN2YzYzhmYTYxYzY2M2ZkNzM0MmRmZmNhNTEifQ"
+        },
+        {
+          "resource": "repo://package.json#L23-L23",
+          "version": "repo-lines-v1:sha256:55e633f62d25a25ae531b44ea0efdea20434505ead4d7a111df6d82b41c46d42:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlNjMzZjYyZDI1YTI1YWU1MzFiNDRlYTBlZmRlYTIwNDM0NTA1ZWFkNGQ3YTExMWRmNmQ4MmI0MWM0NmQ0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlNjMzZjYyZDI1YTI1YWU1MzFiNDRlYTBlZmRlYTIwNDM0NTA1ZWFkNGQ3YTExMWRmNmQ4MmI0MWM0NmQ0MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.7.2",
-    "at": "2026-10-19T08:21:09.342Z"
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-12T16:00:22.284Z"
   }
 }
