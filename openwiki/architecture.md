@@ -4,6 +4,10 @@ title: Architecture Overview
 description: Angular SSR architecture, dependency layers, routing/guards, auth flow, fragment token handling, and the consents gate mechanism for ulabase-starter-ng.
 tags: [architecture, angular, ssr, auth, routing, consents]
 sources:
+  - id: openwiki-source-5093b074f16e0b77479219b2
+    resource: repo://package-lock.json
+  - id: openwiki-source-5b54a58d1b51cd490b0e7162
+    resource: repo://package.json
   - id: openwiki-source-53b198bca9fa0abbe11c24a6
     resource: repo://src/app/app.config.server.ts
   - id: openwiki-source-1b6b17b8afa47babcf26380f
@@ -22,6 +26,8 @@ sources:
     resource: repo://src/app/consents.ts
   - id: openwiki-source-04a212cd84ffc1653fb72e76
     resource: repo://src/app/just-signed-up.ts
+  - id: openwiki-source-0c503ef6a22fe483e758a9db
+    resource: repo://src/app/pages/invitations/accept/accept.ts
   - id: openwiki-source-0980df84d522a6755217a044
     resource: repo://src/app/pages/shell/shell.html
   - id: openwiki-source-9fd5be7b4a86f1a62c53cab3
@@ -34,10 +40,10 @@ sources:
     resource: repo://src/main.ts
   - id: openwiki-source-d9b845a7425932c3767a237e
     resource: repo://src/server.ts
-generated: { by: "openwiki/0.7.2", at: "2026-10-19T08:21:09.342Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-12T16:00:22.284Z" }
 verified:
-  - by: openwiki/0.7.2
-    at: 2026-10-19T08:21:09.342Z
+  - by: openwiki/0.9.0
+    at: 2026-11-12T16:00:22.284Z
 ---
 
 # Architecture Overview
@@ -58,9 +64,9 @@ The application has three distinct layers:
 
 - **Templates** — semantic HTML with class hooks (`.card`, `.btn-primary`, `.form-field`). The default CSS skin in `src/styles.css` is deliberately disposable; see [Operations](operations.md#css-theming) for restyling.
 - **Components** — Angular signal-based state, reactive forms, `RhAuthService` injection. Framework-specific glue.
-- **`@ulabase/kit`** — plain TypeScript with a Promise-based API. Handles all HTTP calls, token storage, and session logic. **Do not reimplement auth logic, HTTP calls, or token handling** — depend on kit directly.
+- **`@ulabase/kit`** — plain TypeScript with a Promise-based API. Handles all HTTP calls, bearer-token persistence (localStorage), and session logic. **Do not reimplement auth logic, HTTP calls, or token handling** — depend on kit directly.
 
-The `@ulabase/kit-ng` package bridges kit and Angular: it provides `RhAuthService` (reactive state), `authGuard`/`publicGuard`, and an HTTP interceptor that attaches the bearer token and clears the session on 401/expiry.
+The `@ulabase/kit-ng` package bridges kit and Angular: it provides `RhAuthService` (reactive session state), `authGuard`/`publicGuard`, and an HTTP interceptor that attaches the bearer token and clears the session on 401/expiry.
 
 ## SSR / CSR split
 
@@ -89,13 +95,13 @@ The app uses Angular 21's hybrid SSR model. Routes declare their render mode in 
 | Render mode | Routes | Why |
 |---|---|---|
 | `Prerender` | `/auth/login`, `/auth/signup`, `/auth/forgot-password`, `/auth/reset-password` | Static HTML — no live data needed |
-| `Client` | `/auth/verify`, `/invitations/accept`, all authenticated routes (`/home`, `/teams/*`, `/account`) | Require live API calls or in-memory token |
+| `Client` | `/auth/verify`, `/invitations/accept`, all authenticated routes (`/home`, `/teams/*`, `/account`) | Require live API calls or the browser-stored token |
 
 The SSR entry point is `src/server.ts` — an Express 5 app that serves static files from `/browser` and delegates all other requests to `AngularNodeAppEngine`. The server listens on `PORT` or defaults to 4000.
 
 The server bootstrap is `src/main.server.ts`, which calls `bootstrapApplication(App, config, context)` using a merged config (`src/app/app.config.server.ts`) that layers `provideServerRendering(withRoutes(serverRoutes))` on top of the client `appConfig`.
 
-**Key constraint:** authenticated routes cannot be server-rendered because the bearer token lives in an in-memory signal, not in a cookie. SSR renders the public auth pages; CSR takes over once the user is authenticated.
+**Key constraint:** authenticated routes cannot be server-rendered because the bearer token is persisted by kit in the browser (localStorage), not in a cookie the server receives. Session state itself is exposed as signals — see [Auth state model](#auth-state-model) for the storage/state split. SSR renders the public auth pages; CSR takes over once the user is authenticated.
 
 **Change navigation:** When modifying SSR/CSR behavior, check `src/app/app.routes.server.ts` for render mode assignments and `src/server.ts` for the Express server configuration. Test with `ng build && node dist/ulabase-starter-ng/server/server.mjs` and verify auth pages are prerendered (view source shows HTML) while authenticated routes are client-rendered only.
 
@@ -175,6 +181,8 @@ stateDiagram-v2
     }
 ```
 
+**Token storage vs. session state:** kit persists the bearer token to `localStorage`; the rest of the wiki and this page describe *session state* — `user()`, `teams()`, `isAuthenticated()` — which `RhAuthService` exposes as Angular signals. The storage layer is kit's concern; the signals are the Angular-facing view of it.
+
 `RhAuthService` exposes reactive signals:
 
 | Signal | Type | Notes |
@@ -192,7 +200,7 @@ stateDiagram-v2
 - `acceptConsents()` — records the user's acceptance of Terms of Service and Privacy Policy. Used by the consents gate.
 
 **Critical behavior:**
-- `checkSession()` also loads teams. It short-circuits to `null` with empty teams when there's no stored token (no HTTP call), otherwise fetches user then teams.
+- `checkSession()` also loads teams. It short-circuits to `null` with empty teams when there's no stored token (no HTTP call), otherwise fetches user then teams. The installed kit resolves to `0.14.1` (`package-lock.json`); the starter declares `@ulabase/kit-ng: ^0.14.0` in `package.json`.
 - `login()` also loads teams in the same round trip.
 - `loadTeams()` explicitly refreshes teams and updates the `teams()` signal. Returns an Observable that emits the teams array. Used by `Teams` and `TeamDetail` components for manual refresh (e.g., after team deletion).
 - `switchTeam()` reissues the JWT with a new active team — no page reload needed.

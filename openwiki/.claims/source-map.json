@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:8675056710df78b001ffbe0e7c5f3699c0f2f871ad3757a940955a67aecf1fcc",
+  "pageVersion": "sha256:00aadfdb84da22311dea8a5763e80c09984427b993c364267070d39fb23cf1b2",
   "claims": [
     {
       "id": "claim_2c280c21ab08438e8b90ba869e38ee6f",
@@ -129,10 +129,44 @@
           "version": "repo-lines-v1:sha256:0443790999013a628c7f8ad0d45007081b6f1fadd07bf5019e66be579b1ad11f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEzLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIwNjAyNzg3YWY2ZGNjMDgzNGRlMTIxY2JiMWNiOTVmOTQ1OWI3MjFlYWIwMzQ5ZjEwNTAxYjk5NmMxYzc3ZmZmIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJlZjNkMWIxYjMwMjhmMGE0OTUzNGMwZjE3MmI5MWNlZmEwMWZkNzIzMmZmNjQzNGU1NzVlY2Q1MzllMzBjNjA3IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
         }
       ]
+    },
+    {
+      "id": "claim_086aee5057ab4220a692636a0e5cb0ff",
+      "statement": "Dependency versions must be read from two distinct sources: `package.json` declares `@ulabase/kit-ng` and `@ulabase/cli` at the range `^0.14.0`, while `package-lock.json` resolves `@ulabase/kit-ng`, `@ulabase/cli`, and the `@ulabase/kit` core each to `0.14.1`. The declared range is not the installed version and the two must not be conflated.",
+      "evidence": [
+        {
+          "resource": "repo://package-lock.json#L4113-L4135",
+          "version": "repo-lines-v1:sha256:548c016da47870bea98b78057a3f25d532ac1965ab023b55b7981f5f540d5a2c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5OWQ1NDIxNTVmMTI2Y2RkNDViYjMxNDRhNGI1YmFjOGFlYjUzMWU3YzgyYzRhMzUyOTgxYjc1ZmFmYjZkZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkN2RhNWY2NTM1N2NkZjU3MTNlNzNmZGJiYjAwY2JmMWI1ZDViNGUzODg5ZDk5ZjVhNTE0NzY3NGYyODJiZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIwYzIyMDg1ODdjYTk2ZjE5NjZkOWJiYmI0ODdkMjU4NmM5MjkzZmM2NjVmN2Q2NDMxN2U0Njk5MjE4NWU5NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU2NTQzNGIwNTJlNTBmNmE1MDA1ZGI2ZTMyMzdlNjJlOTRhODE0MWZkZjQ3YTE1OWI5ZmFhNDBkMTQyMjNmZTIifQ"
+        },
+        {
+          "resource": "repo://package.json#L23-L34",
+          "version": "repo-lines-v1:sha256:3cc9b8bc50e2cdf46d4fa21540a7a1fac7a50a49151cfdeae4322b3e75663141:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1ZTYzM2Y2MmQyNWEyNWFlNTMxYjQ0ZWEwZWZkZWEyMDQzNDUwNWVhZDRkN2ExMTFkZjZkODJiNDFjNDZkNDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE1YzE4NmM1NDkwODA5NDg4ODA1MmVjZTEzZjQ5NTE2MGE3ZjJmZWE2ZTQ0ODU5ODYzMzE0MmZkYzNkMTIxMGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiYjBjMDZkMDMyZmZhNTUzZWRiZmQ1MThhMDRhMWM2Yzg5Y2JkODdiNmQxNWExMWU5YTM3ZTIyZTcyMWEzOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE1MGRkNDZjN2U2NGI0Y2JhNGUwYWM5MzkwNGM4ZWJkNDk0NzFlZTU5NjVlNGE0YTQ2ZWEwNTA4NGNjYTU0YmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7d5fc1c8d04540c9b83cde6ebfab182d",
+      "statement": "`AGENTS.md` holds the OpenWiki agent guidance: the just-in-time retrieval policy that treats `openwiki/` as optional context rather than required startup reading, directs agents to retrieve only when warranted and stop once grounded, treats source code and tests as authoritative over wiki briefs, prefers the narrowest quiet validation, and refreshes generated pages via the documented maintenance process instead of hand-editing them. The guidance is bracketed by OpenWiki-owned `OPENWIKI:START`/`OPENWIKI:END` markers.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L1-L16",
+          "version": "repo-lines-v1:sha256:3f65427f27766385406120665601b3866f854937467101977cfcd5ab695bd575:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8dcc7b25aed54fdc842d36aac53bd4f1",
+      "statement": "`CLAUDE.md` is the Claude Code entry point: its only substantive content is an `@AGENTS.md` file-include import inside the same OpenWiki `OPENWIKI:START`/`OPENWIKI:END` markers, so Claude inherits the agent guidance from a single source rather than a second copy that could drift.",
+      "evidence": [
+        {
+          "resource": "repo://CLAUDE.md#L1-L7",
+          "version": "repo-lines-v1:sha256:cd617c809957b5aeb601ce9856109475f6da8ed78835148d17c3097dd4daa848:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYxODBmOWMxMjY5MDNiY2MzMzFhYTk1NDU2ZTQ5NDQ0YTdkNGQwMTFlOGEyYTgzZjVkYzg3MDIzOTE4MTJkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDlmNzg3MTQ4OTNhYTc3OTQyY2VhMWM0YTJlMDIzMWRiYjdmYTJhNDFhNzBjODE0NjBhM2M2NzU2MmRhM2FhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.9.0",
-    "at": "2026-11-05T15:32:19.341Z"
+    "at": "2026-11-12T16:00:22.284Z"
   }
 }

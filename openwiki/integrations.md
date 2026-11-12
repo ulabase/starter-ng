@@ -8,6 +8,8 @@ sources:
     resource: repo://.github/openwiki-retry.mjs
   - id: openwiki-source-6d4b4e707b8d60b6ccfa3425
     resource: repo://.github/workflows/openwiki-update.yml
+  - id: openwiki-source-5093b074f16e0b77479219b2
+    resource: repo://package-lock.json
   - id: openwiki-source-5b54a58d1b51cd490b0e7162
     resource: repo://package.json
   - id: openwiki-source-d0cca70daf23ae76d9eafbb8
@@ -42,10 +44,10 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.9.0", at: "2026-11-10T15:38:04.761Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-12T16:00:22.284Z" }
 verified:
   - by: openwiki/0.9.0
-    at: 2026-11-10T15:38:04.761Z
+    at: 2026-11-12T16:00:22.284Z
 ---
 
 # Integrations & Dependencies
@@ -86,7 +88,7 @@ provideRhAuth({ apiBaseUrl: environment.apiUrl, onError: consentsOnError })
 
 The `onError` callback receives every failure the kit encounters, including session restoration errors that no caller is waiting on. The starter uses this to detect `451` responses from the consents gate (see [`src/app/consents.ts`](../src/app/consents.ts)).
 
-**Version:** currently `^0.14.0` (see [`package.json`](../package.json)).
+**Versions:** [`package.json`](../package.json) declares `@ulabase/kit-ng` at `^0.14.0`; [`package-lock.json`](../package-lock.json) resolves `0.14.1`, which pins `@ulabase/kit` `0.14.1` beneath it. On this page, `^0.14.0` is always the declared range and `0.14.1` is the lock-resolved install — the two must not be conflated.
 
 **`auth.api()` method:** provides an authenticated `fetch` wrapper that attaches the bearer token and handles errors. Returns an `Observable<Response>`. Use it for custom API calls to your Ulabase service:
 
@@ -149,11 +151,13 @@ sequenceDiagram
     Browser->>Ulabase Service: Authenticated API calls with Bearer token
 ```
 
+*OAuth redirect and fragment-token capture: the service hands the browser back to the app with `#access_token`, which `consumeFragmentToken()` stores before any authenticated call.*
+
 The `noauthchallenge` query parameter tells the Ulabase service not to challenge for credentials before redirecting to the OAuth provider.
 
 ## @ulabase/cli
 
-[`@ulabase/cli`](https://github.com/ulabase/kit/tree/main/packages/cli) is a dev dependency (`^0.14.0`) that provisions a Ulabase service to match what the starter expects.
+[`@ulabase/cli`](https://github.com/ulabase/kit/tree/main/packages/cli) is a dev dependency (declared `^0.14.0`, resolved `0.14.1` in [`package-lock.json`](../package-lock.json)) that provisions a Ulabase service to match what the starter expects.
 
 **Workflow:**
 
@@ -204,6 +208,8 @@ flowchart TD
     I --> J
 ```
 
+*`ulabase setup` control flow: checks report what is missing, applies make the service match, and a dry run never applies.*
+
 ## OpenWiki CI
 
 The repository has an OpenWiki GitHub Actions workflow at [`.github/workflows/openwiki-update.yml`](../.github/workflows/openwiki-update.yml):
@@ -236,7 +242,7 @@ The workflow commits to branch `openwiki/update` and creates a PR via `peter-eva
 |---|---|---|
 | `@angular/build` | ^21.2.7 | Build system |
 | `@angular/cli` | ^21.2.7 | CLI tools |
-| `@ulabase/cli` | ^0.14.0 | Service provisioning (`ulabase setup`) |
+| `@ulabase/cli` | `^0.14.0` declared, `0.14.1` resolved | Service provisioning (`ulabase setup`) |
 | `vitest` | ^4.0.8 | Test runner |
 | `jsdom` | ^28.0.0 | DOM implementation for tests |
 | `prettier` | ^3.8.1 | Code formatting |

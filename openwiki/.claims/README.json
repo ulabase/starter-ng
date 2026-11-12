@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:c9db698121bbf91ed09f2ed4610cf89dc766b1aeac10155abb3a254601121897",
+  "pageVersion": "sha256:71ba5fa8dcb1bb7a0b8aff11c41b71dbc63bc5ccd449b85b8d6f11d06d3da35e",
   "claims": [
     {
       "id": "claim_b812ebe42cef4e7b898dabd9d1d7849c",
@@ -31,10 +31,72 @@
           "version": "repo-lines-v1:sha256:2e7da4f8c78e2f66118bc500e64c43b39391cb79612d6ad8ed0fa28e9649ffa5:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjVkZTBlZGZhZGMyNjIyYmU5ZjBkZWM1NGUwMmY1MmY0MDc0ZTZlZWZmNDM5ZmE2MWI2YzBkZDRjZTBjNzVhNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWJhZWI5MzYxZjRiOWJjMmMxYzNlZmMxOGRlZWFiMGNhY2FhMWJlMTk3YjljNDk4YTI4ZjI3NmZkNzk0MjdhMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWE1NDgwNDljN2ViZmQ1ZGY1NzEzZWQ1MmMzOTJkZDA5NTRlNTM0ZWY2ZTExNGE3MGU0MDQyODhkZjAxNjc4OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzMxYjFiMjU5MzM5NzIyZDBmODU0MzVjNzJkNmEyNzdiYTVjNDliYzNkMTZlMGI1YzMzNDcwZjY2YWJhODEwMSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_ff1cd801c6bb4b4ebd54d714fb1e4203",
+      "statement": "AGENTS.md defines the generated openwiki/ evidence index as optional just-in-time context rather than required startup reading: agents must not enumerate, preload, or search wikis at task start, and must retrieve only when the user asks for it, when unfamiliar architecture or dependency behavior materially affects the task, or when source inspection leaves an important uncertainty — stopping once the question is grounded.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L5-L7",
+          "version": "repo-lines-v1:sha256:74d059406aa607961d0294aaa9f2fe5ec59cbbec678e8e8fcfe207fdce6b3e81:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWRiNDYwNjYwZjRkNTBhMjVhY2E3Nzk2MTAwMmQzOTcwNWM2NDZkYzI2YThiZmE2NmFlNmY2OTA5NTljNjk1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDYxZGVhMjg2MzE5Y2NkOWU0MDcxOTE4Yjc1OGIxYjA1MjhmNjE2ZGQ4OTk4NDUzN2JjNGNhMTJhMjg0ZjU1YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWFmYjk2MDZmNWIwZDhmNjM0YjI2MDM3OGQ2ZWNlMjUzYjVjMTQ0N2E5YmYxZDA0OTM0OTQ0MGE4YjVlYmYwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWM5MGE3YjU5ZmEwNjFhOTU2YzE5MTIxOTkyYWQ4ZDFmOTk2ZGMwOGE3YjQ1ODhlYjJjYjk4MzU0YjdmMTU0ZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5a5189b87f8c453e9e6957d622ef8386",
+      "statement": "When OpenWiki retrieval tools are available, AGENTS.md directs agents to use openwiki_search for just-in-time context and openwiki_read for the relevant complete sections, to handle a workspace_required search result by asking which listed workspace to use and retrying with its ID, and to use openwiki_list_workspaces or openwiki_list_wikis when workspace membership itself must be discovered; if the retrieval tools are unavailable, the fallback is to read openwiki/quickstart.md and follow its links to the relevant pages.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L8-L10",
+          "version": "repo-lines-v1:sha256:9c90a7b59fa061a956c19121992ad8d1f996dc08a7b4588eb2cb98354b7f154d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjRjZDU2ZjNmODQxYTEyOTE2MzVkM2M4MzUyMTBiMjViNTkxNTMyYzAxZTFlN2QxZTdiZWQ0YjI4NDFjNDYzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDc1NTNiMGQ1MmViODI0ZWY0MWU3NmJmNDViNTYyZjFjZTQ4M2ExMjYzZjRmZmI0M2IxMWIwOWEwNzI4NThiYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzRkMDU5NDA2YWE2MDc5NjFkMDI5NGFhYTlmMmZlNWVjNTljYmJlYzY3OGU4ZThmY2ZlMjA3ZmRjZTZiM2U4MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjZjYjMwYThmOTQ4MTMxNDkwODJmM2RjYjkxOWRiMTJmMjIwYjMxYTI5NWZiZWU5NTM1MWNmOGYxNGJhZGEyZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4af0368e375a42848967b5dc77c0754a",
+      "statement": "AGENTS.md treats source code and tests as authoritative (a brief's unknowns and review items are verification gaps, not automatic requirements), requires the narrowest quiet validation that proves the changed behavior with complete failure output preserved, and requires refreshing generated OpenWiki pages through the repository's documented maintenance process after source changes rather than hand-editing generated pages.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L11-L14",
+          "version": "repo-lines-v1:sha256:765d01f6792cf6ff04de60089c0c3eddb18d4c56368397cfbc2b541e4110bef5:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmNiM2Q0YTQ2NjliZGM3YTQwZDk4MDc3MzVkZjYwOGJmZTMxZDM4NjA2N2M5OTliNzUwYWFjNjMyYzFiNmQzMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWFmZjgwOGViZDlhMGFkZjE3ZjczYjEzMzU4OTgzNmI5MTVjYWUzYjllYzg5MjAxM2FjMjczNzQ0OWYzMDcwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM5MGE3YjU5ZmEwNjFhOTU2YzE5MTIxOTkyYWQ4ZDFmOTk2ZGMwOGE3YjQ1ODhlYjJjYjk4MzU0YjdmMTU0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA4OWRmOTNmOGJhNTdhNGRkYmZkOGYwMTM5NjJjMzk3OGNlNGRiNjgxOTljNGRhNjY2NjQ5YjA5OTZjZWRhOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f7b5fce59af0466583cc48db96c3fbc7",
+      "statement": "quickstart.md is the wiki's navigation hub for recurring docs: NOTES.md designates it as the first stop with navigation to all major topics, and its documentation map table names it the OpenWiki entry point and navigation hub alongside one purpose line for each of the seven topic pages (architecture overview, domain model, development workflows, operational guidance, external integrations, testing strategy, and source navigation).",
+      "evidence": [
+        {
+          "resource": "repo://NOTES.md#L126-L134",
+          "version": "repo-lines-v1:sha256:f15a02ca3ebe0f0749b25abc25993f0eeef6a171ddd5d69ec6bd32e445513631:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJkZWY0YzRjM2M4ZWY3ZWExMmFjZDM1ODAwNTVlOWI3ODU2MjBhNTY0NzJiYmJlNmIxNmZjOWEyMTdiY2E0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQ4Zjk4MjRmOTdjOWJiNGY0NzkwMGMzOWNmYjVjMGFkYzk0ZDUwYmY3ODgxY2U5NjVhMWRmYzVkZDc5MzU2NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzkxNWI4ODQ0MzcyN2U5MDI1MmNiNTljMDg1YTRjZTBjOTViM2E1MmE1ZWE5OGQ0ZDc3NzliODEzMzJjNzZjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2VkODc0ZmRhZTBkMWEwN2NkYTllNzFkNTMzZGViOTQ0ZTg0NTQzNDRlOTdlODU5M2RjZDllNmI4ZWMwYWYxZiJ9"
+        },
+        {
+          "resource": "repo://NOTES.md#L6-L21",
+          "version": "repo-lines-v1:sha256:4a11dc36274f916c8e8e3260400e19609a1819d151c416dce43578ed9831a5c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNGJmOTcyY2EwMmRjYTFjNTNlOTQyNGEyMzQxNWIyZTMwYTFkMGRmMjk5ZmE2MzE3YjdhYWViZDFlMzU2Y2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhZjEwMjYwNTgzZDQzNzYxOGQzNWJmZDMyOWIxOTNjOWQxY2U2ZmJhNzExYjFlNDFhZWMxZGYwNjk2MjBiYTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYwZjZhN2JjM2M3MTRmMmMzYTE4Nzc4MjEzMDNjN2RmNjM4YTNkMjZiMWYxZDk2MDg3ZGFiZWM3YjRhOTc5N2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJlMzIyNTVkZjhmYzMwMjJlNjI1NDQ2MDA1YzNkODM2OGEyMzUyNGUzMzYwZmRjN2M4NmE0ZjMwOWNjZmQ3MzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4353606bc0df4ae4ac06137d840ae23f",
+      "statement": "The openwiki/ pages are maintained by the repository's OpenWiki GitHub Actions workflow (.github/workflows/openwiki-update.yml), which installs OpenWiki and runs `openwiki code --update` (or --init) under a nightly cron (17 7 * * *) and workflow_dispatch, then opens a PR from the openwiki/update branch.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L64-L72",
+          "version": "repo-lines-v1:sha256:5bebed9bdbd75bf962250c9e6486c9e2ed84b4183078a72cfc9a15bbd3e6029b:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRlZGU0YmVjNGNkZGJhYmQzMzM3NGIxMmUxYmY3NjdkNjliNDgzMGIzZTdjMDc1OTBiMjM0ZTYzYjAxNDkzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFiZGUwNGI3NGViNjRkZjM5Nzg4ZmRmYTBjZmM1NDU4YWZlYjAwNjYzYjc2N2ZmZTU4ZjVkY2U1MmU1ODQzNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmVlNTczMTMwMzAyNTZhZmFkZmZjYzU3NGVjYzhmODdjNzE2NTk4OTNjMzJlYzQ0ZmZhMTUyYjI5MTcyY2UxMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDljZmY0MGJkMmM2YzE0OTU5ZDQwYmQ2MmJiZDAxZGJiMzQzNTg0MzY0NWUwNDE4NDBiYTMzMWUzNGU4ZjYyYiJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L8-L13",
+          "version": "repo-lines-v1:sha256:9e5ec1790b8782b5e1ced5766c8025361c33ca2c570d76c428ccd907b9a110b2:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjYwM2JiODFmMTE4OWJhMDI1YWFkMjg0MWRhZDJhYTBmYmViY2IwNTZjZTY5ZmZhMWNhMDEwOWVmZWVkN2I4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2YyZmE3M2YwNzA0ODlkOTcyNGEwMjlkZmI1MDJhYTA4ODUwN2QwODU3OWJiYmNjOTRlZDkzNWMxYTA1MzMxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjZhNGRlZWM4YzdlN2U2Y2U1NTI4N2M4OWJjOTIyMjQ3NzNkNjAxZGY5MGJiZWU3YWJmZGM4YmNkZDhjNmQyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjBhMDdkZDFiNGE2NzlmMzA2ZjI0MWZjZjExMjAzNGY0ODczZjkwN2U3ODZmNDJlYWRmODdlYTI0ZmYzMjhkMSJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L89-L95",
+          "version": "repo-lines-v1:sha256:70f4415745bba90f27d8266a688589ca55bd9c4bbad2d2e219db5a7460d2fba6:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjVjNzRiMGQ3MjgyN2Y4YjM5ZWRkODY0MDZkODgwMDg1OTQzOTZlMjViY2FmM2VkMzU1YWU1NWRmZWQzYjg5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjE2M2IxZDg3OWExNDlhMTgxMDYyMzk4MmVlZGI5ZjE4N2NmYWRkMmMwZGU2MTIwMTdiNTFkYTNkMDZjMTcxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTcxYzM3MmI3YzNlZjhlNmJmZDE4YzI4NTI4YTI0N2I2ZTg1MjcyY2FkN2U2NjRmODJhY2UwMDJmNWNiMzE0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzljN2JiMzcwYTE2OTBkOTVjOWEyMzQyMGUxMTUxOThmOWZkYTNmMmNkZmExNWE4NjdmNzQyNzljMzdiOWZlNiJ9"
+        }
+      ]
     }
   ],
   "verification": {
-    "by": "openwiki/0.7.2",
-    "at": "2026-10-19T08:21:09.342Z"
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-12T16:00:22.284Z"
   }
 }
