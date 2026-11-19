@@ -215,7 +215,7 @@ sequenceDiagram
     Accept->>User: Redirect to home as team member
 ```
 
-**Entry:** `/invitations/accept?email=...&token=...` (gated by `teamInvitations` flag)
+**Entry:** `/auth/activate?email=...&token=...` for a new user, `/invitations/accept?email=...&token=...` for an existing one: the two links of the service's invitation email, both routed to the same page (gated by `teamInvitations` flag)
 
 1. [`Accept`](../src/app/pages/invitations/accept/accept.ts) component has no route guard, so the constructor calls `auth.checkSession()` when `getToken()` is truthy — this handles users returning from the consents gate who already have a token but no loaded session
 2. Component calls `auth.getInvitation(email, token)` on init
@@ -227,7 +227,7 @@ sequenceDiagram
 
 ## Team invitations — existing user
 
-1. Same invitation link, but `isNewUser === false`
+1. Same page, reached from the `/invitations/accept` link, with `isNewUser === false`
 2. **If already logged in:** shows "Join {teamName}" with a single button → calls `auth.acceptInvite(token)`
 3. **If not logged in:** shows login form → `auth.login()` then `auth.acceptInvite(token)`
 4. New team appears in the team list at `/teams`

@@ -95,7 +95,7 @@ The app uses Angular 21's hybrid SSR model. Routes declare their render mode in 
 | Render mode | Routes | Why |
 |---|---|---|
 | `Prerender` | `/auth/login`, `/auth/signup`, `/auth/forgot-password`, `/auth/reset-password` | Static HTML — no live data needed |
-| `Client` | `/auth/verify`, `/invitations/accept`, all authenticated routes (`/home`, `/teams/*`, `/account`) | Require live API calls or the browser-stored token |
+| `Client` | `/auth/verify`, `/auth/activate`, `/invitations/accept`, all authenticated routes (`/home`, `/teams/*`, `/account`) | Require live API calls or the browser-stored token |
 
 The SSR entry point is `src/server.ts` — an Express 5 app that serves static files from `/browser` and delegates all other requests to `AngularNodeAppEngine`. The server listens on `PORT` or defaults to 4000.
 
@@ -153,7 +153,7 @@ Defined in `src/app/app.routes.ts`. Two guards from `@ulabase/kit-ng`:
 - **`authGuard`** — runs `checkSession()`; if no user, redirects to `/auth/login`. Also loads teams as a side effect.
 - **`publicGuard`** — inverse: if user exists, redirects into the app.
 
-`/invitations/accept` is deliberately **unguarded** — it must work for signed-out invitees, signed-in users, and people without an account.
+The invitation page, served at `/auth/activate` (new user) and `/invitations/accept` (existing user), is deliberately **unguarded** — it must work for signed-out invitees, signed-in users, and people without an account.
 
 Routes are conditionally included based on feature flags from `environment.features`. A flag that's off removes the route entirely. The flags are `emailRegistration`, `passwordReset`, `oauthLogin`, and `teamInvitations`; they must match the corresponding toggles on the Ulabase service.
 

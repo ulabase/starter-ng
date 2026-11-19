@@ -76,7 +76,9 @@ Two guards:
 - **`publicGuard`** — the inverse: if there *is* a user, redirect into the app. Applied to
   every auth screen so a signed-in user cannot land on the login form.
 
-`/invitations/accept` is deliberately **unguarded** — it must work for signed-out invitees,
+The invitation page is served at `/auth/activate` and `/invitations/accept`: the service's
+invitation email links a new user to the first, an existing one to the second. Both are
+deliberately **unguarded** — the page must work for signed-out invitees,
 signed-in users, and people who do not have an account yet.
 
 Route table, titles and feature-flag gating: see the routing section at the end of
@@ -271,7 +273,7 @@ Cross-cutting
 - [ ] Fragment token captured and cleared from history; `?flow=signup` consumed once,
       in memory only; banner copy true for OAuth signups too.
 - [ ] Guards: authenticated routes redirect out when signed out; auth routes redirect in
-      when signed in; `/invitations/accept` reachable in every state.
+      when signed in; `/auth/activate` and `/invitations/accept` reachable in every state.
 - [ ] Per-route titles with the shared suffix.
 - [ ] Every list has loading / empty / populated states.
 - [ ] Success messages auto-dismiss and clear on edit.

@@ -221,7 +221,7 @@ Inline SVG icons for `google` and `github` live in the template.
 ## Invitations
 
 ### `Accept` — `app-accept`
-`src/app/pages/invitations/accept/accept.ts` · one route, three flows.
+`src/app/pages/invitations/accept/accept.ts` · one page on two paths (`auth/activate`, `invitations/accept`), three flows.
 
 | Member | Type | Meaning |
 |---|---|---|
@@ -390,7 +390,7 @@ child of the `Shell`.
 | `auth/verify` | Verifying your email | `publicGuard` | `emailRegistration` |
 | `auth/forgot-password` | Forgot password | `publicGuard` | `passwordReset` |
 | `auth/reset-password` | Set a new password | `publicGuard` | `passwordReset` |
-| `invitations/accept` | Accept invitation | none | `teamInvitations` |
+| `auth/activate`, `invitations/accept` | Accept invitation | none | `teamInvitations` |
 | `` (Shell) | — | `authGuard` | always |
 | ` └ home` | Home | inherited | always |
 | ` └ teams` | Teams | inherited | always |
@@ -401,7 +401,9 @@ child of the `Shell`.
 
 `AppTitleStrategy` appends `· Ulabase Starter` to every title.
 
-`invitations/accept` is deliberately **unguarded** — it must work for signed-out invitees,
+The invitation page (`auth/activate` for a new user, `invitations/accept` for an existing
+one: the two links of the service's invitation email) is deliberately **unguarded** — it
+must work for signed-out invitees,
 signed-in users, and people without an account yet.
 
 When `apiUrl` is invalid, `app.config.ts` provides an **empty route array**, so no guard

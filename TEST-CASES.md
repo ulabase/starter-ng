@@ -30,10 +30,10 @@ directly in that same request's response.
 - [ ] Network tab: `PATCH /auth/reset-password?delivery=body` returns `access_token` directly — no follow-up `POST /token`
 - [ ] Old password stops working after reset; new password works
 
-## Team invitations — new user (`/invitations/accept`, invitee has no account yet)
+## Team invitations — new user (`/auth/activate`, invitee has no account yet)
 
 - [ ] Inviting a new email sends an invitation
-- [ ] Invite link (`/invitations/accept?email=...&token=...`) shows the "set password" form with the correct org name/role — no separate `/auth/activate` page, it's the same route as the existing-user flow below
+- [ ] Invite link from the email (`/auth/activate?email=...&token=...`) shows the "set password" form with the correct org name/role — same page as the existing-user flow below, served at both paths
 - [ ] Setting the password activates the account and logs the user straight in
 - [ ] Network tab: `PATCH /auth/activate?delivery=body` returns `access_token` directly — no follow-up `POST /token`
 - [ ] An invalid/expired invite link shows the correct error

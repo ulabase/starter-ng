@@ -67,12 +67,15 @@ export const routes: Routes = [
     : []),
   ...(teamInvitations
     ? [
-        {
-          path: 'invitations/accept',
+        // One page, two paths: the service's invitation email links a new user
+        // to /auth/activate and an existing one to /invitations/accept. No guard
+        // on either: the invitee may be signed out or have no account yet.
+        ...['auth/activate', 'invitations/accept'].map(path => ({
+          path,
           title: 'Accept invitation',
           loadComponent: () =>
             import('./pages/invitations/accept/accept').then(m => m.Accept),
-        },
+        })),
       ]
     : []),
   {

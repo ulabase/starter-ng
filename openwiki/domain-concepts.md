@@ -95,7 +95,7 @@ A team has:
 
 ## Invitations
 
-The invitation flow has three paths through a single page (`/invitations/accept`):
+The invitation flow has three paths through a single page, served at two paths: the service's invitation email links a new user to `/auth/activate` and an existing user to `/invitations/accept`:
 
 | Scenario | `isNewUser` | Auth state | Action |
 |---|---|---|---|

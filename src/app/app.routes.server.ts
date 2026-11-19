@@ -28,14 +28,13 @@ const passwordResetRoutes: ServerRoute[] = passwordReset
   : [];
 
 const invitationRoutes: ServerRoute[] = teamInvitations
-  ? [
-      {
-        // Reads the invitation (live API call) and the current session on
-        // init — cannot be prerendered or server-rendered on request.
-        path: 'invitations/accept',
-        renderMode: RenderMode.Client,
-      },
-    ]
+  ? // Both paths of the invitation page (see app.routes.ts). It reads the
+    // invitation (live API call) and the current session on init — cannot be
+    // prerendered or server-rendered on request.
+    ['auth/activate', 'invitations/accept'].map(path => ({
+      path,
+      renderMode: RenderMode.Client as const,
+    }))
   : [];
 
 export const serverRoutes: ServerRoute[] = [

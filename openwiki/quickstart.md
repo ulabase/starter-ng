@@ -68,7 +68,7 @@ Works for multi-tenant SaaS (invitations, team switcher) and simpler apps (auth 
 
 - **Signup, login, logout** — email/password and Google/GitHub OAuth
 - **Email verification, password reset** — when a verification link expires, the login page shows *"This verification link has expired. Use \"Forgot password?\" below to get a new link: it also verifies your email."* (`ERROR_MESSAGES.token_expired` in [`login.ts`](../src/app/pages/auth/login/login.ts)); [`verify.html`](../src/app/pages/auth/verify/verify.html) shows the same guidance.
-- **Team invitations** — one page (`/invitations/accept`) branching into new-user "set password", existing-user "log in and accept", or signed-in user "accept directly" (handles consents-gate reload)
+- **Team invitations** — one page (`/auth/activate` for a new user, `/invitations/accept` for an existing one) branching into new-user "set password", existing-user "log in and accept", or signed-in user "accept directly" (handles consents-gate reload)
 - **Team switcher** — shown only when the user belongs to more than one team
 - **Authenticated shell** with placeholder for your app content
 - **SSR for public routes**, CSR for the authenticated shell
@@ -120,7 +120,7 @@ The app detects whether `apiUrl` points to a valid Ulabase service URL (e.g. `ht
 
 - **`authGuard`** protects authenticated routes — redirects to `/auth/login` if no session
 - **`publicGuard`** protects auth pages — redirects into the app if already signed in
-- **`/invitations/accept`** is deliberately unguarded — works for signed-out invitees, signed-in users, and new accounts
+- **`/auth/activate`** and **`/invitations/accept`** (the same invitation page) are deliberately unguarded — the page works for signed-out invitees, signed-in users, and new accounts
 
 Feature flags in `src/environments/environment*.ts` must match your service's **Sign-up Mgmt → Features** toggles. A flag that's off removes both the route and the UI that links to it. The `ulabase setup` tooling reads these flags and configures the service to match, eliminating the two-lists-that-must-agree problem.
 
