@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:b7c8883391b678c6e932c40ff6b6e372f5e14baec93b4f1494659c6947f3e73e",
+  "claims": [
+    {
+      "id": "claim_402653eb9bb1468b83454f686c200e5b",
+      "statement": "Client routes are defined in `src/app/app.routes.ts`: public auth screens are top-level routes, all authenticated screens are children of a `Shell` component at `path: ''` protected by `authGuard`, and the catch-all `**` redirects to `''` so unknown URLs land on the authenticated home (or trigger the login redirect).",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L25-L111",
+          "version": "repo-lines-v1:sha256:730f8400c0ab587972a95278db48c7d5c59085140e34c9dc50a9d73b88377f87:eyJzZWxlY3RlZExpbmVDb3VudCI6ODcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlOGIyMWIxYzQwN2NhNmI2ODAwYjBlZTJjNWZiMzUxYWMyM2UzYmUxNWM2Njk4ZGNhZTAzZGU1OTU5YmE3OWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5NzhlMjUwM2I4Y2YzN2EwNmY3ZDZmMGEzYTZiNmZlMzU2OTFmYmNhYjUwYjg3NzVjYWI2ZmFiYzcxYzU5MmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0YjEyZmQ4NjZlMTA5YmU1N2M2NGZkZDAwZGM5MGZmZDE1OTM0MTBiN2JmMzEwZmJlZDY3ODdlNWYzOTBlMzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4MzMxZWZjYTdkYjBhZTIzOTMzMzYzYTVkNGEyOThkNjZkZGIxMjMyYmNjYWIwYTJlZThmNzYxYTNmOTRhNGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2d464ee3d5934e9ba2f56b2dc9137434",
+      "statement": "Feature flags from `environment.features` conditionally include client routes by spreading conditional arrays into the routes table: `emailRegistration || oauthLogin` includes `auth/signup`; `emailRegistration` alone includes `auth/verify`; `passwordReset` includes `auth/forgot-password` and `auth/reset-password`; `teamInvitations` includes the dual invitation paths. A disabled flag removes both the route and the corresponding UI entry points (login/signup links and forms).",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L21-L79",
+          "version": "repo-lines-v1:sha256:7ffd7f80753bf06021e9a128474026f887efb76cc54d46f0945dcab17e9683bd:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0NjUzZmFjZmE0MjJhYTEwOGFjMzFhYTVhMDJhOTIwNzc5YTM2MDNiOTI4ZWJiNzAwMjRjOWVjYzU0YWE2NWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0MjIzOWIxYmQ4MmI4NWVkNTBjMThhYmU2YjhlOTk3ODc1NWRhYzZmZDgwNDA5MjRjOGE4ODBjNTJmMDY1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiNTgwZTk2NGY4M2E0NzNmNDNkNDQzODQ2Mjk0OWQ2OGI1NjAwZmRhNzg3ZjE2Mzc0NWQwMGRlODljYmYzNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI3YmNkMzM3YmJlYzE5ZTMxY2VmYjI2ZmI4OGYxZmYyYTU1YzIwZDg0NTE1NTJkZDA5YTRjZWQ2ZGEzNjNjYWYifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.html#L9-L59",
+          "version": "repo-lines-v1:sha256:696e45aa68b74b555239468726ff3de8d9e70dbf7a4197afd79722f6d200a884:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBiMzdmMWMwMjE1ZGQyZWU3NzkzYzA3MTE4NmYyN2Q5YjZkMmI2OGJhMTI5Y2I5M2RiN2RlOGMzZTg3MmNmYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ZDU5ZjljMmI1M2I0ODgzYTYyNDQ4NDNlZTMxYmUyMGI1MDM1Yzk1OTY2YzFjMTFiMzJhNTU5ODk1YmRlMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA2NWNjMDdmNjE4YjIyZTMzZjVlMDYwOWM2YTdkYWYzMjUxY2NhOGYwZjYzMjc3NDVkOTFjODBjNGFkOGNiMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhMGJlZWZlMzE4ZjRhODlmOGMwZTY1ZDYwNjM4NzdiZDMzMmY4ZGNjMzQwZDU4YWNiMDY2MDQ4N2E1ODc1MWEifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/signup/signup.html#L15-L22",
+          "version": "repo-lines-v1:sha256:d2759456a49f6a70a43ce8ea3512e8258e00706df10bd9a398353ba3ee435e31:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMyMzdlYzkzYWUzMGU2NjE0ZjZhNWY2NzQ0ODRhZjUxYjFiMmY4MzZmN2M4MTk0ODUxYjFlNDJmYjgxM2RkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcxODAyMDY1YjNkZjI3NmVkNzBkNzY4MjVlNmVkMjA3ZjEwZTE5YjAwNjY1MzkzYzBiN2M3ZWRkMzRhMjVlMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODdiYWQ2MjkzN2Y2ZjYyODMyMmZhMGM0NzQ0ZWJkNDI2YjhjOTExNmQ4ZGIwMjEyNmVlZDU4OGU1MGU4NDA3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGM5NzAwNTc3ZTM0MGRkNDU0NzU4MWFjOGZiNzRiNzQ3OGFkNWEwMTI2N2Q3YjM1ZGM1OWM3OTFlZjU3NDBhMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cf61b8a26d624177b89d17b2996988f4",
+      "statement": "The feature flags must match the Sign-up Mgmt Features toggles of the linked Ulabase service: a feature that is off server-side returns 403 to unauthenticated users, so the app must not offer routes or UI for it.",
+      "evidence": [
+        {
+          "resource": "repo://src/environments/environment.ts#L8-L17",
+          "version": "repo-lines-v1:sha256:8c3fa77f06741a06457709d436d2adee921e0812e175ca965979700d23f358ef:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkZmRhM2Q0ODQ1NDgwY2RkY2E3MGE4YmE0YWExMDE4NjBmMjE3NjNjZGEwZmYwMTllNjNjYjk0MDJmMTJkYmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzZjM0NTJmNTIyMmJlNWU5OGUzYzRiNmJmYTdiOTA0ZjJlMTcyMTJhZGZlZTVkNDUxOTZlMjc4OTk5MjhkYWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5ODJlMTZjYTE4MDNiMjliYjMzODE3YjhiOGFkMjA4Y2Q0ZTg4YmU3MDU1ZTUyZWY4MzhlM2Y5YzNiY2RiMjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5YjFiYTIzZjkyNjI1OTk4NzExZTg4ZmQ1YjI5MDVkZmM1M2ZiMjhjNzVkNWNhZWUyNzRkMDVlM2E1NTc5NGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_836068175dd84958864de666d0466801",
+      "statement": "`authGuard` (on the shell root) runs `checkSession()` and redirects to `/auth/login` when no user is found; `publicGuard` (on every auth screen) redirects signed-in users away from auth pages into the app. Guard evaluation is what normally loads the session: `checkSession()` also loads team memberships as a side effect.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L75-L76",
+          "version": "repo-lines-v1:sha256:428eea0d9d6778967d11f1769efb66081e7ca8cae33a1bb2df88619a6a214f7b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQzMjg3YTMzZjU0YWIxZmNiNTE3ZWFlMzNiNGU3OTA1ZjBkNDczYTlhODViN2EzYjcxOTBlOWNlOThhNGU4YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzVhNGU0NjE2NjUyNjBiNjk0M2Q4ZjM3ZGIzNjI0NDJmZWYzYmE3MmRkZjdlZmQ5NDU0YWZmZjI5YzZhZjZlMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTY4NmRkNjAyYjNmYzNhNjE1YjU1ZTkyOWUyNWJkOWZlYzAxZDhkZjk1NmIxYTViYTkxOWQ3ZTBmNjRjMjM0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U1ZmI1MTQ1NDA1ODExMmM1ZWUxOGZiMjMzMGZlNzYyZjYxNWFmZDQwMWI1NmY5Njg2NzFhMmNiODIxNGYxNyJ9"
+        },
+        {
+          "resource": "repo://src/app/app.routes.ts#L25-L83",
+          "version": "repo-lines-v1:sha256:f724df363007086c028cfaca773eb763d6439100e2b40595c659aaf886ad7add:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlOGIyMWIxYzQwN2NhNmI2ODAwYjBlZTJjNWZiMzUxYWMyM2UzYmUxNWM2Njk4ZGNhZTAzZGU1OTU5YmE3OWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4Mjk3YTFkN2QzYWRiN2JiMjYzNDAwMDY1OTI1Yzk0MmZhM2YwN2Y2ZTk0YmNmMzE5ZmY1ZWU0ZTI2Y2NjMDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0YjEyZmQ4NjZlMTA5YmU1N2M2NGZkZDAwZGM5MGZmZDE1OTM0MTBiN2JmMzEwZmJlZDY3ODdlNWYzOTBlMzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4Y2QwMWFiZThiMWNiMDAyNDY5MzA3ZTcwN2EzNTkzNDBjZWY0NDFlMWExYTBiNjAxZjFjMmVmNWQxOTYxZDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_802201849d4c4b10bd6efbea017f793e",
+      "statement": "Under `teamInvitations`, the same `Accept` component is registered at two paths — `auth/activate` (linked from the invitation email for new users) and `invitations/accept` (for existing users) — both deliberately unguarded because the invitee may be signed out, signed in, or have no account yet.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L68-L79",
+          "version": "repo-lines-v1:sha256:369d4385687df27708dc41964b8a3bfe5310047501a067408b55c50197c7cfe8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlZjAxMDRhNzk0MTgyMTA5ZTlmNzEzZDVhY2Q5NmE0Njg4ZDdkZTY4NWU1OTMxNjgzODY2ZTVlOWYzYmM5YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0MjIzOWIxYmQ4MmI4NWVkNTBjMThhYmU2YjhlOTk3ODc1NWRhYzZmZDgwNDA5MjRjOGE4ODBjNTJmMDY1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1MjI4YTlkNzY0ZDhhOWIwM2E4MmY0MWJmNGE3ZTE0YWQ2NWU0YjI2M2RmNDU1MWExNzVlYzA2MTFiNTNhODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI3YmNkMzM3YmJlYzE5ZTMxY2VmYjI2ZmI4OGYxZmYyYTU1YzIwZDg0NTE1NTJkZDA5YTRjZWQ2ZGEzNjNjYWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bdfcc2a016b542ddb1006b1542e8a2be",
+      "statement": "Because the invitation route has no guard, the `Accept` component restores the session by hand: it calls `auth.checkSession()` whenever `getToken()` is truthy, then fetches the invitation via `getInvitation(email, token)` and offers three outcomes — `activate()` for new users, `login()` + `acceptInvite()` for existing users, or redirect into the app if the invitation is already used and a session exists.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L42-L94",
+          "version": "repo-lines-v1:sha256:31fc809c374c78952b0c3a4169ce62c8eb8d3a0cf960951b28347b933b09d8c9:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjMGY0N2EwZDdhOGVhNTQwMGZmZmY0NzA3Y2Q0ODg3OTQ0OTc0ZjJjMzg3MDgyNzQzMWZiOWFmNGQ4Y2UyNWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyZDExY2FmNDNlOTdlZjM2OWU2YmVlZDFhMjY4YmQwNTgzOGYyOWI5ZGQyNTRiZjY5YmE2NDg4NDE0NzIzNGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1NTQzYTVmYmU1NThiN2VmMjcyNjhhZTNlZWU1ZjdmZDgzYTllMDVlZTQwNzhkN2FlMjdhYmZkMGRiYmFkMzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjYmE0ZWYwNDVlYjg5NzgyNWRjNzcwYjE2MWViYWZmZDY5OTNlZTQ4N2FiZDM2ZTE4ZDU2MTNlYTJkNDY4YzcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fc42562eb9204a6c86614d8dbcb04bad",
+      "statement": "`src/app/app.routes.server.ts` must mirror the conditional client routes in `app.routes.ts`: every `ServerRoute` entry must match an actual client route or Angular SSR route extraction fails the build. The same `environment.features` flags gate the same conditional blocks on both sides.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.server.ts#L4-L59",
+          "version": "repo-lines-v1:sha256:21e332418e1197ee78c2e660b5b37c3f675aabcafb76557eb61792232782d284:eyJzZWxlY3RlZExpbmVDb3VudCI6NTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyMWQwOWViOWNmNzE5YTBlODYwZTk0YzI3MGU1MDc3OWZkYjM2MjU1OWRmOTRmMTk3Y2IzNDI2YjcxYjA1YTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwMmQyYzBkNmRjNWU3NGQ5MmZhMTRiOTFkYmVhMjY0MDkwYmViMzVmZGI5MTg4ZDliMzQxMTgxZGNlOWY0Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY0MGQ5YmJiZDliOGMzMWQ2ODkyMTc5NGEyMTBjYTJkMmE1NTIxYjE1YzFhOWVkZWQ0YzUzNGNhYTIwNzFjOTciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_705fdc7d98124c4ca9559526c5588323",
+      "statement": "Both invitation paths (`auth/activate`, `invitations/accept`) use `RenderMode.Client` because the `Accept` component makes live API calls on init and reads browser-side session state. The authenticated shell is also `RenderMode.Client` because the bearer token lives in `localStorage`. Public auth pages are `Prerender` except `auth/verify`, which is `Client` (calls `verify()` via API then shows the result).",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.server.ts#L11-L57",
+          "version": "repo-lines-v1:sha256:d043b8e8122bb2f26ebd0c8e83d7dc6021f77c1ce378b6958f50f7a56c53ceac:eyJzZWxlY3RlZExpbmVDb3VudCI6NDcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxNWViMWVhZDZmMjIwYjI4NjdlYzhkZjliM2MyNTA0MDg0N2YyMzE3OGYwOWQ3NzQyYzIyZDRiNzRlMDBhNGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5MWM5NzZlZDhkMzUzMmQ1MDE1NjJjN2ZjOTA5MjY2YTE0Y2NlYjYyNTk4ODkxOWYyZTM3N2JjYmJjMzVjNDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyODI2M2QzYzg1YTBjNjk3ZDQzYzQyNTBjOTkwYTYyN2NhOGQ3ZWRlY2M2MjBjYmI2ZDE4ZmE1OTk4MWU1MTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c15c7dabab3546d4b0dc03bf8769cdfc",
+      "statement": "`AppTitleStrategy` extends Angular's `TitleStrategy` and appends a fixed suffix: the document title becomes `\"<Route title> · Ulabase Starter\"`, or just `Ulabase Starter` when no route title is set. The strategy is installed in `app.config.ts` via `{ provide: TitleStrategy, useClass: AppTitleStrategy }`.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.config.ts#L25-L25",
+          "version": "repo-lines-v1:sha256:4c78ca43499657839882a147f83ae3e682211992a94c0e0e18200eb0c1f1bc99:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGM3OGNhNDM0OTk2NTc4Mzk4ODJhMTQ3ZjgzYWUzZTY4MjIxMTk5MmE5NGMwZTBlMTgyMDBlYjBjMWYxYmM5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGM3OGNhNDM0OTk2NTc4Mzk4ODJhMTQ3ZjgzYWUzZTY4MjIxMTk5MmE5NGMwZTBlMTgyMDBlYjBjMWYxYmM5OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzczZGEwYWJhZDRkN2Q3OGM2NDRkNDliYjMzODhmYjYwMmU3NzMwNmNiZDVkYmQ1NmY1MGZhMzViZjEyM2IyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODAwMTU5YTJiYzE4ZGMyNThiMGNlN2FmMGE1NzlhYzcxODk5NjE3ZGI0YzJhMjM5MDU5MGZmNGNjYWZlZmJkZSJ9"
+        },
+        {
+          "resource": "repo://src/app/app.routes.ts#L7-L18",
+          "version": "repo-lines-v1:sha256:fe038666f6358f404523fe62a9c4ebe74f3c295cf161c70fc4d95c8b2fea82e4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzNzk1NTNiMWU4Njc3MDJiN2NhYWU5NmMxOWE3MjI2YTRhNTM4NDUyNDQ4NWY3MDY2MWQ4ZWExYzBhMDY0N2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE4NTMyNzI1M2MxYWU3ZTM3YzJlYTNkMWU4YjU0MDFkYmRlNzVmM2M5N2U1YmU1OWY3YWI1NDk5OWZhNGE1ODAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg0N2ZkMDlhOTU5YWE2MmQ3MTljNDNmODFlZDMzZGY5NjYxMWZjN2Q2MjBhMDVhOWY3MzRkODJiMzg0NDVhMjUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_87841be972d54a018b6d208ebae056a1",
+      "statement": "When `apiUrl` is missing or not a valid Ulabase URL, `app.config.ts` registers an empty route table (`activeRoutes = []`) so no guard ever runs against a missing backend. This prevents `authGuard`'s `checkSession()` from producing a confusing network error on first run.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.config.ts#L12-L14",
+          "version": "repo-lines-v1:sha256:77e3870255533a0ab372548acc8a95c1bbbfb8286afd1e15976313f5de99fee4:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWU5Nzk3YzIwYWMyNzU2ODVlY2QzN2Q5N2JlYzk0MThlNDhmMDRkNGYwYTI1YTRlOTRkNzIwZmI2OTk5M2RiZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmJkYWRjYmUxZmI5OWIyYzdlZmJiYjYwOTMzOGNmOGYxZWZmYTNhZDMwODRjZDhiZGI5ZjhkYTBhNzY4YTk4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTIxMGIxYjdiOTBkMTc4Yjk1NzYwNzkyMWI0NmQ2ODgxZDAxNDUwYTE2Nzg3ODIwNzllZjJmYjkwZDU3M2RlMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODIwZjg2NTdhNzVjYTFkZWJhZmUxMmE1NmM3NGE0NGVmNjc4N2FiZDdjNmFkY2RhOWY0ZjNhNTM5NTU5N2MwYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8cbf029afafb4bbe8712d051b4870fc1",
+      "statement": "Feature flags gate UI in templates: `login.html` hides the OAuth buttons (`oauthLogin`), the forgot-password link (`passwordReset`), and the signup link (`emailRegistration || oauthLogin`); `signup.html` hides the OAuth buttons (`oauthLogin`) and the email registration form (`emailRegistration`). The home-page capability list still shows disabled features but marks them `off` — it is a status display, not an entry point.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/login/login.html#L9-L59",
+          "version": "repo-lines-v1:sha256:696e45aa68b74b555239468726ff3de8d9e70dbf7a4197afd79722f6d200a884:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBiMzdmMWMwMjE1ZGQyZWU3NzkzYzA3MTE4NmYyN2Q5YjZkMmI2OGJhMTI5Y2I5M2RiN2RlOGMzZTg3MmNmYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ZDU5ZjljMmI1M2I0ODgzYTYyNDQ4NDNlZTMxYmUyMGI1MDM1Yzk1OTY2YzFjMTFiMzJhNTU5ODk1YmRlMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA2NWNjMDdmNjE4YjIyZTMzZjVlMDYwOWM2YTdkYWYzMjUxY2NhOGYwZjYzMjc3NDVkOTFjODBjNGFkOGNiMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhMGJlZWZlMzE4ZjRhODlmOGMwZTY1ZDYwNjM4NzdiZDMzMmY4ZGNjMzQwZDU4YWNiMDY2MDQ4N2E1ODc1MWEifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/signup/signup.html#L15-L22",
+          "version": "repo-lines-v1:sha256:d2759456a49f6a70a43ce8ea3512e8258e00706df10bd9a398353ba3ee435e31:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMyMzdlYzkzYWUzMGU2NjE0ZjZhNWY2NzQ0ODRhZjUxYjFiMmY4MzZmN2M4MTk0ODUxYjFlNDJmYjgxM2RkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcxODAyMDY1YjNkZjI3NmVkNzBkNzY4MjVlNmVkMjA3ZjEwZTE5YjAwNjY1MzkzYzBiN2M3ZWRkMzRhMjVlMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODdiYWQ2MjkzN2Y2ZjYyODMyMmZhMGM0NzQ0ZWJkNDI2YjhjOTExNmQ4ZGIwMjEyNmVlZDU4OGU1MGU4NDA3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGM5NzAwNTc3ZTM0MGRkNDU0NzU4MWFjOGZiNzRiNzQ3OGFkNWEwMTI2N2Q3YjM1ZGM1OWM3OTFlZjU3NDBhMyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/home/home.ts#L62-L93",
+          "version": "repo-lines-v1:sha256:c13a7d01e59c9bda5ea8e961383507d7dc2104c52242602990926ed7b6511651:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlZTE2YjNhM2FjNjVmNWQyZDliMmRlY2IxNzdmZGNhMmM0ODdkYjNmMDk0ZWEyZmY0ODlkZGEzNGE0NDRhMmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmMGNkYjk3MmE3YmZiN2VkMjQ2ZjlmZjY3MjM4NWU1NWY0OTY4ZmMxMTA0M2RjNWI2ODRkNTFkZmEzMWRiY2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE1MTYxMzgyM2NmZmIzZDBlMWQyNjA2ZjZhNTdmNjQ4ZGUxYTBjZWQzNjk4YTRiY2Q3ZjQ4NWJmMjNkNjdmMWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFjYWNkMzE3OGU4ODM2Yzc2MjY2MzQ0YmVhZDg0YTc4Mzk2MjI0MDczOWY2YmFlZWRlNTJkZmI3ZjExOGMzYjYifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}

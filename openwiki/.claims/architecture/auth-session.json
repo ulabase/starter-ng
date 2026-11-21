@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:b22745418deafa7343145641bb7c0a5675ae7cadc4f3d9fa8cb29ca030cd191c",
+  "claims": [
+    {
+      "id": "claim_a6b81d92408c46c3965f2fbf9aade184",
+      "statement": "The bearer token is persisted by the kit layer (app code hands it to setToken and reads it with getToken), while RhAuthService exposes session state to Angular as signals — user(), teams(), and isAuthenticated() — which components read instead of parsing the token. Because the token is browser-side, the authenticated shell cannot be server-rendered and is declared RenderMode.Client.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L37-L46",
+          "version": "repo-lines-v1:sha256:f5e480a7ac740caac300bdb757cec16b2934bdd28f9161a0715c9bee66e1917c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1Njk3ZDhlYzg5OWMwZTEyMzNhNjY3ZDE2MzFhZDIwYTc0MjcwYWU4NDgwYjQ3M2EyNzdjM2UxMzNkNmE0MDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlOGI0MWJiM2Y5MDMwZTA3ZDk5ZGIwMWNjYTJmMDQ1MTVjMzQxZjA5NGNjYjlhYmViOGQxYzY3MmE0OTEzNTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzM2JjYWYwM2RjNTRjMDkwNDA2NzJlMTg2NjUwNTU3NTQ5NWE1NzU1ZWVhNzRkYTc5Y2U2NTM4NTk5MTI5M2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkNmRhZmNhMzE3YmEyYmMzNDk1MmNjOWYxNmNkOWQ2ZjFjYjIyNTMwMmFmZmU2ZDZkMTRjZmE3NGEyZTE2YmUifQ"
+        },
+        {
+          "resource": "repo://src/app/app.routes.server.ts#L49-L54",
+          "version": "repo-lines-v1:sha256:b870de64a48fa633c1ae504035082d370d07b03e5630b610e4e4e633739fecfa:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjExMWYyMzlhYzY1YzlmZWNkNGY3OTc1ZDRlZTBjNjc3YjU4YThlYTY3ODUyZWEyNWQyNzkyMzkyNTE4ZDJmOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDlhYWFiZDJjMmEyMjdkNDM5NWZiNmE1NDA1MTFiNzRmNGU5Nzc3M2Q0ZDk0MzJhZWFmMjRkZjc4MGE0ZmNhNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzg5ZWFmOGE3MzI1NDYxOWFhNTkyZTRhNDcxMTUxY2M0MjgwMGJiMzc0ODM4ZDgwYzRiYzkwNTgxMzIzYjdlNCJ9"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L4-L23",
+          "version": "repo-lines-v1:sha256:761455f8bdd051bd2c76684ddc31cabee6c1d455cce202521a7f37caa8087ada:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE5ZDAxMjYxNjI3NTRkY2FlMjZlNmE5NWJlMDZiOGIzY2UxNmU4Nzc1OWRkMjkxYzdmNDdjYzNlZGMzYmY0NmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMDliMjFkNzc1NTc3YzAxNTA1NTE1NGRhNTVhMTdlMjU1ZmZkZDMyYWE4OTUyNTA1ZTVhMjlhMmFlZmNlMjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIxZDkyNmY1ZWY1ZjI3OTI1MzAzMTRjMDg2MTFiZDg2ZDdkM2JkZjI2ZTRjMTY5MWY2ZTkwMTgyNzg2MGEyNzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk3ZDg2MzJlNTRlOTI5OGFiYjk1ODcyN2UyZDUxNDA4YWJhZjEzNjYwMzUzNzkxMDE0MGFiZjY1YjMwYWI2MTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4f5e2c1fecdc49568300262b67a0b990",
+      "statement": "checkSession() also loads teams: with no stored token it short-circuits to null with empty teams and makes no HTTP call, otherwise it fetches the user and then the teams. login() likewise loads teams in the same round trip. Screens depend on this — the home page reads the active team without calling loadTeams() because authGuard already ran checkSession().",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L56-L62",
+          "version": "repo-lines-v1:sha256:b5df779614ad83c964492e369516dfcf03b0b29e310758f4c930b17209f626c6:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDk3MGQyZmQwNmM1ZTU3MmE3YTAxOWY5ZDkzMTRmYTIyOTBjYWRlYmMxOGJkOTM4YTY4OTQ3MTZmNjJkOWE3MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzA1YjY4Mzg3OGVmZGM3MmMwNzMzZGE5N2U4YTI0NjBhOTcyZGIzYTJjOTBkNzI2MDUzMzBlODQxNjI4OWRhNCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/home/home.ts#L103-L108",
+          "version": "repo-lines-v1:sha256:a45288b25f6c162a1aa6aca92572468087baf68ecae697466e44b28a2186e07c:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDA1MzMxYmJmYjk3Yjg2MDJlZWZkMTIwYjc5ZjA0ZGViZmUyZmI5YzlhZTg4NmZmZjJiYTdiZWEyMzUxOWNhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQwYzdhNjM3MDQwZWMzOWNjZDYzNDViODVmN2MwNWUwMTJkOTVjYTU4ZDIyYmYwYjZlMzAwNWNkODQ0Y2YyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmU4ZWU0NGRjNzk2YTZkMjBmZDIyNjJjOGMyN2VkOGE3MjZiNDgzNDA4NzEyMTJkZGZmMGZiMjM5NDI5YzQ0YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWRmZGFlZGY4MzA5OTEzNDM2NTQzNjdiZTNlZDljNjIyZjFjYTNiYTg4NzE5YjI1NjBhZDE5OWU0YjA5MWJiNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_52a09de3054c444588c3eaa07deff62f",
+      "statement": "authGuard runs checkSession() and redirects to /auth/login when there is no user; publicGuard is the inverse and is applied to every auth screen so a signed-in user cannot land on the login form. The authenticated shell root route is canActivate: [authGuard].",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L74-L77",
+          "version": "repo-lines-v1:sha256:6dd8a8e6b94967fe313db8c1a27624f3728b13c5b9cadcc5b50cd6a70df04469:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQwMDgyNDA3NGViNTQ2ODJkZTdjMmYzM2RmMGQ5ZTZhMDliNjdhNTZhMGZhODMxMWVlM2YyZTU5YjEyMGRhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDVlNmQxYzNlMDgwYjIwZWMzNDMxYzFjM2JhZmFiNWI2NzAzOGUyOTYyZjBiMGVhMjJhZDQ4MTBjZGY1Y2MxYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTRiMDQ4YjI4YjM1NzMyMmQyMDRlYjNmYjA0N2UzN2FkZDhlNmVhYzFjNzI3NGZiODMzNWYzMjhiZmIzMjdhMyJ9"
+        },
+        {
+          "resource": "repo://src/app/app.routes.ts#L24-L83",
+          "version": "repo-lines-v1:sha256:fd43e567b97c47bb631de9d73f722e53b32e78be6c60c30662ecd514c0e3dabb:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxMTFmMjM5YWM2NWM5ZmVjZDRmNzk3NWQ0ZWUwYzY3N2I1OGE4ZWE2Nzg1MmVhMjVkMjc5MjM5MjUxOGQyZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4Mjk3YTFkN2QzYWRiN2JiMjYzNDAwMDY1OTI1Yzk0MmZhM2YwN2Y2ZTk0YmNmMzE5ZmY1ZWU0ZTI2Y2NjMDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBkZTViNDkxNDRlZGEwNmQ3ZWY1ZjFkYzZlYjIzZTcwZTVlZGI3MmIyZTg2OWNmNTFiMWUyZDIxMmE4ZWMwZmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4Y2QwMWFiZThiMWNiMDAyNDY5MzA3ZTcwN2EzNTkzNDBjZWY0NDFlMWExYTBiNjAxZjFjMmVmNWQxOTYxZDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3dc754d0cf0441448cbc8989c96cc76f",
+      "statement": "consumeFragmentToken() runs in the App constructor on the browser platform before routing settles: it parses #access_token from the URL hash, stores it with setToken and starts silent renewal with scheduleRefresh, reads the one-shot ?flow=signup marker, and clears both from the URL bar with history.replaceState.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.ts#L64-L68",
+          "version": "repo-lines-v1:sha256:4c9edfacc13f4a660f8199a1a369a94197a4c28986066115236a7f20302056b3:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmE2NWM2NjdjN2VhN2FkODkyMzJkZDY5YzZmMzg1ODIyNmY5YWUwNjg4ZDExZmQ3OGIwZGI1OGYzZGVlNDBiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWRhOTJkNjBmNjcxMTAyOTI2NjQxMTExNDE1MzZkMjZjZWY2YmZiOTExNDNmZTU0NTM5NTQ5ZjE2ZDM4NTQ1NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGUwZjcyOTNkMTU2YTZkMTI1MjhkYjEyOTMzNzllNTJhNWY4MzY3MDQ0Mjk3YjIyODJiOTdmZjJjODYwNDM4ZCJ9"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L9-L38",
+          "version": "repo-lines-v1:sha256:8c13afb96c5d3768d01bd04e6a8f6663dcb796a9111a9e2fecb6b8343cb86a1a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1MDAwMjIzZmUyNmFjNWRjMTMzNTZmMjc2NDhlZjQ0NjAxYjk2MzRlMzU0ZDdkYzdkY2RjNDYzOWE2NTRkMTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5MTYwYWI5MzIwOGNlNjlmNTJkN2M5NTFmMTFlYjliZWE4NGQ4ODViMDIzNjRhNTQ4ZTkwMTExZjdlOTUwY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVmMmFhOTY0OTUxZTY3ZDI4MTk2NTA0YTIwZWU2YzkxMDlmNDNjZWQxZDRkMTZmOTljMGNiOGE5ZmIwNTUzNWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_aff78449f8024caf822538443db909e2",
+      "statement": "The ?flow=signup marker raises the in-memory justSignedUp signal, which the Shell copies into a local signal and immediately resets so the welcome banner appears once per fresh signup (email verification or OAuth) and is never persisted.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.ts#L26-L33",
+          "version": "repo-lines-v1:sha256:8966a92bc0f06103de290a6b75efc226d30cc4e21b016650f71542974676d76f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWYxYTAwMTJlNGRjZjE4ZmI1Y2FjZjQ4YTI1N2Q4MmY5ZDE3MjlmNjZhM2UyMjFiNzAyZmU0ZWQ4YzNkMDYxZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGRkNmFjZjc0MjRlMmJkYzZjOWFiMDZmYjQ2M2U3NjlhOTgxMmYxNzJlY2JlMzg5NGEzZGNkNDQwMjVjNGViZCJ9"
+        },
+        {
+          "resource": "repo://src/app/just-signed-up.ts#L3-L9",
+          "version": "repo-lines-v1:sha256:6ed9dad7b92e084c8e72d7cb2668fc99106d129b6b7179c1efe049c9d7ab55ae:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFmMjJjZjA3MzI1OTJjMjQ3MTQxY2JlNjFlZmExMTAxMjYxMmY1YTMxMjJiOWFmOWJiYWY1MmY1NzI0ZDE5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE3MTZkZWQyMDhjMWY1YzA0MWU4MzYwZDEyN2Y2OWNmYmExNThkY2ZkMThmZmE4OTU5YjQxYTA0Mzc0YTA3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjMxNTdjMmZmZjBlYmMxOGRlNzI3YzA1Y2VlOWM1ZjRjOGI0YThhNDkwN2IzN2VmZDg1OGUzNmExOWNkOTlhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L29-L42",
+          "version": "repo-lines-v1:sha256:1b9ac4b04adb7e3a3d39ad1c824b62f4e25145a266cb0a8b9bb130baa345cb80:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzMDM2NmQzODNlNGYwMWM1MTNjYjU2MTlkYzAyMGY3M2FjZGM0YjQ4MTBjNzQyMzU3ZjMwMTA3YzNmNTM0NzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlZmFjNTdiMGI1MTlmYzdjZDkzZDhmMzZmMDNmMzY1MmJiZTRmZTcyZThlOGY5YjY1NmI0NDg3Zjc0NTI0NjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUxZWQ3ODBhNDA2NTE5ZGM2MTg4MTQxMmVhYTI5YTVhMDcwYzQ0ZmZkZDJiNTVhZWY4YTFkNGE0ZDA1YmNjZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0MTZmODliMzFlMGJlOTU3MDExNzkzZTBlNjA1YmI4YTBmNDExYWE4YTMwMGU0NTMxYzM2ODIyZmI2NjA5MDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_266d0e3ec34f40a2af195b9295f72723",
+      "statement": "provideRhAuth() registers rhAuthInterceptor, which applies the session to every HttpClient request bound for apiBaseUrl — the bearer token, challenge suppression that keeps the browser's Basic Auth popup away on a 401, and cookie credentials. Requests to any other host pass through untouched.",
+      "evidence": [
+        {
+          "resource": "repo://NOTES.md#L149-L155",
+          "version": "repo-lines-v1:sha256:159da8c471aef25ad0cfd9e3a5c63b48d95197885842b9305123c4131d81b0cb:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTYwZjVmZThjNzZmNTNkMzJjNTgzYTQ0MDE4MjliODI2MjA1MzMwMjQ1Y2E5ZTUzZjBhNTM3MDMyNGVhNzJhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjU5YmYwNWI1ZDU5YzAwOTRmOGI4YWM1NTMxYTg0MGE1ZTBmMmZmNDMwMWRkNzU0ZTM3OGFhODU5YjU2ZWI1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODgwOTE4YWM2NDMwNzA0MDMwMDQzMjc4YWJiMTY3MDAxYzY4MzQzZmM1YTNhZGY3ZjgyYjYxNjk1MjliODRhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzI5YzlhNDQ1NTg2NzAyNjAxNDIwN2E0ZTdmYjIzYzdiMjMzNzVlZmEzNzlmMWEzZWVkYzJiZTc5Zjc4YWY4NCJ9"
+        },
+        {
+          "resource": "repo://src/app/app.config.ts#L23-L26",
+          "version": "repo-lines-v1:sha256:eb777da927851bdc6e98ba46c10eae7d74f37804cde6d1301cfd307faf7b46f4:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ5YWUxMTRiNzQzNmFkOTRkMTE1YTliOTAxYTYwNmUzZTI3OTExNzA3MGQ1MDgwNmI3MDRmZWIxNjNhODQzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWQ2OTY1MTgxNDRkNWFlMjdlZGU4OTBhZjA3YzU1YzgwYTc4MWNhY2VjOWUyMDZjYTkyZDQ4NzE2MTYwOGJjMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg3YmRmNzQ4ZTA5Nzg5NzkzZGE0Y2I2YTJiZGJkNGVkOGJiYmI0Yzg4N2E3MjU1NzA4OTA5ODg5MzY3N2IzNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTYzOGRhNzZjNGY0NjIwN2JmYzY3NjVmZDI5OTRkODJhZjVlM2M1NTIzMDgzZmEzNDM1NDA4M2UxMmNiOGE5MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7b59cc942c214c4980d39afed16f856b",
+      "statement": "On 401 or token expiry the HTTP layer clears the session, signing the user out rather than leaving the UI hanging; an expired or invalid token is expected to clear the session on the next API call.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L65-L67",
+          "version": "repo-lines-v1:sha256:25c2d03eb5346c96cd442306e52c2aa177bc3ff3cf60e8e6723dca92d2f42e60:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjM0MDRkMzc1MmMzZmEwNzU2ZWVhNWI1NjAxODRlZGI4ZjRjYWZjNzE3YjdhYzMyNjBlM2QyYTYyYjQ4ZWRkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTUwNjY5ODAzMGI3NmZmNmVkZTNhYzE1MTM3ZGU5YWM4MTFhMDViOWQxZGNiNGViNjYyY2RjNDBlNDM4NzVlNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjgyMTZjOTc3OTUxOWFiYmQ1NzE0ODQ4ZGU0ODE2ZTExNWJhZjY1M2ZiZDExZWQ1MjJkNjgxZmYyNjlhYjU4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDAxZjJlYzE3NTkzYzEwNTRlYjQ2MzY3ZDg0NTNlZjI0YTE3M2NlOTZiNzExN2Q5MWY5YTY4ZDQ0ZmVmOGIwMSJ9"
+        },
+        {
+          "resource": "repo://TEST-CASES.md#L65-L65",
+          "version": "repo-lines-v1:sha256:32c7179442bb1de6d0392a0fd7a87cc89ba76bd873fe5042cb88006ff4880071:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJjNzE3OTQ0MmJiMWRlNmQwMzkyYTBmZDdhODdjYzg5YmE3NmJkODczZmU1MDQyY2I4ODAwNmZmNDg4MDA3MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJjNzE3OTQ0MmJiMWRlNmQwMzkyYTBmZDdhODdjYzg5YmE3NmJkODczZmU1MDQyY2I4ODAwNmZmNDg4MDA3MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmQ0MGU1ZTQ5MzZjYjgxZDUyNDg0OGViNTdmYjRkNGY2MzYwMTZlZWVjOGI4YjI4MWExMTY1NGEwMDRlNjQ1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWIyZTM4Y2M1ODk5M2EzZTAxYTc2YzI1YzY1ZWZmOTZkMjQyNzZlZTM2ZmZmYzc2NjY5ODVkNmJmNWYwNjcwMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_63c7fa7f18754f65a23a8c27443660a8",
+      "statement": "auth.api(endpoint) is the authenticated fetch wrapper for custom calls to the Ulabase service; a plain fetch carries no session and returns 401, which is the documented failure mode for hand-written requests.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L104-L105",
+          "version": "repo-lines-v1:sha256:f74c1dae2bad53a9c38fce8bfecdcfa5335316af550091aaa79b3f4624d6bc26:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWViMzkwZDdhYWNiMzAwYWI5NGMxZjBkMzI1MWVjNjdiOWQ1MDc0Njg0NmY0NTI2Y2NkNDI0N2VmMzQ5NWI1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTNiNDQ4N2U3M2ZkNTE0MmVlYTYwNWNiOWMzODM3MzZkMmUzYjNiM2NiZjQyZjNiYTNlNTFlOGQ2ODJkN2I0NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTBmZjc2ODg2ZjQwOTY1OWI1MjhkYjg2Zjk5MjFjNWY3ODA3Y2MzMjZlODJhMjc2YjI4ZDRkMDJlZDBhMTA1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjI1NjM5ZTYxZTNkYWE2ZWFiMDg5Y2VjY2ZiNzg0NzFhNDk0NWE4Yjk1M2M4MzMxNGJlZWE1ZGM1OGY2NWQ0MyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/home/home.ts#L47-L55",
+          "version": "repo-lines-v1:sha256:b1b60bf1e245671ee08e049fb32a304ca1aa3b14cfd827d4d74ad6345035be04:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMzMzcxZWJlMzgxNGRhYTQwMDMzNGU4ZGYzYTRkYWM2NjNlMDJiMmViOTJmZjNjYjNmNzViYjA0NDMxNWYxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ZhYjliNDhhODViNDZiZThlMzcxZTk5YTdkNmU4YTBiM2RhM2Q2NTgzMTk2YzE3YjRjMjhhYzRmMWU4MTM2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2JjY2NmNzBkNmJjNjYwNTUxZTk3ZmZmMTQxZTIyZjU2MWMzNGUwM2U2NjExNGRlOGYzYmM4MzE2OTk0NmRlNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk2ODA1NTVjNDMwODZiMzE1ZjZkNTgzYmU3NmViM2Q3OWZjYjM4YmE5Zjg2MWY1MTI5ODRhMmVlYWU1ZjcyMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_690da1c8ea324e5e995f2402c7ea3f63",
+      "statement": "loadTeams() explicitly refreshes the teams() signal and emits the memberships array; switchTeam() reissues the bearer with a new active team via delivery=body and the session reflects the new team without a page reload. Team detail reloads teams after deleteTeam() and switches to a remaining team when none is active.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L156-L160",
+          "version": "repo-lines-v1:sha256:334b750f8a6e4e20983d4912f40af944129f8ce6b84eb31df9772a05662e8fb2:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWQzZTgxMDQ5MjFjYTRmNmM4ZGQxNTI4YzMwZGVkMTZhMDE5MGZkN2FjMWRjZWY5OTdhOTM1ZTlkNTM2OTUzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGVkY2E4ZTI4OTRjMzFkZDQyZTk1MzdhMGFlYzFkYzg5NDgwMjQ1OGRjNDlhNmJhZDU1MWIzMTQyOTkxZDQ2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmEwMGRiYTYzODRiZDhjZjRmM2Q4MjY3Njk0NmFjOGNkZmVkYmRlODY3NWM0ZWU0ZjZhOTRkMmIyYzBhOGNkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTFlOGI5YTdiNWE4NDdlZDIyNWY0YmRhMTRjMmYzZjk1YTg0NzM1OWYxYzc3ZjhmMzBjMzJjN2ZiN2Y3MWE3MSJ9"
+        },
+        {
+          "resource": "repo://TEST-CASES.md#L52-L52",
+          "version": "repo-lines-v1:sha256:e1559e1928bce5c6551d4640bcdfc232bf4aa09837951ec38e50f773a336c2c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE1NTllMTkyOGJjZTVjNjU1MWQ0NjQwYmNkZmMyMzJiZjRhYTA5ODM3OTUxZWMzOGU1MGY3NzNhMzM2YzJjOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE1NTllMTkyOGJjZTVjNjU1MWQ0NjQwYmNkZmMyMzJiZjRhYTA5ODM3OTUxZWMzOGU1MGY3NzNhMzM2YzJjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmVhMTQ0YmY1MDc4NjU3Y2I3MmMxODRkMmZkY2RjNGJhYTUzYTIyZmUxMzdhMDcwMTQyNTJlNzc2MjY4YjMyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzgwODQzMjA3NGFhNmZlZDBlZjU1ODYxYmNiOGQzODNiYzdhZGI5OGE5YzQxZDdhZmQ5YjAxYmU4NTk2ZDRmMSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L246-L255",
+          "version": "repo-lines-v1:sha256:bd094320cb475df0d7e46563e29a1f4403df5a4259adfda035bfcd23497aed29:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzOTk0ODVjYjE4YmRhOGJkODI2MTZjODAyZDIwN2RjOGVlNWU1NzcxOWVhZmJiYTY0MDlmZGMyZmJmMTE0ZTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5MDE1NDYwYzAwZGY4MGI2YzQ5YzI4NmYwYzlmNzk1OGQ3YjY0OTgyOTA0NWRmODBjNWZlNzlkYWEzNWQ0NWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEwODBlNDM5ZjkyZjhiMjhiZWVmMTBlNzIwNDE2ZTNjZjg5NmRhNWNkYjE0Njc0N2YwODYzMzViYTIyMTJlNjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU2ZTlhMzg3MmUwMjM4NDMwNTZhZTcwYjQ2ZjRjY2ZjZWQ4ZmMyYjg5MDY2NWMyYWJmYzNiMWE1MTE5MmJlMTMifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/teams.ts#L18-L35",
+          "version": "repo-lines-v1:sha256:de63d12a55c9f188a1eb9c1459141fc3db5b55342b7dcbb49d8fb08948c2c753:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1ZWMxYzZhZTI3YTQyMTI5NjRhYWY3MzRiYzJmMTFhM2MxYjBmY2FkNGVhNzFiYjlmZDA4MjM1Nzc2MzNjNTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5NzhlMjUwM2I4Y2YzN2EwNmY3ZDZmMGEzYTZiNmZlMzU2OTFmYmNhYjUwYjg3NzVjYWI2ZmFiYzcxYzU5MmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAxYjNhOTFjNTUxZWI3OGMzNzZhNWNhMWU5ZTdlMTc3NjNmMzRlZGZkZDY0ZmNjNGEzZWEwNmFhOWI1ZWE1Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVmZWYwNDZlYTViNGI3MTI2NWE1MmQ0MjU1ZTJjYzVlOTU0NmM1MGJkZDNlOTEzNTA4NmNmNmVjMmM2OGI4MTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_45ee719819604ee2ab86d5b850bc3572",
+      "statement": "package.json declares @ulabase/kit-ng and @ulabase/cli at ^0.15.0, and package-lock.json resolves @ulabase/kit-ng, @ulabase/kit, and @ulabase/cli each to 0.15.0.",
+      "evidence": [
+        {
+          "resource": "repo://package-lock.json#L4113-L4139",
+          "version": "repo-lines-v1:sha256:61b3b4dda5270e3c32833789bbe5ae9d597951f6c74791a638f38995fb24d471:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5OWQ1NDIxNTVmMTI2Y2RkNDViYjMxNDRhNGI1YmFjOGFlYjUzMWU3YzgyYzRhMzUyOTgxYjc1ZmFmYjZkZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhM2FjYTRmYjc4NmIzMzg1YzFiYzliZTdhODc2NGFmNGU5YmQ1YmI0N2ZlYWMzNDIyMTVkMThhMGU4YWQ1YmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIwYzIyMDg1ODdjYTk2ZjE5NjZkOWJiYmI0ODdkMjU4NmM5MjkzZmM2NjVmN2Q2NDMxN2U0Njk5MjE4NWU5NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFlOTk3MTlhMjJiZjYxMzVlYTZmMzkzYzc1MWQyZDQ2MjEyNjYwN2YzYzhmYTYxYzY2M2ZkNzM0MmRmZmNhNTEifQ"
+        },
+        {
+          "resource": "repo://package.json#L23-L34",
+          "version": "repo-lines-v1:sha256:48bf62cd43236626e12d3d384e9b721cfd62f4efb1d0dbb6a6b5c5b7584fefbf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyMTAzMDRkMzVhODNjNWZlOTdmZWY5NDNkZGU5OTE1ZjVlM2MxOWE5MmNkNmQyNTJmOThmM2E5MjMwOTQ2NjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZjNzQxNDI5YzRiYzUwMjdiOTAwYzc0MThiMDI5MDliZjQ3ODFmZTE1OWU4YzUyNDZiNjE0ZTY5MDFhZGY1NGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiYjBjMDZkMDMyZmZhNTUzZWRiZmQ1MThhMDRhMWM2Yzg5Y2JkODdiNmQxNWExMWU5YTM3ZTIyZTcyMWEzOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE1MGRkNDZjN2U2NGI0Y2JhNGUwYWM5MzkwNGM4ZWJkNDk0NzFlZTU5NjVlNGE0YTQ2ZWEwNTA4NGNjYTU0YmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_51aa1832110b4388940475ed26d1b0cb",
+      "statement": "The bearer token has a 15-minute TTL and scheduleRefresh() silently renews it at about 80% of that; fragment capture starts the refresh schedule with scheduleRefresh({ apiBaseUrl }).",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L65-L67",
+          "version": "repo-lines-v1:sha256:25c2d03eb5346c96cd442306e52c2aa177bc3ff3cf60e8e6723dca92d2f42e60:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjM0MDRkMzc1MmMzZmEwNzU2ZWVhNWI1NjAxODRlZGI4ZjRjYWZjNzE3YjdhYzMyNjBlM2QyYTYyYjQ4ZWRkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTUwNjY5ODAzMGI3NmZmNmVkZTNhYzE1MTM3ZGU5YWM4MTFhMDViOWQxZGNiNGViNjYyY2RjNDBlNDM4NzVlNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjgyMTZjOTc3OTUxOWFiYmQ1NzE0ODQ4ZGU0ODE2ZTExNWJhZjY1M2ZiZDExZWQ1MjJkNjgxZmYyNjlhYjU4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDAxZjJlYzE3NTkzYzEwNTRlYjQ2MzY3ZDg0NTNlZjI0YTE3M2NlOTZiNzExN2Q5MWY5YTY4ZDQ0ZmVmOGIwMSJ9"
+        },
+        {
+          "resource": "repo://TEST-CASES.md#L24-L24",
+          "version": "repo-lines-v1:sha256:187005c5b77d71d707774b598628fa323e56b85e98aaf82912fd6419a83ab2a7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTg3MDA1YzViNzdkNzFkNzA3Nzc0YjU5ODYyOGZhMzIzZTU2Yjg1ZTk4YWFmODI5MTJmZDY0MTlhODNhYjJhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTg3MDA1YzViNzdkNzFkNzA3Nzc0YjU5ODYyOGZhMzIzZTU2Yjg1ZTk4YWFmODI5MTJmZDY0MTlhODNhYjJhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmEzMWJkOGM1NTRlODA4MWUwYzM4YjEyNzY2NTI4YWQ1Mzc5NzM0OTQ3MzExNWYyMmM2YWQzMDJmYWZhODIyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzUwN2VhZDZjODQxM2Y5YmRiOTY1NmM1MjUwNDRmMzBiOGRjMmM2MTU3Y2RhYzVkNzAzN2FmN2YxZDJkOGQwNiJ9"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L20-L24",
+          "version": "repo-lines-v1:sha256:c08b7a5df460acc20633e9d6e20faa58454e699be7a4bf3dec804ec5403df6b2:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDRhZDBmNjViOGY4ZmVlNzBkMzVhNTc4ZjJmNDA4Mjg2MTY2ZjQ5MGY1MzBkMjFiNjhiMjJmYTUyMjM2MGY1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzViMWRmMmQzOGZhODhjN2E5ZWZmYWE2NzIwMDgxY2ZiOWYyNWM5ODg4N2ZlNjg0NTg4ZjI5NzUyZmZkNzc5MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTdjMjY1ZTVkNDY0Zjc3YmI1ZDNmMzlmYTlkNzU0MjZhMmE4ODRhZGE2OTkxZDlkZjI3MTM1ODU0NjFlYjU1YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e1f548ac60f945d9aeeb6dab5a80f0b0",
+      "statement": "isAuthenticated() is derived from the user signal; the invitation page uses it to show one-click join for a signed-in user instead of a login form.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L39-L45",
+          "version": "repo-lines-v1:sha256:43662f609052b2b852e3c0d444f8d36ae32573054389aecbd89972b8e5c91b24:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQwOGIwMzgwYjQyNThiMjdlMmRkYWM5YzIzY2UyOGI4ZDQwNDk0OWNkYzk0OTg2Nzc5YTYwNTU2ZGZhNDkwNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFmYzZlZGI2MGZkMzVjNmFjMWM2ZmQ3YTFjYzJkZjM2YTBiYzE3OTZhZDgyNzQ4YjQ5YjhhOTgzZmVkZmUyYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTYzODA5Mzc1NDFhN2ZhMTRmZTEzODk2YmQ4MzI2ZmY4MjFhNmYyZjA0MmExYTUxMmVlYjU5NDkyYzBkMjQwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2VmOTVlNWIwMWIzZDlkMTdlNDJhMWJhM2Q2MjU3ZWExMjU0NzlhNDE2MDlhMzg4OWNjMGUzMjdhZTQ5OTI0NiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.html#L46-L46",
+          "version": "repo-lines-v1:sha256:dc117afdc764d8a2e77d476321d419d6a2f4193a1dbc9b71d5b37b79aecd6190:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGMxMTdhZmRjNzY0ZDhhMmU3N2Q0NzYzMjFkNDE5ZDZhMmY0MTkzYTFkYmM5YjcxZDViMzdiNzlhZWNkNjE5MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGMxMTdhZmRjNzY0ZDhhMmU3N2Q0NzYzMjFkNDE5ZDZhMmY0MTkzYTFkYmM5YjcxZDViMzdiNzlhZWNkNjE5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTA1MGJjZGU4ZGUxZTAwMGQ2MzljNThkNDlmZTFkNWY4YmNmOGM2NDlkN2RiZjg5OTI3NTI5NDdmYTZhNDFhOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDJkNGE3N2NiNjIyYjJmYzA2YWVlNDRlMTA2NzgzNDlkYmM5ZTAyYTFiNzdlOWFhNTZiZDNhM2UxM2U2NjE0MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3b7ca79bea1f41e589f446a26bf44b08",
+      "statement": "The invitation routes are deliberately unguarded, so the Accept component restores the session by hand — it calls checkSession() whenever getToken() is truthy — because the guards are what normally load the session.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L62-L74",
+          "version": "repo-lines-v1:sha256:0b5999a094d8b6707b3346dfbecf9292d8b16ddfe96b01df045ab441ac903c1c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIwN2Y3ZWJmYjc5ZTBkNmVlNTg2Y2Y5YWQ0Njc4YzEyNWVlNjRlNTg0N2FkNTA4MDRhYmUyZTUxYTczOGRlNzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxMDI1NGRmYTU2NDg5OTU4NTg3Y2ZjYmE2YzJhMjFmNzAxMTczYmRhYWQ0ZjExNWMxYTM2NTc4OTc4NjUyNTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwNThiNGQ0NWZiZmZhY2JmZDBmYThlYTVhYzhlY2Q4ZDhiMWE0YjNmZWFiZmU5MWYzNWVlMjE5ZDcyNDQ1MzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZhNTJhMmI0YzQ0YzJlYjRiZjcwOGMyYjAwMGZjMDM4MGQxNGRlY2YzM2YwZjMzNjZkNDhkMDE3NTk1Nzg1ZmMifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L40-L42",
+          "version": "repo-lines-v1:sha256:02db1d02304b962d0f461cd9b9857f7a5addd6a8e446b12ace68253e6dbcf3f3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmVjZWQ0MDkzNmVkYzZlYzVkMTkxNGVkZGQxNjAwNTg2MDY4N2RkODg0OTk4ZGI3ODExZDZkODI4MzIyNGM1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmMwZjQ3YTBkN2E4ZWE1NDAwZmZmZjQ3MDdjZDQ4ODc5NDQ5NzRmMmMzODcwODI3NDMxZmI5YWY0ZDhjZTI1YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWU4ZDAxMDY2ODVlZTdjNjk5MTNlYTNhNTcxMTY0MGRhOTg0YWE1ODJkYTIxN2MzYzY5OGZkOGQ2MTE3ZTk4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTY3ZDdkODQyNDlmNTY0NTMzNDAyOTc3MzkwZGM3MDQxM2UzOTIwZDVmN2Y5NTNlZmZhZTFlODA0Mzk2NmY2MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2bc253511737457c8ffd6285fd2f9863",
+      "statement": "Session restoration failures have no caller to observe them and authGuard absorbs them, so the provideRhAuth onError hook is the only place that sees why restore failed — which is how the consents gate distinguishes a 451 block from a signed-out user.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.config.ts#L23-L26",
+          "version": "repo-lines-v1:sha256:eb777da927851bdc6e98ba46c10eae7d74f37804cde6d1301cfd307faf7b46f4:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ5YWUxMTRiNzQzNmFkOTRkMTE1YTliOTAxYTYwNmUzZTI3OTExNzA3MGQ1MDgwNmI3MDRmZWIxNjNhODQzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWQ2OTY1MTgxNDRkNWFlMjdlZGU4OTBhZjA3YzU1YzgwYTc4MWNhY2VjOWUyMDZjYTkyZDQ4NzE2MTYwOGJjMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg3YmRmNzQ4ZTA5Nzg5NzkzZGE0Y2I2YTJiZGJkNGVkOGJiYmI0Yzg4N2E3MjU1NzA4OTA5ODg5MzY3N2IzNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTYzOGRhNzZjNGY0NjIwN2JmYzY3NjVmZDI5OTRkODJhZjVlM2M1NTIzMDgzZmEzNDM1NDA4M2UxMmNiOGE5MCJ9"
+        },
+        {
+          "resource": "repo://src/app/consents.ts#L26-L33",
+          "version": "repo-lines-v1:sha256:27468a1ff8fa7618c90de32076b1d8b31972eda3da8ddb1a657152c36d9a85e6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWI1MzEyMmM4MDQ2NGZjZGU2NzU4NzY5MjRlOGFiZTVkMzY0ZDlkMzkwNmRhNmYwMWRiNDNjOThlZGI2YjAxZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQ4NTlkMTFkZjc5NGFkOTMzZWZkNGQzOTBiNWUyZWM5MjBjODhkOGU2MTEwY2EyYzBlMWNmYzNmOGU3YWNhMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b75fbf0b959049ebb157f1e2e1dd5b08",
+      "statement": "activate, reset-password, and switch-team use ?delivery=body and return access_token in the same response; a correct implementation never issues a follow-up POST /token after these calls.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L156-L160",
+          "version": "repo-lines-v1:sha256:334b750f8a6e4e20983d4912f40af944129f8ce6b84eb31df9772a05662e8fb2:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWQzZTgxMDQ5MjFjYTRmNmM4ZGQxNTI4YzMwZGVkMTZhMDE5MGZkN2FjMWRjZWY5OTdhOTM1ZTlkNTM2OTUzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGVkY2E4ZTI4OTRjMzFkZDQyZTk1MzdhMGFlYzFkYzg5NDgwMjQ1OGRjNDlhNmJhZDU1MWIzMTQyOTkxZDQ2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmEwMGRiYTYzODRiZDhjZjRmM2Q4MjY3Njk0NmFjOGNkZmVkYmRlODY3NWM0ZWU0ZjZhOTRkMmIyYzBhOGNkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTFlOGI5YTdiNWE4NDdlZDIyNWY0YmRhMTRjMmYzZjk1YTg0NzM1OWYxYzc3ZjhmMzBjMzJjN2ZiN2Y3MWE3MSJ9"
+        },
+        {
+          "resource": "repo://TEST-CASES.md#L30-L38",
+          "version": "repo-lines-v1:sha256:79abd7af286de570539ed055304a10c5d8b3b85b4cd9b30012b4196e2ae7ad89:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQzNjQxMTk5ZmMyOWRhMmM2MTFmZTI3ZTU5NmM4ZDZjMjA5NzdlMjcxYTU5NTM1YmZiYjA1NzY0Y2YxNjdmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc4ZWVhY2NkNDU2MmNiYjA3ZmY5MGNhNDM4MzdmZWQyYjQyZTg4MGRmMzZkYjE5ZWMxNGMwYmJjNzRmZjkyZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTA0ZDA3Yzc5NDM1NzE4NDFlNTRiZTRmNDA5OWQzY2ZiOGM0NGY3ZmI3NmJiMjI0ZTQ1YTE5NGM2ODExYWQxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDIxNjZiMmFmYTU2Mjk3OTU2MzdhMDY2YmUyMWZlZWYyOTdjZjVhMzFkOWYxZDhjYjVlNWIwM2MxYzE3NGI3ZiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:37584e0aa467e862bba53c63c68559fb034390017933a374d84678446a0ea9cc",
+  "claims": [
+    {
+      "id": "claim_275c207762d1429ba9f498616192e6f9",
+      "statement": "Unit tests run via `npm test` (alias for `ng test`), which uses the `@angular/build:unit-test` builder to execute Vitest. `tsconfig.spec.json` enables `vitest/globals` types and includes `src/**/*.spec.ts`. There is no separate Vitest configuration file — the Angular CLI builder owns discovery and execution.",
+      "evidence": [
+        {
+          "resource": "repo://angular.json#L80-L82",
+          "version": "repo-lines-v1:sha256:38b2ccf35a2c69fe38383863240187758dff6b7942f7155370255f8c0f148fec:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTRjNDMyZmM4YzVkMWUwNGUxOTI5N2I3NjA5NDU4OTYzYTc3NGVjNWE5YjJkNTRmY2VjZTY2YzliZmYzMmYyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGUzYzM1ZTU3YWQxNDg5ZTIwYzUwMDUzODFkMDI5MjI0NTIyOWM3NzM0NjhiY2JmNjJkYWUyNjJiNWJkYzVhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWMwOGNiN2I4NTQ5MjY0ZjE1YjI0YzIzYTM5MmI5NDZiMzQ4MzVlMzIwODU0ZTBhYzVhMDUzM2M1NmM5YzM2ZCJ9"
+        },
+        {
+          "resource": "repo://package.json#L9-L9",
+          "version": "repo-lines-v1:sha256:913077dc1950b9ab9f71a2f0f3491625a00259ca22c8dc5464b09ec9b51a4c26:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTEzMDc3ZGMxOTUwYjlhYjlmNzFhMmYwZjM0OTE2MjVhMDAyNTljYTIyYzhkYzU0NjRiMDllYzliNTFhNGMyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTEzMDc3ZGMxOTUwYjlhYjlmNzFhMmYwZjM0OTE2MjVhMDAyNTljYTIyYzhkYzU0NjRiMDllYzliNTFhNGMyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTZmMmJmNmZkOTdlNTI0ZjYzZDQyMWFjY2EzNGE2YzY3NjIxMzliMzU3MDY5ZDUxYmRmNTg4YTk0N2ZmNTk0NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzY0YjE0MGYzMWI0NWQ2MWY4YTBlOThjMTA5NDczMWQ2N2FjZDIyYjE1YWEyNjczYjA4Y2M1OTUzNThkNDZmMyJ9"
+        },
+        {
+          "resource": "repo://tsconfig.spec.json#L1-L10",
+          "version": "repo-lines-v1:sha256:6e4739692d45dec5f69346358b09fcf02f1a6c789a47bee654f773ea9af1f234:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxZTMyY2I3OGMwNTNlMmQyNzE0M2UwMzQzNzMwZjA3ZTNmYTQzMzVjMGYwNDJlNTIzNmE4MDc5MjEwOGUxMTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a1e304fb0908445ea8c18d870164918c",
+      "statement": "All ten spec files assert component creation only — each compiles a component in TestBed and runs `expect(...).toBeTruthy()`. There is no automated E2E suite (no Cypress, Playwright, or equivalent); every behavioral flow is hand-verified via TEST-CASES.md.",
+      "evidence": [
+        {
+          "resource": "repo://TEST-CASES.md#L1-L7",
+          "version": "repo-lines-v1:sha256:b8de8cb4c46f3d31840fda49864c19a501374f7bff18f0f5e047173c6015ffc6:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWI5OWM2ZTQxM2MyYWUyOGJjOTk3NmZjN2UyNWUzMTgyNjUyNTZlZGVlYTAxMWI5NDI1MTNlY2I3NjFjZDhjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTgwZWIyNmI1OGFiYWNkMzQ0MmMyNDdhZjU1NTM5NDM0Njc5M2EwZjMxN2E0YmFiM2MzOTUyOWY4ZmVjMmZmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDQ3NTM0ZWY0MzlkOTU5NTk4NjMwN2RhY2FkZTZiMGM1MjJmMGU5ODcyODRkZDk3ZWQyYTI2YjE0NzM1NTIyZSJ9"
+        },
+        {
+          "resource": "repo://src/app/app.spec.ts#L19-L23",
+          "version": "repo-lines-v1:sha256:8f57a0912fdf46959b8fa7b1a2d04d3c784575ea7400be2b34079f5e3c5ca759:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTYwMWJkZWVlODQ1MzE4ZDgwMGZlMzQ3ZDVjZjM1NTg5MzhkNTM5OWE0ZTNjOTk2MmI4ZTc4ZTEwNTlhMGY0ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDlkZDY2NjY4YmIwY2ZmYTQ4NjI1OTY0YzZjZjQ1MWZjNTk5YWU1MDA0ZWZiMDdmNzYzM2RkNWM5YzNlNDkxMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.spec.ts#L25-L27",
+          "version": "repo-lines-v1:sha256:ad5cfb68508aaab158bb09be9a1959f504fdac7944c17735d3c123039302701b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTAyZTI1ZjhiYTc5OTQzYzllMDdmYzgzZGY1YmQwZGEyNDVkNmFhMjI1ZTE4YzM2ZGIwNmFkZGE3NGE4YTIxZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjJkY2FkNmY0ZDQyYjE4MzczMTcyMzU1MTcxNjFkMTc5MWE0OGNlZGZkYzE4NzYxN2U1YTcwNWM0MWFlNTE4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_defa1de7313a4e8886af334d5b0ffd3d",
+      "statement": "Most specs configure TestBed with `provideRouter([])` and a mock `RH_AUTH_CONFIG` (`{ apiBaseUrl: 'http://localhost:8080' }`). The OauthButtons spec is the exception: it omits both the router and RH_AUTH_CONFIG and instead sets its required `providers` input via `fixture.componentRef.setInput()`.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/login/login.spec.ts#L11-L22",
+          "version": "repo-lines-v1:sha256:a2e730f4cd4d1ca9c9c89117a18ef746979af4d808bb18a34fa83ab693b2f342:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NWFhYjEwMmZlYThiYzY1MWViODlkMDg2M2Y0MTMyYjc3YjA2MTQ4OTE2MmVmYzhjNDBiNmY1ZWVlNGJjNzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1ZjMwYjFlZTkxZGMzZGVkNmI1MDA0NjQ3YzU1MDkxMzQxYTU1OTAwM2M4ZWNjNDRlYzQ4M2M4ZWI1ZWM0YjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4MjcwMTJmZWEwYmNjN2Q3MDNmZWIwYzkyZjlmOGFkYWZlYmZlYmQ4ZmYwOWZmNWJkN2U1OGQ0MGY2ZWI1NTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNmYWNkNTczYzM0ZDU4NTFkMThlYTRlZGJmMTkzNDVlN2ZjMTRjN2U2MzIxOTc3MmZiNzBmNDllMDhjNDZmZDYifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/oauth-buttons/oauth-buttons.spec.ts#L10-L21",
+          "version": "repo-lines-v1:sha256:cd6b3283ed0106139b9c10e6a9cd3f584abf7c2950d3b63e4d71768364530f0c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNjA1MTdlZmJlNmRhNjU1OWY2ZWY3NzA5YmM1MDUxN2M4NGFkNmUxMWU5MWJiMzA1MGQ0ZThhYTU0YjNhMjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0ZDcyODQwMTg2MjUxZDUyYjc2MmMxY2M1NDMyMjcwODcxNmIxNzcxOGFjNWYwMzhkZmY4NGE2ZmRmMGFiNTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxOGIzNDA3OGZiMWJjYjZkZmJhNmZhM2E0YjQ1NGI3ZjM4MTRlNzdlNTBiNDUzZTM4NTcyYzY3MGI0ZjI4Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4MTdmYmI3M2M5MmIzNmQ1ZTQ4OTZmZjUxYzFiNThlZWMzMzBiYmU5NjFiYTA1ZmM2MjA1Zjg2N2VhMWJjZjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4c9c48e7619a475bb50123cfa9835068",
+      "statement": "There are no spec files for the Teams, TeamDetail, NewTeam, Home, or ConsentsGate components. The 10 existing specs cover only App, Login, Signup, Verify, ForgotPassword, ResetPassword, OauthButtons, Accept, Account, and Shell.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/consents-gate.ts",
+          "version": "repo-file-v1:sha256:ebf2db2e4b996a442e6cb14be657380ded045322323c4c1ff63759d78b784a61"
+        },
+        {
+          "resource": "repo://src/app/pages/home/home.ts",
+          "version": "repo-file-v1:sha256:95b1c67a9b11dfaf380c9767332b578ee41b7175198a51bcd5d9a52019f129f3"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts",
+          "version": "repo-file-v1:sha256:6eeb4aabddf2ec135259782375c34b5c3053947c4fc76c68a9d1e3f06eff8669"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/teams.ts",
+          "version": "repo-file-v1:sha256:7a15be22af3cb064c2ab118d005fc0295c2c64375586b96892d314b6950928b8"
+        }
+      ]
+    },
+    {
+      "id": "claim_44fbefee84c941f4aa3b6c7b2a0ec9f2",
+      "statement": "No spec exercises form submission, navigation, guard redirects, HTTP calls, error-message mapping, feature-flag route removal, dual-path invitation behavior, the consents gate overlay, or silent token renewal. These behaviors exist in the component code but go entirely unasserted.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/consents-gate.ts",
+          "version": "repo-file-v1:sha256:ebf2db2e4b996a442e6cb14be657380ded045322323c4c1ff63759d78b784a61"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L42-L64",
+          "version": "repo-lines-v1:sha256:5bf0cd3537fea3d522a9087e4f7940666d686851374fdf7905a8b88bc66be241:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ4YTBhYTA2MGZlMDllZjE0ZDk2YzA5M2QzNjI3OTYwYjU1Y2FiYmZjOTg2NTY3OWVmZWM1OWQxZDg2MTdiZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhOGE0ZDVhYjcxMWZmYmUxOTY2YjMwMDYxMTU0ODM3NDllZDE2OTdjOTI5YjM0Y2YyZTRhZmYzYzA5MzcyNWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZiNTc0YzIyYTM5YTIyNGMxYTg1N2QzNDI5YzM3MGJhNTNmNWQ2MDk4ZWVmMWY1YjVjNGU1NzAwYjg2NzZhZTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmNzM5YTA2YzFjYmIxMjQ0ZTMzNjNkMzhiY2Y5ZmE1MGNlODRmZWQzOTljMjE5M2EzYzdmMDhkNTk5MThiMmEifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L38-L100",
+          "version": "repo-lines-v1:sha256:2ac40db340237b60f7a2112007da262c5b913ef0b0de22c5c114c3e79e35d7de:eyJzZWxlY3RlZExpbmVDb3VudCI6NjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjOTI4NmIyNTYxNDdiYzg5YmIzNzdlNTE0ZTE3YzI2MzllZjQ5ZmE3YmQ2ZTUyODhiMDU2YTkxNzE1OTE3ZGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRiOGQwZmI0Yjc2N2JlNDU0OTI2YjkyZWU0MjkwNGZjZDhiMmYxN2YzNmVlZWQ4YmFlZTFkNTAxZjk0MDBiMmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NTg1NjAxMjUxZDUwYWM0NmYwNTU4ZjViYjdhMmE3OTIzMDE1MTI2ODliNTIyYmZlOTUxZjdjOGQ4MjlhNTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_94795fcdd0b648d8b693a8f3d43826d6",
+      "statement": "TEST-CASES.md is the hand-run checklist covering signup and email verification, login/logout, forgot/reset password, team invitations (new-user /auth/activate and existing-user /invitations/accept), team switching, OAuth, and session/guard behavior. It should be run after bumping @ulabase/kit or @ulabase/kit-ng, or after changes under src/app/pages/auth/ or src/app/pages/invitations/.",
+      "evidence": [
+        {
+          "resource": "repo://TEST-CASES.md#L1-L66",
+          "version": "repo-lines-v1:sha256:9e3aad0d1086803897c26d06ac70313e3811751202d873072ea1f7f33bd6f4ec:eyJzZWxlY3RlZExpbmVDb3VudCI6NjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiOTljNmU0MTNjMmFlMjhiYzk5NzZmYzdlMjVlMzE4MjY1MjU2ZWRlZWEwMTFiOTQyNTEzZWNiNzYxY2Q4YzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImViMmUzOGNjNTg5OTNhM2UwMWE3NmMyNWM2NWVmZjk2ZDI0Mjc2ZWUzNmZmZmM3NjY2OTg1ZDZiZjVmMDY3MDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bea8f68d932f4bf0ba33101fd7ee0689",
+      "statement": "Routes are conditionally included in app.routes.ts based on `environment.features` flags (emailRegistration, passwordReset, oauthLogin, teamInvitations). A disabled flag removes both the route and the UI that links to it.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L21-L78",
+          "version": "repo-lines-v1:sha256:2831c32ba1a50a2ff6ba6af0eac109a15037ad999185eb3ca2ad679036fb0c80:eyJzZWxlY3RlZExpbmVDb3VudCI6NTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0NjUzZmFjZmE0MjJhYTEwOGFjMzFhYTVhMDJhOTIwNzc5YTM2MDNiOTI4ZWJiNzAwMjRjOWVjYzU0YWE2NWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhM2E5MjcxMWU0NDJjYjhkYWU3MDI5OTQ3ZGU2ZWFhMjllOTU3OTFlMDdjOTFlNTI0MTJjN2RkOGJmMzM1MzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiNTgwZTk2NGY4M2E0NzNmNDNkNDQzODQ2Mjk0OWQ2OGI1NjAwZmRhNzg3ZjE2Mzc0NWQwMGRlODljYmYzNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhMjUyYjQ2MmUxOTI3N2Y3OTA5ZGVjOGI4YTQyNmFhYjNjZGY5NzIzN2NiMzhhYTZjNWRiM2QxMTA0ODBjNjQifQ"
+        },
+        {
+          "resource": "repo://src/environments/environment.ts#L11-L19",
+          "version": "repo-lines-v1:sha256:40c8cc738421e1d1117ba59d3583497c5011b76f65f23d326880eb80bfb94dd8:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQ1MjY0YmUwYzYyMzY0NTliODljZGU4OWU0YWNkM2RhYTA3MjJkYzM3NjM0YTYxYjJjZmYwZjc3YTQ1MmZhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWExZDFhNjMzOTAyMjljNzk4MzQ3ZTgzYTA0MDU0NDFjOTQwMDAzNTI4NGFkMTY4YzFiZjZjZGYxZDcwYTM3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjQ5Y2RlZjhlZjY5YTg5M2RkZTk1ZjZhYTNjYzhmMzI1YjYyYzgzNTY3ZmExOTcxMTI3NGEyM2M3NmIwYjhmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_785c3e1fa97c49da8d54f622a5cf7ffe",
+      "statement": "The invitation page is a single unguarded Accept component served at both `/auth/activate` (new-user set-password flow) and `/invitations/accept` (existing-user login-then-accept flow). No guard is applied to either path because the invitee may be signed out or have no account yet.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L68-L78",
+          "version": "repo-lines-v1:sha256:0488b7ae73c6ecd299901b458f1d19859cce3095c16c5a0e5cfa4f7dcffc0d11:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlZjAxMDRhNzk0MTgyMTA5ZTlmNzEzZDVhY2Q5NmE0Njg4ZDdkZTY4NWU1OTMxNjgzODY2ZTVlOWYzYmM5YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhM2E5MjcxMWU0NDJjYjhkYWU3MDI5OTQ3ZGU2ZWFhMjllOTU3OTFlMDdjOTFlNTI0MTJjN2RkOGJmMzM1MzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1MjI4YTlkNzY0ZDhhOWIwM2E4MmY0MWJmNGE3ZTE0YWQ2NWU0YjI2M2RmNDU1MWExNzVlYzA2MTFiNTNhODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhMjUyYjQ2MmUxOTI3N2Y3OTA5ZGVjOGI4YTQyNmFhYjNjZGY5NzIzN2NiMzhhYTZjNWRiM2QxMTA0ODBjNjQifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L38-L100",
+          "version": "repo-lines-v1:sha256:2ac40db340237b60f7a2112007da262c5b913ef0b0de22c5c114c3e79e35d7de:eyJzZWxlY3RlZExpbmVDb3VudCI6NjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjOTI4NmIyNTYxNDdiYzg5YmIzNzdlNTE0ZTE3YzI2MzllZjQ5ZmE3YmQ2ZTUyODhiMDU2YTkxNzE1OTE3ZGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRiOGQwZmI0Yjc2N2JlNDU0OTI2YjkyZWU0MjkwNGZjZDhiMmYxN2YzNmVlZWQ4YmFlZTFkNTAxZjk0MDBiMmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NTg1NjAxMjUxZDUwYWM0NmYwNTU4ZjViYjdhMmE3OTIzMDE1MTI2ODliNTIyYmZlOTUxZjdjOGQ4MjlhNTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3f5eca522f5b4abe86482c5d56bab15b",
+      "statement": "Public auth routes (login, signup, forgot-password, reset-password) are prerendered via RenderMode.Prerender. The verify page, both invitation paths, and the authenticated shell use RenderMode.Client because they need live API calls or a browser-stored token. Server routes in app.routes.server.ts must mirror the conditional client routes or SSR route extraction fails at build time.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.server.ts#L1-L59",
+          "version": "repo-lines-v1:sha256:adebe88d84dbf59586844b3085a89bf830efc12cdb386d9c57b82ce1f11a182b:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZWY0YjQxZGIwYjJhYmUxMzdjMWQyZDZlY2UwODIxOWU4ODgwNzYxNDkwYTRhMzg3OTY1NWYwMTkwNjM5OWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwMmQyYzBkNmRjNWU3NGQ5MmZhMTRiOTFkYmVhMjY0MDkwYmViMzVmZGI5MTg4ZDliMzQxMTgxZGNlOWY0Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_550831db943f41b9b00a0192fa7b068f",
+      "statement": "Bearer-token delivery is verified in DevTools with three checks: (1) auth.api() calls carry an `Authorization: Bearer …` request header, (2) the verify redirect returns `#access_token` in the URL fragment captured by consumeFragmentToken in app.ts, and (3) activate, reset-password, and switch-team use `?delivery=body` to return access_token in the same response with no follow-up POST /token.",
+      "evidence": [
+        {
+          "resource": "repo://TEST-CASES.md#L5-L7",
+          "version": "repo-lines-v1:sha256:ac36e29f41de1b7881656268733353f1952ba5312521ed131bd6d8e8284e7822:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E2YTEwM2EwMTRiYmE0MDM1Mzg5ODJlYzE5NTQyYjMzMDVjZDVkOTFmZjQyYjQyOTFlZTcyZmE4ZmQ1OGE2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTgwZWIyNmI1OGFiYWNkMzQ0MmMyNDdhZjU1NTM5NDM0Njc5M2EwZjMxN2E0YmFiM2MzOTUyOWY4ZmVjMmZmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWRhOGUxNWJiNGRjN2M2OGQ5ODY1MDhlMmQ1MmE5NWU3MmVlN2M2OTcxNGIwNDNlYzRlMmMxMDUyNDZlZTQzZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDQ3NTM0ZWY0MzlkOTU5NTk4NjMwN2RhY2FkZTZiMGM1MjJmMGU5ODcyODRkZDk3ZWQyYTI2YjE0NzM1NTIyZSJ9"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L8-L35",
+          "version": "repo-lines-v1:sha256:d68acb935d6b21abd62ae6d4157fa67947d304c9fbb9996690fa211f8e3595ad:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg5YjEzNjhkNzEyNDg4MGY5ZDE1YTM3ODViMTQ3OTI4NWFhMGNjOTRiZDkzNzEwMDQ5ZWY2ZmJmYTczMjBlNzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3NzlkZDc3ZjkwMmFiNDQ4NjdhNzE0MDRlNzFkZDRmZjljOGE2MjdlYjFmYjA4ODU2ODFjMjI5Y2FiNGI3ZjkifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/home/home.ts#L47-L55",
+          "version": "repo-lines-v1:sha256:b1b60bf1e245671ee08e049fb32a304ca1aa3b14cfd827d4d74ad6345035be04:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDMzMzcxZWJlMzgxNGRhYTQwMDMzNGU4ZGYzYTRkYWM2NjNlMDJiMmViOTJmZjNjYjNmNzViYjA0NDMxNWYxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ZhYjliNDhhODViNDZiZThlMzcxZTk5YTdkNmU4YTBiM2RhM2Q2NTgzMTk2YzE3YjRjMjhhYzRmMWU4MTM2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2JjY2NmNzBkNmJjNjYwNTUxZTk3ZmZmMTQxZTIyZjU2MWMzNGUwM2U2NjExNGRlOGYzYmM4MzE2OTk0NmRlNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk2ODA1NTVjNDMwODZiMzE1ZjZkNTgzYmU3NmViM2Q3OWZjYjM4YmE5Zjg2MWY1MTI5ODRhMmVlYWU1ZjcyMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ac9ef771d3f84a7ea6c0227dc55fb9cb",
+      "statement": "When a verification link fails with `token_expired`, the Login component's ERROR_MESSAGES map shows a message pointing at 'Forgot password?' and stating it also verifies the email. The verify page template shows the same guidance. Neither login.spec.ts nor verify.spec.ts asserts this copy or the router link behind it — it must be verified manually.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L9-L13",
+          "version": "repo-lines-v1:sha256:e56df8014ea8d457b66b159eb2a3e9be16c61a473e217a3398676ee67fe9c2ce:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNlODllZWZjMDYzNzAwN2EwMmFmZjYyYTZiNTdkYjRmMzdmOTFmYWQ1YjNjMTRiNmQzZmUwYjRmZjRkNWUxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWExZDFhNjMzOTAyMjljNzk4MzQ3ZTgzYTA0MDU0NDFjOTQwMDAzNTI4NGFkMTY4YzFiZjZjZGYxZDcwYTM3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I4ZDVkZTZlODJmZDU1NTU5ZWU4NzNiYTQ5NjJlY2FmZTVjMDA2NGZiOWM5NTk1NTRkMDZmYjI3NDExYjM3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDIzNDUzYWM2Mjk4MTI2ZDZkNmI4N2VhOTAxNDI1ZTU2Mjk4ZDRiZjE4NzZjY2YwYzRjNzkzYWJmNmM2MWE0ZSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/verify/verify.html#L8-L11",
+          "version": "repo-lines-v1:sha256:d57ca5668aa99ba4bd5884bd64d152b58514edc5a21b3b4e76e22c20514aa02b:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmRlZTFiNmY2YjEyODhlYTM1YjQwMTA4ZDE3MjUwZjgxMjY2MWQ4Y2FmNTFiMjVlNmYwMDU5NjI3ZGNiZTZlZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjVhYjM3YzE1NzIxN2I2MWJiMzc3ZjQ0ZmRiY2ZmNWJmNWYxNDc4M2QzMDQ4YWU5OTc5OGQ0YWE1NDIwMmM1NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzBjNzVkZWE4NmNkMDk3MDY0YjE2MTY1YmE3OWVjYjRlNDBhZDFhOWYzODkyODliYTM5MzU5YTRlYTU2NGNmZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmQ2MTJlNmI1MWM0NzY5MmRlNDUxMDNkODFiNDQ4MTFhOTAwYzJlMDg4NWNiMTkzMGUwZjhhZjRjYmQwNmI1MSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}
