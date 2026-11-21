@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ca7646b25d822ca6430cb1ba4e324d93f2c529fc1086e3b3d29edd3f129fc35e",
+  "claims": [
+    {
+      "id": "claim_8e167aca7acb4ff5b130e02ddeae3217",
+      "statement": "The ulabase setup pipeline is a `defineSetup` export of ordered `step` objects, each with a `check` (is the service already in the desired state?) and an `apply` (make it so); `--dry-run` runs only the checks and reports what is missing, and re-running against an already-configured service writes nothing because every check reflects the state its apply produces.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L1-L33",
+          "version": "repo-lines-v1:sha256:b1fa8b0697d9421f056dd4c771a7d6c2cf87747359933e8fefa93a3f33d3b921:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3MjFlMTVmMzg2MTdjYzFkMDBlNzYxNzBkOTJiZmE3OWFkOTYwYjYwZWUxYjBmOTQwODcxYjljOGQ4NjNkNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcxZjQyODk3NzZmNDYxNmY4OTEyYzMxNzljY2Y4MmFiZTVhMjc4ZGQzMjgwOWNhNDk4ZjE1YTJmNTQyZDE2NGUifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L111-L231",
+          "version": "repo-lines-v1:sha256:73aac704fdbc17818a40cda5f9e56a5b2e535850275b90abc34b1db781086441:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJjYzBmYWE4MDFkODMxZTk2ZWYzYzgyODdlODQ0MmQ5OGYwZDZiMGNlODdlZWIzZWEzNDEyOTM0ODAxMjFkMTU3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIxMzgzYWMxOTk4YWQ4ODI4ODQ1YzcwZWRmZjlkMjVmY2M3ODk1N2Y1NTMwYTc5ODM4ZDUxODRhMWUxNzBmZTQyIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_e87c4de663a84b8dae2a8a9988913ac5",
+      "statement": "The accounts setup (`ulabase.setup.ts`) runs its steps in a fixed order — accounts feature install, branding name, accounts config, conditional Google OAuth credentials, origin-allowlist — and places `appPointsAtService` last on purpose, so a setup that stops halfway leaves the app on the connect-your-service screen rather than a sign-up page that fails against a half-configured backend.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L111-L231",
+          "version": "repo-lines-v1:sha256:73aac704fdbc17818a40cda5f9e56a5b2e535850275b90abc34b1db781086441:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJjYzBmYWE4MDFkODMxZTk2ZWYzYzgyODdlODQ0MmQ5OGYwZDZiMGNlODdlZWIzZWEzNDEyOTM0ODAxMjFkMTU3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiIxMzgzYWMxOTk4YWQ4ODI4ODQ1YzcwZWRmZjlkMjVmY2M3ODk1N2Y1NTMwYTc5ODM4ZDUxODRhMWUxNzBmZTQyIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_807da2fdc7d14c0a89c08372031e8e71",
+      "statement": "`appPointsAtService` compares and rewrites only the `apiUrl: '...'` line of `src/environments/environment.dev.ts` to the URL from `admin.serviceToken(srvId)`, leaving comments and feature flags untouched; it is exported so extending setups can keep it last.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L229-L231",
+          "version": "repo-lines-v1:sha256:61f2feb1250904ceee1d659b9ec9d272ebdf832325938f77b8b88b57b307e0d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDJlNmZjZGQ0ZDcyNzQ4N2U4YjhkN2E0Mzc3ZjA2MmNkMWJjZTU5NDQ0ZDZkNzNhYTg4Y2E1ODQ4Zjk0YjRlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlMjZjZDkyMzY2ZjYwZDhlZDkyZDAyMzlmMDdmZWY3NGNhYzE0YWE2OWFkZGY5YzJjYzBkMTFlYjAwYTQ2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTJmOTA5YjllYjVhOGQyYmNmMDc0NjY0YjM3NTQwYjJmYzE4YjUzNWQ0MzhlNjAwNTFiN2M2Yjg4NDgwOTU4MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L79-L110",
+          "version": "repo-lines-v1:sha256:a6b9e5432fb66e39fd668ddd0fdb9e328642afa234163c9a24b554394aa71dc5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIxOGJmMGU1Y2FiMjJhYzI5OTE3MzM2MDYzZTdlYjIzOWY0Zjk0NDliMWM1OGU5YWVmOTVhOWViYmFkYTk3MjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmZDVjZDNlMjlkMmI2NTM1NDAwZGUyM2EyOTJlY2U4YzYzZjA3NjkwNGI4MGRjN2VhMTIyZmZkZmIxZTA3Y2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_34cfe47956314402ae58dcf8470d2689",
+      "statement": "The accounts feature install step treats HTTP `409 Plugin already installed` as success: the desired state is that the feature exists, so failing on 409 would report a problem that does not exist on a forced apply or re-run.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L111-L116",
+          "version": "repo-lines-v1:sha256:218ffd4fc646ea70c8baedf96d5f8e396ac9f1de23e68ee76f2c67b70b01e65b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2MwZmFhODAxZDgzMWU5NmVmM2M4Mjg3ZTg0NDJkOThmMGQ2YjBjZTg3ZWViM2VhMzQxMjkzNDgwMTIxZDE1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTM4M2FjMTk5OGFkODgyODg0NWM3MGVkZmY5ZDI1ZmNjNzg5NTdmNTUzMGE3OTgzOGQ1MTg0YTFlMTcwZmU0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmZkNTNmYjRiZDEyNDM2N2Y5MGM3ZTdkNTUyMzJjNTdmYWFjZDg5MWFmOWU0NDkwYTgwNTc5MDY4Zjk1OTA4MiJ9"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L63-L77",
+          "version": "repo-lines-v1:sha256:76936a9bc6179ecc27a6d9e4acb6f4dffb420c0510fa25780486a0aef4cfe0d3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0OTAwYjk4YzFmOTVmNTFkNmVjM2NjNmY1MmZmMDE3MzM4MDdmNjQyMGMyMjQ1MDI0MzliZGMwZTRkZTcyZDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkwYzkzNGY1Y2Y1OGMwZmI3NjgwNDhlNTk1MGRmNWI2ZGUyNWY5OTNlNzkzYTNkMWFhOWM3MzZmMzQ1ZmRjNWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkyZmE0MzZmNjc1ZWY5ZWMxNGE5NzFiN2IzNTQwNjRhYTUwZmNlMWU4MDlmYjA3Y2E1YmQ5OTk5ZmM3NmMwNmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFiMGI5ODRiMDE1ZTliNGZjNGE0ZjkwZDU0NzUxMjhmODI1MGViYTI1MmRjODM0OTg2ZTU4OGIyMjhlMDA5YzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_de9fdddb819e4cebb690256574c8b376",
+      "statement": "The branding step writes `APP_NAME` (from env, default `Ulabase Starter`) into the `branding` feature's `name` via a read-modify-write that spreads the current config first, so console-set color and logo are preserved rather than replaced by an update that overwrites the whole document.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L118-L132",
+          "version": "repo-lines-v1:sha256:53cc8dd09958f524ead87ceaaf549188985edead5626bb6c6eb86042a19e8862:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlODU3ZDY5Zjk1ZmI2YWUwNGMyZDg1MGZlZDJiNzdjYTNjNjdlNzQ3NGZmYmQ5Y2Y5ZDhhNjFlYmIwZDYwZmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlZmU5YmNiMDIwYzNjMDBlOGIwM2I4NWZmNDkxNmMwNTM0N2RiYjQ1YzQ3MWYxODg5OWM1NDZjMzgzMzgzMmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY4NzliNTI4MjMyOTg3MDM4ZjcwZWQyNGE1YjRjMDFkYTUyOGZhMjg4MGRjMmU4ZTIzMzA4ZGMzOWEyMWNlYWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5NWQwMjIzODQ5NTlkY2Y4YmU2YmEwMmRiMThmMjI2NDBhOGUwMTRhZGViMTVjYmI3MTMzNmM0MjVjOWU3MzMifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L36-L39",
+          "version": "repo-lines-v1:sha256:755d39a5e249d7da3f73c5f9e52cb644d063d11b356fa2694ce41ec47dd95a54:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzMwNzVlZjE0M2U3ZWZkZTA5YWJjOWVlMzA4MjZhN2QyN2Q0YWI0ZmQzNDRjNzZjNDNhODRiMWU3ZjJmNzRhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzFhZjM1Y2FmOThiYmExYzI0MjcyY2Y1YjE1MDNhOWJlNzFjMmU4ZmY3ZGRhOTk3ZTRhMWNlZDQxYTgzMjA5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGJhNzk4NGVkNWMxZjEyODZjMDIyM2Y2NmNkODU1NzBjNGQ4YzdjOGQ3MzIxYjIxZDIzMWRkYmJiODNlOGYzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGJjNjNhOGUzYjg0NTJjN2IxNDBiM2FiYWZkNmE0YzlmODA4YWFmZjg1Zjk1OWI4YmI1ZGFkZWY2YWI4MTllNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b994e0e018b04d19ac4179f017e63d29",
+      "statement": "The server's Sign-up Mgmt feature toggles are derived from the same `environment.features` the app imports (`src/environments/environment.dev.ts`): `emailRegistration` maps to both `registration` and `verification`, `passwordReset` to `password-reset`, `teamInvitations` to `invitations`, and `oauthLogin` to `oauth`, so the flags are stated once and cannot drift between app and service.",
+      "evidence": [
+        {
+          "resource": "repo://src/environments/environment.dev.ts#L8-L18",
+          "version": "repo-lines-v1:sha256:6e50384986af33d7acf8eba8590180ec485097c71e15d5d343d12af7c69e6b06:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4MWMwNGVhNTY4MGZhYjVjNTlkMzllNmI3MWU5MmFmZjhmZTUxODljN2FlODhkZjJiYmM2MmQ5NjQ5M2EyMzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ3ODFmNzE3ZmQxMmVkNWRmNTg3MTI2ZTg5OTk2NTY2OTRlM2Y1YjViOGI1ZDgyOWE2MjM1YzIzMDRlNmM4ZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L45-L61",
+          "version": "repo-lines-v1:sha256:7911ec86374fe78a6738af5c67b5386e545bdf9d04b8afc060d9f8c70d70d2dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5NmUwMWQ2ODlkYTk4MGYzMjAyY2ZhOWZiNTgyYjdiNDdkMTE3ZDgyMGIyMzY4M2E3OTlhNjMzYzEyN2EzODIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlY2IyY2NmNzU2Y2QxYzQ4MzM3MTc0NTJmN2U5NzYyNjgxYmU4YTk2MGRkOTkxNzI3NWJmOTI3NDFhNGUxZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZjMjNkYWIyZTllOWIwOTljMDdhNmMyNTNlNTE4MjU5MTViNDM2NmVmMjA4MTc5NmEyZjUwNmZjNzJhOTk0ZWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5NmQyMTVmYzIxYjFjOWM4YWZhYjRhM2Q3MTQ4Y2Y0MmQ4NDE1YjIyOGIzMzUxOWJhZWVkYzA5NDU5ODZlZWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_df41f1f75e3849b8b8e5336b74a11693",
+      "statement": "The accounts config step sets `frontend-url` and `frontend-app-url` to `APP_URL` (env, default `http://localhost:4200`) and merges the derived feature toggles into the accounts config; those URLs are where verification, reset, and invitation email links point and where a verified or signed-in user lands.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L133-L160",
+          "version": "repo-lines-v1:sha256:535707b0770f3b56155ae57839019629d84b470dac0c514135a5165bdf014e95:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUyNTVhNzc0OWY4MTg4ZDM4MzZmMDc0NjRjYjI2NDJkYzlkZDU1ZDE5MWE2NTg4OTkwMGFjOTk0OWE0OTQ0YjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2YTM5MGFiMzU1ZGYwNThkYjUwZjQxNjA5NDdiMTEyNDViNDU1YTBiNjFmYzAwODY4ZGYwZGZhZmFjMTY1YmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJjYTlmMDA4ZDMxNjA1NzVjZTg2ZjE3MTYxMDMzOTNjMDg5MjE0N2IxMDc0YTZkNTg0MGFiMTNkZDQ0YjA3MTgifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L36-L37",
+          "version": "repo-lines-v1:sha256:e8d36b7c325efd0c25541de81d10b45c7e5dd3d6e5d19068c04770b7eb2597e3:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzMwNzVlZjE0M2U3ZWZkZTA5YWJjOWVlMzA4MjZhN2QyN2Q0YWI0ZmQzNDRjNzZjNDNhODRiMWU3ZjJmNzRhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGNkMzc2ZmFlZTY3MWQwOTJmN2NlZGNlNTI2MGVlNzM5OTFkY2ViMzY2NTk5Y2EzZDc2MWI1NzExZDg1NGQzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGJhNzk4NGVkNWMxZjEyODZjMDIyM2Y2NmNkODU1NzBjNGQ4YzdjOGQ3MzIxYjIxZDIzMWRkYmJiODNlOGYzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQyZDY2YjYxZmQzZjY2YjVjZTQ2YzFjYjQyM2MzMGJiNWU3NTg1ZWFmZTExNjU0ZTY5YzI1YmNmYjQ4NmEyOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9d7f49813240430fa281e92039512d72",
+      "statement": "Secret fields read back from the admin API as redaction bullets (`isRedacted`) when stored and blank when never set; the accounts config apply passes redaction placeholders straight back in its read-modify-write so the server restores stored values instead of the setup writing bullets over a real secret.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L133-L160",
+          "version": "repo-lines-v1:sha256:535707b0770f3b56155ae57839019629d84b470dac0c514135a5165bdf014e95:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUyNTVhNzc0OWY4MTg4ZDM4MzZmMDc0NjRjYjI2NDJkYzlkZDU1ZDE5MWE2NTg4OTkwMGFjOTk0OWE0OTQ0YjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2YTM5MGFiMzU1ZGYwNThkYjUwZjQxNjA5NDdiMTEyNDViNDU1YTBiNjFmYzAwODY4ZGYwZGZhZmFjMTY1YmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJjYTlmMDA4ZDMxNjA1NzVjZTg2ZjE3MTYxMDMzOTNjMDg5MjE0N2IxMDc0YTZkNTg0MGFiMTNkZDQ0YjA3MTgifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L41-L47",
+          "version": "repo-lines-v1:sha256:8919a7a8c19d84074a05178b519e2f7322a181778b5c3be6b5b60fd2cd4aa091:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmQyZDY2YjYxZmQzZjY2YjVjZTQ2YzFjYjQyM2MzMGJiNWU3NTg1ZWFmZTExNjU0ZTY5YzI1YmNmYjQ4NmEyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWI1MTYyNjk1YmVlNDQxMzAyZWYwNjFkZDZlNGQzYTEyYmJkZmFjNDQ3YWNiMzhlYjBhYzMwMDFjOTZkNWQ1YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6c002acc9af34e7e82ea7326f66a0926",
+      "statement": "The Google OAuth credentials step is included only when `features.oauthLogin` is true and `oauthProviders` includes `google`; `client-id` and `client-secret` are resolved from `GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET` only when not already configured on the service, so a re-run against a configured service needs no secrets in the environment.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L161-L201",
+          "version": "repo-lines-v1:sha256:be419255b50901ab0833cbee26885222ea4d8ed676f0952a16204288361d101a:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkMDE0M2UyZjYyZWRhYzA3NThiOTBmZTY0ZmU2ZWUzOTJmMWZkMmRkMDA5NzA5N2FlNTZlZWUxODllYTc5NWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0MjIzOWIxYmQ4MmI4NWVkNTBjMThhYmU2YjhlOTk3ODc1NWRhYzZmZDgwNDA5MjRjOGE4ODBjNTJmMDY1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRiMDg2ZDQ2NjNhYmFiZGE5ZjJmZTIzZWU4NjAyM2UxNTQyMmQwOWU2YzI1ZTU3ODBkZDMyZGExNzNlYTI3NjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJiYWNiZmRjODg5MjgzOTVlZTRiOGY5OTkwYzA3MDU1ZDRkZTYwZjE2ZTE3MDNjODUzMjRhZmM5MGUxZjY1OTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c2dc0dde01bc4546b8ae31a31beaf431",
+      "statement": "The origin-allowlist step installs the `origin-allowlist` feature if missing and adds `APP_URL` to `allowed-origins` as a set union — added, never replaced — so a service reached from both localhost and a deployed app keeps both origins.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts#L202-L228",
+          "version": "repo-lines-v1:sha256:5b4732d9dfb090f8275a1768f4a839f129a664221e8368af7db007c54442d23f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFhMTFlMDg5MDA4OGYzMThmZTMzMGFiOGE2MThlYjRlOTI5NmNhN2RkYzA4NDY0NzFmM2I2ZTVkZjc2MWI4N2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmMGNkYjk3MmE3YmZiN2VkMjQ2ZjlmZjY3MjM4NWU1NWY0OTY4ZmMxMTA0M2RjNWI2ODRkNTFkZmEzMWRiY2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJkYWJhN2JjNTMxMzUyMGFjNmE0OGU0MDlhNTliNDIyNDNmNzk1NWRjNzhhYWE1Y2MwNmZmY2E3YmM3NDM1MDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxZjJmZWIxMjUwOTA0Y2VlZTFkNjU5YjllYzlkMjcyZWJkZjgzMjMyNTkzOGY3N2I4Yjg4YjU3YjMwN2UwZDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_daf35775fa7847c6820de33eb3205679",
+      "statement": "The consents variant (`ulabase.setup.consents.ts`) spreads the accounts steps minus `appPointsAtService`, inserts the user schema, the `/users/_meta` schema binding, the consents PATCH permission, the two JWT claims, and the 451 guards rule, then appends the imported `appPointsAtService` last so the accounts definition has one home and the app is pointed at the service only after the gate is in place.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.consents.ts#L186-L320",
+          "version": "repo-lines-v1:sha256:a3047076d146c3ebc64ec765af2799aba6487bcf8ae684812b6da2c575817226:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI2YWRjZTNlZjdjMjJlYzcwMmMxMzczYTViNmRjZTMxMDMzNjgwNDFkMDBkMDEyMWVhYmE3ZWUwOTJlYjA1ZWI1IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIxNmEzMThhMjAwZDc3N2YwMmEwNmVkZWNkZGJiZTZlMWUwNzFmM2QxMmMxOGU2ZjhkM2FmYTI4MWVhNzk1MTZlIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI0NzJiZDY2ZGQyODNhNWU5MDNmMTlkZGMyYmU1NWE2YTAxZTg3YzA1MjAxYjZjMTY5M2QzMmYzN2U0NDFmZmZmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MSwiZm9sbG93aW5nQ29udGV4dEhhc2giOiI1NWUyNmNkOTIzNjZmNjBkOGVkOTJkMDIzOWYwN2ZlZjc0Y2FjMTRhYTY5YWRkZjljMmNjMGQxMWViMDBhNDYzIn0"
+        },
+        {
+          "resource": "repo://ulabase.setup.consents.ts#L46-L48",
+          "version": "repo-lines-v1:sha256:4d76352165009c45c5f1836bdc5e0d25de0ecfb5bbf33968d43c93fa21e5e10c:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTk1NjFjOTc3NGZmYzEwMWJlNjAzODlmYTQ0NDAzODM3Y2RmYTk5MjQyZDE0OWIzNjRmZTk4MjMxNDY2YjZlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Q1OWE5MDAxYmQwODI2ZjFjNGFmNGM0OWFhYzVlZDYzNDg1YTA4MjdjNTQ1Y2RlY2M5YTdlMTM4YmZkMDNmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzIyNDliNWNhYmE1YjE4ZDA0MmQ2NjVmNzIwMzA4ODlkODE4Nzg4NjE5ZWJlZjYzM2E4MzE0YTcyYzg5OWIyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGMzZDcyZTBmZGE5ZDk4OTAxNDE1ZTBmYWE4NWJhNTU2ODVlZDg5NDVmNjFkZTZmNGI5MTVhYTU0NTA3YjEyNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1bf7e3e4d9554b33b1f579fc943d7b53",
+      "statement": "Document versions live in `TOS_VERSION` and `PP_VERSION` at the top of `ulabase.setup.consents.ts`; the permission's `mergeRequest` and the guards rule's condition are both derived from them, so publishing new documents means editing those two constants, re-running the consents setup so rule and permission move together (the check compares the full condition, so a bump shows up as work outstanding), and keeping the `Version ...` line in `public/terms.html` and `public/privacy.html` in step by hand.",
+      "evidence": [
+        {
+          "resource": "repo://NOTES.md#L211-L241",
+          "version": "repo-lines-v1:sha256:b46eaea9dbd3cda0cc25080af7def4deb6e04f50790d956d1307aaa392150d3e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2YjZmYzZlOGFjMDgwYTg1YzQ3NTQ3ZTQxMzU1MWJlNDE1Yzg5NjQyYWRkODFiZWY5OGE4MmQ0ZmExN2M5NmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlmNjAwYmJjYWVlODBhODU3N2VlYzVjODhmNGIyNjgxNDc5NmM4MmY2NDAxNTI1N2FmYzk1NTExMWI3YjgwMDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5MWM0MTM2ZWQ4MWI2OTNhY2M5ODdiZDg0ODY2OTc2Yjk3ZGVhOWMxMTIyNjRmYWM1NTU3MWY2MTU0NzQ5YzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmZTBmM2I3MDA1OWJmNTUzMjdhZTcwMDEyOTEzMGFlZjJmZmFjNDMxNGQ5ODYzOTZjZTQxM2E1NWI5MjAzYmQifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.consents.ts#L216-L310",
+          "version": "repo-lines-v1:sha256:20e34bbc59473dfd054e7f3efb4bbb024a0c77dfc24a48bfba8fff44aa09a381:eyJzZWxlY3RlZExpbmVDb3VudCI6OTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYzMzkzODE1ZjUwMzY4MzY0MGI3NTkxZDcyM2RjMjg3ZWQ3NTRmNmQwMjRhNzZlOTZlMWRmZjE0ZTFjOTYyYmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMGJlMDE4MDcyNDRiNGI4NzQxZGY1ODIyMTZjZjA0MzVhYjA3MGNkMjhjYzFiMWMzNDZjMWQ2OGZmNTAwMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyYmNkYjZmMWE5ZWFjY2RlYzJmM2M4ZmQ1YTJkOWIzYTA4YTgyNTc2NmY1NjEzY2E1YTJjMDBjMmFkZWRkZDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUxOWZmODEwY2FmOWQ2M2RmYTFhNDc3ZWU0ZjhiNTRkNjIwMTJmMTVjNGYzMDM2YjliYzQzZGYwNzEzNGVhOTcifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.consents.ts#L50-L62",
+          "version": "repo-lines-v1:sha256:78f0e1a0c2d2ddd0795602efd13f6c92961445cdf1d353369597e2e288b08726:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImViNDZiYmUwNDE3ZTMxYmY4ZWQzNDMxZWUzZDg1OWNhNzJlNGM4MzNlNWFmYTZhYjI4Zjc1NWI2NDI1OTc0YmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyMzllY2QyNmViNzBmN2M0NTczZDcwOTE5ZmU1MDIyN2ZhNjdkNzgzNjdhMGRlYzBjMjBkOWJjMDcxYTBlNTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFiY2JlODM0MDAxMjFiMzU2OWM0ODE2ZGUxNTc5YTdmZGJiMmM1YjIxMTg4YWNiMzkxZWQyZmU2YzU2NTZkMmIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}

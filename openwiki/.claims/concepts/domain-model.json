@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:48ff6706f73efff9cbf451fc4e6e1ffb1070d6b50b4bff3c626f82596c18491f",
+  "claims": [
+    {
+      "id": "claim_e68f2a1a3b374ed89be775f23731873b",
+      "statement": "A user is identified by email: `user._id` **is** the email address, and the display name lives in a nested profile at `user.profile.name` / `user.profile.surname`. The shell reads both and falls back to `_id` when the profile is empty — `displayName()` joins name and surname else returns `_id`, `initials()` takes the first character of each name part else the first character of `_id`, and `email()` returns `user._id` directly.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L43-L43",
+          "version": "repo-lines-v1:sha256:97aae4eb1511152fe35ec75cb69be18249210d004daa4791e1d7454aaa980969:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdhYWU0ZWIxNTExMTUyZmUzNWVjNzVjYjY5YmUxODI0OTIxMGQwMDRkYWE0NzkxZTFkNzQ1NGFhYTk4MDk2OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdhYWU0ZWIxNTExMTUyZmUzNWVjNzVjYjY5YmUxODI0OTIxMGQwMDRkYWE0NzkxZTFkNzQ1NGFhYTk4MDk2OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTMwMmRjNzQ4MzNkNDYwYTFjZmE0YmM4ZTQ1MjYxODYzNDA5YzcyMjAwYTUxNjVhMjgzN2M2NWRmODcwYWRhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWIwMjRhOWM4MGI4ZGI0M2ViYTY2M2VmMzNlZjZhMzgxNmNjODE1YjE5YjYxOTFmYzliMTU4NTZkM2Y0YWUxOSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L57-L78",
+          "version": "repo-lines-v1:sha256:c9900a59eec8bf71ffe175d2b02def764f2d5c838f7ce9df8b42051c910cca0f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjNWM3ZDU3YTkzZGUxOTQzZDE3NDE5NGE3OTVjNzJlOTQ4MzMwYzE4MmQ2NGE3YWNhMjNhYTcyY2FkOTQ5NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMTJiNjExODk0M2UzMGMwMDY4MzNlNzgxNjMwYTUzYjMyZjQxN2VmNWY5Nzk1YzNmMTJmMzMwODAyNGM1ZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4ZDhjYjgyNTk1ZTNmMDZlNmVlZTRiMDY1YzM5ZWQyNTcwYTAwMWEyNGQ2NGM0YzZkMzgzODg0OWE5OGQ2NjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a26d1af6cfd6467186a44f53bc43065b",
+      "statement": "Invited users are written with no password and an empty profile (filled only when the invitation is accepted), so the user-document schema requires only `_id` and `roles`; demanding password, profile, or team fields would reject every registration and every invitation.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.consents.ts#L73-L89",
+          "version": "repo-lines-v1:sha256:40b3d48c9630ca24bc78c4b50b72cce0ed607866d2d33a5f14d1cc41f98e3bed:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyNTFkMTY1NjNjNDg0NzcwMmY0YjUxMzg1NDdiNWM3NDZkMDM2OWFlZTZlOGI4YjM5YjM2MTkzNGNiNDA5MTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhMjRhMGE1MjI2YTdmODkzZWQ4ZmU1MWRkMzcwOTI5YjY1MTljMjQzYWZkOThlMWEzZjI3OTNjOGEzMzM3NjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxNDE2YjBkMDJkNjQ2NGY5OGQwZWI0MjFmYWI1ZjZkMTljZjJjMDJlNjc0OGVkOThjN2U0NmFhMmZkZGE4M2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5ZmU2ZWZlYzQ2Njc1ZDE2MjFmMGQ0ODEwOGZlYTg2MWQ0ZDIzZWVkMTI1ZmM1NzVhODMyODE2NGFkNzQwOTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_19e5b5f6033d43049b9df852693a99e0",
+      "statement": "`RhAuthService.teams()` holds the caller's own `TeamMembership[]` — not a team's member list — and each entry carries `id.$oid`, `name`, `description`, `role`, and `active`. Navigate with `id.$oid` and pass the whole `id` object to `switchTeam()`.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L44-L44",
+          "version": "repo-lines-v1:sha256:090f08d5b0ea6df71ec52eebbb4ca5f955824ca00dcef902fd408de06ec47708:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkwZjA4ZDViMGVhNmRmNzFlYzUyZWViYmI0Y2E1Zjk1NTgyNGNhMDBkY2VmOTAyZmQ0MDhkZTA2ZWM0NzcwOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkwZjA4ZDViMGVhNmRmNzFlYzUyZWViYmI0Y2E1Zjk1NTgyNGNhMDBkY2VmOTAyZmQ0MDhkZTA2ZWM0NzcwOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDBjMGQ2Zjk0YWM2NTFmMGE0YjdmYTMzOTQwYjhmZGI2NTFiNDNjY2YzMmY4NjdlMDQ1NzgxOTM4MTZhYWJmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmI2OGM1MTU4ZTAwNThmNjRhNTM4ZjkwMzc5OGY3YWY4ODYwMWRmNTc5MDU5MzMyOGYzMmUwMmQ2MTgyMTg3ZSJ9"
+        },
+        {
+          "resource": "repo://specs/done/account-team-management.md#L45-L45",
+          "version": "repo-lines-v1:sha256:7b88ae611b172eae5bd29cce958aad3cdead9a16800a246c3eb22e62397f5423:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2I4OGFlNjExYjE3MmVhZTViZDI5Y2NlOTU4YWFkM2NkZWFkOWExNjgwMGEyNDZjM2ViMjJlNjIzOTdmNTQyMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2I4OGFlNjExYjE3MmVhZTViZDI5Y2NlOTU4YWFkM2NkZWFkOWExNjgwMGEyNDZjM2ViMjJlNjIzOTdmNTQyMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2E0NGI2ODVmM2E1ZDgzMjFhMzg0NGE1Y2U5MTZiN2IxZmU4NWEyMjI5MDlkY2Q0MGZhMGRkMGFkODNmZmQ5MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGM4MWM1YzQ3ODcwYzE4ZDM4M2I3ZDFkZGE5NWE3YTZhMGJmZjIyYTI4Nzk0MjZlMTRiYTgwNzIxOTVhMjAyNyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/teams.ts#L25-L38",
+          "version": "repo-lines-v1:sha256:90a52d8a041fdd3d2f9fad380fb1893895b71fa9340ede7f3154a1e09bf76b77:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEyZGNmY2JlZDlhMjhmNWI4NWFhZWE3Zjk3N2FhNTU0NzEyNDRkODVjMGFiYTI1NTVjMWEwMTcxNjgxMDYzYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMTJiNjExODk0M2UzMGMwMDY4MzNlNzgxNjMwYTUzYjMyZjQxN2VmNWY5Nzk1YzNmMTJmMzMwODAyNGM1ZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cd59461cf0c342499fdd75420b6d4e59",
+      "statement": "Team roles are `owner` or `member`, scoped to a team. Owner-gated operations (invite, resend invite, remove member, change role, rename, delete) are shown only when `team()?.role === 'owner'` and the service enforces the same restriction server-side (owner/admin only); owners cannot remove themselves from their own team.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L219-L219",
+          "version": "repo-lines-v1:sha256:11025046da66437a579e51621fc0d1a5005bf3f3ed4e8f403c03c936faf72750:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTEwMjUwNDZkYTY2NDM3YTU3OWU1MTYyMWZjMGQxYTUwMDViZjNmM2VkNGU4ZjQwM2MwM2M5MzZmYWY3Mjc1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTEwMjUwNDZkYTY2NDM3YTU3OWU1MTYyMWZjMGQxYTUwMDViZjNmM2VkNGU4ZjQwM2MwM2M5MzZmYWY3Mjc1MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDUyYzY3ZDgzN2M2ZTEzYjdmNWRhZDE0NjI2MzFjZTI4MWJjOTA0NzNjNzBiMDEwZmI2YmE0MjYwYzc2ZTljYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzZjMzhhNzdiMTQ3ODI3YzE0ZDljMzEwYTU4MWU3NmEyNjU3Y2JjZjhhMGE2YTY3ZGVlY2YwOGI3MWYzMjZkMyJ9"
+        },
+        {
+          "resource": "repo://specs/done/account-team-management.md#L47-L55",
+          "version": "repo-lines-v1:sha256:f3904546d281c28b03d0720e9e1791168dc7c70e50941c2e405f67a26578e9f2:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2EyM2M4OTA4ZWM0MDA4MzYxM2ZiN2IxNWNhYWE2NTVkZmZiNzUxMDQzNTg3ODVjNDFhZGMzZWRjYzIyYzAxMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzk3ZGFhNGJjMzkzNjc1YWZhNmU4MGMzOGVlYWQxYjY3MTVlODAxMjM0ZThlN2I1NDM5NGI0Njc5NzhkNmE0MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWE4OWFlZjExZDA2NDk3NDZjMDhhZGIzNGRmNTZkMmZlZDZlY2E3OTRiMjA1OWE1YTMyYzBkNjQ2Y2MwYTBjNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTYxMDZmNjA3ODliZWZjNmJmMjZiNjI5MjA2MTYxNDM4NGQ1NDg4ZmNmZWI2NzMxNDdkYjU0NjdmNDgxYzA0MSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L28-L28",
+          "version": "repo-lines-v1:sha256:370aa3f316cb9946c3b209294c435739eb5ba06a902a292c9523b0992700cdff:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcwYWEzZjMxNmNiOTk0NmMzYjIwOTI5NGM0MzU3MzllYjViYTA2YTkwMmEyOTJjOTUyM2IwOTkyNzAwY2RmZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcwYWEzZjMxNmNiOTk0NmMzYjIwOTI5NGM0MzU3MzllYjViYTA2YTkwMmEyOTJjOTUyM2IwOTkyNzAwY2RmZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzg1ZDU4YzA4OWUwODFhZDZmYjgyZDViOTc4NzA0OWE1MzMwYWZjOTNhMGNjMDRiYTA2OWY0YjliNzRlYmZkZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDg5YjE5NDcyODM3YjM0ZGJjN2UwMTFhYzJhMjdmMTRjNzM0ZDhlODlmNmMwYWU5YzJjMWIwZjBjYmY5NGIzOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f8a737ba4dea46da86daaa8a9aadd0f3",
+      "statement": "Registration creates a team automatically named `\"<firstName>'s Team\"` when a first name is present, else `\"<email-local-part>'s Team\"`; additional teams are created via `auth.createTeam(name)`, which assigns the caller as `owner` and reissues the JWT with the new team active.",
+      "evidence": [
+        {
+          "resource": "repo://specs/done/account-team-management.md#L67-L67",
+          "version": "repo-lines-v1:sha256:f124128ddea46273748b8816e26535b88c8cc608b9495e6c34946b7ff0383c8b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjEyNDEyOGRkZWE0NjI3Mzc0OGI4ODE2ZTI2NTM1Yjg4YzhjYzYwOGI5NDk1ZTZjMzQ5NDZiN2ZmMDM4M2M4YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjEyNDEyOGRkZWE0NjI3Mzc0OGI4ODE2ZTI2NTM1Yjg4YzhjYzYwOGI5NDk1ZTZjMzQ5NDZiN2ZmMDM4M2M4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTk3Yzg3ZjFkYzczYzg4MDk3MzNhM2I4ZDAwY2VjNGMxZDJhZmI3YjE5NWQxZThjZWE1Njk0ZDIxZTNiYjBjNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzUxZDhmNDcwODUxZWNmMjAwZDI0MWY0NDJlNmQ3OWIyYmM4MTFlMjRkYTA0NGIwODg3ODc3ODBmZWNlN2QzYyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/signup/signup.ts#L43-L50",
+          "version": "repo-lines-v1:sha256:07b8c053b651267440d62ee6025d5b269ac301f9bcc7a45cf869270b773360c2:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGRmOWIyOGI1MTAwMGY2NzUyNWYyYTllYjA4OTg3MzEzMzAzM2EyZjQ1OTYyNWFjMzBmZDFhMGQ2Mzc3ZmZjYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTNhM2RiYjU1MjEyMTFhN2ZjYjkzMjJkZWMxZDNkNTAwNDRiOGI0ZWFlNzczYmQ3ZDMyZDViOTczODhhMWM1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTIwODBkZTRhNWU2NDZjNjEyMWNmNGExODdlYjAyYTk4YWEzMzMwY2FiOTgyNGNlNTViMDIzOTcxYzFiMGEzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2E4MmU5ZDcyMzIxNzU0NzY3NGFiYjQwYzgzMDczNjM1NzJmOTlhMjJkZGQ5NmZjOGRkOGViOTBlYzNmMGE4OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_043228b94b1d4a66a641c7c8131e14b1",
+      "statement": "Deleting a team is refused unless no other members remain: the service enforces this atomically (`findOneAndDelete` with an `$expr` size guard) and returns 409 when other members remain. After a successful delete the app reloads memberships and, if teams remain but none is active, switches to the first remaining team before navigating to the team list.",
+      "evidence": [
+        {
+          "resource": "repo://specs/done/account-team-management.md#L69-L69",
+          "version": "repo-lines-v1:sha256:e5e752d739f75917e602fa2fc5d7d2ae239f54d0cb2d65239cd426dccb6ef062:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTVlNzUyZDczOWY3NTkxN2U2MDJmYTJmYzVkN2QyYWUyMzlmNTRkMGNiMmQ2NTIzOWNkNDI2ZGNjYjZlZjA2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTVlNzUyZDczOWY3NTkxN2U2MDJmYTJmYzVkN2QyYWUyMzlmNTRkMGNiMmQ2NTIzOWNkNDI2ZGNjYjZlZjA2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTM5ZWQxNzljNTU0ZWY2YWQzYTg2NzRiYjZiYjRiODgxNjk2MTRjNzJhMGFhMzBmYTliODcxNjdiMWI2ZTE2MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDFmMDYwNTBhYWMyYzY2NTgxODUyOWNjMWEwYjdjYmIyZWQ1NDliZTA3NTI5MzQ5Zjk5MTZkY2U2NWE4ODc0MiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L239-L262",
+          "version": "repo-lines-v1:sha256:bfa95de4bbae33209fe95b455f9c64c8b2795ac987b6cbf2db37c055ee385b58:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzNjFkNTJmOWUwODA5ZDVkNTgyMjc2N2IzZWZlYzc4OWY5ZWU2NTY1Y2Y3ZGQ0ODhlYzc1ODNhZmUzMzFkZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjZjNmZWMzYmQ2YjQ1M2Y3YmI4MTE5NzVmZDVkZmRiZTFkMzY0Yzg2NjJjOWZlNjIyNjYxYzYyNzhiYzc4YjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhOTg0ZGI0ZGE3ZWYxYjYwY2Y2OThkZWI2M2U5NzdjZmM5NjM3NzMzNjk0ZmM5YjY3NmU1NTY2ZGViZGQ1MmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI0NjY3MzdkMmMyMDgxNzMyNTE1ZDczOWVkNTYyY2Q5YWYyMjRlMzdiNTZmOGViMzE1YjM0Yjk5ZjBiYTI5ZjMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b44fdd573d6e469194e61c14d4138e41",
+      "statement": "The active team travels in the JWT `team` claim shaped `{ _id, role }` — the same shape as `user.team` on the database document. `switchTeam()` reissues the bearer as `POST /auth/switch-team?delivery=body`, which returns the new `access_token` in the same response with no follow-up `POST /token`, and the session reflects the new team without a page reload.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L158-L159",
+          "version": "repo-lines-v1:sha256:fcffb652b85a436ac7c1dd0b6b61450569e9cc882cf32fb8ad089d49cf926fae:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmU2Nzg4NjcyMmYxNWEyZWQ4MjRlZGZlM2YxZjM2ZGFlYjVhZDJhMWE5NmE2MjQyOTQzZWI4YjUzZWY4MTVmYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzAwYWM1OWJjMzkyMWJjZWM5NDMwNjdmMWM0NTNjNGZhN2EyYzIwMDJjY2UxYWZmMjg2ZDg3YTFkNTBjZjBjNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjRjNTJjMWY2NTQyNTg0M2M1YjJiNjAyY2YwZTZmYzI4MDEyM2Y4ODBmYzg4YmNhZGMwZjYzMjY0ZDdiMzY0NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTYxODBiMWJmNWRmMDI5YTYwZGRiODRiY2Q4ZTZkNzY3ZmY0YmMwMDQwNjgzZGY2M2YzOGMwZDdkYjM0MDhiYyJ9"
+        },
+        {
+          "resource": "repo://specs/done/account-team-management.md#L72-L72",
+          "version": "repo-lines-v1:sha256:536404999118563a14cf7693f00ca4b80066d3a4926eda5cbef5f76dca2d0b5d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTM2NDA0OTk5MTE4NTYzYTE0Y2Y3NjkzZjAwY2E0YjgwMDY2ZDNhNDkyNmVkYTVjYmVmNWY3NmRjYTJkMGI1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTM2NDA0OTk5MTE4NTYzYTE0Y2Y3NjkzZjAwY2E0YjgwMDY2ZDNhNDkyNmVkYTVjYmVmNWY3NmRjYTJkMGI1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGZjYTAxZWJjODRlNTE2Nzc5MGU1NjlmYTVhYTllYmQyNTlmNWZjZmQ5Mjg2NmIzMWZiYjYyNDI3YzU5MWZlMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjJmNDhjNGFlYTg0NzFkOGQ2MzdlN2NkMDdhMjhkYTY0NjlmM2IxMDUxMTczY2IwZGJjZjc0ODI2MGJlNjc4YiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/teams.ts#L25-L38",
+          "version": "repo-lines-v1:sha256:90a52d8a041fdd3d2f9fad380fb1893895b71fa9340ede7f3154a1e09bf76b77:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEyZGNmY2JlZDlhMjhmNWI4NWFhZWE3Zjk3N2FhNTU0NzEyNDRkODVjMGFiYTI1NTVjMWEwMTcxNjgxMDYzYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMTJiNjExODk0M2UzMGMwMDY4MzNlNzgxNjMwYTUzYjMyZjQxN2VmNWY5Nzk1YzNmMTJmMzMwODAyNGM1ZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_48b8dee5e010415090f9e52acf3be353",
+      "statement": "An invitation links an email to a team with a target role, and the service emails two links (`/auth/activate` for a new user, `/invitations/accept` for an existing one) that both route to the same `Accept` component. Both `email` and `token` query params are required; missing either shows the invalid-link panel. `getInvitation(email, token)` runs on init and branches on `invitation().isNewUser` into three outcomes: activate with a password (new user), log in then `acceptInvite(token)` (existing user signed out), or one-click `acceptInvite(token)` (existing user signed in). Because the route has no guard, the component restores the session by hand via `checkSession()` whenever `getToken()` is truthy.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L23-L45",
+          "version": "repo-lines-v1:sha256:90e8265aad5742d632cf7f685b5afa59ea90df42cc1ecd88d582193a28c5e565:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdhNTE1NWYxZjQ5MmU1MmZhYjM0NGFiMTAwMjczMzkxZDU0YWQ1NDMyMDVhY2Q4OGVmZWU2NTNiNTMxZTdlODYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3ODgwYWM3ODgxMDU4OTY5YTI2YjQ5OGQyODgwMGViZWUwYzI5N2Y1ZDY5YThkM2JlMzFjZjBjOTRkMWM1NjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE1ZDNjYzg0NGEyNzVkMTQzNDgwOTE3ZmMxYmJkNDFlNDJiODY2NTg5ZDliODM5YzM3NzJjYmUxMGQyNWQwZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJhNDVjYjE4MWM3MTZlMjY4OTY2ZGQ2OThlY2M4ZjUzYTc0MDVlNzIyZmMyMDQ5YWNlOWMxNDY3Y2I1ZTJhMTYifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L63-L95",
+          "version": "repo-lines-v1:sha256:5531f44169d9f6a0742519fd314515a81f7d9a86fc2f61bd248a72bcca02b7c3:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxODc3OTExYjU5MDdjNTdhNzRiOGQyNGUwYTM2MmYwYThjNTZkMzY3ODAwOTNhYmVlMmRiMmM0NTQ1MThkZTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk3ZDg2MzJlNTRlOTI5OGFiYjk1ODcyN2UyZDUxNDA4YWJhZjEzNjYwMzUzNzkxMDE0MGFiZjY1YjMwYWI2MTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkODUyMzgwYWVjOGI4MjhhYjFkZDI4ZjBhOGU3MjEwMzUxZDY1MTQ5ZGRjN2QwYzMxMDUxY2U5NDY3MjdiNmMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ecd1451a0c384f6385c5614ec7dffea4",
+      "statement": "If `getInvitation()` returns 404 and the user has a stored token, the accept page navigates to `/` instead of showing an invalid-link error — this handles a signed-in user revisiting an already-accepted invitation link after the consents gate reloads. A 404 with no session is a genuine invalid-or-expired link and is surfaced as an error.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/invitations/accept/accept.ts#L50-L58",
+          "version": "repo-lines-v1:sha256:8901470c86d08a63b91082608f735def6e197d0ecf3471c323d44d2f680a6882:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDg2ZTllZWZiN2JjNjMyZjJjYTRkNTM0NDdhZjRkMzJlMGI3ZDhiMjdjNWEwZDg4YzZjMmExNDFjZjc0MGM3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWU2NzNhYmQ0NTdhOTdlZWExN2E2MDA2MmViMGZhZWE2YmRmMDk0ODY4Y2M2YjhmOGMwZWJkYTJmNjFlZDQyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzNlZTllOGU5ZGE1ZjgxMDMzOTdiNDRkNDBkNDk5OTQwYzhiMzE3Yjk3ZDAwNzE0Yzk0ZTA5MjFlZDIxMDc2NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWYwNjlkZGI1YjgzYWQyYzI3YmFlNzYxNWI5NDA3MDJlNWI4YThjNDI0NjI0OTgzNzkyZTVjODc5ZDEzNzAyYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d63c25d4491348389f5e6985f2b0b82e",
+      "statement": "`listInvitations()` returns `PendingInvitation` rows with `email`, `role`, `expired`, and `createdAt`, where `createdAt` is the time of the last send; the team-detail template marks `expired` rows and offers a Resend button on active ones. Sending an invite to an existing member is refused with 409, surfaced as \"This person is already a member of your team.\"",
+      "evidence": [
+        {
+          "resource": "repo://TEMPLATE_API.md#L319-L319",
+          "version": "repo-lines-v1:sha256:7114254266de80a6b3365d6102b94612b14b993d81587f1d28facb37d3fed12c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzExNDI1NDI2NmRlODBhNmIzMzY1ZDYxMDJiOTQ2MTJiMTRiOTkzZDgxNTg3ZjFkMjhmYWNiMzdkM2ZlZDEyYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzExNDI1NDI2NmRlODBhNmIzMzY1ZDYxMDJiOTQ2MTJiMTRiOTkzZDgxNTg3ZjFkMjhmYWNiMzdkM2ZlZDEyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDkyZmI5YWJlM2E2NGQ2ZDAwY2E2ZTQzNTQzOWYxODRhYjdlNmIyMTQzY2QzNjA5NGU2ZWY2NjBlM2ZhMGQyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTg4NmY4Y2FiYTA1YzA4ZGVjMGI1OGViMjdhMzJmMDU3MDk3MjhhYzQzNzVmYzc5MDhhN2FiNWQ0YjA5NjdjMyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L137-L145",
+          "version": "repo-lines-v1:sha256:23fd6cdf221f97d791bf04fbb4f54264b92ad7d6057bce1d0f6b6db6cc33c1eb:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmUyNWM1ZTY0MDkxM2YyOGQ4MzcxZWRiNzA2Y2VkOWJlMGRiNWRlODc3NTdiOTAzZWNkYmIxNWVjNTcxOGM2ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk3OGUyNTAzYjhjZjM3YTA2ZjdkNmYwYTNhNmI2ZmUzNTY5MWZiY2FiNTBiODc3NWNhYjZmYWJjNzFjNTkyYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmEzMWZlNmVkMGE4ZWU3ZTdjYWRhZTM1NzRiMDQ2MDFhMWJiNjllMDBmOTVhMzNhZDMwNjNkMjk5YTgwM2Y3MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWUxMmI2MTE4OTQzZTMwYzAwNjgzM2U3ODE2MzBhNTNiMzJmNDE3ZWY1Zjk3OTVjM2YxMmYzMzA4MDI0YzVkOSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L268-L275",
+          "version": "repo-lines-v1:sha256:4b1393bcb6cc1d4bb7608aa5dfa8263ab6a149bf5aa2562b64ecd9666c043ce8:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMyM2Y1NGEwMmFkMGE4OGZiNWQ2Yzg5YTE2Y2YzYjRjMjZiZjExZmNmNDU5YWQwZjM3YWFhN2ZjMjU4YTk1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZlYjk0ZWEyZDUyZDNkMTk5MjUyYmZkYzY4YjNmN2Y3OWNmNjhjMzUwYWZkYjk4MDlhOWIxYmMxMTBjYTUzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI1ODBlOTY0ZjgzYTQ3M2Y0M2Q0NDM4NDYyOTQ5ZDY4YjU2MDBmZGE3ODdmMTYzNzQ1ZDAwZGU4OWNiZjM2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_337286992a5f4733a7d2523b3342fdef",
+      "statement": "The service refuses an invitation resend within 5 minutes of the last send, and `TeamDetail` mirrors this as `RESEND_COOLDOWN_MS = 5 * 60 * 1000` with a per-email cooldown map: `withLastSends()` seeds each non-expired invitation's `createdAt` when the pending list loads, a successful resend stamps `Date.now()` into both the cooldown map and the `now` signal so the countdown starts at a clean 5m, and a zoneless `now` signal ticking every 30 seconds keeps the \"Wait Nm\" label and disabled button live. A refused resend surfaces the service's reason (too many resends or too soon) through `resendError`.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L164-L198",
+          "version": "repo-lines-v1:sha256:0a6c3fce6c7be9a28eb95145a0f4eda0efe0b973de8d23d5ab83922cd2a1417d:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2MWQ1ZjY3YjZhMTkyYWRmNDEwM2JlZDM1ODQ2MjAwMTFkMzJlMTc0OWZmMTgyZGE4ZTFmZGQ0ZDg1ZjJiOWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyM2E3MzQ4NzhlNDQxOTNjODk0NzIyYTFkOTFkNjhjZDdlNGNkZmY0MzgyYjRjMmY2MDZlOTYyZWEyNzZlNzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlMzU4ZDQ0MTNiODJlOWNhMTlkOTZjMjBmNjFhNDc3MTk5MjVhYjRmMTc0ZjUwMzAxODQ0ZjUzODdjNTJjMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlOTk1MzYwMjYzOTg2Nzk1YmEyY2U0ODVhMWNiZTJjYTMzNWIzZTdlNjNlODEwYmExMzJmNjJkN2NlNDNmZmIifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L268-L275",
+          "version": "repo-lines-v1:sha256:4b1393bcb6cc1d4bb7608aa5dfa8263ab6a149bf5aa2562b64ecd9666c043ce8:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzMyM2Y1NGEwMmFkMGE4OGZiNWQ2Yzg5YTE2Y2YzYjRjMjZiZjExZmNmNDU5YWQwZjM3YWFhN2ZjMjU4YTk1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZlYjk0ZWEyZDUyZDNkMTk5MjUyYmZkYzY4YjNmN2Y3OWNmNjhjMzUwYWZkYjk4MDlhOWIxYmMxMTBjYTUzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI1ODBlOTY0ZjgzYTQ3M2Y0M2Q0NDM4NDYyOTQ5ZDY4YjU2MDBmZGE3ODdmMTYzNzQ1ZDAwZGU4OWNiZjM2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.ts#L41-L56",
+          "version": "repo-lines-v1:sha256:18e22e931f27dbc1bc907684de86e4b50f339510e1972235917a21e33b7850fb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkNjNkYzUzOWViMjZlMDUzM2Y3YTEyN2M2MmFmN2QyOWY2OTM1NDVlZTFmZDU5OGUwNjE0N2Y2NjY0NDRlMWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlZTE2ZDM2MGM4ZTNjNjVlZjM5NmY1OTE3MzQ0NjA2NGE5OTljMzc5NGM0ZjU2NTdhYmJhNmU0OTM1NDNmYzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc2ZTk4ZWU0MDYyMDY0YmI3MDg4MWE4ZTBiZmFhYjI2YTA2OTllZDYzNjI4ZWJhNmM4N2I1ZWY4MDYwNDFmODAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwOWYzOWI5NzViNDFmZGU4MGY1MjBiZTFmOTgwYzM4MzMzYzU2ZjIxNWI2YWM2NmFjOWRiYTVmMjljMGIwYzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c3978bbd5c534964b083aa374c3f3e5a",
+      "statement": "Feature flags live once in `src/environments/environment*.ts` and must match the service's Sign-up Mgmt Features toggles (`emailRegistration`→Registration/Verification, `passwordReset`→Password Reset, `oauthLogin`→Google sign-in, `oauthProviders`→configured providers, `teamInvitations`→Team Invitations); a feature that is off on the server returns 403 to unauthenticated users, so offering UI for it creates dead ends. The setup tooling derives the server toggles from the same file (`registration`/`verification` from `emailRegistration`, `password-reset` from `passwordReset`, `invitations` from `teamInvitations`, `oauth` from `oauthLogin`), and `app.routes.ts` builds routes from the same flags so a false flag removes the route entirely.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L21-L21",
+          "version": "repo-lines-v1:sha256:94653facfa422aa108ac31aa5a02a920779a3603b928ebb70024c9ecc54aa65a:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQ2NTNmYWNmYTQyMmFhMTA4YWMzMWFhNWEwMmE5MjA3NzlhMzYwM2I5MjhlYmI3MDAyNGM5ZWNjNTRhYTY1YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQ2NTNmYWNmYTQyMmFhMTA4YWMzMWFhNWEwMmE5MjA3NzlhMzYwM2I5MjhlYmI3MDAyNGM5ZWNjNTRhYTY1YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI1ODBlOTY0ZjgzYTQ3M2Y0M2Q0NDM4NDYyOTQ5ZDY4YjU2MDBmZGE3ODdmMTYzNzQ1ZDAwZGU4OWNiZjM2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjRiMTJmZDg2NmUxMDliZTU3YzY0ZmRkMDBkYzkwZmZkMTU5MzQxMGI3YmYzMTBmYmVkNjc4N2U1ZjM5MGUzMyJ9"
+        },
+        {
+          "resource": "repo://src/environments/environment.dev.ts#L8-L18",
+          "version": "repo-lines-v1:sha256:6e50384986af33d7acf8eba8590180ec485097c71e15d5d343d12af7c69e6b06:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4MWMwNGVhNTY4MGZhYjVjNTlkMzllNmI3MWU5MmFmZjhmZTUxODljN2FlODhkZjJiYmM2MmQ5NjQ5M2EyMzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ3ODFmNzE3ZmQxMmVkNWRmNTg3MTI2ZTg5OTk2NTY2OTRlM2Y1YjViOGI1ZDgyOWE2MjM1YzIzMDRlNmM4ZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L58-L63",
+          "version": "repo-lines-v1:sha256:420e5554d10878d7db0bc91aad82d145c59fbf58a42f9b32741b318ec6e90bf7:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQ4MmE4YTU3Mzk5ZjI1NjVkMzNmZWUwNjE1NmE1OTI4ZmRmMGMyNjQzNTMyZDg5ZDdjYTJjMTBhMWQ0MGJlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODQ5MDBiOThjMWY5NWY1MWQ2ZWMzY2M2ZjUyZmYwMTczMzgwN2Y2NDIwYzIyNDUwMjQzOWJkYzBlNGRlNzJkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmUwYjdjNjAyNTliNDVlOWZlOGZlNDczZDA0ZDM2OWY0MjU3NmQ4MTkyYWEyOGY5YWZhNDM1MTk4OGM3YmE3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWVlY2E5YWZjZTVmMjAzNWQ5N2NiODA0YTA2MjgyYTRhMTIyMzllYzVhMjRhYmI2YWVmZWU3MDNlNDhiOGM4MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_67f1a4c260c046988c10f2d3a83a13b6",
+      "statement": "`justSignedUp` is a module-level signal in `src/app/just-signed-up.ts`, true for exactly one page load after a fresh signup (email verification or OAuth) and never persisted. `consumeFragmentToken()` raises it from the `?flow=signup` query param and clears both that param and the `#access_token` fragment via `history.replaceState`; the Shell copies the flag into a local signal in its constructor and immediately resets the shared one to `false`, so the welcome banner is one-shot and cannot reappear on a later login. Because the flag is raised for OAuth signups too, the banner copy must not claim an email was verified.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.ts#L16-L38",
+          "version": "repo-lines-v1:sha256:cc0c85062c47e92d2e2ac3bdd9ec8af2ade8c767310298c7f12ad79b99a66e15:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjN2Q0ODQ4ODQ3OWQ4MWQ1NTg5NzhmZDk5MWM1M2Y3MjdhZTJhMzlmMGIxYjFiZTMzYTk5Y2IxMWM0YjY3ZTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1MDAwMjIzZmUyNmFjNWRjMTMzNTZmMjc2NDhlZjQ0NjAxYjk2MzRlMzU0ZDdkYzdkY2RjNDYzOWE2NTRkMTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5MjVlNDEzOTk5Y2VhMzIyMTgxYTQzNDIxY2VlN2Q0Mzk5ZmQxM2M5MmY1YTA3NWZjZWJiYzEyN2ExZTAwYjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVmMmFhOTY0OTUxZTY3ZDI4MTk2NTA0YTIwZWU2YzkxMDlmNDNjZWQxZDRkMTZmOTljMGNiOGE5ZmIwNTUzNWQifQ"
+        },
+        {
+          "resource": "repo://src/app/just-signed-up.ts",
+          "version": "repo-file-v1:sha256:604c6d6522a49485fca8d9e5d69adf8f79555774bdc1483098ce370caf348d9c"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L28-L42",
+          "version": "repo-lines-v1:sha256:a3d634cfe8a0cadd250a2d0673b9f27c4288af97b811065ad98d3db74ddf95c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlZmFjNTdiMGI1MTlmYzdjZDkzZDhmMzZmMDNmMzY1MmJiZTRmZTcyZThlOGY5YjY1NmI0NDg3Zjc0NTI0NjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRjZDdlOWQzYTUwYTY3MmI3NmFjMWQ4ODg2YmIzOWFiZmRjMzU2MzQzYzdmNGU2MjIwMTg1NDU5YTMzYWRmNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0MTZmODliMzFlMGJlOTU3MDExNzkzZTBlNjA1YmI4YTBmNDExYWE4YTMwMGU0NTMxYzM2ODIyZmI2NjA5MDMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}

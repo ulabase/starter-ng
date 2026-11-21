@@ -16,6 +16,10 @@ sources:
     resource: repo://package-lock.json
   - id: openwiki-source-5b54a58d1b51cd490b0e7162
     resource: repo://package.json
+  - id: openwiki-source-4dcb96c57cd6fc12d9eb28a5
+    resource: repo://src/app/app.routes.server.ts
+  - id: openwiki-source-407c70ba325b6f9e6aa4707e
+    resource: repo://src/app/app.routes.ts
   - id: openwiki-source-76b992238575041d25a8d7ba
     resource: repo://src/app/consents-gate.ts
   - id: openwiki-source-3629f9e95f35cf558c779f38
@@ -36,21 +40,23 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.9.0", at: "2026-11-12T16:00:22.284Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-21T15:24:47.543Z" }
 verified:
   - by: openwiki/0.9.0
-    at: 2026-11-12T16:00:22.284Z
+    at: 2026-11-21T15:24:47.543Z
 ---
 
 
 # Source Map
 
+A file-by-file map of the repository. Behavioural detail lives in the topic pages: [Quickstart](quickstart.md), [App Runtime](architecture/app-runtime.md), [Routing and Guards](architecture/routing-and-guards.md), [Teams and Invitations](workflows/teams-and-invitations.md), and the [Runbook](operations/runbook.md).
+
 ## Root configuration
 
 | File | Purpose |
 |---|---|
-| [`package.json`](../package.json) | Dependencies and scripts (`ng serve`, `ng build`, `ng test`). Declares `@ulabase/kit-ng` and `@ulabase/cli` at the range `^0.14.0` — a declared range, not the installed version. |
-| [`package-lock.json`](../package-lock.json) | Resolved install for every dependency. Resolves `@ulabase/kit-ng`, `@ulabase/cli`, and the `@ulabase/kit` core each to `0.14.1`. Treat the lockfile as the source of truth for installed versions and `package.json` for the declared ranges; never conflate the two. |
+| [`package.json`](../package.json) | Dependencies and scripts (`ng serve`, `ng build`, `ng test`). Declares `@ulabase/kit-ng` and `@ulabase/cli` at the range `^0.15.0` — a declared range, not the installed version. |
+| [`package-lock.json`](../package-lock.json) | Resolved install for every dependency. Resolves `@ulabase/kit-ng`, `@ulabase/cli`, and the `@ulabase/kit` core each to `0.15.0`. Treat the lockfile as the source of truth for installed versions and `package.json` for the declared ranges; never conflate the two. |
 | [`angular.json`](../angular.json) | Angular CLI config — build options, SSR entry, budgets |
 | [`tsconfig.json`](../tsconfig.json) | TypeScript strict mode, Angular compiler options |
 | [`tsconfig.app.json`](../tsconfig.app.json) | App-specific TS config |
@@ -77,6 +83,7 @@ verified:
 | [`src/environments/environment.ts`](../src/environments/environment.ts) | Production config — `apiUrl` (empty by default) and `features` flags |
 | [`src/environments/environment.dev.ts`](../src/environments/environment.dev.ts) | Development config — used by `ng serve`. Edit this for local dev. |
 
+<!-- openwiki: broken internal link [domain-concepts.md#feature-flags] file "domain-concepts.md" does not exist. Fix the href or restore the target, then delete this comment. -->
 Both export `{ apiUrl, features }`. The `features` object controls which auth/team capabilities are enabled. See [Domain Concepts](domain-concepts.md#feature-flags).
 
 ## App bootstrap
@@ -96,8 +103,8 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 | [`src/app/app.html`](../src/app/app.html) | Either `<router-outlet>` or "Connect your service" setup screen |
 | [`src/app/app.config.ts`](../src/app/app.config.ts) | `provideRhAuth()`, router, hydration, title strategy |
 | [`src/app/app.config.server.ts`](../src/app/app.config.server.ts) | Merges client config with `provideServerRendering()` |
-| [`src/app/app.routes.ts`](../src/app/app.routes.ts) | Route map with lazy-loaded components, feature-flag gating, `AppTitleStrategy` |
-| [`src/app/app.routes.server.ts`](../src/app/app.routes.server.ts) | SSR render modes per route (Prerender vs Client) |
+| [`src/app/app.routes.ts`](../src/app/app.routes.ts) | Route map with lazy-loaded components, feature-flag gating, `AppTitleStrategy`. Under the `teamInvitations` flag, one `Accept` component is registered on two routes — `auth/activate` (invite links sent to a new user) and `invitations/accept` (invite links sent to an existing user) — with no guard, since the invitee may be signed out or have no account yet. |
+| [`src/app/app.routes.server.ts`](../src/app/app.routes.server.ts) | SSR render modes per route (Prerender vs Client). Mirrors the conditional routes in `app.routes.ts` under the same feature flags; both invitation paths are `RenderMode.Client` because the page reads the invitation and the current session on init. |
 | [`src/app/app.spec.ts`](../src/app/app.spec.ts) | Unit test — verifies `App` creates correctly with mocked auth config |
 | [`src/app/just-signed-up.ts`](../src/app/just-signed-up.ts) | Global signal — `true` for one page load after fresh signup (email or OAuth) |
 | [`src/app/oauth-url.ts`](../src/app/oauth-url.ts) | Builds redirect URL for `GET /auth/oauth/authorize/{provider}` |
@@ -122,6 +129,8 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 | [`src/app/pages/auth/oauth-buttons/`](../src/app/pages/auth/oauth-buttons/) | `OauthButtons` | Shared component — renders provider buttons that link to `oauthUrl(provider)`. |
 
 ## Invitation flow
+
+One component, two routes: the service's invitation email links a new user to `/auth/activate` and an existing user to `/invitations/accept`. Both routes lazy-load the same `Accept` component with no guard, and both are client-rendered in SSR. See [Teams and Invitations](workflows/teams-and-invitations.md) for the end-to-end flow.
 
 | File | Purpose |
 |---|---|
@@ -161,6 +170,8 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 
 ## Consents gate
 
+Client side of the 451 consents gate. Behaviour and lifecycle are covered in [Consents Gate](concepts/consents-gate.md); server-side setup lives in the setup scripts below.
+
 | File | Purpose |
 |---|---|
 | [`src/app/consents.ts`](../src/app/consents.ts) | Global signal `consentsBlocked` — raised on any `451` response from the service. Passed to `provideRhAuth` as `config.onError` during bootstrap. |
@@ -168,6 +179,8 @@ Both export `{ apiUrl, features }`. The `features` object controls which auth/te
 | [`src/app/consents-gate.html`](../src/app/consents-gate.html) | Template with two checkboxes (ToS + Privacy Policy) gating the accept button. |
 
 ## Setup scripts
+
+Declarative service provisioning run via the `ulabase` CLI. Operational steps are in the [Runbook](operations/runbook.md) and [Quickstart](quickstart.md).
 
 | File | Purpose |
 |---|---|

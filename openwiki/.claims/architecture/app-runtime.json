@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:54a0261086779a16e65756d8a597d2f10b9a1b9199a91f6c21126bbf481849c6",
+  "claims": [
+    {
+      "id": "claim_0407e343b72140f4ab7799355702d73d",
+      "statement": "Browser bootstrap runs main.ts → bootstrapApplication(App, appConfig); appConfig registers global error listeners, provideRouter(activeRoutes), provideClientHydration(withEventReplay()), provideRhAuth({ apiBaseUrl, onError: consentsOnError }), and AppTitleStrategy as the TitleStrategy.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.config.ts#L15-L28",
+          "version": "repo-lines-v1:sha256:ad0428a0edbcb56a9cc368887c3d874618032454351fe9f5bdde80d39f45ff8a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5OGFjYWE0ODhlZjBhY2Q3MWYwY2VkZjNiZjZiNGRiZjI4ZWZmNWI3NzE1YTJjMzZhYWE1NGUxZWE3OTU3ZTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3ZTM4NzAyNTU1MzNhMGFiMzcyNTQ4YWNjOGE5NWMxYmJiZmI4Mjg2YWZkMWUxNTk3NjMxM2Y1ZGU5OWZlZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main.ts#L1-L5",
+          "version": "repo-lines-v1:sha256:ecc610fb7d56c95a01a8aa6c274a63210d45b2944dd6b9a88b2c8f70b6351037:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjdjY2Y0YzA5Y2Y1OWVkZWI0NmZmMTcwODY0MWQyMzY5M2MyZDFmZGYyMDg0MjJkNWFmNGFkMWNkNDU1MDNlMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMThkYzYzMmViYmYzZDk5MWM3YzFhNjBlNDRmMjkyZWFjMWI4YTAzZTM0MGY4YmE4MWYyZTQ4ZDVkYjg3MjdjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_dab3b71d96ca407fb82b9a35179a4ac3",
+      "statement": "Server bootstrap is main.server.ts's default export, which calls bootstrapApplication(App, config, context) with a BootstrapContext; that config is mergeApplicationConfig(appConfig, serverConfig) where serverConfig adds provideServerRendering(withRoutes(serverRoutes)) on top of the shared client providers.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.config.server.ts#L1-L10",
+          "version": "repo-lines-v1:sha256:115e541200ba96c75d9e45313d99b2344b3fe8cf5601c864eda7d2b79a342ecb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjMDg0ZjVkY2QzNzVhMjlmYzAxYWM5MGQwYzQwMzQwZGZkNjhiMjg4ZmE3ZGNjZmU5ZjU1MmYxMWY1NDNiODciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NmYzNzQ1MGQwZWY3ZjBhYzM5Y2FkMTkyODk0N2NhMTkxMWQ3ODFjZTIzMzA2Nzg3OGEwZjc3MWQ4MjVhNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main.server.ts#L1-L7",
+          "version": "repo-lines-v1:sha256:1cfa1f92716ef88150d704508256a1d18cff8dbe3d3db28b2f3fdcc0e1704cbb:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzkwNTQ1MGQ3MTI5OTM3MDA4YmVmNmY0NTk5NDEyMmFmNTI2OGIwZjE1ZjQ4YzYyZTRjMWJlYzBiNTgzZTQ4YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ4ZGU1YTc0OWUxYmJlNzg1ODIyOGNhMDQxZWZmNjI4YjEzN2MxZDlmYWVhZjRjODBkNjAyZTllYWRlOTc0ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_215244e98eda407f9a185aeb291745a9",
+      "statement": "Invalid-apiUrl invariant: when isValidApiBaseUrl(environment.apiUrl) is false, appConfig supplies an empty route array to provideRouter (so initial navigation and guards never run against a bad backend) and app.html renders the Connect-your-service setup screen instead of router-outlet; App also logs which environment file to fix.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.config.ts#L9-L16",
+          "version": "repo-lines-v1:sha256:62efdaed813b590539ca7aba9d636a37e8aa6d20adbd831beea17d0a817a7484:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTFjMWI2Nzg2Njk4MmZhY2QyNzU5MGRjNGNhOTc2ZWFjN2Q0MGYxMjZjNGYzYTliZjQ3ZjU2MTY1MmIzYzI3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDU3YTg0OGRmYThlMTBkN2U5YWJlZDllYmJhM2I2NWQzNGI2MjJiN2IzYmQ3Njk5ZWFmOTAwM2ZjYjFiZGFiNCJ9"
+        },
+        {
+          "resource": "repo://src/app/app.html#L1-L20",
+          "version": "repo-lines-v1:sha256:8450e7a8b64cf1124dbbfa2716a399b175f43e31b5c3a5d0c350559ef180c40c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExNmI0YmNmMTEyODc4MGFjY2QzMGUxMzE4MDdlNDMyNmY3NGIwOTkxZTA3NmIzN2Y0MzJjZDQ4OTA5MWNjMzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlYWM0YjFlYmE1ZmViZDFiMGI5YjEwNmE4ZjRhNDM2ZTE2MGQ4NzI2YzU3OTlhMmM0NmI2MTRjZTgxM2VhODMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRiYTA2NzE2ODUxN2IzZWFjNGU0N2ZmNmU5MDhlYmU1MDBhOTkzY2Q5NTU5MzU0Mzc0YjUyYzA3ZmQ5OWE0NTgifQ"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L52-L65",
+          "version": "repo-lines-v1:sha256:e8323d316169b5bbf68895b3963f5d0a80bd21a06c8c5945b3eed4c5b338eeaa:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU3NjJkZWY3ZTk0YmU5OWQ3YjBkNGUzMmU3NzkxNTY0YzZiOTVlNzgwYmNjMDA0ZTEwNDg5ZDUyYjM3ZWYyMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhMWZjODA3MWJkNTQ3ZGJiNTljNzUxMWMyODkyYjEwMzJmOWUzMjA3NTgwZTNhNzJmM2IyNzk2NDI1YjZlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlmOWZlZGNhMDY0OTUxYTc4M2M1MGE2YjJmMjA0Nzk2Mzk3NWJiMzg3YWUwMDU3MmVlMWM5MzRmOTcwMTVjNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzOGY4N2E4OTc4ZmNmMjdjMGUyNzdjZTkxN2Y1YWU3MWRkMjE2OGZkZTdiM2Y5NGU0ZWUxYTFjYzQ1OTRhM2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0adab5ddfebd4a7e9ebeaf18dff44f4f",
+      "statement": "Hybrid SSR render modes in app.routes.server.ts: public auth pages auth/login, auth/signup, auth/forgot-password, and auth/reset-password are RenderMode.Prerender (signup when emailRegistration or oauthLogin, the reset pair when passwordReset); auth/verify (emailRegistration) and both invitation paths auth/activate and invitations/accept (teamInvitations) are RenderMode.Client; the authenticated shell path '' and catch-all '**' are RenderMode.Client.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.server.ts#L1-L59",
+          "version": "repo-lines-v1:sha256:adebe88d84dbf59586844b3085a89bf830efc12cdb386d9c57b82ce1f11a182b:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZWY0YjQxZGIwYjJhYmUxMzdjMWQyZDZlY2UwODIxOWU4ODgwNzYxNDkwYTRhMzg3OTY1NWYwMTkwNjM5OWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwMmQyYzBkNmRjNWU3NGQ5MmZhMTRiOTFkYmVhMjY0MDkwYmViMzVmZGI5MTg4ZDliMzQxMTgxZGNlOWY0Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6863ffbe4bd64f90b734afa5afa7e9fc",
+      "statement": "serverRoutes must mirror the conditional client routes in app.routes.ts — every server entry has to match an actual client route or SSR route extraction fails — and both files gate the same feature-flag combinations (emailRegistration, passwordReset, oauthLogin, teamInvitations).",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.server.ts#L3-L40",
+          "version": "repo-lines-v1:sha256:052b993e9c591a542dd8ca4225dbb83ffd41e909ff14673a8ca9415853fb6a1a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3ZGRmYmMxNTc5Y2IyN2QzY2MyZDk2ZGFiYWQwMzM1NDJmZTY1ZGRhNGQ1ZmY3YzE2OWZkYWE5YTg0NzllMzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0NmIwNTRjNDZmMjhiMWM3MjE0Nzg1ZjI5MGM2NmU2ZDllNTU4ZWEwNjA1MzJhZWFlNmQ0YzRmMWFkODBlYjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1ZGUxNWYyZTQ1ZmQxYTU5OGYwYmZkNmE5MzZhNGIwY2Y5NzliMTRkZDBhYTMzZWQxNjA1NDc4ZDgxNGFmZWUifQ"
+        },
+        {
+          "resource": "repo://src/app/app.routes.ts#L25-L98",
+          "version": "repo-lines-v1:sha256:dd91842d254470e2efe778d1c31a6f6214234555504ddc831ea036cf3cc08954:eyJzZWxlY3RlZExpbmVDb3VudCI6NzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlOGIyMWIxYzQwN2NhNmI2ODAwYjBlZTJjNWZiMzUxYWMyM2UzYmUxNWM2Njk4ZGNhZTAzZGU1OTU5YmE3OWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjMzE3NmZiY2Y0YzBhYTQyYmZhZTQxYjE2YzdlZTYyNjczMDg5YTIwNGUwNTg2NmM3ZmM2ZjJlNGJhNzNiNDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI0YjEyZmQ4NjZlMTA5YmU1N2M2NGZkZDAwZGM5MGZmZDE1OTM0MTBiN2JmMzEwZmJlZDY3ODdlNWYzOTBlMzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFkYjkzYmU4OGYyZDEyZGMxMmRhNWVjNzRlYmI1ZWRjZDA5NTAwYjliOGUyZDE4MjA5MzAyNWM1ZDY3ODRlZjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_040083ee5f1642be95c9bfc4daf09b28",
+      "statement": "Key constraint: the bearer token is held in the browser (kit's localStorage persistence, fed via setToken), not in a cookie the server receives, so authenticated routes cannot be server-rendered; the shell path '' and '**' are explicitly RenderMode.Client for that reason.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.server.ts#L50-L58",
+          "version": "repo-lines-v1:sha256:d5539d758a9b57ef5a509f04d2706395f11ea14869b7103b5213151ff00547e1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDg2YWI2M2VjMjkyNzEzMzdiNjAzNTMzMDNiN2QyNDNlMTgxMDljZGZkMjM4YmMzMmQyNWM3NWFhMjRiYmY1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTc4ZDU1YmIxODBjNDNmYTcxNDNlOTZhMTJkNjM1NGQ0MWNhMjU4YzEwOTJlYzFlZDMzZDBjMjNjYmQzMGNjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjAyZDJjMGQ2ZGM1ZTc0ZDkyZmExNGI5MWRiZWEyNjQwOTBiZWIzNWZkYjkxODhkOWIzNDExODFkY2U5ZjRjZSJ9"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L10-L25",
+          "version": "repo-lines-v1:sha256:f5344cc1c4218aa73e92df52f082a3534f5c21349c5f624de9454470ebb29ee3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiYTM5Mzc1N2RkZjM4M2FiNmI2OGQ5NTlmNDNhMTI5ODA4YzNiYWRkODZiM2FiYTg3MWMxNzgxOGEwNTNjMGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwZGE1YWEwOWY5YTMzOWJiZDljODc1ZDg2MmI1OTg1YmEwMjRhNDEyNDA1NjE2NDc2ZjAxMWQ4MWU4YjkyNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkNjNhOWIwY2NlMTQxOGZlMzkzNzU4YWVhNGNlMGZjZGE1NGNhYTIyY2FkMWYxMzUyNTFjMWQ3NzAwMjk4ODYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1640c3e16d8143fdad4901180221c889",
+      "statement": "The Express 5 SSR server (src/server.ts) serves static assets from the ../browser build output with maxAge 1y and index/redirect disabled, delegates all other requests to AngularNodeAppEngine.handle via writeResponseToNodeResponse (falling through with next() when no response), listens on PORT or 4000 when run as main module or under PM2 (pm_id), and exports reqHandler = createNodeRequestHandler(app) for the Angular CLI and Cloud Functions.",
+      "evidence": [
+        {
+          "resource": "repo://src/server.ts#L13-L66",
+          "version": "repo-lines-v1:sha256:8175580153642cea0d4757bb94d2fcbfbf3f7fa43f25b729e7b55c82fbf0af8a:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0MTE2ZjQxZTNiN2FmZWY5YTVjMWIxYmY3NzE3Yjk2OGY3YWYwODUxZjZjYTlhNjVkYWMyYWI0NDkxYzI3OTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyOGM4MWRkYjAyMWQyYjFkMWRhN2NlMDUwMDNiNjY0MjVlYzMyMTEyZmVkNjEyMjBiMmZkODJlYWNiOGU5NTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0ZDFiN2MxYTc5YzIxYTJmNTM3ODMzMWZjZjQ4MzZkNDYwOTgzNGMyZTYwZjljMjkwNzdhMzdkNDkyYjM4YjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_31d4c48f4d1d4e37a4b4f226c6e33540",
+      "statement": "The Angular build is hybrid server output: angular.json sets outputMode to server with browser entry src/main.ts, server entry src/main.server.ts, and ssr.entry src/server.ts; the development configuration replaces environment.ts with environment.dev.ts.",
+      "evidence": [
+        {
+          "resource": "repo://angular.json#L16-L45",
+          "version": "repo-lines-v1:sha256:253d596e38e7b6144a168b7cbe90f6253bfb9c71e054f0612c056a44ca807b54:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlYWU1ODliMWM4YWJmYjMxOTU4NDQ3MTg3YjI2ODczZDFiYzI1NTdhYTFhNzJmYTI1MWE3OWI1OTY4ZTA3YTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxY2E3YWJiNzg3Mzc2NTY1ODQxNzRlNjcyMGIwYjk1MGU3NmU0ZDlkNjJlMjdhODJiYWNkY2I4NGViNTZkYTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxOTEwNTFlZGRiYjBkZTc1N2UwNjkyZDVjMTQ2Nzg5ZDhmNTdlM2Q1MWUyZTI5ZWU5MGU1NDY0ZGYyYzNmZWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlkNzJhN2I5NjIwZTE3NTMwYTZhYzBlMzEwODAzODcwNGQ4MGM4M2QzZDNkYmVjOGMwNDFhMTg2ZmQ0ZjU0NGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b7331b7b11864892bc34554aa7fda527",
+      "statement": "Hydration is enabled with provideClientHydration(withEventReplay()), and browser-only work is platform-guarded: App runs consumeFragmentToken only when isPlatformBrowser is true.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.config.ts#L21-L21",
+          "version": "repo-lines-v1:sha256:92e4f5d693d1cd1ef40ed8622ff85ed93b39a4fcfb0ff0f726fcd63d415d03f2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJlNGY1ZDY5M2QxY2QxZWY0MGVkODYyMmZmODVlZDkzYjM5YTRmY2ZiMGZmMGY3MjZmY2Q2M2Q0MTVkMDNmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJlNGY1ZDY5M2QxY2QxZWY0MGVkODYyMmZmODVlZDkzYjM5YTRmY2ZiMGZmMGY3MjZmY2Q2M2Q0MTVkMDNmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWI5ZTkyMTg2ZDRiM2IzZDNjNjg4OTQwOTljZDEwODdkN2M5NDNhNjQwMDk3ZWU2OTgzYmY0MGQxNDc2NjEwYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzczZGEwYWJhZDRkN2Q3OGM2NDRkNDliYjMzODhmYjYwMmU3NzMwNmNiZDVkYmQ1NmY1MGZhMzViZjEyM2IyOSJ9"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L59-L70",
+          "version": "repo-lines-v1:sha256:36a7b26c8fabb29ab67bdad01e58bc0d1a2cca523edaa47c057fdd5f30c4701c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwOTFmOWIxOTI3NjBjMTA1NjY0YTA5MDQzYWYzYjM2NDFlYjlkODliMmMyOWFjYTIzNDY2YzBhMTNkNzUyMDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhMmJkODI4OWY4ZjBhZDZmYmVmMGRkNmMyZTMxODNjMzAzMjMyYjY1MzYwMzBlODVhNTY5YzA5ZjVlM2Y4YTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a00c4546fa714e4e8f02cce8e052e83a",
+      "statement": "On browser load with a valid apiUrl, consumeFragmentToken parses #access_token from the URL hash into setToken plus scheduleRefresh({ apiBaseUrl }), copies the one-shot ?flow=signup marker into the justSignedUp signal for the shell welcome banner, and history.replaceState-clears both so they do not linger in browser history.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.ts#L10-L36",
+          "version": "repo-lines-v1:sha256:a4efa281c4256816cc93aeba37cec7687a540b5b728aadc4308199f3e86f8756:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiYTM5Mzc1N2RkZjM4M2FiNmI2OGQ5NTlmNDNhMTI5ODA4YzNiYWRkODZiM2FiYTg3MWMxNzgxOGEwNTNjMGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5Yzg4YmRkMmUyNzc1MmY0OWE3M2NkYzkyZDA0OTZmZDA2YWZlYTk3ZWE3MWY2Njc5N2IwMzlkYWNmYjY2ZmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwZGE1YWEwOWY5YTMzOWJiZDljODc1ZDg2MmI1OTg1YmEwMjRhNDEyNDA1NjE2NDc2ZjAxMWQ4MWU4YjkyNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU2OTkxMmFhNTc4YjgxNGRkYmFkYjQ5MzUwOGY3NDM4YTgyNDcxZjg4NGNhZWM1ZmRmN2M1NzMwMWU3MzcxY2QifQ"
+        },
+        {
+          "resource": "repo://src/app/just-signed-up.ts#L1-L9",
+          "version": "repo-lines-v1:sha256:604c6d6522a49485fca8d9e5d69adf8f79555774bdc1483098ce370caf348d9c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjBkMmVjNmUxMTYxMzI1YjU4MGM1NWM2ODM5MWYwODM1YWI5ZDhkNTYzYmY1NzE2ODg2YmY5ODAwOWEwOWM2ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE3MTZkZWQyMDhjMWY1YzA0MWU4MzYwZDEyN2Y2OWNmYmExNThkY2ZkMThmZmE4OTU5YjQxYTA0Mzc0YTA3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_740fa84ccc0646319f6725f14defbb00",
+      "statement": "Authenticated shell chrome: AppTitleStrategy appends ' · Ulabase Starter' to each route title (or sets the bare suffix), and Shell drives a top nav-progress bar from a navigating signal set on NavigationStart and cleared on NavigationEnd, NavigationCancel, or NavigationError so lazy-loaded chunks do not look frozen.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L8-L22",
+          "version": "repo-lines-v1:sha256:c1fe8eee27bfae912ca0e304ea9b2278dd96d7bf074318517ae0fc97f741f8d5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNiNmMyODk4OTc5ZDE1ZmZhOTI0MDIzN2RlZmM5ZWQ3ZTdmMWU5ZWRmMzU4ZDk2YjNjMzMzMmViNTVjMDA1OTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhNmViZDYwZGMyZjA0Y2U5YTViYzZlMDJiZDE4Nzg5YTUwNWE3YjFlM2FiNTM1YzEwOWU5ODY0ZmNhMzIzOTQifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.html#L1-L7",
+          "version": "repo-lines-v1:sha256:1b9775d5a15f4c3e9ee11508337eae58c83a5f168a1813ab5baf8af0181b4ad8:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk4ZDc3NGM0YWQzMWQwNWNiMDU5MDQ1MDA4OGY1OGE1NDcyYWE0OTJhOGM1MzVlNzkzZGJkYTk0NjhjNTRhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDZiYTUzMDA3ZGIwZjI1OGE3ZTYxYjgxZWU5NmZkYTFlMGQwMTc5MWQxOGY5NzEwNjRhMDY2ZWUzYTA5OWUzMiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L34-L55",
+          "version": "repo-lines-v1:sha256:ba15b3dac26970d000d0bff1142a4089c3df8fa5997b58cbddb222be652d04ec:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyMGQ0ZGI2MGMwNTBkODE0NTY0MmYxNWQwZWQ4MjQ2M2FmYTFkZmViMGFkY2FjMWQ4NDMwYzI1YzNlNWExMGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlY2I4MDY1YWJkNDU0YWU0NWViMzcxMWIzM2I0ZmNmMzVkMGUzOGU0ZTVhMmM0OGQ4ZDAwYzJiNTg0MGY4YWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3MjBiYzA5YWM2ODdiYzc4MzFlODc4NGQxZGYxNjkxYmIyMWRmNzdmODZlMDRmNGEzMjMxMmI1MzA5N2QxZjgifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:00aadfdb84da22311dea8a5763e80c09984427b993c364267070d39fb23cf1b2",
+  "pageVersion": "sha256:d2d9ddedfd429490930d7c260e3ddaf135cd2c8fc13b8311da2186ece654f014",
   "claims": [
     {
       "id": "claim_2c280c21ab08438e8b90ba869e38ee6f",
@@ -132,15 +132,23 @@
     },
     {
       "id": "claim_086aee5057ab4220a692636a0e5cb0ff",
-      "statement": "Dependency versions must be read from two distinct sources: `package.json` declares `@ulabase/kit-ng` and `@ulabase/cli` at the range `^0.14.0`, while `package-lock.json` resolves `@ulabase/kit-ng`, `@ulabase/cli`, and the `@ulabase/kit` core each to `0.14.1`. The declared range is not the installed version and the two must not be conflated.",
+      "statement": "Dependency versions must be read from two distinct sources: `package.json` declares `@ulabase/kit-ng` and `@ulabase/cli` at the range `^0.15.0`, while `package-lock.json` resolves `@ulabase/kit-ng`, `@ulabase/cli`, and the `@ulabase/kit` core each to `0.15.0`. The declared range is not the installed version and the two must not be conflated.",
       "evidence": [
         {
-          "resource": "repo://package-lock.json#L4113-L4135",
-          "version": "repo-lines-v1:sha256:548c016da47870bea98b78057a3f25d532ac1965ab023b55b7981f5f540d5a2c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5OWQ1NDIxNTVmMTI2Y2RkNDViYjMxNDRhNGI1YmFjOGFlYjUzMWU3YzgyYzRhMzUyOTgxYjc1ZmFmYjZkZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkN2RhNWY2NTM1N2NkZjU3MTNlNzNmZGJiYjAwY2JmMWI1ZDViNGUzODg5ZDk5ZjVhNTE0NzY3NGYyODJiZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIwYzIyMDg1ODdjYTk2ZjE5NjZkOWJiYmI0ODdkMjU4NmM5MjkzZmM2NjVmN2Q2NDMxN2U0Njk5MjE4NWU5NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU2NTQzNGIwNTJlNTBmNmE1MDA1ZGI2ZTMyMzdlNjJlOTRhODE0MWZkZjQ3YTE1OWI5ZmFhNDBkMTQyMjNmZTIifQ"
+          "resource": "repo://package-lock.json#L4113-L4126",
+          "version": "repo-lines-v1:sha256:23bcc7e7e151de6630e672fb05f8e0195f0d438fc9af222c51fd3f4ffb300d8e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5OWQ1NDIxNTVmMTI2Y2RkNDViYjMxNDRhNGI1YmFjOGFlYjUzMWU3YzgyYzRhMzUyOTgxYjc1ZmFmYjZkZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmMGNkYjk3MmE3YmZiN2VkMjQ2ZjlmZjY3MjM4NWU1NWY0OTY4ZmMxMTA0M2RjNWI2ODRkNTFkZmEzMWRiY2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIwYzIyMDg1ODdjYTk2ZjE5NjZkOWJiYmI0ODdkMjU4NmM5MjkzZmM2NjVmN2Q2NDMxN2U0Njk5MjE4NWU5NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4NWEwMjJlNzZjOTNhMjljOWFiYTY1Yjc0NTgxOWZjYTc1ZjJiY2E4NzE4YzQ5M2RjZmRkMTEwYzljMzc2YTUifQ"
+        },
+        {
+          "resource": "repo://package-lock.json#L4127-L4132",
+          "version": "repo-lines-v1:sha256:c81fc28837c6d7689d0fddba7ffcbba89c71e04e046fe02ba5ab1c18acca5216:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI5MjMyNjQ0M2I4NjAxOTRmN2ZlNWVmODE5NDYyOGEyMGVlZmEyZGRmNzg3YzdiMTYxYzkzZjc2OGFhYTU4MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWYwY2RiOTcyYTdiZmI3ZWQyNDZmOWZmNjcyMzg1ZTU1ZjQ5NjhmYzExMDQzZGM1YjY4NGQ1MWRmYTMxZGJjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODc3YzcyY2IzOGQ1NGUwNGU5NmIyYzIzNGM3M2YwZTU1NDc4ZmM3NzhkYTFlNThiODhjODc0YTVkMDlmNDUzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjJmYzJmNmVmNThhOGI1OWI3NjMyMGFlMzJiNWI1MTcwMTdiMTUzMDhmNTdmODJhZmQ4OTI1MGRhNWM5ZWYzOSJ9"
+        },
+        {
+          "resource": "repo://package-lock.json#L4133-L4140",
+          "version": "repo-lines-v1:sha256:836fe8bf2571c2a61c367f4c7a90286273bf2c526d19eb79e1dbd347c7428303:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzJkNDA3N2M2N2Y2ZTljMmQzNjQ4MGU0MWYyM2NjYmRkNGU2MzBiODljMjVlZTY0M2ZjYjA1MjNkYTJkMGE2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDJiMDE4ZmU0ODIyNWFjNmUxM2Q5OTU3ZGNkOGViMmIzYTgxNGRkODQ1NzZhMzRkN2Y5NzlkZTA0ZThiYzYwZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTg1ZDFlZWZlNTNlZjNlODcwMWU1MTAwZmQ1ZjJjNThhZGI3OTYwNzJlOWE2NGQ5NTM3OTFjMGZlMWJjOTEzYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWJiZGE3YmMwOWEwODI0MDAyNWRjMDk4NTllZGM0NTkyNmEyNmQ4ZWJhYzkwNjVmYzExYTk5OGUzMjY3NmMwZSJ9"
         },
         {
           "resource": "repo://package.json#L23-L34",
-          "version": "repo-lines-v1:sha256:3cc9b8bc50e2cdf46d4fa21540a7a1fac7a50a49151cfdeae4322b3e75663141:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1ZTYzM2Y2MmQyNWEyNWFlNTMxYjQ0ZWEwZWZkZWEyMDQzNDUwNWVhZDRkN2ExMTFkZjZkODJiNDFjNDZkNDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE1YzE4NmM1NDkwODA5NDg4ODA1MmVjZTEzZjQ5NTE2MGE3ZjJmZWE2ZTQ0ODU5ODYzMzE0MmZkYzNkMTIxMGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiYjBjMDZkMDMyZmZhNTUzZWRiZmQ1MThhMDRhMWM2Yzg5Y2JkODdiNmQxNWExMWU5YTM3ZTIyZTcyMWEzOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE1MGRkNDZjN2U2NGI0Y2JhNGUwYWM5MzkwNGM4ZWJkNDk0NzFlZTU5NjVlNGE0YTQ2ZWEwNTA4NGNjYTU0YmEifQ"
+          "version": "repo-lines-v1:sha256:48bf62cd43236626e12d3d384e9b721cfd62f4efb1d0dbb6a6b5c5b7584fefbf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyMTAzMDRkMzVhODNjNWZlOTdmZWY5NDNkZGU5OTE1ZjVlM2MxOWE5MmNkNmQyNTJmOThmM2E5MjMwOTQ2NjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZjNzQxNDI5YzRiYzUwMjdiOTAwYzc0MThiMDI5MDliZjQ3ODFmZTE1OWU4YzUyNDZiNjE0ZTY5MDFhZGY1NGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiYjBjMDZkMDMyZmZhNTUzZWRiZmQ1MThhMDRhMWM2Yzg5Y2JkODdiNmQxNWExMWU5YTM3ZTIyZTcyMWEzOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE1MGRkNDZjN2U2NGI0Y2JhNGUwYWM5MzkwNGM4ZWJkNDk0NzFlZTU5NjVlNGE0YTQ2ZWEwNTA4NGNjYTU0YmEifQ"
         }
       ]
     },
@@ -163,10 +171,24 @@
           "version": "repo-lines-v1:sha256:cd617c809957b5aeb601ce9856109475f6da8ed78835148d17c3097dd4daa848:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYxODBmOWMxMjY5MDNiY2MzMzFhYTk1NDU2ZTQ5NDQ0YTdkNGQwMTFlOGEyYTgzZjVkYzg3MDIzOTE4MTJkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDlmNzg3MTQ4OTNhYTc3OTQyY2VhMWM0YTJlMDIzMWRiYjdmYTJhNDFhNzBjODE0NjBhM2M2NzU2MmRhM2FhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_b259e586de274ce4b95f677521efe75a",
+      "statement": "Under the `teamInvitations` feature flag, `app.routes.ts` registers a single `Accept` component on two routes — `auth/activate` (invitation email link sent to a new user) and `invitations/accept` (link sent to an existing user) — with no route guard on either path, because the invitee may be signed out or have no account yet. `app.routes.server.ts` mirrors both paths as `RenderMode.Client`, since the page reads the invitation and the current session on init and cannot be prerendered or server-rendered.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.server.ts#L31-L38",
+          "version": "repo-lines-v1:sha256:7e15b8538a5b23efd2b5078779ac143a16b524608bb75ded2685e72b74fa6168:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTc3NzA4Mjc2MDA2Nzc4NTBkOGFjNmM4MzE3MWZjODE3YjRjZjU5YzAwMDAxOTgzOTZhN2VlYTBkYTdjNWU2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNmZTI5YmUyMzNiYmYwYmM1N2Q2ZWE3OTYwZjU5MWZhMjE5YmNlYWQyODEzMjdiNWVmYTYyMjc1MDNiZWZmNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDlkNTFmOTEzMGM2ZGU0ODVlMTAyOTUxZDU2MzBkNDg0NzJkYTQxYWM4YzFhYTg2YTMwY2IyOTMzMDMwNmI3YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYThiYWZlOTViZjFhMTRhMWI5MmQ5MjhlMjFmNzdlZmQ3MmZlOWI4MDQ3MGQ4ZDY0NDBjYWJjYzk3NzU4NzU5NCJ9"
+        },
+        {
+          "resource": "repo://src/app/app.routes.ts#L68-L80",
+          "version": "repo-lines-v1:sha256:c393373a749922c4c44daff359c2e1edb7de65a9afa5e33efc9f1c239515c43e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlZjAxMDRhNzk0MTgyMTA5ZTlmNzEzZDVhY2Q5NmE0Njg4ZDdkZTY4NWU1OTMxNjgzODY2ZTVlOWYzYmM5YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFhMTFlMDg5MDA4OGYzMThmZTMzMGFiOGE2MThlYjRlOTI5NmNhN2RkYzA4NDY0NzFmM2I2ZTVkZjc2MWI4N2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1MjI4YTlkNzY0ZDhhOWIwM2E4MmY0MWJmNGE3ZTE0YWQ2NWU0YjI2M2RmNDU1MWExNzVlYzA2MTFiNTNhODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0ZDM4ZjQ3MjY5NjE1MDQxMDVhZDVlYzhjN2ZiOTQwODQ1YjZmNmIzMmNhNWIzMjY0NzkzNTk5ODQxYTUwMDgifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.9.0",
-    "at": "2026-11-12T16:00:22.284Z"
+    "at": "2026-11-21T15:24:47.543Z"
   }
 }

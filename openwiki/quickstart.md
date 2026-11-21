@@ -5,8 +5,10 @@ description: Concise entrypoint that routes readers through the wiki by task (ex
 tags: [quickstart, angular, ulabase, starter]
 verified:
   - by: openwiki/0.9.0
-    at: 2026-11-10T15:38:04.761Z
+    at: 2026-11-21T15:24:47.543Z
 sources:
+  - id: openwiki-source-5093b074f16e0b77479219b2
+    resource: repo://package-lock.json
   - id: openwiki-source-5b54a58d1b51cd490b0e7162
     resource: repo://package.json
   - id: openwiki-source-0d11ea3a28bf7372369b0bc9
@@ -55,7 +57,7 @@ sources:
     resource: repo://ulabase.setup.consents.ts
   - id: openwiki-source-34f568b222540eb11aa44859
     resource: repo://ulabase.setup.ts
-generated: { by: "openwiki/0.9.0", at: "2026-11-10T15:38:04.761Z" }
+generated: { by: "openwiki/0.9.0", at: "2026-11-21T15:24:47.543Z" }
 ---
 
 # Ulabase Starter — Angular
@@ -126,23 +128,30 @@ Feature flags in `src/environments/environment*.ts` must match your service's **
 
 ## Where to start
 
-1. **Just exploring?** Read this page, then [Architecture](architecture.md) for the big picture.
-2. **Building a feature?** Check [Workflows](workflows.md) for existing flows, then [Source Map](source-map.md) for where to look.
-3. **Porting to React/Vue?** Read [`PORTING.md`](../PORTING.md) first — it covers what's portable and what you must rebuild.
-4. **Restyling?** The CSS comment block at the top of [`styles.css`](../src/styles.css) maps every semantic class hook (`.card`, `.btn-primary`, `.form-field`, …) to what it represents. [`TEMPLATE_API.md`](../TEMPLATE_API.md) documents what each template binds to.
-5. **Running tests?** See [Testing](testing.md) for the manual checklist and automated test status.
+1. **Just exploring?** Read this page, then [Application Runtime](architecture/app-runtime.md) for the big picture and [Routing and Guards](architecture/routing-and-guards.md) for the route map.
+2. **Building a feature?** Check [Auth Workflows](workflows/auth-flows.md) or [Teams and Invitations](workflows/teams-and-invitations.md) for existing flows, then [Source Map](source-map.md) for where to look.
+3. **Porting to React/Vue?** Read [`PORTING.md`](../PORTING.md) first — it covers what's portable and what you must rebuild. [Theming and Porting](operations/theming-and-porting.md) summarizes the matrix.
+4. **Restyling?** The CSS comment block at the top of [`styles.css`](../src/styles.css) maps every semantic class hook (`.card`, `.btn-primary`, `.form-field`, …) to what it represents. [`TEMPLATE_API.md`](../TEMPLATE_API.md) documents what each template binds to. See [Theming and Porting](operations/theming-and-porting.md).
+5. **Operating or deploying?** See the [Operations Runbook](operations/runbook.md).
+6. **Running tests?** See [Testing Guidance](testing/guidance.md) for the manual checklist and automated test status.
 
 ## Documentation map
 
 | Page | What it covers |
 |---|---|
-| [Architecture](architecture.md) | Angular SSR setup, dependency layers, routing, guards, auth flow, consents gate mechanism |
-| [Source Map](source-map.md) | File-by-file guide organized by domain |
-| [Workflows](workflows.md) | Key user flows: signup, login, OAuth, invitations, team management, consents acceptance |
-| [Domain Concepts](domain-concepts.md) | Ulabase auth model, teams, tokens, feature flags, consents gate domain model |
-| [Operations](operations.md) | Build, serve, SSR deploy, environment config, CSS theming, porting, ulabase setup tooling |
-| [Testing](testing.md) | Manual test checklist, automated test status, what to test when changing what |
-| [Integrations](integrations.md) | @ulabase/kit, kit-ng, Ulabase service, OAuth, ulabase CLI, CI |
+| [Application Runtime](architecture/app-runtime.md) | Dependency layers, bootstrap chain, SSR render modes, Express server, authenticated shell |
+| [Auth and Session](architecture/auth-session.md) | Token storage vs signal state, RhAuthService surface, interceptor 401 handling, `auth.api()` |
+| [Routing and Guards](architecture/routing-and-guards.md) | Route map, feature-flag routes, `authGuard`/`publicGuard`, SSR mirror, titles |
+| [Consents Gate](concepts/consents-gate.md) | Server-enforced ToS/Privacy acceptance: schema, permission, JWT claims, 451 rule, version bump |
+| [Domain Model](concepts/domain-model.md) | Users, teams, roles, invitations, feature flags, `justSignedUp` signal |
+| [External Dependencies](integrations/external-dependencies.md) | `@ulabase/kit`, `kit-ng`, Ulabase service, OAuth providers, `@ulabase/cli`, OpenWiki CI |
+| [Operations Runbook](operations/runbook.md) | Build, serve, SSR deploy, environment config, troubleshooting |
+| [Theming and Porting](operations/theming-and-porting.md) | Design tokens, semantic class hooks, Alert component, portable-vs-rebuild matrix |
+| [Source Map](source-map.md) | File-by-file guide organized by domain, declared vs lock-resolved dependency versions |
+| [Testing Guidance](testing/guidance.md) | Automated test reality, manual checklist, what to verify per change area |
+| [Auth Workflows](workflows/auth-flows.md) | Signup, email verification, login/logout, OAuth, password reset, dead-link recovery |
+| [Service Setup](workflows/service-setup.md) | `ulabase setup` step pipeline, feature-flag derivation, secrets, idempotent re-runs |
+| [Teams and Invitations](workflows/teams-and-invitations.md) | Invitation acceptance, team switching, member management, account profile/password |
 
 ## Existing documentation
 
@@ -158,11 +167,13 @@ Feature flags in `src/environments/environment*.ts` must match your service's **
 
 | Package | Role |
 |---|---|
-| `@ulabase/kit-ng` ^0.14.0 | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
-| `ulabase` CLI (`@ulabase/cli`) ^0.14.0 | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
+| `@ulabase/kit-ng` ^0.15.0 | Angular adapter — reactive wrapper (`RhAuthService`), guards, HTTP interceptor. Provides the core auth logic via its dependency `@ulabase/kit`. |
+| `ulabase` CLI (`@ulabase/cli`) ^0.15.0 | Dev CLI — `ulabase setup` configures your service from `environment.dev.ts` flags |
 | `@angular/core` ^21.2 | Angular framework |
 | `@angular/ssr` ^21.2 | Server-side rendering |
 | `express` ^5.1 | SSR server |
+
+`package.json` declares `@ulabase/kit-ng` and `@ulabase/cli` at `^0.15.0`; `package-lock.json` resolves `@ulabase/kit-ng`, `@ulabase/kit`, and `@ulabase/cli` to `0.15.0`. Treat the lockfile as the source of truth for the installed kit.
 
 ## Task routing table
 
@@ -170,22 +181,22 @@ Use this table to find the right starting point for common changes:
 
 | Change area / User intent | Relevant wiki page | Source entry points | Important symbols / types | Focused tests | Minimal validation command |
 |---|---|---|---|---|---|
-| **Auth flows** (signup, login, OAuth, verification, password reset) | [Workflows](workflows.md) | `src/app/pages/auth/*` | `Login`, `Signup`, `Verify`, `ForgotPassword`, `ResetPassword`, `OauthButtons` | `login.spec.ts`, `signup.spec.ts`, `verify.spec.ts`, `forgot-password.spec.ts`, `reset-password.spec.ts` | `ng test` |
-| **Team management** (invitations, switching, members, settings) | [Workflows](workflows.md) | `src/app/pages/teams/*`, `src/app/pages/invitations/accept/` | `Teams`, `TeamDetail`, `NewTeam`, `Accept` | `accept.spec.ts`, `shell.spec.ts` | `ng test` |
-| **Account management** (profile, password change) | [Workflows](workflows.md) | `src/app/pages/account/account.ts` | `Account` | `account.spec.ts` | `ng test` |
-| **Routing and guards** | [Architecture](architecture.md) | `src/app/app.routes.ts` | `authGuard`, `publicGuard`, `AppTitleStrategy` | `app.spec.ts` | `ng test` |
-| **SSR/CSR split** | [Architecture](architecture.md) | `src/app/app.routes.server.ts`, `src/server.ts` | `Prerender`, `Client` render modes | Manual SSR test | `ng build && node dist/ulabase-starter-ng/server/server.mjs` |
-| **Feature flags** | [Domain Concepts](domain-concepts.md) | `src/environments/environment*.ts` | `environment.features` | Manual flag toggle test | `ng serve` and verify routes/UI |
-| **Environment configuration** | [Operations](operations.md) | `src/environments/environment.ts`, `src/environments/environment.dev.ts` | `apiUrl`, `features` | Manual config test | `ng serve` and check "Connect your service" screen |
-| **Consents gate** (ToS/Privacy Policy acceptance) | [Domain Concepts](domain-concepts.md), [Operations](operations.md) | `src/app/consents.ts`, `src/app/consents-gate.ts`, `ulabase.setup.consents.ts` | `consentsBlocked`, `ConsentsGate`, `consentsOnError` | Manual 451 test | `ulabase setup --srv <srvId> --file ulabase.setup.consents.ts` then test blocked user |
-| **CSS theming** | [Operations](operations.md) | `src/styles.css` | CSS custom properties, `.dark` class | Visual inspection | `ng serve` and toggle theme |
-| **Component styling** | [Operations](operations.md) | `src/app/pages/**/*.css` | Page-specific CSS classes | Visual inspection | `ng serve` |
-| **Build and deployment** | [Operations](operations.md) | `package.json`, `angular.json` | Build scripts, SSR server | Build success | `ng build` |
-| **Dependencies** | [Integrations](integrations.md) | `package.json` | `@ulabase/kit`, `@ulabase/kit-ng` | Dependency audit | `npm audit` |
-| **Testing** | [Testing](testing.md) | `src/app/**/*.spec.ts`, `TEST-CASES.md` | Vitest configuration, test cases | Test execution | `ng test` |
-| **New API endpoints** | [Integrations](integrations.md) | `@ulabase/kit`, `@ulabase/kit-ng` | `RhAuthService`, `auth.api()`, kit functions | Manual API test | `ng serve` and test API calls |
-| **Service setup** (ulabase CLI) | [Operations](operations.md) | `ulabase.setup.ts`, `ulabase.setup.consents.ts` | `defineSetup`, `step`, feature flag derivation, `appPointsAtService` | `ulabase setup --dry-run` | `ulabase setup --srv <srvId> --dry-run` |
-| **Porting to other frameworks** | [Operations](operations.md) | `PORTING.md`, `TEMPLATE_API.md` | Portable layers, reactive auth layer | Manual parity test | Compare with Angular original |
+| **Auth flows** (signup, login, OAuth, verification, password reset) | [Auth Workflows](workflows/auth-flows.md) | `src/app/pages/auth/*` | `Login`, `Signup`, `Verify`, `ForgotPassword`, `ResetPassword`, `OauthButtons` | `login.spec.ts`, `signup.spec.ts`, `verify.spec.ts`, `forgot-password.spec.ts`, `reset-password.spec.ts` | `ng test` |
+| **Team management** (invitations, switching, members, settings) | [Teams and Invitations](workflows/teams-and-invitations.md) | `src/app/pages/teams/*`, `src/app/pages/invitations/accept/` | `Teams`, `TeamDetail`, `NewTeam`, `Accept` | `accept.spec.ts`, `shell.spec.ts` | `ng test` |
+| **Account management** (profile, password change) | [Teams and Invitations](workflows/teams-and-invitations.md) | `src/app/pages/account/account.ts` | `Account` | `account.spec.ts` | `ng test` |
+| **Routing and guards** | [Routing and Guards](architecture/routing-and-guards.md) | `src/app/app.routes.ts` | `authGuard`, `publicGuard`, `AppTitleStrategy` | `app.spec.ts` | `ng test` |
+| **SSR/CSR split** | [Application Runtime](architecture/app-runtime.md) | `src/app/app.routes.server.ts`, `src/server.ts` | `Prerender`, `Client` render modes | Manual SSR test | `ng build && node dist/ulabase-starter-ng/server/server.mjs` |
+| **Feature flags** | [Domain Model](concepts/domain-model.md) | `src/environments/environment*.ts` | `environment.features` | Manual flag toggle test | `ng serve` and verify routes/UI |
+| **Environment configuration** | [Operations Runbook](operations/runbook.md) | `src/environments/environment.ts`, `src/environments/environment.dev.ts` | `apiUrl`, `features` | Manual config test | `ng serve` and check "Connect your service" screen |
+| **Consents gate** (ToS/Privacy Policy acceptance) | [Consents Gate](concepts/consents-gate.md) | `src/app/consents.ts`, `src/app/consents-gate.ts`, `ulabase.setup.consents.ts` | `consentsBlocked`, `ConsentsGate`, `consentsOnError` | Manual 451 test | `ulabase setup --srv <srvId> --file ulabase.setup.consents.ts` then test blocked user |
+| **CSS theming** | [Theming and Porting](operations/theming-and-porting.md) | `src/styles.css` | CSS custom properties, `.dark` class | Visual inspection | `ng serve` and toggle theme |
+| **Component styling** | [Theming and Porting](operations/theming-and-porting.md) | `src/app/pages/**/*.css` | Page-specific CSS classes | Visual inspection | `ng serve` |
+| **Build and deployment** | [Operations Runbook](operations/runbook.md) | `package.json`, `angular.json` | Build scripts, SSR server | Build success | `ng build` |
+| **Dependencies** | [External Dependencies](integrations/external-dependencies.md) | `package.json` | `@ulabase/kit`, `@ulabase/kit-ng` | Dependency audit | `npm audit` |
+| **Testing** | [Testing Guidance](testing/guidance.md) | `src/app/**/*.spec.ts`, `TEST-CASES.md` | Vitest configuration, test cases | Test execution | `ng test` |
+| **New API endpoints** | [Auth and Session](architecture/auth-session.md) | `@ulabase/kit`, `@ulabase/kit-ng` | `RhAuthService`, `auth.api()`, kit functions | Manual API test | `ng serve` and test API calls |
+| **Service setup** (ulabase CLI) | [Service Setup](workflows/service-setup.md) | `ulabase.setup.ts`, `ulabase.setup.consents.ts` | `defineSetup`, `step`, feature flag derivation, `appPointsAtService` | `ulabase setup --dry-run` | `ulabase setup --srv <srvId> --dry-run` |
+| **Porting to other frameworks** | [Theming and Porting](operations/theming-and-porting.md) | `PORTING.md`, `TEMPLATE_API.md` | Portable layers, reactive auth layer | Manual parity test | Compare with Angular original |
 
 ## Backlog
 

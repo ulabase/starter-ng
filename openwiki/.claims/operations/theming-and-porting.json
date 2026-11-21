@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:86316a7157c600d7ac5a0e11ef51584a19e3d1e879f82106633a54c38acd94b9",
+  "claims": [
+    {
+      "id": "claim_c6363ddfd64f4f0e9d5c066b07eae1d1",
+      "statement": "src/styles.css is the entire visual layer of the starter — plain CSS with no framework coupling — and is deliberately disposable: its header labels it a high-craft mockup meant to be copied verbatim or replaced outright, and the default-skin section is marked DELETE ME.",
+      "evidence": [
+        {
+          "resource": "repo://src/styles.css#L1-L34",
+          "version": "repo-lines-v1:sha256:d85ae7f5016843d4acb5255f73905cd76e732886310d28a29b2f533cbf481e8c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViMzAzZjcwZTI1MWE0MjZmNzZjMzVlYzdhM2M0OGM0YjRlNzVjYTNlZTEyMjI1MGMxYTEyMWFkZjQ1NzUxM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmZjk4ZjRkZmEyNjcxNzJmYjcwMGUwYzdlM2IwYmM1MGQyNjU3NDQ5NDNjNTBmN2E4MTQ4ZTA3ZDRkMjZjNDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFiZWMzNDA2NmVmODUxOTU0ZmNkNmU3YTY3MjZiYTBiYWIwMDdjYWM0MTQ1NzU5YjI0N2FlZTNkODViNzlmYzMifQ"
+        },
+        {
+          "resource": "repo://src/styles.css#L274-L279",
+          "version": "repo-lines-v1:sha256:769faa98067d5ae7641b8aeaeda3426e484bc0f9466e51243cdee291a315229f:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIzMDNmNzBlMjUxYTQyNmY3NmMzNWVjN2EzYzQ4YzRiNGU3NWNhM2VlMTIyMjUwYzFhMTIxYWRmNDU3NTEzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZmOThmNGRmYTI2NzE3MmZiNzAwZTBjN2UzYjBiYzUwZDI2NTc0NDk0M2M1MGY3YTgxNDhlMDdkNGQyNmM0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDdhNjA2ZTVhNDM0Zjk5NDQwNDA0YjVmMzY0M2RmZmNkYTYwYmY3OGM4Y2MxMDFiZWM2ZDM1NDFmNTZiN2ZmMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmRhM2YwYzk1NDYxN2FjMDRhZjBkY2ZkMDBkMWY2MzNkYjc3YmMwYzVkZDEyOThlYzZlOWRhNTgxODdkNzkxYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2738a7e93d284a4cafa3bc5cca9f7bc9",
+      "statement": "styles.css is organised as numbered sections: 1 Design tokens (:root) as the single source of colour, type, space, shape, motion, elevation and focus; an unnumbered Dark mode block (:root.dark) that overrides only the colour and elevation tokens; 2 Base element defaults; 3 Default skin (the DELETE ME class-hook rules); 4 Auth pages; 5 Config page; 6 Responsive at max-width 560px; 7 Reduced motion. Because every colour flows through a token, dark mode needs no per-component work.",
+      "evidence": [
+        {
+          "resource": "repo://src/styles.css#L122-L160",
+          "version": "repo-lines-v1:sha256:573f7d680b679389c205fb1634bc9612e1917ac486b893e7cd6e59b662cd6571:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViMzAzZjcwZTI1MWE0MjZmNzZjMzVlYzdhM2M0OGM0YjRlNzVjYTNlZTEyMjI1MGMxYTEyMWFkZjQ1NzUxM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViMzAzZjcwZTI1MWE0MjZmNzZjMzVlYzdhM2M0OGM0YjRlNzVjYTNlZTEyMjI1MGMxYTEyMWFkZjQ1NzUxM2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyNjBkYmI0NDg0M2YxMzQ2OTEwNjFiMjRjOTFjY2UxMzI0MzM2YzliOTJmZjkyODZjYjI4NmQyNDc2YmE4NjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYzMTliZjdjZDNjOWM5ZTYzNTI5MGQzNWU1MzY3NWEyYmQxOGE3ZTE5Y2M5MDYwMzgyNmU2MGNiNWIyZTM4OWMifQ"
+        },
+        {
+          "resource": "repo://src/styles.css#L160-L163",
+          "version": "repo-lines-v1:sha256:0e3e3228f81c7db227cb91710af736fd1ebf04cf968d81c98cbcf8cfca7081b6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIzMDNmNzBlMjUxYTQyNmY3NmMzNWVjN2EzYzQ4YzRiNGU3NWNhM2VlMTIyMjUwYzFhMTIxYWRmNDU3NTEzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZmOThmNGRmYTI2NzE3MmZiNzAwZTBjN2UzYjBiYzUwZDI2NTc0NDk0M2M1MGY3YTgxNDhlMDdkNGQyNmM0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGZjMzJhMTA0ZjQ1Y2E2MzdlZWJmY2FiMzdiM2ViZTAwMjUwNTgwYTJiMDQ2ZWFhMzkyYjE4ZWIwOWNiMDFkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjdiNWQxYjM2NDhhNDM0NmIyMDM4OGQ4M2IyZTYzYTdkODU5MDU0N2RjMTc3NTkwYjUwOTAyZDJjMjg2OTQ4ZCJ9"
+        },
+        {
+          "resource": "repo://src/styles.css#L274-L279",
+          "version": "repo-lines-v1:sha256:769faa98067d5ae7641b8aeaeda3426e484bc0f9466e51243cdee291a315229f:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIzMDNmNzBlMjUxYTQyNmY3NmMzNWVjN2EzYzQ4YzRiNGU3NWNhM2VlMTIyMjUwYzFhMTIxYWRmNDU3NTEzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZmOThmNGRmYTI2NzE3MmZiNzAwZTBjN2UzYjBiYzUwZDI2NTc0NDk0M2M1MGY3YTgxNDhlMDdkNGQyNmM0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDdhNjA2ZTVhNDM0Zjk5NDQwNDA0YjVmMzY0M2RmZmNkYTYwYmY3OGM4Y2MxMDFiZWM2ZDM1NDFmNTZiN2ZmMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmRhM2YwYzk1NDYxN2FjMDRhZjBkY2ZkMDBkMWY2MzNkYjc3YmMwYzVkZDEyOThlYzZlOWRhNTgxODdkNzkxYSJ9"
+        },
+        {
+          "resource": "repo://src/styles.css#L36-L40",
+          "version": "repo-lines-v1:sha256:b68c3cff8bea960f6c66b5402134e1e6b5cb576e6aa05a75013c4623a70a600c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIzMDNmNzBlMjUxYTQyNmY3NmMzNWVjN2EzYzQ4YzRiNGU3NWNhM2VlMTIyMjUwYzFhMTIxYWRmNDU3NTEzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZmOThmNGRmYTI2NzE3MmZiNzAwZTBjN2UzYjBiYzUwZDI2NTc0NDk0M2M1MGY3YTgxNDhlMDdkNGQyNmM0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODFlYTNmNDFkMjZmYjM0NTIyMGI1YWE4NWZhZTExYjRhYTNhMTMzZDQ5ZWRkNTkyZmE3MzY5M2I1NmFkNTI1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzdhMTBlNjQ5NzNhNmUyYzZjMmUxMzJmZjEwNTk4OGMyODNhZTAzNWY0ZTViYzhkMjJiNzYzNDFjOWE4NDEzOCJ9"
+        },
+        {
+          "resource": "repo://src/styles.css#L615-L616",
+          "version": "repo-lines-v1:sha256:65b2c335d51fc807bc298a5bfdb66959a5c00e93032993bf01ecfc89c2441474:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIzMDNmNzBlMjUxYTQyNmY3NmMzNWVjN2EzYzQ4YzRiNGU3NWNhM2VlMTIyMjUwYzFhMTIxYWRmNDU3NTEzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmRlYWQ2ZmRlZGIyNDRkNmJhOGUxMDk4OWZiYzI4Mzc5ZGNiYjRlMTQxMTFlYzM5MjYyNGFmYmQ0OTBhYmM0OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmI1ODBlOTY0ZjgzYTQ3M2Y0M2Q0NDM4NDYyOTQ5ZDY4YjU2MDBmZGE3ODdmMTYzNzQ1ZDAwZGU4OWNiZjM2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDg5YzQ3YjI4MDAzMjUzYmE4YWQ4NGM0M2UxMDQzYmEwZDEzZGIyNDk2MDA3ODYxMGMyZDM0ZjA5OTdmNTgzMyJ9"
+        },
+        {
+          "resource": "repo://src/styles.css#L726-L727",
+          "version": "repo-lines-v1:sha256:6ad47beee73b3ef2c030ed0e618cb994825f29f5e3df239d4785662791ed2e22:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIzMDNmNzBlMjUxYTQyNmY3NmMzNWVjN2EzYzQ4YzRiNGU3NWNhM2VlMTIyMjUwYzFhMTIxYWRmNDU3NTEzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmU0NTI3ZmI4ZGVkMTk5NDMzMTY0MTIzMGRlODc3ZmMzNGQ4ODg2OGM2ZjhmNDc2ODBjMmIwNDViMzgwYmYzYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmM4OGQ3ZGFmMGY1MGFhNWZiYThmZThiNDc0ZjYyNjY2ZDkzNTk0MzU1ODczYjUyZDAzMWNhYTE1MmFlOGZmZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDY4ZjkzMWEyZWFhMmVkMDJlZWEwYWE1OGVlMzA3ZGY0N2U2YTQ2Zjc2M2Q2MjQ4ZDE4MDVhMzI2ZmU2ODk4NSJ9"
+        },
+        {
+          "resource": "repo://src/styles.css#L833-L837",
+          "version": "repo-lines-v1:sha256:ebfbe44e5a7729290731573f61c7aa7831f73a2f8705b159607d747c2e877225:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIzMDNmNzBlMjUxYTQyNmY3NmMzNWVjN2EzYzQ4YzRiNGU3NWNhM2VlMTIyMjUwYzFhMTIxYWRmNDU3NTEzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2MyNTMzMGQ2ZmU1ZDQ2ODQwNjZkZDZhZjBhYmRkOWMxNmM2ZjAxYjJkNzFiMGVjY2Q1YzI3OTY0ODU3ZjhiYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTZhZmYyOGI3YTQ4M2IwYzBkYjRkNjFkMDg1MGZmNzMyYTMxODhkNWQ0OTFhMjQ4YWJiZDFjNGUwYmM2ZmE4YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTQxZWM3ZTU2MTBhMzk5MTg3MDNiZmE1OTIwMTVkMDAxMDgxMDZiMTQwZjM3YzM0MzI3MDhhNzc3MzFjMWI3YyJ9"
+        },
+        {
+          "resource": "repo://src/styles.css#L877-L886",
+          "version": "repo-lines-v1:sha256:ec738d53ebce6850bcc0a6f18488e949c3f0d4749fd095c4aef4fb3f54e2dcf3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViMzAzZjcwZTI1MWE0MjZmNzZjMzVlYzdhM2M0OGM0YjRlNzVjYTNlZTEyMjI1MGMxYTEyMWFkZjQ1NzUxM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViNDdiODcxZDViMGRmMjExYjhlZWIwODJiOWU0ZTAxYTQ2NzFhY2U4YjQ3MjgxZjAwNzY4MzllZjFjNjNlNTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiNTgwZTk2NGY4M2E0NzNmNDNkNDQzODQ2Mjk0OWQ2OGI1NjAwZmRhNzg3ZjE2Mzc0NWQwMGRlODljYmYzNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcyZTk3MDMzNDlkZjQ5ZTcwYzljYTU3YjMyOGQzZTkyOTAyZDk2NzZjMDNkNmNlOWMyZGQ0YjBhYWUzM2JjNmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_276a34bab3bd439bb170fad1246fd2ff",
+      "statement": "Retheming is token-first: changing the tokens in section 1 (colours, type scale, spacing, radii) re-themes the whole app including dark mode; adopting a UI framework instead means deleting the default-skin sections 3–5 and reskinning templates against the class-hook swap map, because templates reference only the small stable semantic class-hook vocabulary (.card, .btn-primary, .form-field, …).",
+      "evidence": [
+        {
+          "resource": "repo://NOTES.md#L68-L89",
+          "version": "repo-lines-v1:sha256:dc2b055872142cb96cf11549fbb8319f8bc0dabd6b4e73f62c18980cc306dcb7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwMWI1MTIwNGNiOTEyOThmMzc2MDgzMDNiODJlMzE4M2MzYjU5OGYwOTMyNjg1ZWNkNTBkMDFmNWUxYzIwOWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhNTI1YjM5MTljZWExNjY5YzhmOTg0MmI1M2U4YWM0ZDQyMTQ4YjM1M2U5MmUyMGZkMmYyY2U5Y2FhZmJkMmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzYzMzYmY5Y2RiMWFkMzMyZWYxMjc1MDMyNjRiZTExMzBiMDllZmU5NDAzZWZiZDhiNTkzMjNiYmQ4NThmZWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFkYWNmYWNlM2U5Y2Q0YWE1ODRkMmNiYmNlNjE3ODEwNDM3NjBmOTE0OGQwMmI2NjU5MGY2MzEzZTA4OTE3MjAifQ"
+        },
+        {
+          "resource": "repo://NOTES.md#L93-L118",
+          "version": "repo-lines-v1:sha256:ac59252f815d7c25791cd7c199147a41f647ec34dfa1e0889207ae869a7cf645:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4YmM2ZWI4ZmJiMjcyZTdhOTBlOTcyMTU5ZjgxN2RhY2NiMGJiNGU2MGNkYmQzYWVjMmRhZTM4MTUzMzFmZmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxOWJiMDRlOGQ3NTU3MTc5MzVjMjM0YjQ0ZWJmYjc3MTYzZTM3ZTA5MWQ4NDVmYzExNzc2ZDQzOTM5YjljZGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkYWNmYWNlM2U5Y2Q0YWE1ODRkMmNiYmNlNjE3ODEwNDM3NjBmOTE0OGQwMmI2NjU5MGY2MzEzZTA4OTE3MjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxMTYxY2EwYWI3YjZhZWM4MDgxOWMzMDY1MTBhMDUyMTE1Y2ZmZjJmODYxMTA1NTg4YWM3NWNjN2RlNjc0NmEifQ"
+        },
+        {
+          "resource": "repo://src/styles.css#L5-L21",
+          "version": "repo-lines-v1:sha256:ccccd14453ec95bd4476c6b7c2b199ec75cc37506ba74eb131e1c960cc7be3f4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ODE4OTkzNWQxMzBkYTQ5ZDc0NzE4NTVmZGJmNTM1NTBiMDQwMDk1M2VkYjkzZmRkNjdhNjI0MmVmZDAzMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyNjllNzY1ODM4ZDYyZWMzMGE0NDhlYzM4ZWE4MjBkZDliY2MxMDA5YjU5NDJiYjE0N2YzZmJhN2MzOWRjYzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMwNWM5ZWNiYjFlNGY3ZWUzODA4OTA2MDc1YzRhOTA4NTQyMmQ1ZDM4NzllNjM4OGU4MDlhMTVkOTg0NmM1NDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_49916238cbab44f596d55653e4f92ce0",
+      "statement": "ThemeService (src/app/theme.service.ts) owns the light/dark toggle: a dark signal, and toggle() adds or removes the .dark class on document.documentElement while persisting the choice in localStorage['rh-theme'] as 'dark' or 'light'. localStorage and document do not exist on the server, so the service guards all such access behind isPlatformBrowser(PLATFORM_ID) — the auth pages are prerendered, and a port that touches these APIs during SSR/prerender will crash without the same guard.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L162-L172",
+          "version": "repo-lines-v1:sha256:475c2d1a55631b8792f49a7e1d6ce1912621ea98089d18662ef0d29a2a52ec9f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4YmI5OGE1ZjYxYjE2OWM1NjhkNjA4NGEwOGY2ZWQ5ZWFmNWQ4ZWIzMWE1YTIzOGI1NTMxOWQ2NWJiMTQ1NTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZhN2ViZWUzNDFlZjY5MGQxZTJiNjFlZjc5ODY0NTNhNzRmMTllNTI3N2FlNzU3MjkwMmVhZWEzODI2ZTQzYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM1N2FiYjg0NGYzNjQwODM0OWExYmQwZDI4NTNjOTNiMmE1ZDg4NzU0NjYwNWIzMmJmYjg5ZWVjZjZmYTEwZGQifQ"
+        },
+        {
+          "resource": "repo://src/app/theme.service.ts#L1-L35",
+          "version": "repo-lines-v1:sha256:e907f354768a884fc62daea15ed4f4dfbc0a14a2c512974c57fbd7e005c9083a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmODc1MDVkM2YxMTBiMzFlN2Y5MGIzNGEwNTVkYTc0NmU2Y2M3NzEyZTViNGM2Mzg1OWYxODEwNjM1ZGRjMjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_307a58f7702f4376832f13db0fedd697",
+      "statement": "src/index.html runs an inline bootstrap script that reads localStorage['rh-theme'] and applies the .dark class to document.documentElement before Angular boots, avoiding a flash of the wrong theme. The storage key must stay in sync with STORAGE_KEY in theme.service.ts, and the lookup is wrapped because localStorage throws when storage is blocked.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/theme.service.ts#L4-L5",
+          "version": "repo-lines-v1:sha256:a2ad78c68a0e2032556187b7fa0caff2811e541aa39362b994bab2f5c0a3f87e:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGFkZWE1ZmRhOWEyZjcwOWE1ZWI3M2E4MGNmOTAxNDNiMmI0Njc2MzgwNDg0MGFlMTRjZTAyMTBhYzcxOTdiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjYzYjY4Y2M2YmYwN2QzN2U4NTgwMGJlMjFkNmQ0NDA1ODdiNDU2MmFlYzY2YWU3NzE5NmU4N2EyZTRjMjhiNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDg1M2FkNzAxMjY1Y2U3YmNmYTc4M2MyZjI1ZDljOTlmMGEyNjBiZjUzMjU4MDc0YzAxZWIxY2FkMzJlZDVmMiJ9"
+        },
+        {
+          "resource": "repo://src/index.html#L8-L16",
+          "version": "repo-lines-v1:sha256:e80e01f923d79d74bf9feac481469fce5b1556283987b5068c53cac9a5d0b974:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGJjNDA2MjgwNzExZTExMWNiN2Q3ZDU4OGRmMTBiZjhjNzIzYTI0YjQ1MjE0YWQ0Nzk3NWRjNzAwNzY0NGJlMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg5NjA1YzUzZDEyYTA2YWYxN2E3MzEwMjNlZWYwMDg2NmJkNzg2MDJkZjU0OGRjOTgyZDk4ZmMyNmQzMTc4OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDg3N2MzZjgzZTZhMDc3OTkzN2MzYzg1YTNlZDA3NmQzM2FhYWZlOTA5MDcxNWNhN2IxM2Y5N2JmNTNhNGY1NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmQ0MDJiOWZhZTk2OGVlMWQzMmI2ZmIzODY2M2IzYWI3YmEzZTYxMTA3MWYxZTY2OTliOTRkYzJmYzQxOGJhNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c346904af144080ba034ea562c06842",
+      "statement": "The theme toggle button is rendered in the authenticated shell (src/app/pages/shell/shell.html) and calls theme.toggle(), with an aria-label that switches between 'Switch to light mode' and 'Switch to dark mode' according to theme.dark().",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/shell/shell.html#L25-L26",
+          "version": "repo-lines-v1:sha256:a6446ffc94aaadc650bc48a8c98f3f1c0f089f02fcde9fe6060ad7601a10b994:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODU4Mzg4MzUyNzY3ZDliNmIzMTljZWNkZmNhYTk4NmY2ZGY5YzY1ODNmZTVhNGFhYzllZTkxNGRmYjU2N2U1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWQwNmM1ZTc0ZDU1ZmEzNmU2NTkyNGZhOWZlM2I3ZjYxNGQ5MzlkZjJlMjQxYzE4MzY4MGE1YThjMDBiNTA3MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWVmNGYzZjRkYTVmMzM2M2M1NmJiNDRmNWIxMDE0Y2YzNTQwZWUzODk4MGFjNzU5M2NjNzUzZmZkZDc5ZTQ3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDA2OTFmNTlmMjZjYmI5ZDM2ZjY2OGI1N2YzNDlkMzZkMGZmMTg4Mjk2ZTg4MjM3ZDAxYmM5ODUwYWM0MzExZiJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L15-L27",
+          "version": "repo-lines-v1:sha256:06406ced22d93050abe2c8fa36c3005675781674ddbd50a45bdb2e166723ed93:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxOWY5NDJhN2MzZWM4MzI2YTE0M2FhOGY4OTczMmNhZjNhMzk2MmE1Mjk1NmUyZTIzOGIyZDk3M2FiZWMyYWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzOTZlNWE2YWQ2YjhkYjUwMzkzODFhZTZhZWJhODg2YWI4ZDk0MjgyNzAxZGUzMzQ2ODQ5Njc0ZWUxMDliOGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5NzM5MWU2MTQzNGI0YWFlZjBkMDU3Yjk5ZmIzYzU3NzJkMWJmMzg5ZWIzZGU4OGM4N2M3MWM5MzE4ZTRlMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViMzA3YjJmN2EyNjM2ZTUyNjYxNGM0NTA5MzZlMDIzMzI2ZmQ1ZjM4YzdjMDhhNGIyMDVlOGIzYTQ4NTgzNGMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_db2e3366df8148e0a6ad4e98b8da61bd",
+      "statement": "Templates carry only the shared semantic class hooks; page-specific layout classes (.team-row, .member-row, .feature-grid, …) live in the page's own stylesheet and are not part of the contract. Per-template bindings (signals, handlers, form controls) are specified in TEMPLATE_API.md, and the class-hook → framework-component swap map lives in NOTES.md.",
+      "evidence": [
+        {
+          "resource": "repo://NOTES.md#L113-L118",
+          "version": "repo-lines-v1:sha256:2d9424184646d26a7e502c2e40352772a316c18f3c29ed5b3095e7811e0a6512:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjBiMTY5NjkyNjE1M2FiN2FmMzBiYzJhODAwNzQ4NTMyY2Q1MTViNjZmYmY5NjBiYmU0OTY0OWE2ZWMwNjAzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE5YmIwNGU4ZDc1NTcxNzkzNWMyMzRiNDRlYmZiNzcxNjNlMzdlMDkxZDg0NWZjMTE3NzZkNDM5MzliOWNkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGIxYjk2YWQzOWViYTQ5ZWZkZmQ1YjVjZjlmMmE0MmM4ZDM4YjJiMTkyYTI4MzE4YjAxM2FjMjkzYzM0MjNlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjExNjFjYTBhYjdiNmFlYzgwODE5YzMwNjUxMGEwNTIxMTVjZmZmMmY4NjExMDU1ODhhYzc1Y2M3ZGU2NzQ2YSJ9"
+        },
+        {
+          "resource": "repo://TEMPLATE_API.md#L4-L12",
+          "version": "repo-lines-v1:sha256:63f87175d7160ad06337e8f742ccfec163e302beb2a260239c4edae4cbbfd66e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQyODlhOTVlZWM0OTAzYjk3MTFjZDkxYTBhZTM4NDVjNzYwNmIwYmE0YjBhMDExOWUyY2Q1NWJiYTkyNmU2YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGNmMzJhY2Y2MmU5NmNmOTAzZTJmM2VlZjUxNmU5ZTc1MzMzODlmNGUwYjUzNGI2OGM2MDA0MGNlYzI4YWI2MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjc3NDllMjkyM2IyMzQzNGY3ZTJiMzc2MWNkNTI1ZmIxNjdhZWZjMmZmNTgwNmY0ODI5YmI3NzJhMDg3Y2VjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2E3ZmVkZGNhOGZlNDcxYmRmY2IwMDE5YjkxMzZiZmQxNzY5OWNkNzAzZjAzZDNmMjI4YmEyOWQzYzQxNWU2MiJ9"
+        },
+        {
+          "resource": "repo://src/styles.css#L30-L33",
+          "version": "repo-lines-v1:sha256:ed960a9d9dbdfd8aab26fe802b4cbefd9dd69ae2b860aaeccca9aa8cf99fc414:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTcwNGYwYjZjYjAxMGQ2MTk0Y2Y1N2VhNzQzN2RlMzIyYjU3NWQ0YmQ4ZjY1NGQ5M2I5ZGY4OWI4ZDBkOTRkMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmE5ZGMyM2M2ZTI0MDI2YjhjNWI2YWRkZjBmNDgzY2U4NzU5YmY5ZjQ5YWQwYjlkYzJlMjJiMjYwY2E4NzU1YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzYxYWJkZjQ0MWQ3Y2M1ZjNjNGMwNmQyYzRjNTYzNDA0MjE4ZjVlNDc5ZGY2ZGJjYzdjYjRlOTZmMDFhOTZmZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjJhZDNiMzUxNmY1ZTAwNjI2NmM4MjljZWRjZTY3YmFlYWUwMGJkN2YyODZmYThkOTEzN2IxYzE1YTVlZTAzYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cc33125651e941edb6c5a87a22696daf",
+      "statement": "Alert (src/app/ui/alert/alert.ts) is the single shared feedback component: presentational, with no stylesheet of its own, rendering only the .success-msg / .form-error class hooks plus the matching ARIA role (status for success, alert for error). Its type input picks both hook and role; dismissible (default true) renders an aria-label=\"Dismiss\" button; autoDismiss (default 4000ms, 0 disables) emits close after the delay; the close output fires on dismiss or elapsed auto-dismiss and the parent owns the state and must reset its own signal in the handler.",
+      "evidence": [
+        {
+          "resource": "repo://TEMPLATE_API.md#L34-L50",
+          "version": "repo-lines-v1:sha256:f5d5bad20ffd3c0053cbc38d8fcc70b3283a6511e0a6b76225ab7fc2f5399280:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4YWU3ZGUyMWJhY2EwNjY2YmRlYzAyMGMxOGQ5ZDY3YjdkYmMwYmEyNmY1ZDY1ZDQ4ZTQ0N2VkZmQwOGIyYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxODFmNTgzMzY3MDUzN2MyMmE0MGMyZjAwMzcyOTM5NTQ4OTNlYzlmNDQyMzM1YzU4ZTJkNjgxODY2YTUwMGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMyYmRmN2VlOTc5NGE4MWQ1YTYyNWZlNGVlYmMwZWFlYjU3M2FjMTBkNDM3MjNlMGQwYmIyNTNmYjkxNmM2NGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVjN2NlYjcyYmI0MWM1MDM0Mjc5ZDIzYTg2ODY1ZGUxYmE3YzkyMDgwMjQ4MDBlNWE1OTU5YTVjZmQyMmU4N2MifQ"
+        },
+        {
+          "resource": "repo://src/app/ui/alert/alert.ts#L1-L47",
+          "version": "repo-lines-v1:sha256:ab8d9177b23f3338cea244bbb8af8e1b484ba587cd1f13010b1c7c2e53141032:eyJzZWxlY3RlZExpbmVDb3VudCI6NDcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJlZDRhNmMwNmUzNzg2Y2Y2N2NlYjc2YTU1YTYyNjA5OGRmMzcwMDY3NDJjZjA5ZWRlN2MxMmY5N2UwNTZhZDYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c6bc748e1c6744588a40fce4462c4adf",
+      "statement": "All success and error messaging across the starter's screens (login, signup, reset-password, accept-invite, account, team detail, new team) routes through this one Alert component — swapping it updates every message.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/account/account.html#L5-L8",
+          "version": "repo-lines-v1:sha256:fe098fd0241a6130648b4b19db3705bdae4e8255e2a602ba893533bbd36d58e0:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjcyYjQxMjNjZGE3OGM2MTRiYWMwMzU1OWQ1MWQ2ZmMxNjc3MzZhMGI0N2E1MjlhMjBlMzI0M2VjNDBiYjllOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E2Y2E4MDUxNmZhMDUxZGEzYjU4YzY1Mjg2NmJlZWRmZWFiZWQ2MmU1MzNlNTNjNGUyMTVmZjJkY2Q5NzYwMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjJmNDVlYjcwOTQyODk0Y2U0MDI3NmEyZDNhZjdjYzgxZDRkMmVhY2M4OGQwNTAwYjViMjEwMmQzODU5MDk1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzI0Y2YzNzQ0MDdhMjNkYmYwZjRhODExYTJhYjk0YWJlYzc4ODE4NDFhZjdiMzQ5Y2ViMDFhN2M0YTIzMzQ0NyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.html#L6-L6",
+          "version": "repo-lines-v1:sha256:144c91a533754c457681ae0aba508dd3baabbf95d133575d53b10ab601951353:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQ0YzkxYTUzMzc1NGM0NTc2ODFhZTBhYmE1MDhkZDNiYWFiYmY5NWQxMzM1NzVkNTNiMTBhYjYwMTk1MTM1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQ0YzkxYTUzMzc1NGM0NTc2ODFhZTBhYmE1MDhkZDNiYWFiYmY5NWQxMzM1NzVkNTNiMTBhYjYwMTk1MTM1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGJiY2Q4NGRhOWRjNTkwMTYzODZkODhiOTAxNjM2YTMzZjIwMjRhNTA1YTQ1ZDE3NWE5M2EyMjE2OGYxMWRiMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDRiZDkzOTcxMzAwNjY2ZTgzMDJmMTc1MzU5NzE4ZWI4Y2ZiODg5MDM5MzRmMDhkMzRiNmJlYTBiNTAyYjQzNCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/signup/signup.html#L12-L12",
+          "version": "repo-lines-v1:sha256:362b64c5869d9c47946d6e16268562e43229bc8e370a557ae90a24c360950f9e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzYyYjY0YzU4NjlkOWM0Nzk0NmQ2ZTE2MjY4NTYyZTQzMjI5YmM4ZTM3MGE1NTdhZTkwYTI0YzM2MDk1MGY5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzYyYjY0YzU4NjlkOWM0Nzk0NmQ2ZTE2MjY4NTYyZTQzMjI5YmM4ZTM3MGE1NTdhZTkwYTI0YzM2MDk1MGY5ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWI0MDQxNjNkOTFlMjE5ZWRmZGRmMzZhYjUwMjYyMWE2Y2QzZTQ5OGJjY2Q2ODA0NzY5ODgxZjQzZTE1NTc1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTAxYmQ0N2E5OWI1ZTdiMmRiMzRiNmQyOGI4OGI5ZWU5NWJmOWJkOWI4N2QyOWZkOThhN2E1ODczMmY5MjUyNyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/teams/detail/team-detail.html#L54-L57",
+          "version": "repo-lines-v1:sha256:c7449bd6e79ae46a10ba815e0094ead3b4888e71dac8da6b498be29ca060e8d2:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGFkMmU2NzZjMzM2NzBhOGZiZGJiZmUxMDk1ZjkzNjZlODdjYjJjMTMzMDAzOGFjYmJiYWExZDI4ZDJhOWJiNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI2ZTFhMDcxYWZjNjQyNjgwZjhjZWQ1MDFmNTM3NmI0MzM4Nzc5MTczYzI0ZDk1MTE1NGE4OTEwYTFhZTE2MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWU3Yzk2YTFkNDZjZmFkNDQxZWQ4MDc1OTllYzNiYmEzZjU2MTBkZTY1NmU3OTcxMDQzNGRkMzNkNTJhNDZlYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDNlMDVlNjZjYzY1NWE1NmUxMTY3YzVkZjgzM2UzOTZhNWIwYWE0ZmVkZGU4Y2JiMzE2MzE3OTkxMjYwY2M1OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4c978ff6d53a43ba906390e89771a300",
+      "statement": "The portable-vs-rebuild matrix from PORTING.md: @ulabase/kit (auth, teams, invitations, profile, password) and src/styles.css (tokens + default skin) are 100% portable — depend on the kit directly and copy the stylesheet verbatim; templates are portable in structure but not syntax, porting markup while keeping the same semantic class hooks; page CSS content copies but its scoping swaps (CSS Modules / <style scoped>); @ulabase/kit-ng, routing/guards/titles/SSR config are not portable and must be rebuilt to the documented contract; component classes are rebuilt in behaviour (per TEMPLATE_API.md) though not in syntax.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L13-L32",
+          "version": "repo-lines-v1:sha256:773953b61eb9341562232e39c65ab6ee6d8ffa5393a0f42c70863ce6b403d6eb:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ4OTE5YmY2MTMwOGJjNThlODUyZjg2ZGJiMGVjZDNjMjkwYjg5OWFkZWExNTY1ZDk0NGQxZWI0MTU0YWVlOTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1MmQ3MTExMDNkNTBhNDM3ODMwYzZmYmNkMDRmYjRiYWI0OWEwZjgyZjZkMjZkMWM3OTFjNmU4NDg4ZGQwOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMWYyZWMxNzU5M2MxMDU0ZWI0NjM2N2Q4NDUzZWYyNGExNzNjZTk2YjcxMTdkOTFmOWE2OGQ0NGZlZjhiMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdlOWYyNzhiZWE3NjE2YTA3NmIwOWIxMWM2YjBlODE1ZTVmZTFiOWUyNzU2N2RlMmZiZDJjYTkwYzAzYzYwYWIifQ"
+        },
+        {
+          "resource": "repo://PORTING.md#L28-L31",
+          "version": "repo-lines-v1:sha256:06cedeacedfaea7be8d8f5467eddfa6b473809c91622a04c89d843ac2354b23b:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWU5ZDI3N2JiNDhkZjZmZjQ5MDJkN2RlMjQzOTEwOTU2OGFjYzEzZWI4ZjFlMzhjOTNjOTkyYmJmNGY3MTNkYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTEzYTQ2MjFjNzZmOGU4ZTNkNWU1ZDU5YjFiMzVkZDQxZGI4MDhmMTA0N2FjODI4OGU2NzY4ZGU0M2RmZDAzNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTdhODJlMDQ4MzI3MDg2NzQxYzNkODQ0Njc2YzllYWMwZTljOWE3NzI5YTkzMTBhOGI3Nzk4Nzg4YTMxMzIyNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_82020b842a744dd28a947f87aec24618",
+      "statement": "The porting rule of thumb: if a file talks to the network or computes a token, call @ulabase/kit instead of writing it; if a file describes what a screen looks like, copy it — only the glue between them is genuinely new work. Ports must also rebuild an HTTP layer that attaches the bearer token and clears the session on 401/expiry, and scheduleRefresh() from the kit (15-minute token TTL, silently renewed at ~80%).",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L28-L32",
+          "version": "repo-lines-v1:sha256:37871c39f1843a107c6ae6b277e32a10878c7b74ded73f3ea8ce9fd11b540b56:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWU5ZDI3N2JiNDhkZjZmZjQ5MDJkN2RlMjQzOTEwOTU2OGFjYzEzZWI4ZjFlMzhjOTNjOTkyYmJmNGY3MTNkYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjUyZDcxMTEwM2Q1MGE0Mzc4MzBjNmZiY2QwNGZiNGJhYjQ5YTBmODJmNmQyNmQxYzc5MWM2ZTg0ODhkZDA5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTEzYTQ2MjFjNzZmOGU4ZTNkNWU1ZDU5YjFiMzVkZDQxZGI4MDhmMTA0N2FjODI4OGU2NzY4ZGU0M2RmZDAzNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2U5ZjI3OGJlYTc2MTZhMDc2YjA5YjExYzZiMGU4MTVlNWZlMWI5ZTI3NTY3ZGUyZmJkMmNhOTBjMDNjNjBhYiJ9"
+        },
+        {
+          "resource": "repo://PORTING.md#L64-L68",
+          "version": "repo-lines-v1:sha256:dc46082891b2cc78b774385fd000df25cc54b24ae293f5cf59c530040f4730ce:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGMyMzdjODE4ZjQxOWYzMWJhZjJiM2FmYTBlMTA2YjM1NTU1MTUwY2M3NmMwNzViMTYwZmMyMjU5NjZiZmI0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODUyNjNmNjRkODVhMWIxNjQ2MDFkZjNlZmMxMzZmMjA5ZjY2NWI0MWRiOTdkMDhhOTllZmU0NzNhODljMDljYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b80caba5c31347ec9ce6f80904280e7d",
+      "statement": "Cross-cutting behaviours a port must reproduce: capture the access_token from window.location.hash and consume the one-shot ?flow=signup marker in memory only, then clear both via history.replaceState; register an empty route table and render the connect-your-service screen when apiUrl is unconfigured; feature flags gate the client route, the SSR/prerender route entry, and every link/UI block offering the feature (a server-side-off feature returns 403); OAuth is a plain anchor to ${apiUrl}/auth/oauth/authorize/${provider}?noauthchallenge, not a fetch; activate, reset-password and switch-team use ?delivery=body so the new access_token arrives in the same response with no follow-up POST /token; the theme is .dark on the document element persisted in localStorage['rh-theme'] with browser access guarded.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L89-L172",
+          "version": "repo-lines-v1:sha256:1a17a375cabb13e87e27455f0e90c4b34bbe9ca31dd87e87f8762fba2cc65bd7:eyJzZWxlY3RlZExpbmVDb3VudCI6ODQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5YmQzYjY4NDIxZDgzOTQwMGZkYTE1NTU2NWU3NzA4ZWEyYTNiOGI0MTQxNGRjOWZjZmM0ZGNkNDlkYjU2YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMWYyZWMxNzU5M2MxMDU0ZWI0NjM2N2Q4NDUzZWYyNGExNzNjZTk2YjcxMTdkOTFmOWE2OGQ0NGZlZjhiMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM1N2FiYjg0NGYzNjQwODM0OWExYmQwZDI4NTNjOTNiMmE1ZDg4NzU0NjYwNWIzMmJmYjg5ZWVjZjZmYTEwZGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_13e19233ec1b43ab9191389613f846eb",
+      "statement": "Behaviour-parity UX patterns to preserve app-wide: one feedback component with auto-dismiss, manual dismiss and correct ARIA whose parent owns the state; success messages clear on edit (subscribe to form changes before seeding initial values); every list has loading, empty and populated states; destructive actions confirm inline rather than with window.confirm; in-flight actions disable their own row/button and swap the label; a navigation progress bar during lazy route loads; a 5-minute invitation-resend cooldown with remaining time on the button; users cannot remove themselves from a team; team creation stays on the page after success.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L203-L223",
+          "version": "repo-lines-v1:sha256:4b3f5b203f9a199e62f82884ac7a34ecef9295baec93223633f5b974b1e7f195:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiZTg5ZWUyYzc1OTcxZDdmZWM5NWE1YTU1NjY1MWI5OTY1MDFkZDQ3OTU1YTk3M2I5OTkyM2I4YjcxNzI3OTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1MmQ3MTExMDNkNTBhNDM3ODMwYzZmYmNkMDRmYjRiYWI0OWEwZjgyZjZkMjZkMWM3OTFjNmU4NDg4ZGQwOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMWYyZWMxNzU5M2MxMDU0ZWI0NjM2N2Q4NDUzZWYyNGExNzNjZTk2YjcxMTdkOTFmOWE2OGQ0NGZlZjhiMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU4ZDY1NjhmNGNjZTIxYjU3MmViYzAyYThjYzFhNDdkYWU1ZTRlZWRiMWE1YWUzZjg4MzI4ZDY5NDY4ZWQyOWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f07edd905b4c4ef8b3f65c36180dc1bc",
+      "statement": "A port should keep the same file layout (pages/auth/, pages/teams/, ui/alert/, …) and component names so the Angular, React and Vue versions stay reviewable side by side and one document can serve all of them; the framework mapping table translates signals/computed, services/inject, reactive forms, @if/@for, styleUrl encapsulation, TitleStrategy and SSR render modes to their React and Vue equivalents.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L225-L243",
+          "version": "repo-lines-v1:sha256:5532626b9b09e6bb038a91163ef2d75eeeafbd22be7f97a77396ba9dfe0bdb30:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU3NTU0YWQ5MzhhZjMyYWNlNjMzZjQzYzgzYmU1MTc0Y2IyZDRiMTdkZDlkN2JhMjk2YmM0YmJkYTZmNWUzMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1MmQ3MTExMDNkNTBhNDM3ODMwYzZmYmNkMDRmYjRiYWI0OWEwZjgyZjZkMjZkMWM3OTFjNmU4NDg4ZGQwOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMWYyZWMxNzU5M2MxMDU0ZWI0NjM2N2Q4NDUzZWYyNGExNzNjZTk2YjcxMTdkOTFmOWE2OGQ0NGZlZjhiMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0OGNmZjI0MmI4YjczZWE4MzhhY2E2NjY1OTNlZmIwNGMwZTU2ZTVjZTdjOGQ0MmMxNGM1NzU3MmFhM2JhZDYifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}

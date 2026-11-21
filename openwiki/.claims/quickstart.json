@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:b1d647837a89da9e7be501c68999a057bfd1a3e26aaaaf15b3a0c3ca71780a25",
+  "pageVersion": "sha256:fb826a4f39d61f386fe3587a0bfa7eae974a96f00306483b68ec6e7ef8739660",
   "claims": [
     {
       "id": "claim_b2e21d58823c4fc7be8063a4812231ef",
@@ -8,7 +8,7 @@
       "evidence": [
         {
           "resource": "repo://package.json#L23-L23",
-          "version": "repo-lines-v1:sha256:55e633f62d25a25ae531b44ea0efdea20434505ead4d7a111df6d82b41c46d42:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlNjMzZjYyZDI1YTI1YWU1MzFiNDRlYTBlZmRlYTIwNDM0NTA1ZWFkNGQ3YTExMWRmNmQ4MmI0MWM0NmQ0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlNjMzZjYyZDI1YTI1YWU1MzFiNDRlYTBlZmRlYTIwNDM0NTA1ZWFkNGQ3YTExMWRmNmQ4MmI0MWM0NmQ0MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
+          "version": "repo-lines-v1:sha256:b210304d35a83c5fe97fef943dde9915f5e3c19a92cd6d252f98f3a923094669:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjIxMDMwNGQzNWE4M2M1ZmU5N2ZlZjk0M2RkZTk5MTVmNWUzYzE5YTkyY2Q2ZDI1MmY5OGYzYTkyMzA5NDY2OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjIxMDMwNGQzNWE4M2M1ZmU5N2ZlZjk0M2RkZTk5MTVmNWUzYzE5YTkyY2Q2ZDI1MmY5OGYzYTkyMzA5NDY2OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
         },
         {
           "resource": "repo://src/app/app.config.ts#L3-L3",
@@ -108,11 +108,11 @@
     },
     {
       "id": "claim_e6372ebf46134772869598f512b3ef71",
-      "statement": "The route guard system uses authGuard (protects authenticated routes, redirects to /auth/login if no session), publicGuard (protects auth pages, redirects into app if already signed in), and /invitations/accept is deliberately unguarded to work for signed-out invitees, signed-in users, and new accounts.",
+      "statement": "The route guard system uses authGuard (protects authenticated routes, redirects to /auth/login if no session), publicGuard (protects auth pages, redirects into app if already signed in), and the invitation page — one component served at both /auth/activate (new user) and /invitations/accept (existing user) — is deliberately unguarded to work for signed-out invitees, signed-in users, and new accounts.",
       "evidence": [
         {
-          "resource": "repo://src/app/app.routes.ts#L23-L112",
-          "version": "repo-lines-v1:sha256:3fe08fab97120923ce8e39ce2975f2e76c596193fa1827dc0dce898edd453c33:eyJzZWxlY3RlZExpbmVDb3VudCI6OTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiZTNhZTkzMmQ2OThmOGVhODlmZmI4NzA2NDI3MTNhZGNkNTAwYjVlMjk3NmU3ZWRhOGMwZTEzYzZlYzhiYzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwMmQyYzBkNmRjNWU3NGQ5MmZhMTRiOTFkYmVhMjY0MDkwYmViMzVmZGI5MTg4ZDliMzQxMTgxZGNlOWY0Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4ZDhiNjIxNGYzNzBiYTI2MzRjYWU1ODEwMWRjYTk5YTkzN2EzYjg4ODc1OTExYWI0YWM0M2YyNWZkMWZmNjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "resource": "repo://src/app/app.routes.ts#L23-L115",
+          "version": "repo-lines-v1:sha256:19df9f52b40302b6c220a1ba3fc81092e9c75fc57879415d6abfea81a7fd06bb:eyJzZWxlY3RlZExpbmVDb3VudCI6OTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiZTNhZTkzMmQ2OThmOGVhODlmZmI4NzA2NDI3MTNhZGNkNTAwYjVlMjk3NmU3ZWRhOGMwZTEzYzZlYzhiYzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwMmQyYzBkNmRjNWU3NGQ5MmZhMTRiOTFkYmVhMjY0MDkwYmViMzVmZGI5MTg4ZDliMzQxMTgxZGNlOWY0Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4ZDhiNjIxNGYzNzBiYTI2MzRjYWU1ODEwMWRjYTk5YTkzN2EzYjg4ODc1OTExYWI0YWM0M2YyNWZkMWZmNjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -140,7 +140,7 @@
       "evidence": [
         {
           "resource": "repo://PORTING.md",
-          "version": "repo-file-v1:sha256:575632873496ccdacc73a6b3792fe0afe72a91c937c55dacb987860fb52cdf8c"
+          "version": "repo-file-v1:sha256:888e6ffb4a9cb4f55827f486bc7eb42b3ee57cc345cc4d63dc2dabef3b1e7c38"
         },
         {
           "resource": "repo://README.md",
@@ -148,11 +148,11 @@
         },
         {
           "resource": "repo://TEMPLATE_API.md",
-          "version": "repo-file-v1:sha256:1110ba5b7cf1fa5c41bde406446993e22a651625447860047ee627fdf874b16f"
+          "version": "repo-file-v1:sha256:c7b017129f2825a5847c575cfca1e944861e3d6e10174527438bea3d2cd9c3e1"
         },
         {
           "resource": "repo://TEST-CASES.md",
-          "version": "repo-file-v1:sha256:2795d44aa804f17ac2c1d465f6f990888e8b0416a800c79e00e060526f9b0d00"
+          "version": "repo-file-v1:sha256:9e3aad0d1086803897c26d06ac70313e3811751202d873072ea1f7f33bd6f4ec"
         },
         {
           "resource": "repo://specs/done/account-team-management.md",
@@ -166,19 +166,23 @@
     },
     {
       "id": "claim_6096413fe8ab453285f8eb3d092fd25d",
-      "statement": "Key dependencies are @ulabase/kit-ng ^0.14.0 (Angular adapter that provides RhAuthService, guards, and HTTP interceptor, with @ulabase/kit as its dependency), @ulabase/cli ^0.14.0 (dev tooling for ulabase setup), @angular/core ^21.2, @angular/ssr ^21.2, and express ^5.1.",
+      "statement": "Key dependencies are @ulabase/kit-ng ^0.15.0 (Angular adapter that provides RhAuthService, guards, and HTTP interceptor, with @ulabase/kit as its dependency), @ulabase/cli ^0.15.0 (dev tooling for ulabase setup), @angular/core ^21.2, @angular/ssr ^21.2, and express ^5.1. package-lock.json resolves @ulabase/kit-ng, @ulabase/kit, and @ulabase/cli to 0.15.0.",
       "evidence": [
         {
+          "resource": "repo://package-lock.json#L4113-L4140",
+          "version": "repo-lines-v1:sha256:1bc6a361a2cd9f3daf2269d0672bae5a4cf1c6d5d44fe25a838316b830149932:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5OWQ1NDIxNTVmMTI2Y2RkNDViYjMxNDRhNGI1YmFjOGFlYjUzMWU3YzgyYzRhMzUyOTgxYjc1ZmFmYjZkZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyYjAxOGZlNDgyMjVhYzZlMTNkOTk1N2RjZDhlYjJiM2E4MTRkZDg0NTc2YTM0ZDdmOTc5ZGUwNGU4YmM2MGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIwYzIyMDg1ODdjYTk2ZjE5NjZkOWJiYmI0ODdkMjU4NmM5MjkzZmM2NjVmN2Q2NDMxN2U0Njk5MjE4NWU5NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFiYmRhN2JjMDlhMDgyNDAwMjVkYzA5ODU5ZWRjNDU5MjZhMjZkOGViYWM5MDY1ZmMxMWE5OThlMzI2NzZjMGUifQ"
+        },
+        {
           "resource": "repo://package.json#L14-L39",
-          "version": "repo-lines-v1:sha256:560cb10945f8b3ebe86d18d85840fa543399758132c1a9a6dc200c7063a13129:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJhM2I0NjlkOWUwOTc1NzIyNDY2NjczNGM5ZWY3YjI1NGQ4ODUzNGY1ZDViYjcwOTg5NjA4MDVjNTUzZGMzMDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNWNkMmZiNGYzZGY4ODQ1MTUyNTViMzk1MjNmMmY4YjU0NzJiZWVhOWY1NjZmZmNhMjA0ZGI4MDI1NjEwNDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5ZGNkYTllYjQ4MzgyNTA5YzVlOTUxNTVhY2E4ZmI4ZjFmNzI4ZTlhNmY2Y2RlMWYwNDk1ZjgyNTI1YjZiYTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5MzVkZjIzMWMwMDQ1N2NlYWNlMTFlYWQ5YTU3MDk2NTBlZmIyMzY4ZTRkZDAyNzhkNTU2ZGNjM2UwN2UxMTgifQ"
+          "version": "repo-lines-v1:sha256:e24132b2c8929bfed88874ddc8ccad6f16e015623f0883770637195a4dc3a7ed:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJhM2I0NjlkOWUwOTc1NzIyNDY2NjczNGM5ZWY3YjI1NGQ4ODUzNGY1ZDViYjcwOTg5NjA4MDVjNTUzZGMzMDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNWNkMmZiNGYzZGY4ODQ1MTUyNTViMzk1MjNmMmY4YjU0NzJiZWVhOWY1NjZmZmNhMjA0ZGI4MDI1NjEwNDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5ZGNkYTllYjQ4MzgyNTA5YzVlOTUxNTVhY2E4ZmI4ZjFmNzI4ZTlhNmY2Y2RlMWYwNDk1ZjgyNTI1YjZiYTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5MzVkZjIzMWMwMDQ1N2NlYWNlMTFlYWQ5YTU3MDk2NTBlZmIyMzY4ZTRkZDAyNzhkNTU2ZGNjM2UwN2UxMTgifQ"
         },
         {
           "resource": "repo://package.json#L23-L23",
-          "version": "repo-lines-v1:sha256:55e633f62d25a25ae531b44ea0efdea20434505ead4d7a111df6d82b41c46d42:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlNjMzZjYyZDI1YTI1YWU1MzFiNDRlYTBlZmRlYTIwNDM0NTA1ZWFkNGQ3YTExMWRmNmQ4MmI0MWM0NmQ0MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTVlNjMzZjYyZDI1YTI1YWU1MzFiNDRlYTBlZmRlYTIwNDM0NTA1ZWFkNGQ3YTExMWRmNmQ4MmI0MWM0NmQ0MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
+          "version": "repo-lines-v1:sha256:b210304d35a83c5fe97fef943dde9915f5e3c19a92cd6d252f98f3a923094669:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjIxMDMwNGQzNWE4M2M1ZmU5N2ZlZjk0M2RkZTk5MTVmNWUzYzE5YTkyY2Q2ZDI1MmY5OGYzYTkyMzA5NDY2OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjIxMDMwNGQzNWE4M2M1ZmU5N2ZlZjk0M2RkZTk5MTVmNWUzYzE5YTkyY2Q2ZDI1MmY5OGYzYTkyMzA5NDY2OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2JiMGMwNmQwMzJmZmE1NTNlZGJmZDUxOGEwNGExYzZjODljYmQ4N2I2ZDE1YTExZTlhMzdlMjJlNzIxYTM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZThlOWI5NWM3NGQ1MTM4MjQwOTVkYmNiZTU3NzUzN2I0Yjc0ZDJjNDg1ZGI0ZmU1MTkyNGU1NmU1Y2EwNTMxNCJ9"
         },
         {
           "resource": "repo://package.json#L34-L34",
-          "version": "repo-lines-v1:sha256:a5c186c54908094888052ece13f495160a7f2fea6e448598633142fdc3d1210e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTVjMTg2YzU0OTA4MDk0ODg4MDUyZWNlMTNmNDk1MTYwYTdmMmZlYTZlNDQ4NTk4NjMzMTQyZmRjM2QxMjEwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTVjMTg2YzU0OTA4MDk0ODg4MDUyZWNlMTNmNDk1MTYwYTdmMmZlYTZlNDQ4NTk4NjMzMTQyZmRjM2QxMjEwZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU5NGVhNTVkNDA2OTk0NGRiZTAwZGZiZmYxNWZjNjMwMDZlNWI3NmMzYjZmZGNlOTZkMzk3NGQxNWI0OTczNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTUwZGQ0NmM3ZTY0YjRjYmE0ZTBhYzkzOTA0YzhlYmQ0OTQ3MWVlNTk2NWU0YTRhNDZlYTA1MDg0Y2NhNTRiYSJ9"
+          "version": "repo-lines-v1:sha256:fc741429c4bc5027b900c7418b02909bf4781fe159e8c5246b614e6901adf54e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM3NDE0MjljNGJjNTAyN2I5MDBjNzQxOGIwMjkwOWJmNDc4MWZlMTU5ZThjNTI0NmI2MTRlNjkwMWFkZjU0ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM3NDE0MjljNGJjNTAyN2I5MDBjNzQxOGIwMjkwOWJmNDc4MWZlMTU5ZThjNTI0NmI2MTRlNjkwMWFkZjU0ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU5NGVhNTVkNDA2OTk0NGRiZTAwZGZiZmYxNWZjNjMwMDZlNWI3NmMzYjZmZGNlOTZkMzk3NGQxNWI0OTczNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTUwZGQ0NmM3ZTY0YjRjYmE0ZTBhYzkzOTA0YzhlYmQ0OTQ3MWVlNTk2NWU0YTRhNDZlYTA1MDg0Y2NhNTRiYSJ9"
         }
       ]
     },
@@ -188,7 +192,7 @@
       "evidence": [
         {
           "resource": "repo://src/app/app.routes.ts",
-          "version": "repo-file-v1:sha256:d42a32a0448823988740596e808268e34359e5d94996ff80322018b0a00ca984"
+          "version": "repo-file-v1:sha256:c9a6014806830f348e134ef95153805f41f321ff817b4bbfba33e1f740cecf6f"
         },
         {
           "resource": "repo://src/app/consents-gate.ts#L32-L55",
@@ -218,7 +222,7 @@
       "evidence": [
         {
           "resource": "repo://TEST-CASES.md",
-          "version": "repo-file-v1:sha256:2795d44aa804f17ac2c1d465f6f990888e8b0416a800c79e00e060526f9b0d00"
+          "version": "repo-file-v1:sha256:9e3aad0d1086803897c26d06ac70313e3811751202d873072ea1f7f33bd6f4ec"
         },
         {
           "resource": "repo://src/app/pages/teams/new/new-team.ts#L34-L34",
@@ -253,6 +257,6 @@
   ],
   "verification": {
     "by": "openwiki/0.9.0",
-    "at": "2026-11-10T15:38:04.761Z"
+    "at": "2026-11-21T15:24:47.543Z"
   }
 }

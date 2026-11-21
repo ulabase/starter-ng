@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:93bcec3d30938db25527cf8314d86f904fe166f32a6e9e5edf0a4b32cca8a9ff",
+  "claims": [
+    {
+      "id": "claim_3d28380dabb04a2fb3449b08c93949b3",
+      "statement": "Email signup calls auth.register with an auto-generated team name (`${firstName}'s Team`, or the email local part when the first name is empty) because the API requires a teamName but the form does not collect one; a 409 is shown as \"An account with this email already exists.\" and a successful submit only shows the check-your-email panel — the user is not signed in until the emailed link is used.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/signup/signup.html#L2-L7",
+          "version": "repo-lines-v1:sha256:6c871f36dc02988633877cd45eede2dad7bf8e7627b894710af3f831dc6fc46b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWU5NmM5ZmU3Zjk0OTdlNGU5NjZhMWMyZWVmYzQwYjc3MWFmZWY0M2QyNzQwZGQzOWQwYzY3NjQ1Zjk3OTc0ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjY2MGRmNjhlZDJlMmM3OGY0ZTFkZTk3NTU3YzQ3MGQ0MTRhYjUxZjZmNDI0MjMwNWRkODlkMzhkZDU5ZTQ4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGQ4NmRkNjkxMDM0NGQ0ZjdmOTA2ZjI2ZWMwZTVkMzI4NmE3ZmUyOWQxNDgyNmUwMjQ2OWJmOTgxNzcxMjRjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzI0NzBkZWZkZjQ1MTUxZjYzNjJkZTQ1Yzg1ZThkNWM2MjdkODM0ZWE2YmIwODRkZDQ4YTliOGMwNzljN2YxMCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/signup/signup.ts#L36-L58",
+          "version": "repo-lines-v1:sha256:c247d1e488cdf2378d27a242314979c068d1b9e1390ab0d2122184d729e14a2a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3OTJmODQ3YmIyMWNiMjkyZGQwOWY3ZmE2ZTdjYWM0YThjMTRkOTdkMzg5NjMzYjNkMTUyMGVhMTRiNWIxZGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlYmY2ZThkZmU3NWNkNjFhYTBjY2U0MmQ1MzYyOTQyOTg0Nzk1YTQ2ZDc2NTMwMDJjODAxNDAzNGM2MzNmMTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2MTBlZGI5ZWQ5MTk4MDEyNWZmZmZmZWJlNmVkMTIzMmMzMzUxMjM0ZDg5OTI1MGFjM2EzMTc2NzE2YzUyMGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_83f04ac133b54d9c923616df502a495d",
+      "statement": "The verify page performs no client-side token exchange: on construction it calls auth.verify(email, token), which returns a redirect URL that the browser is sent to via window.location.href; that redirect carries the new session as `#access_token=...` in the URL fragment with no follow-up POST /token.",
+      "evidence": [
+        {
+          "resource": "repo://TEST-CASES.md#L12-L14",
+          "version": "repo-lines-v1:sha256:1eaa25836584c38d63e19e01bd7b5ab272ae9f05642abc3618a862709e6da1c4:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ5ZjgwMjMzZmU1NDEwOTU1OWY0NTc1MzcxYzhmYjhiYzZjNmI3N2Q1NjQzOTNhNWJiZjUzMzZjMDJmZDk4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQ2MTQ2MjI3ODM4NGE5MTA4YzAwOTMyNjk0Y2RjODYzNzgzODYwNzcyNzQyNmRjMGVjM2MxNDY4MjVlYTk2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWIwZjhhMDM2NjJiY2QyNTdjYmEyY2M4ZmU4ZmZmYzZlMWExNzI2MWQwY2I4MDQ1OWFiMjZiYjliMGFhYzAzMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmM5MmMzZTNhZTA0YzYxNDMzYzJjNjljY2QxNjNkYTExNjcwZjM0ZmM4NzM1OTNkNzZmOGUxYmQ5ZDIwMjZmMSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/verify/verify.ts#L22-L31",
+          "version": "repo-lines-v1:sha256:39099982a972ecdcc8b17c013d929277756717a7f7dd2883f5d1fc88fffad7b2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwZjAxYmM3ODk2YTAwNDVmMjI3N2JiMmQ3MGI4NzZhMmYxZTNiODA1ZDE4Y2M4MDBjN2M5MzQxYWJiZjc4YWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxN2FmMTEwMWM5N2I3YzJmNTI1NDA3ODJlNjM0Y2M0NDQwZjBlOTcwMzQxZTUyZjk3NTIzMTFkNzhiN2Q3ZDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQzZDYyYmJlMDc1NmYwNjlkNDM2MTQ4MTIwZjY3Nzk5Y2ZhM2E2MzdjZjE2YTU1NDExYzg4ZDFmZjZjZTc4ZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBlMGY3MjkzZDE1NmE2ZDEyNTI4ZGIxMjkzMzc5ZTUyYTVmODM2NzA0NDI5N2IyMjgyYjk3ZmYyYzg2MDQzOGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5884dd25cdf84a38adeba36aa858d548",
+      "statement": "On app start in the browser, consumeFragmentToken() stores a fragment `access_token` with setToken(), starts silent renewal with scheduleRefresh, raises the justSignedUp signal from the one-shot `?flow=signup` query marker, and strips both from the URL bar with history.replaceState before route guards run.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.ts#L17-L41",
+          "version": "repo-lines-v1:sha256:adb8d2d17347f17c2db747d5776a83202f5d4d8785b9710c444b8468e80e6aa7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyMWEzNjQ2ZTY3ODY5NTQzMjJkYzdkMzk2ODEyZGM0MGI5MDY4MjEzOWExZWRlMzYxMjcxZTM1YWE0OGExN2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0NTM3YWYwZTQ0MGIzMjVkNjc5NWU1YzdiNjJhNjE0MDJlZTRlZTQ1MzdmNzA0YWYxOWU2NTFjMDk5N2UyNmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwMWYwOWJjNzFjMDAwMDFlNjYzM2ZhOTA1MGM0NjY3Yzg0YjI2YTliZDMxNmFjMGYyOTQ3ZDM5ZmI2NTJkZGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU1NjRjOWNlMWU5YTExOGYyNTlmZDFlNzk5MGUzYmNhMjI4Mzg5MWFiMjBhYzJkOTM1N2E4YTU1NTE2YWNlOGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c588690a879644faa89ddb7409288f33",
+      "statement": "justSignedUp is an in-memory one-shot flag raised for any fresh signup (email verification or OAuth), copied and immediately reset by the Shell so the welcome banner cannot reappear on a later login; because it is shared with OAuth, the banner copy must not claim an email was verified.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/just-signed-up.ts#L3-L9",
+          "version": "repo-lines-v1:sha256:6ed9dad7b92e084c8e72d7cb2668fc99106d129b6b7179c1efe049c9d7ab55ae:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFmMjJjZjA3MzI1OTJjMjQ3MTQxY2JlNjFlZmExMTAxMjYxMmY1YTMxMjJiOWFmOWJiYWY1MmY1NzI0ZDE5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE3MTZkZWQyMDhjMWY1YzA0MWU4MzYwZDEyN2Y2OWNmYmExNThkY2ZkMThmZmE4OTU5YjQxYTA0Mzc0YTA3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjMxNTdjMmZmZjBlYmMxOGRlNzI3YzA1Y2VlOWM1ZjRjOGI0YThhNDkwN2IzN2VmZDg1OGUzNmExOWNkOTlhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.html#L67-L71",
+          "version": "repo-lines-v1:sha256:f4ff13a434397d5f43ea258dce16bff8700d65ab021aab302275b0795114a367:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzg1MGUwMGU5YWUxZmIwMmVmMjNhNGI3NWVmMDFhODQ2YTBkMDQyYTBmNDUwNWU4ODZhNTUzOGFhNzZiZGVjMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA1NjMwNGIwZWVhYmQ4OGFkNGNiZGQ2MGJkZjQ2NjUxYWQ4NTdhZDFlMDEwNGU0MmFiZmY2YjA0M2FlOGVhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODM0NjhjNGIzNzhlOTg4OWFiMDkyNDQ0ZjVhNmExNWRjZjg5YTMwYzdmODFhNTYyMDdiYmZiMTU3Y2JhMDM3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTc1YWFkMzIyY2VjNDM1MTcxNDM2YWEzMTZhNzYwOGI4NjY2ZmI2ZGM0YThiZmM2MGZkOTA2NzkxMTM2NWMyMyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L28-L42",
+          "version": "repo-lines-v1:sha256:a3d634cfe8a0cadd250a2d0673b9f27c4288af97b811065ad98d3db74ddf95c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlZmFjNTdiMGI1MTlmYzdjZDkzZDhmMzZmMDNmMzY1MmJiZTRmZTcyZThlOGY5YjY1NmI0NDg3Zjc0NTI0NjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRjZDdlOWQzYTUwYTY3MmI3NmFjMWQ4ODg2YmIzOWFiZmRjMzU2MzQzYzdmNGU2MjIwMTg1NDU5YTMzYWRmNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0MTZmODliMzFlMGJlOTU3MDExNzkzZTBlNjA1YmI4YTBmNDExYWE4YTMwMGU0NTMxYzM2ODIyZmI2NjA5MDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c1238906c77d47c88697283705cbf73a",
+      "statement": "Login maps a 401 to \"Invalid email or password.\" and surfaces backend link failures through `?error=` on the login URL: ERROR_MESSAGES.invalid_token is \"This link is invalid or has expired.\" and ERROR_MESSAGES.token_expired directs the user to \"Forgot password?\" because that flow also verifies the email.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L28-L32",
+          "version": "repo-lines-v1:sha256:1966fe7fe176f7d936718ffcc57ae7273ecd5d1b5d8b29a121d97c5bdb7764fe:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjI4OTdjMjZjZWMwZDVkZTQwM2UxMGQ1MTMxNDk2MDdhYThjMjU2NDgxMjdlNzVjMDIzZDliM2ZkZTNjZjdmNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzQ1MWY0YjQ0ZjI5Yjg1NTI4MWJhYTM4OTBhZGY1NGNmNDNjZmJlZjM3NjRjYWVjN2IwMjQzYzNmNWFkZjdkYyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L5-L10",
+          "version": "repo-lines-v1:sha256:9f66a525e36ed7712d312d5516f72ea4475a7ac3ffec775fa54fa0e13e6dff35:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmU3MGQ1Y2VkZjk3M2UwZDU4NjY1OGM4NmZmODkyMTc5MWY1YzQ2ZmY4Yzk0ZDY4MTQyZjIxM2ZlZTRmMzZhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjYyODlmMzQ4NWU3NTVlNWMyYTdkNDc3NzFlOGYzYmE4YjI2MTRiYmE3MjI1ZDdkNDIwMGZmYjFkMWYwY2VjNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjNiOTc1ZGM2N2ZkYmYwMzFkZjkwNDE4MmYyNDFmYWUwMTFiNmJlODZiNWE5ZGE0NDRhZDQ3YmFmMjk0Y2YyZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWM2NTFkMWVjNjViYjBlZjJhZTBlMTU2MmI1ODllZDEyNGUyNWNkM2FkM2VkYzRmMGQ5YmRjNWEwYzlkOGRkMCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L54-L58",
+          "version": "repo-lines-v1:sha256:d0dd57b31ab952e6c791c2324d775053fb2a41c9c98d9ebeec02c81fa39761ad:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmUyNWM1ZTY0MDkxM2YyOGQ4MzcxZWRiNzA2Y2VkOWJlMGRiNWRlODc3NTdiOTAzZWNkYmIxNWVjNTcxOGM2ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJkMTFjYWY0M2U5N2VmMzY5ZTZiZWVkMWEyNjhiZDA1ODM4ZjI5YjlkZDI1NGJmNjliYTY0ODg0MTQ3MjM0YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzFkOGU2M2EyMmQ0MGM1OTNhMjFjMjFjZjllOWJiN2MyZTkxZjE0ODRmMzM1OTMzYmExMWI4NzU3ZjIzNjI3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWNiYTRlZjA0NWViODk3ODI1ZGM3NzBiMTYxZWJhZmZkNjk5M2VlNDg3YWJkMzZlMThkNTYxM2VhMmQ0NjhjNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f8f2af32b2c14e7082e45e41fe7b0d36",
+      "statement": "Successful password login establishes the session (and loads teams in the same round trip) and navigates to the app root; logout calls auth.logout() and navigates to /auth/login, clearing the session.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L70-L78",
+          "version": "repo-lines-v1:sha256:822a685f19a3b774eff359361e1b027c55fc2fd960d71314308dae5b02766fb1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODhiNzdmZmE3MzkyMTVmOWJlNDVjOTE1ZGI5ZTI0MzYxOWE5MDhiODE2N2RkMmI4NmY2ZWM3NjNlNTNhYTQ4YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTljZjQzOTgxYjVjNmQ0M2JlZjYzMzMzYTE5YTIzZDZiZmE3ZmI4MDgzZTRiNGE0OTA3ZmViNDI4YzkyNmIwOSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L38-L50",
+          "version": "repo-lines-v1:sha256:92f5d7defea1204025963ba56e7609bcb9b6d209c6718120d6b8abffda4d81cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkMTJjMmVhZDgzOTIwZjBmNmViYjg2ZjRjMTkyNjExOWE2ZTViZDUzN2FjMmE5ZGY2NGM4NGJhOTMzNWI2OWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5OTExYzgyZDMzODdkZDBlNDJiMGQwMjVhZTljMjkyNTU5OTcwNTFjODljYzVmNTI5ZjhjZDA4YzE5NTViNTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNhYTkxYTY2NjVlNTBkODQ3MjJhMjI1YTRiNjAzYThhNGZlNmU4MmY4NTdhMGE0MGViMDA0NWMwZjgzZmMwYzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMxZDhlNjNhMjJkNDBjNTkzYTIxYzIxY2Y5ZTliYjdjMmU5MWYxNDg0ZjMzNTkzM2JhMTFiODc1N2YyMzYyN2QifQ"
+        },
+        {
+          "resource": "repo://src/app/pages/shell/shell.ts#L111-L114",
+          "version": "repo-lines-v1:sha256:8259fcba45799e90af50746f25da4f12038baa3b1870dd415440411066b62d71:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDBiMWI0MTA4Yzg3ZjliNTg5Y2Q0MzkxNTViMmMwMDMwYWI4ZDU3MzIwYWQ3MzMyNmIxMWFhZTU4OTVmNTJkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjM0MmJkYWNkNDIzYzEzOGRkNjc0ZjQzMzNmNzRmNGE5MDhhYzRiYmY0NzNlMjY2YWE4ODQzM2VhODFmMDU2NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTg3ZTQxY2RmNWU1NDk0OWE4MzNmZTg4NmY5Zjc4NmE0M2IwNmM1MDg1NmM3NzBkZDYyY2E5ZDA5NGMyNGI1YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_660cec4c0ca24be6b5e4007a83d11114",
+      "statement": "Session persistence after login or a fragment-token redirect depends on the kit-stored bearer token: authGuard's checkSession() restores the user and teams on reload (short-circuiting with no HTTP when no token is stored), and scheduleRefresh silently renews via GET /token?renew at about 80% of the 15-minute token TTL.",
+      "evidence": [
+        {
+          "resource": "repo://TEST-CASES.md#L22-L24",
+          "version": "repo-lines-v1:sha256:a25c0ab167be6c8df25a9e931ba04c118b96e3bf887e3361d862ede3c6ea1d29:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzM1ZjVkZDZjYTk5NGM4OGRmMmY4ODEyOWIzZThmZTJmMTQ5OTU0NDk2YTA4MDQ5NDFjNzhlNTBiMDc5NDJhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTg3MDA1YzViNzdkNzFkNzA3Nzc0YjU5ODYyOGZhMzIzZTU2Yjg1ZTk4YWFmODI5MTJmZDY0MTlhODNhYjJhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDBkNmI5YjYxNTVkMmEzOGMzNzNkNDY5ZjMwMTcyOWUzOGYwMDFjYWYwYmM1MTFmMjY4ZjFmMDA5NzFhMDFjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzUwN2VhZDZjODQxM2Y5YmRiOTY1NmM1MjUwNDRmMzBiOGRjMmM2MTU3Y2RhYzVkNzAzN2FmN2YxZDJkOGQwNiJ9"
+        },
+        {
+          "resource": "repo://src/app/app.routes.ts#L82-L84",
+          "version": "repo-lines-v1:sha256:df39bfb6130de254f91491d41deee7175814e958c872a1daa4775bb702578990:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVkYzVjZDkwMzliYzdhZDg1NDRjZWRmYzkwMmU2ZTEyMDNkNTRmYzQ0MmQyOWZmMmJlY2EwZGYxYzJlNjQxOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjk1NTI0YWZlOGUwZDA4YTYyZDY4MzI1OTAxYmI3YjkyMDVhZGVjODhjYjBhNGMwNjJiNDRjNzBmODUzMmM3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2EyNTJiNDYyZTE5Mjc3Zjc5MDlkZWM4YjhhNDI2YWFiM2NkZjk3MjM3Y2IzOGFhNmM1ZGIzZDExMDQ4MGM2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmVjNDdhZmQzMzcwNjIwNTZmNzBmN2U1NzZmYWQxZjFmODRhYTUwYjk0NmQyYTAyOWVhNDU0NmYzYzFlYzMzMiJ9"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L20-L24",
+          "version": "repo-lines-v1:sha256:c08b7a5df460acc20633e9d6e20faa58454e699be7a4bf3dec804ec5403df6b2:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDRhZDBmNjViOGY4ZmVlNzBkMzVhNTc4ZjJmNDA4Mjg2MTY2ZjQ5MGY1MzBkMjFiNjhiMjJmYTUyMjM2MGY1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzViMWRmMmQzOGZhODhjN2E5ZWZmYWE2NzIwMDgxY2ZiOWYyNWM5ODg4N2ZlNjg0NTg4ZjI5NzUyZmZkNzc5MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTdjMjY1ZTVkNDY0Zjc3YmI1ZDNmMzlmYTlkNzU0MjZhMmE4ODRhZGE2OTkxZDlkZjI3MTM1ODU0NjFlYjU1YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_70ceaf9b527b4b4fbd6a23e90578d27d",
+      "statement": "OAuth sign-in is a plain browser navigation (not a fetch) to `{apiUrl}/auth/oauth/authorize/{provider}?noauthchallenge`, so the service skips its credential challenge and redirects through the provider back to the app with `#access_token=...`; a first-time OAuth user is given an account and a team automatically.",
+      "evidence": [
+        {
+          "resource": "repo://TEST-CASES.md#L56-L59",
+          "version": "repo-lines-v1:sha256:3b5958cb7907bf83ba502fd06033c2f9d7f28a643418340bbf65e08b3248ddfb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQzMDJiYTdiMzA4NzI3YTAzODM5MGViNjU2NGU3MjZiNGZjMmI1OTkwOGY1YWY5YmExOTI0OGEzMGI2YzE0YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmZjNDJmMGM3OGE5Y2RmNWNiNjI2MWQwNDdjZTI2Njk1MDYyMWEzNzM0NDhjMDA1MGY0YmQ4Yzk5YzE5ZWM3MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzgwODQzMjA3NGFhNmZlZDBlZjU1ODYxYmNiOGQzODNiYzdhZGI5OGE5YzQxZDdhZmQ5YjAxYmU4NTk2ZDRmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGJlNDU3YmJhOTdjMWQ0MmQzZGYyOWI3ZjgxZDdlYjY3MmY2ODcyOTg4ZTVlZDYzNGE2NzA0NGVkMzVkNzE1MCJ9"
+        },
+        {
+          "resource": "repo://src/app/oauth-url.ts#L3-L6",
+          "version": "repo-lines-v1:sha256:1a91a4bd6b39699f04b8f4e370ca7e6b5b82023984593c3a72035a0514013319:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NmODRmNDdmYTA4NzU4NDViMGQzMDVhYTgwOWNiNzk0MWJjODY5ZTE3M2NkMjNiZDFkN2QxM2Q2MGM1MzUzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjQ5NmZiY2UwZGE0ZDhlMDY1ZmJhNjVhN2IxMWMwYzcyMzlmZTk5NmE3OWEwZGJkZGE2Nzg2ZGVjZDY2ODgyZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/oauth-buttons/oauth-buttons.html#L2-L4",
+          "version": "repo-lines-v1:sha256:c654e2f85c2866311622ee48cf21cc57e889ffc205951df86735882c55a495e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzY1ZmZhZGMzYzUzN2U3MDNjNzc1ZmViYTRmOWEyYjFiNDM4OWViZDA1NGMwNzMyOWMxNmI4NWRlZTYxNDAyYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmFjNTE2MjdhOTFhMzczY2E4MDkxN2M0YmU5ODdiYjMyZTE4NzIwMDI2MzQyZDE0ZjNjNWQxNWMyODI1OWI4MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmQ0YWZkMjAzYWUwMzYyNGU5NzM5MGYwNzU5OTdiZjY4MTMxMWNkNGViZWMxMmNkOTE2OGFiODUyMWUzZGEzNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDE4NjFiNDUxNDg3OTYxMjU5OWEwNWQwZDRiZGY5MWY0OTk4NjcyYzU4MWQxZGI2ZjA4ZjgxMDg5YTRlZjRhNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cc934190ac2842e19fe0df9b276054cc",
+      "statement": "Forgot-password always shows the same confirmation: the API answers 202 whether or not the address is registered to prevent email enumeration, the client treats success and error identically, and the same POST /auth/forgot-password also resends the verification email when the account is not yet verified.",
+      "evidence": [
+        {
+          "resource": "repo://specs/done/account-team-management.md#L43-L43",
+          "version": "repo-lines-v1:sha256:d4ba64fbc81304e680eda74169c540a37f9c0fd580e063a81bea4a6043b78da9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDRiYTY0ZmJjODEzMDRlNjgwZWRhNzQxNjljNTQwYTM3ZjljMGZkNTgwZTA2M2E4MWJlYTRhNjA0M2I3OGRhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDRiYTY0ZmJjODEzMDRlNjgwZWRhNzQxNjljNTQwYTM3ZjljMGZkNTgwZTA2M2E4MWJlYTRhNjA0M2I3OGRhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDZkYjEyMmFlNjVjNzQyNTkwYzQxYTkzZDg3OTI4Nzk5NzU3ZjNlM2Q5ZmE4NGMxYjZkMGQ0OGRmMGE4ZjRmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWE4OWFlZjExZDA2NDk3NDZjMDhhZGIzNGRmNTZkMmZlZDZlY2E3OTRiMjA1OWE1YTMyYzBkNjQ2Y2MwYTBjNCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/forgot-password/forgot-password.html#L2-L6",
+          "version": "repo-lines-v1:sha256:ca124ace7c2df1b15043ba3a59bdf2817f713fd14f35a3a6b2c80604ee4ef91a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWU5NmM5ZmU3Zjk0OTdlNGU5NjZhMWMyZWVmYzQwYjc3MWFmZWY0M2QyNzQwZGQzOWQwYzY3NjQ1Zjk3OTc0ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA1NjMwNGIwZWVhYmQ4OGFkNGNiZGQ2MGJkZjQ2NjUxYWQ4NTdhZDFlMDEwNGU0MmFiZmY2YjA0M2FlOGVhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGQ4NmRkNjkxMDM0NGQ0ZjdmOTA2ZjI2ZWMwZTVkMzI4NmE3ZmUyOWQxNDgyNmUwMjQ2OWJmOTgxNzcxMjRjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzNhZGEyZGFhMDE3NDY5Mjc1MDk0ZmU0MDU5ZDAzOWYxZjA5ZWVlYzU0ZGE2Mjc4MGQ2ZTRmZTgxOWIwZWExYyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/forgot-password/forgot-password.ts#L26-L35",
+          "version": "repo-lines-v1:sha256:961eebd5e121707cf9c5493aa9eedb354f20268a68daf492a1cba6455124d212:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3OTJmODQ3YmIyMWNiMjkyZGQwOWY3ZmE2ZTdjYWM0YThjMTRkOTdkMzg5NjMzYjNkMTUyMGVhMTRiNWIxZGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5NTI4MjY3ZmQxMzRkYjRkODUwOTBiZThmNzExYjM3NzI1OGFiZGZjY2FjMmUwNGYyODIwNTI4MWFjNTI5NzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlYmY2ZThkZmU3NWNkNjFhYTBjY2U0MmQ1MzYyOTQyOTg0Nzk1YTQ2ZDc2NTMwMDJjODAxNDAzNGM2MzNmMTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJhYTQxYTA0MGMxMTY1MWIwYmFlNzVjYjM0Mzk4OTgyZGQ3YWQ4MDlhZThhZWFlYWZlMmI4MGI4NzZjMTAwYzYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ba926d061f05438faa0dd6e2025e28f0",
+      "statement": "Password reset is delivered as PATCH /auth/reset-password?delivery=body: the response body carries access_token directly and the app must issue no follow-up POST /token; on success the user is already signed in and is navigated to the app root, while a 401 shows \"This reset link is invalid or has expired.\"",
+      "evidence": [
+        {
+          "resource": "repo://TEST-CASES.md#L28-L30",
+          "version": "repo-lines-v1:sha256:8728441c20d9da4e598b8f0510c24c2d6f59922740ae40b5fc7eaf6d06f385d3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY4Y2Y5YWQzMGUyOWFmY2ZlMWVjZTE4NmZmNGUwNDA3MDliZmJmMjU2NDgyYzIyZWQ3OWI2OGE0MjAxMDk5YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQzNjQxMTk5ZmMyOWRhMmM2MTFmZTI3ZTU5NmM4ZDZjMjA5NzdlMjcxYTU5NTM1YmZiYjA1NzY0Y2YxNjdmYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzUwN2VhZDZjODQxM2Y5YmRiOTY1NmM1MjUwNDRmMzBiOGRjMmM2MTU3Y2RhYzVkNzAzN2FmN2YxZDJkOGQwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODhjOWRhODU3MjE4MGY5ZjVkZTAwNjdhODE2MDcwNTZlZDA3NWVmYzJiZWMyNjdhYzA3ZWY1YmZmNzlmMmM2YyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/reset-password/reset-password.ts#L36-L55",
+          "version": "repo-lines-v1:sha256:f0e086dd83019b80fd530edccc6817ecff01c643740235754f00201cd541b4a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1NjIzMDk1ODI0MWIwZGI1MDdhZjA4ZjczZTI3ZjBlMjRlYjZiYmQ4YWUwOTM1YmY2MDE1MWM1MTE2YmMxOTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJkYjkyNmEzNjA3NDY3ZTZhZTZkZmZhMjc5MDM4OGNmNWUzZGRhMjJkZWE5NzNmNmFlYjA5MmEwZjc2YzU4ODUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NTg1NjAxMjUxZDUwYWM0NmYwNTU4ZjViYjdhMmE3OTIzMDE1MTI2ODliNTIyYmZlOTUxZjdjOGQ4MjlhNTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8a8c1a40042e47078103703ef16e3974",
+      "statement": "A dead verification link is recoverable rather than a dead end: both the verify page error state and login.ts's token_expired message point at \"Forgot password?\" and state that it also verifies the email, because completing that flow reissues a link and verifies the account.",
+      "evidence": [
+        {
+          "resource": "repo://specs/done/account-team-management.md#L43-L43",
+          "version": "repo-lines-v1:sha256:d4ba64fbc81304e680eda74169c540a37f9c0fd580e063a81bea4a6043b78da9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDRiYTY0ZmJjODEzMDRlNjgwZWRhNzQxNjljNTQwYTM3ZjljMGZkNTgwZTA2M2E4MWJlYTRhNjA0M2I3OGRhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDRiYTY0ZmJjODEzMDRlNjgwZWRhNzQxNjljNTQwYTM3ZjljMGZkNTgwZTA2M2E4MWJlYTRhNjA0M2I3OGRhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDZkYjEyMmFlNjVjNzQyNTkwYzQxYTkzZDg3OTI4Nzk5NzU3ZjNlM2Q5ZmE4NGMxYjZkMGQ0OGRmMGE4ZjRmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWE4OWFlZjExZDA2NDk3NDZjMDhhZGIzNGRmNTZkMmZlZDZlY2E3OTRiMjA1OWE1YTMyYzBkNjQ2Y2MwYTBjNCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/login/login.ts#L7-L10",
+          "version": "repo-lines-v1:sha256:f76851b228d46b3d5eb874098ed6f6eda22e815b7841fe98c920a7166ad68b71:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWE2M2JiM2YyMDdlMTBjOWNmYjVkZmIxNzA5MmQ0ZTI5ZjFmNjY2NGI4MDFlNjQ0NmJkMTcwMDdjOGIxNGQxNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjYyODlmMzQ4NWU3NTVlNWMyYTdkNDc3NzFlOGYzYmE4YjI2MTRiYmE3MjI1ZDdkNDIwMGZmYjFkMWYwY2VjNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQyNjFkODI0MmQ4MmY1Y2FmZDE3NWM1NWEzYTkwMTgwMzU0Njc0M2FhODIxYzg5NmM4YzZjMTRiZDZjYWNlMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWM2NTFkMWVjNjViYjBlZjJhZTBlMTU2MmI1ODllZDEyNGUyNWNkM2FkM2VkYzRmMGQ5YmRjNWEwYzlkOGRkMCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/auth/verify/verify.html#L7-L12",
+          "version": "repo-lines-v1:sha256:839ba2c3f5fa616ccaa126d5d733c80bf882f6c878c8f01951c60e35e7401d34:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTdhOWE0ZTAzY2IyNTA2MTRlYTUzNGE2ZjgyOTZiZjY3MGIyOTU1NjZkNTZkNjkxZGFkMjg1ODVhNDNhNWZhNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDhmOTM5NDMwNWYxNDEwNDFjY2Q2MTI5MGIxYzRkMjE0OTMxMjI0NDg3YmJkY2M0YjczZWY1NjdhNDIyYWFjZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjVhNGUzYjlhODIzNzZlZGZlMWNkZjU3NWQ3ODI4ZjQwZGMwMWU2NzNhMTkzZjMyNzQ1MzE3YzAyMmI5ZmYwMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjFmYzdjMjk5MTkwNjgwMTI2YTRhYTg5YmQ5YWVjNjgyNzVkNDc0NTEwYWExNTQzZGVjYzZkMjkxOTYwZWExYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_96623e5a851d402795a5d501978fd37e",
+      "statement": "Every auth screen (login, signup, verify, forgot-password, reset-password) is protected by publicGuard so a signed-in user is redirected into the app, while the authenticated shell is protected by authGuard so a signed-out visitor is sent to /auth/login.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.routes.ts#L24-L65",
+          "version": "repo-lines-v1:sha256:7dcaeb99c3609fb7c72efc3b258ada00ba20b08ea42d9c789082ad589b854dcd:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxMTFmMjM5YWM2NWM5ZmVjZDRmNzk3NWQ0ZWUwYzY3N2I1OGE4ZWE2Nzg1MmVhMjVkMjc5MjM5MjUxOGQyZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFlNjczYWJkNDU3YTk3ZWVhMTdhNjAwNjJlYjBmYWVhNmJkZjA5NDg2OGNjNmI4ZjhjMGViZGEyZjYxZWQ0MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBkZTViNDkxNDRlZGEwNmQ3ZWY1ZjFkYzZlYjIzZTcwZTVlZGI3MmIyZTg2OWNmNTFiMWUyZDIxMmE4ZWMwZmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmYmI0YjFhNTVkZGJmOGM1M2ZjOTcwMzVhNDY5NTI4MDkwM2RjMjc2ZDU3YjQzNjc2OGNhOGNkNTY1ZTZkM2EifQ"
+        },
+        {
+          "resource": "repo://src/app/app.routes.ts#L82-L84",
+          "version": "repo-lines-v1:sha256:df39bfb6130de254f91491d41deee7175814e958c872a1daa4775bb702578990:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVkYzVjZDkwMzliYzdhZDg1NDRjZWRmYzkwMmU2ZTEyMDNkNTRmYzQ0MmQyOWZmMmJlY2EwZGYxYzJlNjQxOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjk1NTI0YWZlOGUwZDA4YTYyZDY4MzI1OTAxYmI3YjkyMDVhZGVjODhjYjBhNGMwNjJiNDRjNzBmODUzMmM3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2EyNTJiNDYyZTE5Mjc3Zjc5MDlkZWM4YjhhNDI2YWFiM2NkZjk3MjM3Y2IzOGFhNmM1ZGIzZDExMDQ4MGM2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmVjNDdhZmQzMzcwNjIwNTZmNzBmN2U1NzZmYWQxZjFmODRhYTUwYjk0NmQyYTAyOWVhNDU0NmYzYzFlYzMzMiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}

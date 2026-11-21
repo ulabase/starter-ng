@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ba21d535b53264398e91a6983c486fea7eaca0bfdb114a8111896acff93a0559",
+  "claims": [
+    {
+      "id": "claim_6e567ad899c046ee821aaea770ce4d3e",
+      "statement": "The package.json scripts wrap the Angular CLI (`start` → `ng serve`, `build` → `ng build`, `watch` → `ng build --watch --configuration development`, `test` → `ng test`) and add `serve:ssr:ulabase-starter-ng`, which runs `node dist/ulabase-starter-ng/server/server.mjs`. The starter requires Node.js 22.18 or later and declares `@ulabase/kit-ng` and `@ulabase/cli` at `^0.15.0`, `vitest` `^4.0.8` and `jsdom` `^28.0.0` as devDependencies, with Vitest globals enabled via `tsconfig.spec.json`.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L27-L31",
+          "version": "repo-lines-v1:sha256:78efb76d2fa86bd771f4f8b3f342bca1aadb83b1649e29a0368ee777ddf5e78d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDEwOWE0MjE5ZGJiYTUzNjE5NDU4NTNkNGE3MzIyZjA4MTIwZWQ4NmM4ZTNkMzIxZTg5YjY1ZTEzNTc1OWY0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWMxMWNjOWI2ZmQ0ZmI2NjNkYjBmOWRmYmUzNzc1NDRhOTAzZWU1MTJlYzhhYTFmN2ExNmM1YjQxYThjZWU4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTJjYzZlZjRiODEzNmVmYTgwM2MwNjFjODAzZGQxZWQ4NDk5Zjg4NGFhZjczNDQ3ZmQwNGJmZGIwNmNmZTA0NCJ9"
+        },
+        {
+          "resource": "repo://package.json#L23-L38",
+          "version": "repo-lines-v1:sha256:89fcf4d5e1c3abfbf8eeb40f81627c446d538e403f8645a02a289b00f7304075:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyMTAzMDRkMzVhODNjNWZlOTdmZWY5NDNkZGU5OTE1ZjVlM2MxOWE5MmNkNmQyNTJmOThmM2E5MjMwOTQ2NjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYyMTI0MmQ1MmY3ZDA3NjAzMGM4MmU3OWMwMGQyZGMzNGNmY2Y4YjFlYzA5MzlhZGI5ZGQ3YjIzZGIyMzNhYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiYjBjMDZkMDMyZmZhNTUzZWRiZmQ1MThhMDRhMWM2Yzg5Y2JkODdiNmQxNWExMWU5YTM3ZTIyZTcyMWEzOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyODQ1MGRhNWNhNmI0MmJjZjRlNWFiNDFiOGFhNGE4NzMzMWQwNjgzMjMwYzMxMTk1ZTBjMDBlYmIzZGFkZjgifQ"
+        },
+        {
+          "resource": "repo://package.json#L4-L11",
+          "version": "repo-lines-v1:sha256:19c2aae4d047ee10d6378ddfaf7873d3c3abe0c71673be937ec7c04ec5cac5c4:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ4MzNkNTk0OWMwM2E0MGNhOTUyNDkxNjEwYTY2NTk2NDRiM2FhNDY2MzYyZjc5OTAyMGRiZjE5ODE1NDdkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzlhM2IzNWI3ZDg3OGUyNDdlNTJiNGU5YzgzZDcyMTgxMzBkZDdhNTUzZmIzOGRmNDNiZGRhOGRlNTUzZDQ0OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDZmYWQxOTJmZjQzYjk0MGYyNjU5YzU3ZjVjMmQ2MmU0NDEyM2ZhNWY3NDM5ZDExY2I2MGYyM2RkYjFiMDZiMyJ9"
+        },
+        {
+          "resource": "repo://tsconfig.spec.json#L4-L9",
+          "version": "repo-lines-v1:sha256:3e017f2ef6aa901fa11ee0a6645dc4af1242de0a47d3e68ff66f16a323791810:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjQ5YjM3OTdiMzA2MDIyZTQ4Y2Y3ZjM4MDJlYjNjMGNhY2RkODhlMGZkMThlMWYyNTNhMmE5YjMwNDgzOWNlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGMyYTNkODYzOTJmNjZkNGRhOGYzNDFiOWI3Y2QxMWJkMjRhYzQzYmU2MWI5YTdjMDk2NmI2NDRhNjA1NGYxYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWJmMGQ4MjJiNTg4YzNlZTg1ZmE0N2FmNGRkMzNlMGVkMTkwYTdkODhkOWJlMGMxYmM2NDBkN2Y0MzJkYmM4YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2cc662f1c10d4d2e844f7eba2fdaef19",
+      "statement": "Production build budgets in `angular.json` are 500kB warning / 1MB error for the initial bundle and 4kB warning / 8kB error for component styles; the `test` target uses the `@angular/build:unit-test` builder.",
+      "evidence": [
+        {
+          "resource": "repo://angular.json#L36-L49",
+          "version": "repo-lines-v1:sha256:a69b4249214afccbe6c813355c19c992d1901dc734d06122070335471fbc3bee:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjJjNDJjZDE5YzZkMDNkODA4YzQ1MjcyMDU1MjgyNWI3ZWExYzViNDkxYjIxODUxMWNhYzc0MTVjZjlkOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlYzQ3Zjk2NGZhOWQ2NWJkNDQ1NGU0ZDZhZjQ4ZDM2MDE3Mzk0ZjcwMjBmOGM5NWExNGIwMmZkYjBjZjQ3ODQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0NTcxNWEzMjUzN2VmNWNlMGQyZWFlYWFmNmY0YWE4N2QwYjcxNGE1ODFmNTljYTJmMTU2MTBhODU4YzMwNDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiODZmMzQ2Y2Q2YjI5ZTZjODdhMzJkZDBhMzVkYTIwOTQ4MDY0MDY1MGJmZjU3NzA4MjczMmI3NDg3OGE2ODEifQ"
+        },
+        {
+          "resource": "repo://angular.json#L78-L80",
+          "version": "repo-lines-v1:sha256:6c9f59f503afd8a5ccf16a9f532d9c66fd16cdc1920935d413e323012481ef60:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDAxMjc0ZmJjYmYxYjg3ODMzNjk0YTJlNTU1ZTVjMWYzYzBmNTk0NzcwMmZlNTRkODFhOTc2MGU1NTdhZTQ2MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTRjNDMyZmM4YzVkMWUwNGUxOTI5N2I3NjA5NDU4OTYzYTc3NGVjNWE5YjJkNTRmY2VjZTY2YzliZmYzMmYyOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDJkMzM1MWVlNTU2YmNkNzY1NDdlYjkxYTE1ZWM4NDQ0NWRhY2Y5NTcyNGQzYzI3NjhhNmZlMGQxNzBlZmYwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTI3MjNhZDU2YTM4ZWVlYzViNmU1MmUxNTY5MDRhNzc4MGYyNDY2ZTBlODdjZDExODQxMDhmYTY1Y2Q4OWJiNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_547d1d9bf01842d993faccd146699204",
+      "statement": "`ng serve` uses `src/environments/environment.dev.ts` through the development build configuration's file replacement of `src/environments/environment.ts`, while production builds read `environment.ts`; both files carry `apiUrl` and the `features` flags.",
+      "evidence": [
+        {
+          "resource": "repo://angular.json#L52-L64",
+          "version": "repo-lines-v1:sha256:073e4509dcba760a755770b7e8cbb6329d4ac4aee83bba525581b6d3244b0131:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEyMzg0MGNiYTMxYTgzZmNmNzJmMzc2MjYxZGViYmY2OGUzNTZiYWZmZWI0YzE1NGUxNzE3YWM2MDIzYzE4NmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1MjJjNDJjZDE5YzZkMDNkODA4YzQ1MjcyMDU1MjgyNWI3ZWExYzViNDkxYjIxODUxMWNhYzc0MTVjZjlkOWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0MjZkZDc4MWY3Yzc4MGNmMGIxZjZkNGE5ZmVjNDk2OTlkNDJlMjM3ZjU1MzBmNGU1NGYzNDE1OTI0YmI3MjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQzMmU2MTkwZThiZWMyMTViOWY4YTkyNmExY2UwYWM2Y2UxNjFlY2MyYzUzMDE0NzY0MzlmNWM1MWIzNmE2NTYifQ"
+        },
+        {
+          "resource": "repo://src/environments/environment.dev.ts",
+          "version": "repo-file-v1:sha256:f701f23ab887942a85d1442e34e56e1ddd0d54eb34eb7419be497f2ed2c21d7d"
+        },
+        {
+          "resource": "repo://src/environments/environment.ts",
+          "version": "repo-file-v1:sha256:3fa6fa5c8aa620e4b80300a5d088d0ebf978d33712dab10195841d9d2c7b1a41"
+        }
+      ]
+    },
+    {
+      "id": "claim_1eef185e9d3c4b12ad085366aa8207c5",
+      "statement": "`ulabase setup` writes the service URL into the `apiUrl` line of `environment.dev.ts` as its last step (`appPointsAtService`), and an empty or invalid `apiUrl` causes `app.config.ts` to register an empty route table so the app renders the connect-your-service screen instead of running route guards against a missing backend.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/app.config.ts#L8-L15",
+          "version": "repo-lines-v1:sha256:b0d04037c204c8e421d3f2e0eb78979961d717498f8724a2d786aca378553c42:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzA3NjhlZDk3YWExM2RlNDdjMWUwZmQxYTNmZThkZjdjNTY2NjAzM2UxNjJjOGMwN2ExZTVlYTJlZTc4OGE4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk4YWNhYTQ4OGVmMGFjZDcxZjBjZWRmM2JmNmI0ZGJmMjhlZmY1Yjc3MTVhMmMzNmFhYTU0ZTFlYTc5NTdlOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjZjM2ViZjkxYTNkMGIzYTFjODYzOTAzYWQwOTM0MTg5NWEzODI1NThjMDlmMWRkNmVjYmFkMGQ3ZTA4ZDBiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODZlODEwNDQyYTU5NjhlYTRmYTIyMjZiZDA2ZDNlMjUxOTYyYWU3MTJhNzBkYmNkZGI0NDFkNGY0ZmJkNjU2YSJ9"
+        },
+        {
+          "resource": "repo://src/app/app.ts#L48-L62",
+          "version": "repo-lines-v1:sha256:30f95bbb7e450c957117ca607c01dbc81b4c114d43b322b627a46ec7d96294c1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImViMTM3OTVmNDViZWNkYjY4NmM4NTMzMDYyOTc4ODkxMmQzMTY3MjU4ZTU0NWNjMjc2YzA4OWJiZWZlNWY3NDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3OTJmODQ3YmIyMWNiMjkyZGQwOWY3ZmE2ZTdjYWM0YThjMTRkOTdkMzg5NjMzYjNkMTUyMGVhMTRiNWIxZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY3M2Y0NjNkNDI4ZmRlN2U4MTFjYmMzOWEwZTA1OGQ1YjUwZGMzMThkZWE3ZDIwNTY5ZGI3MTJhZTkwMDljNTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY2MTY0YmZjNDA1YTgxNzc0NzUxNTMyZGQ1OWJjYjZhNWY5MzA5ZjcxYjQ5MmUzODRkYWI4Njk1ZTAzYzMzNTQifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L84-L110",
+          "version": "repo-lines-v1:sha256:f6e67b24813e93d3c8b3cf9e248b46783b8e8bcbfbfeafa52327ce384e5faf32:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmOTVkZmE0YjA3Y2FiNjQ2NTMyNzRlNmMzNWFhODI3Yzc3NTZlODcxMDc4ZTVkMzUxZmQ3NjgzMjY1NGEyYmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyNGMzYWZiZDRjYmUyOWE4YTQ4YWFhNjhiMzZiZWEwMjc5ODgyNTQ2YWYyZTUyOTU4NzIyNDEzZTMzOTc2ZmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmZDVjZDNlMjlkMmI2NTM1NDAwZGUyM2EyOTJlY2U4YzYzZjA3NjkwNGI4MGRjN2VhMTIyZmZkZmIxZTA3Y2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f299a0dde765449d9e0047eac5fbfab9",
+      "statement": "Feature flags in `environment*.ts` must match the service's Sign-up Mgmt → Features toggles: a feature that is off on the server returns 403 to unauthenticated users, and `ulabase setup` derives the server's toggles from `environment.dev.ts` so re-running setup reconciles them.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L96-L102",
+          "version": "repo-lines-v1:sha256:f52fa7842a0b51af0091fe9423e45c3d74790e3a5a16c332e649aa8cdec683a5:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTNkOGUyZDhhMzk1YzEwODVjZjlkMGY2ZTFjZmMyMjIyMWQ1ZjFkNDc1NjE0ZmRjOWEyODdkYmUxNWQ5Zjc2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjE0ODkxM2ZjMTJhZTJjN2RmOGZkOGZkMmMwODM0MDA2M2FkYWMyZTYwZThiMGFhODBlMjI5OTFmY2I0YTlmNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTlhYTU1NjQwMDBkYjkwN2Y1NGVjMTFlYmNmZTA5Yzk1NDYyMGE1NTY1YWEzYzE0MmJhYzgyYmY4MWQyODQ3NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjQyMDViMjk4MTM5OWU3YjBjYjFjMTZjMThkZGY0NDk3OTM2NGI2ZDJhZDQzZWJlZjQwYmJkMTNhOTJlMzY1OCJ9"
+        },
+        {
+          "resource": "repo://src/environments/environment.dev.ts#L7-L18",
+          "version": "repo-lines-v1:sha256:152c611929243d2b70c0efe0a3465b0a373a6c1fcf0fb36a5e2b1431443b0eb0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkZmRhM2Q0ODQ1NDgwY2RkY2E3MGE4YmE0YWExMDE4NjBmMjE3NjNjZGEwZmYwMTllNjNjYjk0MDJmMTJkYmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiN2MyNWI5MDQ2MzUxYjQ3OGUwYWMyOWY2OWE1NzU2NGFmZTQ2ODdiY2NhZWI3NTU5YWQwOGE5MGQyMTIzNzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L42-L54",
+          "version": "repo-lines-v1:sha256:e6a4640e163da68d20beaac35135d55a9f70a575be54f993bb2fa6c1175577a1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3MGU0ZDk0MmJkYjRkYzg4Y2ZmNzFjM2ZjZTQ5YWM1MDliYTg5MTQzMmU1NWE2YWI2MTAzYmEwYzYxMWQ1NzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4MzkwZjdkYWM2NjIxZjk5NmU4NGE0ZmQ3ZDE4MzM1NzUwYjA3MTAxNDhkZmJjNjZhNjkzOTA3MWE5OTRkMGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNhNjlhZjNhZTQwMmZjNzI5Njg1NjczZjA5ZjVlMjNjODhiZjFkM2U3NGFmZGZiN2VkZGFjYzFmNzA2MzA0ZWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJlMGI3YzYwMjU5YjQ1ZTlmZThmZTQ3M2QwNGQzNjlmNDI1NzZkODE5MmFhMjhmOWFmYTQzNTE5ODhjN2JhNzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a63c5cb1b9544f9883739e611956edec",
+      "statement": "`ulabase setup` steps are check-then-apply and idempotent (`--dry-run` reports gaps without writing), and run in the order accounts feature install, branding name, accounts config (`frontend-url` / `frontend-app-url` and derived feature toggles), conditional Google OAuth credentials, origin-allowlist, and `appPointsAtService` last; `APP_URL` comes from `process.env.APP_URL` and defaults to `http://localhost:4200`.",
+      "evidence": [
+        {
+          "resource": "repo://ulabase.setup.ts",
+          "version": "repo-file-v1:sha256:d6e7ac8abd76049c11571e0a72b263e011908d2b201bb18ceb463bb6a58da24e"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L84-L110",
+          "version": "repo-lines-v1:sha256:f6e67b24813e93d3c8b3cf9e248b46783b8e8bcbfbfeafa52327ce384e5faf32:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmOTVkZmE0YjA3Y2FiNjQ2NTMyNzRlNmMzNWFhODI3Yzc3NTZlODcxMDc4ZTVkMzUxZmQ3NjgzMjY1NGEyYmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyNGMzYWZiZDRjYmUyOWE4YTQ4YWFhNjhiMzZiZWEwMjc5ODgyNTQ2YWYyZTUyOTU4NzIyNDEzZTMzOTc2ZmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmZDVjZDNlMjlkMmI2NTM1NDAwZGUyM2EyOTJlY2U4YzYzZjA3NjkwNGI4MGRjN2VhMTIyZmZkZmIxZTA3Y2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3df2946830fb4c0ab592a00e36d055b2",
+      "statement": "The origin-allowlist setup step adds `APP_URL` to the service's `allowed-origins` and never replaces the list, so a service reached from several origins keeps them all; changing where the app is served from requires re-running `ulabase setup` or adding the origin under Service → Origin Allowlist.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L95-L98",
+          "version": "repo-lines-v1:sha256:68c291b82ece04ea2219e81e0c1266104bb3e79f38e15f63925b8cd86d692d9d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E2YjQ5N2VjODVjODRjZjhhNWUzZTkzYWViMzRjMDMzZjA4OTRjYTFhNTYyYTAyOTY3YjBjYmMwNTk4MjIzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODgyOGNjZmU1NzMxMjNkOTgzYTQ4OWNjYmFmNDAwYzdiMjg3NzMyYThiZDE2ZDA3YTIxNDc4MWY2YzQ3ZTdiNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDljZDRlNWM5OWM0ZTg0N2U1OWY3ZDEyNDgxOWU5NmQ0NmU5MzAwMzZiNDM2NTI5NDQzN2YyNmJlODU5N2VjNCJ9"
+        },
+        {
+          "resource": "repo://ulabase.setup.ts#L204-L230",
+          "version": "repo-lines-v1:sha256:97856e2a0c06cf8efc5eccffdcc1fb2b67c37cb1105fa66c93bcb2773683af10:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjMTJmNGFlYzkwYTBkNTcyMmUwZmIwNmEwODA2NGM2Mzk1NTNhZWExNzhjZTA3NTA0MWNhNmE3MWIyNjQ0NjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2YTMxOGEyMDBkNzc3ZjAyYTA2ZWRlY2RkYmJlNmUxZTA3MWYzZDEyYzE4ZTZmOGQzYWZhMjgxZWE3OTUxNmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlhOTQxNmNhOGRhZjhkY2IzZmE3MDQ5YTMyN2QyNjMzYjFkMWM1ZTQxNjU2OWM0MzJkNDA1MmZiM2YwNmY4NGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU1ZTI2Y2Q5MjM2NmY2MGQ4ZWQ5MmQwMjM5ZjA3ZmVmNzRjYWMxNGFhNjlhZGRmOWMyY2MwZDExZWIwMGE0NjMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_664787045dfb491a9851974872cd2f14",
+      "statement": "The SSR entry `src/server.ts` is an Express 5 app that serves `../browser` static assets with a 1-year cache and delegates remaining requests to `AngularNodeAppEngine`; it listens on `PORT` or defaults to 4000, starting when the module is the main entry or under PM2.",
+      "evidence": [
+        {
+          "resource": "repo://src/server.ts#L25-L52",
+          "version": "repo-lines-v1:sha256:65d0baad94f12f1f809eb5d546ca46be43f2ed3d26655daf82b9b2a9ba28e68c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3MmE0MjkzODJiMmUxNDcxOGUwZTM3YjA1NzBhOGExNzAyOTkxZmNkODQ5OGNkODQwNjBhOGJmNGYwNTAxN2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2NjA2MTBjYzRkZTA4ZjZjMzE5Mzg1MzI3M2RlNmE4ZTdlMjY2ODhiYWRjNzgzNDNkMGU1ZDNmYTQwNDE5YTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY0ZjA1OWM4NDQ4YWMyZWZlNTQxZTBhZjg4Nzg5YzY4YzQyYzEyZmVjYTQwZWZhMDk5ZjJkNjBhM2ZiNmYyY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiZjhmNTI0ZWNjZTVmOTcyM2NiYmZhNzIzNGZmZjgyZTNhOGFiYTU0ZGJlMTY4ZDdmZTA0ZWMyZDlhZjgwNzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cd7a8d5917624c899ee1600ef919ddff",
+      "statement": "SSR render modes in `app.routes.server.ts` must mirror the client routes in `app.routes.ts` (a mismatch fails the SSR build); public auth pages are `Prerender`, while `auth/verify`, the invitation paths, the authenticated shell, and the catch-all are `Client` because they depend on an API call or the browser-held token.",
+      "evidence": [
+        {
+          "resource": "repo://angular.json#L28-L34",
+          "version": "repo-lines-v1:sha256:6fa0d83ae7f9a97d406b630dbb7337f9deec944f9cf642f6b400f5e509a65334:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjRmZDRjNTVhM2JjOTFlZWMxYmM2NzU1ODY5NWVkMWZkMzhhNjIxYjY4ZDE2MGY1N2M4ODhkZmFiOGQwYmRkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWEyMjhkNDhiY2EyYzRjYTIwMWJmN2ZkOTg0YmY3NTRlMTBlZTllOWNlNDViMGY0Y2NhMjRmYjg0NjU3ZGE1MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmZlMDM3YjVhNzIxOThlZWFkMDYxZTIzMTViODQ5ODU5ZDc2ZmY0MWFiMTI5ZGZlM2ZjN2I3OGI1N2Y0OTQwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzUxOTk2NjBlZTg0MjNiOTZkMjk2YTJlMTZiOGY2YjE3ZjIxMTg5Njc5MDEwZGU3M2Q0ZWUxNzFjN2NkZTc1NyJ9"
+        },
+        {
+          "resource": "repo://src/app/app.routes.server.ts",
+          "version": "repo-file-v1:sha256:adebe88d84dbf59586844b3085a89bf830efc12cdb386d9c57b82ce1f11a182b"
+        }
+      ]
+    },
+    {
+      "id": "claim_007535eec05d45b1933b7fb208856970",
+      "statement": "A plain `fetch` to the Ulabase service carries no session and returns 401; custom calls must use `auth.api()`, which attaches the bearer token. The kit's interceptor clears the session on 401/expiry, and the token has a 15-minute TTL with silent refresh at about 80%.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L64-L66",
+          "version": "repo-lines-v1:sha256:ec9a7efbd103bd869f137ee9a91d15531a0d2f9ba6a3d696d0631a66d3902fd8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJhYTNhNDJkMDVlOGRmYWVmYzViNDE1NGQ5YWRiZDFkMTRlOTIzMzU5NzhmOWUzNjQwMmViZGQ1ZGU3Y2U4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGMyMzdjODE4ZjQxOWYzMWJhZjJiM2FmYTBlMTA2YjM1NTU1MTUwY2M3NmMwNzViMTYwZmMyMjU5NjZiZmI0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODhiNzdmZmE3MzkyMTVmOWJlNDVjOTE1ZGI5ZTI0MzYxOWE5MDhiODE2N2RkMmI4NmY2ZWM3NjNlNTNhYTQ4YSJ9"
+        },
+        {
+          "resource": "repo://README.md#L103-L105",
+          "version": "repo-lines-v1:sha256:24205b2981399e7b0cb1c16c18ddf44979364b6d2ad43ebef40bbd13a92e3658:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTNiNDQ4N2U3M2ZkNTE0MmVlYTYwNWNiOWMzODM3MzZkMmUzYjNiM2NiZjQyZjNiYTNlNTFlOGQ2ODJkN2I0NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzhjNGZhOGE5MDdkYzFjOTFiYzRjNTBkNmIxNjM3YzBkNWY3ZWUyOWE2MWRkNTBkN2U3YjJkOTQ3MTViODdkMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjI1NjM5ZTYxZTNkYWE2ZWFiMDg5Y2VjY2ZiNzg0NzFhNDk0NWE4Yjk1M2M4MzMxNGJlZWE1ZGM1OGY2NWQ0MyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/home/home.ts#L43-L57",
+          "version": "repo-lines-v1:sha256:32ac63a42fe3417725e043a5e9e15d94b7deafbe817b65e0e229e89b9c1de6d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2YzA4MmVkMDQ3NGQxYTZhNWU3NzdlZmM2ZTg1ODY1ZTc0OTE0NWJhYzUxMDViNjRmZTY3NTRhYTI4M2NkMzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhMTE5MGY4MzJiOTE2ODJjNGQyYmVmMGM2N2FmMmNhZDU4ZDcxNWYxZjhjOWIyZjg1OTMyM2Q3ODViMmZlNWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNiY2M2NDk1N2NjNWIwOWZhYjlmNjhkMDhmZTgyNTk4MzhkNzRiZWZiMTNlMWRmZDE3MTkxYWQ0YzM4MjI3NWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE4ZjZiYWMzM2YxODRlNzg1M2M5ZjY2MGNiMWY2ZDgzMDViMGUwNzdmZjJlOWI1OWE3MDkwOTIwMWVmOWUyN2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2e3203c82a4c4f88a1a820ff01f49199",
+      "statement": "After bumping `TOS_VERSION` / `PP_VERSION` in `ulabase.setup.consents.ts`, re-run `ulabase setup --srv <srvId> --file ulabase.setup.consents.ts` so the guards rule and the permission's `mergeRequest` move together; otherwise a user is blocked by a form that appeared to work. The `Version 2026-07-01` line in `public/terms.html` and `public/privacy.html` is a third place kept in step by hand.",
+      "evidence": [
+        {
+          "resource": "repo://NOTES.md#L215-L236",
+          "version": "repo-lines-v1:sha256:a49e3104369d55c58cc1bf98b8f23e4bf5a8acf923505b1cbe58aaab71d8f74c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzYTJjMzgyZWY3ZTAxOTZlNDJkMjlmYjQ0MTZhY2ZjNzg3MWE3MmZmMDEyNDQ3YmQzODhmYzE3NGRkM2U4MTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwMGU0NWI4MmE0ZmJjMGFiNzhmMzFmYTVhYzg2NzQxMjY4MmIzMWM0ZmI4YzM3ZDVjNzJkODgwMmY4MzAwMTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUwNmU2ZmM5NTY4ZTRkYmM0Nzk2MTQ1NTAzOTg2NGNmNDhjNjIyYzIzMGVhMGQwZDFlYjc5MjRmZWQwOTAyY2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzMWY2YWM3NWFmOGYwZmM5MzAzNjliMWMzMGQ3NWVkMmQ4ZjM2MmE0YjU1ZWMwOGI1ZGVlOGNlZjhiM2U3MDkifQ"
+        },
+        {
+          "resource": "repo://ulabase.setup.consents.ts",
+          "version": "repo-file-v1:sha256:49648255372d4022a52555b48981c9001de9e64dac52da2bda7113a184585e02"
+        }
+      ]
+    },
+    {
+      "id": "claim_9151e5e13b794323bc89d837d525ec53",
+      "statement": "`checkSession()` and `login()` must load teams as a side effect: `checkSession()` short-circuits to null with empty teams when no token is stored and otherwise fetches the user then the teams, and the home page relies on `authGuard`'s `checkSession()` having populated memberships. Skipping these side effects leaves team-dependent UI intermittently empty.",
+      "evidence": [
+        {
+          "resource": "repo://PORTING.md#L56-L62",
+          "version": "repo-lines-v1:sha256:b5df779614ad83c964492e369516dfcf03b0b29e310758f4c930b17209f626c6:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDk3MGQyZmQwNmM1ZTU3MmE3YTAxOWY5ZDkzMTRmYTIyOTBjYWRlYmMxOGJkOTM4YTY4OTQ3MTZmNjJkOWE3MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzA1YjY4Mzg3OGVmZGM3MmMwNzMzZGE5N2U4YTI0NjBhOTcyZGIzYTJjOTBkNzI2MDUzMzBlODQxNjI4OWRhNCJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/home/home.ts#L101-L105",
+          "version": "repo-lines-v1:sha256:7335f5b4f641de6ec93b8b0e52800a57df43b9c4dee0e7a7f716ddcffde0ca8d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDRiNGQ3ZTk0ZmRmZDYyMGExYzVlYTRhY2E2YWQ0YzFjMWUzMzQ1ZDczMGNjN2QxNWVmZDc1MTkxYWI2ZjVkYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjI5N2JlYWYyNzAzZGRiNzQwZjdkNGI0NDdjMDkxNmFkOTZiNGU4OWVkNTdhYzZmZDQ5YWQxYWQ2MDRlYjA2YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQxN2Q5MmRiZTRmZjRhOTRiNDUzNGZkMGFlMTgyNWFjYWFkZjk2YzE4NTYwM2VkY2MwZTg5YTVjYmY0NThkMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a6831e3d3ff7421cb8d5c556f6a7d54e",
+      "statement": "`ThemeService` reads and writes `localStorage` and `document` behind an `isPlatformBrowser` guard; injecting it into a prerendered page without that guard breaks the SSR build.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/theme.service.ts",
+          "version": "repo-file-v1:sha256:e907f354768a884fc62daea15ed4f4dfbc0a14a2c512974c57fbd7e005c9083a"
+        }
+      ]
+    },
+    {
+      "id": "claim_f910adb8cf38483d9be296d72b12272d",
+      "statement": "The home page's demo fetch calls `auth.api('/demo')` and needs a `/demo` collection on the Ulabase service, a permission `path(/demo) and method(GET)` for the signed-in user, and an authenticated session.",
+      "evidence": [
+        {
+          "resource": "repo://src/app/pages/home/home.html#L123-L131",
+          "version": "repo-lines-v1:sha256:4aca8bcb53e337b0aa5a7a5aaecb3b644cdccba97367ef56cb55338d2623076c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNhYTc3OWU0ZDBlMjMwYmM2YjQwMmMyZjEwM2NjOGUzZjg2YzFhZGVmNDc2ODlmYjBkYmE4Mzc5ZmQ0N2ZhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmE5NGFlYmZmMzk5MjFiZWM5ZDg1MTVkMTdkNWEwM2Y5NzI2M2JlNjdkMGEzMzRjMzBlYjBkYjU2YmI5MjQ4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGIwYThmN2E1ZDExNWViMTBjM2QyNWE5OWFhOGFlNmFiMDJmZDNhMDFmYzE4OTY2YmU4YTRjMzA1NWRhNTFhMyJ9"
+        },
+        {
+          "resource": "repo://src/app/pages/home/home.ts#L43-L57",
+          "version": "repo-lines-v1:sha256:32ac63a42fe3417725e043a5e9e15d94b7deafbe817b65e0e229e89b9c1de6d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2YzA4MmVkMDQ3NGQxYTZhNWU3NzdlZmM2ZTg1ODY1ZTc0OTE0NWJhYzUxMDViNjRmZTY3NTRhYTI4M2NkMzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhMTE5MGY4MzJiOTE2ODJjNGQyYmVmMGM2N2FmMmNhZDU4ZDcxNWYxZjhjOWIyZjg1OTMyM2Q3ODViMmZlNWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNiY2M2NDk1N2NjNWIwOWZhYjlmNjhkMDhmZTgyNTk4MzhkNzRiZWZiMTNlMWRmZDE3MTkxYWQ0YzM4MjI3NWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE4ZjZiYWMzM2YxODRlNzg1M2M5ZjY2MGNiMWY2ZDgzMDViMGUwNzdmZjJlOWI1OWE3MDkwOTIwMWVmOWUyN2MifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.9.0",
+    "at": "2026-11-21T15:24:47.543Z"
+  }
+}
