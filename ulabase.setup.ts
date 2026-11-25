@@ -80,15 +80,34 @@ const install = async (admin: AdminClient, srvId: string, featureId: string) => 
 };
 
 /**
- * The environment file the app reads its service URL from, next to this setup file whatever the
- * working directory. Read fresh each time: the `environment` import above is the value at start.
+ * The file the app reads its service URL from, by environment, next to this setup file whatever
+ * the working directory. They are the two files of Angular's `fileReplacements`:
+ * `environment.dev.ts` for `ng serve`, `environment.ts` for the production build.
+ *
+ * An environment is a service: `ulabase setup --srv <id>` writes the development one, and
+ * `ulabase setup --srv <id> --env production` the production one.
  */
-const ENV_FILE = new URL('./src/environments/environment.dev.ts', import.meta.url);
+const ENV_FILES: Record<string, string> = {
+  development: './src/environments/environment.dev.ts',
+  production: './src/environments/environment.ts',
+};
 const API_URL_LINE = /^(\s*apiUrl:\s*)'[^']*'/m;
 
-/** The `apiUrl` the environment file holds now, or null when it has no such line. */
-function apiUrlInFile(): string | null {
-  const m = readFileSync(ENV_FILE, 'utf8').match(/^\s*apiUrl:\s*'([^']*)'/m);
+/** The environment of the run. Absent with a CLI older than `--env`: then it is development. */
+const envOf = (ctx: unknown): string => (ctx as { env?: string }).env ?? 'development';
+
+/** The file of an environment. This starter has two, and says so for any other name. */
+function envFile(env: string): URL {
+  const path = ENV_FILES[env];
+  if (!path) {
+    throw new Error(`this starter has the environments ${Object.keys(ENV_FILES).join(' and ')}, not "${env}"`);
+  }
+  return new URL(path, import.meta.url);
+}
+
+/** The `apiUrl` the environment's file holds now, or null when it has no such line. */
+function apiUrlInFile(env: string): string | null {
+  const m = readFileSync(envFile(env), 'utf8').match(/^\s*apiUrl:\s*'([^']*)'/m);
   return m ? m[1] : null;
 }
 
@@ -97,14 +116,16 @@ export const appPointsAtService = step('the app points at this service', {
   // Last, on purpose: the app is pointed at the service only once everything above it is in
   // place, so a setup that stopped halfway leaves the "connect your service" screen, not a
   // sign-up page that fails. Only the apiUrl line is rewritten; comments and flags stay.
-  check: async ({ admin, srvId }) => apiUrlInFile() === (await admin.serviceToken(srvId)).url,
-  apply: async ({ admin, srvId }) => {
-    const { url } = await admin.serviceToken(srvId);
-    const text = readFileSync(ENV_FILE, 'utf8');
+  check: async ctx => apiUrlInFile(envOf(ctx)) === (await ctx.admin.serviceToken(ctx.srvId)).url,
+  apply: async ctx => {
+    const env = envOf(ctx);
+    const { url } = await ctx.admin.serviceToken(ctx.srvId);
+    const file = envFile(env);
+    const text = readFileSync(file, 'utf8');
     if (!API_URL_LINE.test(text)) {
-      throw new Error(`src/environments/environment.dev.ts has no apiUrl: '...' line to write ${url} into`);
+      throw new Error(`${ENV_FILES[env]} has no apiUrl: '...' line to write ${url} into`);
     }
-    writeFileSync(ENV_FILE, text.replace(API_URL_LINE, `$1'${url}'`));
+    writeFileSync(file, text.replace(API_URL_LINE, `$1'${url}'`));
   },
 });
 
