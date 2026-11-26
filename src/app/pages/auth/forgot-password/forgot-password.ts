@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { RhAuthService } from '@ulabase/kit-ng';
@@ -7,6 +7,7 @@ import { RhAuthService } from '@ulabase/kit-ng';
   selector: 'app-forgot-password',
   imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './forgot-password.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './forgot-password.css',
 })
 export class ForgotPassword {

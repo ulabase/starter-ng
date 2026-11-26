@@ -1,4 +1,12 @@
-import { Component, inject, signal, ElementRef, HostListener, viewChild } from '@angular/core';
+import {
+  Component,
+  inject,
+  signal,
+  ElementRef,
+  HostListener,
+  viewChild,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   NavigationCancel,
@@ -18,6 +26,7 @@ import { ThemeService } from '../../theme.service';
   selector: 'app-shell',
   imports: [RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './shell.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './shell.css',
 })
 export class Shell {
@@ -41,7 +50,7 @@ export class Shell {
   constructor() {
     justSignedUpFlag.set(false);
 
-    this.router.events.pipe(takeUntilDestroyed()).subscribe(event => {
+    this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.navigating.set(true);
       } else if (
@@ -79,12 +88,12 @@ export class Shell {
 
   protected activeTeamName(): string {
     const teams = this.auth.teams();
-    const active = teams.find(t => t.active);
+    const active = teams.find((t) => t.active);
     return active?.name ?? '';
   }
 
   protected toggleMenu(): void {
-    this.menuOpen.update(v => !v);
+    this.menuOpen.update((v) => !v);
     if (this.menuOpen()) {
       // Move focus to first menu item on next tick
       setTimeout(() => this.firstMenuItem()?.nativeElement?.focus(), 0);

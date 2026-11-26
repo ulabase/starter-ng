@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { interval } from 'rxjs';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -13,6 +13,7 @@ import { Alert } from '../../../ui/alert/alert';
   selector: 'app-team-detail',
   imports: [ReactiveFormsModule, RouterLink, Alert, DatePipe],
   templateUrl: './team-detail.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './team-detail.css',
 })
 export class TeamDetail implements OnInit {
@@ -81,7 +82,7 @@ export class TeamDetail implements OnInit {
   ngOnInit(): void {
     this.teamId = this.route.snapshot.paramMap.get('id') ?? '';
     this.auth.loadTeams().subscribe(() => {
-      this.team.set(this.auth.teams().find(t => t.id.$oid === this.teamId));
+      this.team.set(this.auth.teams().find((t) => t.id.$oid === this.teamId));
       this.teamForm.patchValue({
         name: this.team()?.name ?? '',
         description: this.team()?.description ?? '',
@@ -97,7 +98,7 @@ export class TeamDetail implements OnInit {
   private loadMembers(): void {
     this.membersLoading.set(true);
     this.auth.listTeamMembers().subscribe({
-      next: members => {
+      next: (members) => {
         this.members.set(members);
         this.membersLoading.set(false);
       },
@@ -108,10 +109,10 @@ export class TeamDetail implements OnInit {
   private loadInvitations(): void {
     this.invitationsLoading.set(true);
     this.auth.listInvitations().subscribe({
-      next: invitations => {
+      next: (invitations) => {
         // the last send of each pending invitation, so the resend button counts down from it: the service
         // refuses a resend within 5 minutes of it
-        this.resendCooldowns.update(cooldowns => withLastSends(cooldowns, invitations));
+        this.resendCooldowns.update((cooldowns) => withLastSends(cooldowns, invitations));
         this.invitations.set(invitations);
         this.invitationsLoading.set(false);
       },
@@ -140,7 +141,7 @@ export class TeamDetail implements OnInit {
         this.inviteError.set(
           e?.status === 409
             ? 'This person is already a member of your team.'
-            : (e?.message ?? 'Something went wrong. Please try again.')
+            : (e?.message ?? 'Something went wrong. Please try again.'),
         );
       },
     });
@@ -151,15 +152,19 @@ export class TeamDetail implements OnInit {
     this.removingMemberEmail.set(null);
     this.auth.removeMember(member.email).subscribe({
       next: () => {
-        this.members.update(list => list.filter(m => m.email !== member.email));
+        this.members.update((list) => list.filter((m) => m.email !== member.email));
         this.memberActionPending.set(null);
       },
       error: () => this.memberActionPending.set(null),
     });
   }
 
-  confirmRemove(email: string): void { this.removingMemberEmail.set(email); }
-  cancelRemove(): void { this.removingMemberEmail.set(null); }
+  confirmRemove(email: string): void {
+    this.removingMemberEmail.set(email);
+  }
+  cancelRemove(): void {
+    this.removingMemberEmail.set(null);
+  }
 
   resendInvite(invite: PendingInvitation): void {
     this.resendingEmail.set(invite.email);
@@ -172,7 +177,7 @@ export class TeamDetail implements OnInit {
         const at = Date.now();
         this.resendingEmail.set(null);
         this.resendSuccessEmail.set(invite.email);
-        this.resendCooldowns.update(cooldowns => ({ ...cooldowns, [invite.email]: at }));
+        this.resendCooldowns.update((cooldowns) => ({ ...cooldowns, [invite.email]: at }));
         this.now.set(at);
       },
       error: (err: unknown) => {
@@ -203,8 +208,8 @@ export class TeamDetail implements OnInit {
     this.memberActionPending.set(member.email);
     this.auth.updateMemberRole(member.email, role).subscribe({
       next: () => {
-        this.members.update(list =>
-          list.map(m => (m.email === member.email ? { ...m, role } : m))
+        this.members.update((list) =>
+          list.map((m) => (m.email === member.email ? { ...m, role } : m)),
         );
         this.memberActionPending.set(null);
       },
@@ -233,8 +238,13 @@ export class TeamDetail implements OnInit {
     });
   }
 
-  confirmDelete(): void { this.deleteConfirming.set(true); }
-  cancelDelete(): void { this.deleteConfirming.set(false); this.deleteError.set(null); }
+  confirmDelete(): void {
+    this.deleteConfirming.set(true);
+  }
+  cancelDelete(): void {
+    this.deleteConfirming.set(false);
+    this.deleteError.set(null);
+  }
 
   deleteTeam(): void {
     const t = this.team();
@@ -243,10 +253,10 @@ export class TeamDetail implements OnInit {
     this.deleteError.set(null);
     this.auth.deleteTeam().subscribe({
       next: () => {
-        this.auth.loadTeams().subscribe(remaining => {
+        this.auth.loadTeams().subscribe((remaining) => {
           this.deleting.set(false);
           this.deleteConfirming.set(false);
-          if (remaining.length > 0 && !remaining.some(m => m.active)) {
+          if (remaining.length > 0 && !remaining.some((m) => m.active)) {
             this.auth.switchTeam(remaining[0].id).subscribe({
               next: () => this.router.navigate(['/teams']),
               error: () => this.router.navigate(['/teams']),
@@ -266,7 +276,10 @@ export class TeamDetail implements OnInit {
 }
 
 /** The cooldowns with each pending invitation's last send, when later than the one already known. */
-function withLastSends(cooldowns: Record<string, number>, invitations: PendingInvitation[]): Record<string, number> {
+function withLastSends(
+  cooldowns: Record<string, number>,
+  invitations: PendingInvitation[],
+): Record<string, number> {
   const next = { ...cooldowns };
   for (const invite of invitations) {
     const at = invite.createdAt && !invite.expired ? Date.parse(invite.createdAt) : NaN;

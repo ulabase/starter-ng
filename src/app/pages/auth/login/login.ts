@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { RhAuthService } from '@ulabase/kit-ng';
@@ -16,6 +16,7 @@ const ERROR_MESSAGES: Record<string, string> = {
   selector: 'app-login',
   imports: [ReactiveFormsModule, RouterLink, OauthButtons, Alert],
   templateUrl: './login.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './login.css',
 })
 export class Login {
@@ -36,7 +37,7 @@ export class Login {
   // The backend redirects here with ?error=... when a link it handled
   // directly (e.g. email verification) fails — surface that up front.
   readonly error = signal<string | null>(
-    ERROR_MESSAGES[this.route.snapshot.queryParamMap.get('error') ?? ''] ?? null
+    ERROR_MESSAGES[this.route.snapshot.queryParamMap.get('error') ?? ''] ?? null,
   );
 
   submit(): void {

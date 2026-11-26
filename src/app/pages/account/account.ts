@@ -1,4 +1,11 @@
-import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  computed,
+  inject,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RhAuthService } from '@ulabase/kit-ng';
 import { Alert } from '../../ui/alert/alert';
@@ -17,6 +24,7 @@ interface UserWithSocialAuths {
   selector: 'app-account',
   imports: [ReactiveFormsModule, Alert],
   templateUrl: './account.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './account.css',
 })
 export class Account implements OnInit {
@@ -51,7 +59,7 @@ export class Account implements OnInit {
   // True only for accounts linked to at least one OAuth provider — used solely to
   // show a hint that current-password may never have been set. See UserWithSocialAuths above.
   protected readonly isOAuthUser = computed(() => {
-    const socialAuths = (this.auth.user() as (UserWithSocialAuths | null))?.socialAuths;
+    const socialAuths = (this.auth.user() as UserWithSocialAuths | null)?.socialAuths;
     return (socialAuths?.length ?? 0) > 0;
   });
 
@@ -61,7 +69,7 @@ export class Account implements OnInit {
     this.profileForm.valueChanges.subscribe(() => this.profileSaved.set(false));
     this.passwordForm.valueChanges.subscribe(() => this.passwordSaved.set(false));
 
-    this.auth.checkSession().subscribe(user => {
+    this.auth.checkSession().subscribe((user) => {
       if (user) {
         this.profileForm.patchValue({
           firstName: user.profile?.name ?? '',

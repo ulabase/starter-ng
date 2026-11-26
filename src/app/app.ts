@@ -1,4 +1,4 @@
-import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { Component, PLATFORM_ID, inject, ChangeDetectionStrategy } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { isValidApiBaseUrl, setToken, scheduleRefresh } from '@ulabase/kit-ng';
@@ -42,6 +42,7 @@ function consumeFragmentToken(): void {
   selector: 'app-root',
   imports: [RouterOutlet, ConsentsGate],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css',
 })
 export class App {
@@ -57,7 +58,7 @@ export class App {
     if (!this.apiConfigured) {
       console.error(
         `[app] apiUrl must point to a Ulabase service (an https:// URL), got "${environment.apiUrl}". ` +
-          'Set it in src/environments/environment.dev.ts for `ng serve`, and in environment.ts for production builds.'
+          'Set it in src/environments/environment.dev.ts for `ng serve`, and in environment.ts for production builds.',
       );
       return;
     }

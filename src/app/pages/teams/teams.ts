@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { RhAuthService } from '@ulabase/kit-ng';
 import type { TeamMembership } from '@ulabase/kit-ng';
@@ -7,6 +7,7 @@ import type { TeamMembership } from '@ulabase/kit-ng';
   selector: 'app-teams',
   imports: [RouterLink],
   templateUrl: './teams.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './teams.css',
 })
 export class Teams implements OnInit {

@@ -109,6 +109,18 @@ the whole app re-themes, dark mode included.
 For the route map, the class hooks to restyle, how to call your own collections with the session
 attached, and how the consents gate works inside, see [NOTES.md](./NOTES.md).
 
+### With a coding agent
+
+Add the Ulabase documentation to your coding agent as an MCP server. The agent reads it while it
+changes the app, so the code it writes uses the real Ulabase API. In Claude Code:
+
+```bash
+claude mcp add --transport http ulabase-docs https://d0c5a1.ulabase.app/mcp
+```
+
+Cursor reads it from `.cursor/mcp.json`, VS Code from `.vscode/mcp.json`. Any other agent takes the
+address `https://d0c5a1.ulabase.app/mcp` as an MCP server over HTTP. It needs no account and no key.
+
 ## Something not working?
 
 **Everything fails, and the console says the origin is not allowed.** The service only answers

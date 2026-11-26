@@ -1,19 +1,43 @@
-import { Component, DestroyRef, ElementRef, OnInit, input, output, inject } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  OnInit,
+  input,
+  output,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'app-alert',
   template: `
-    <div [class]="type() === 'success' ? 'success-msg' : 'form-error'" [attr.role]="type() === 'success' ? 'status' : 'alert'">
+    <div
+      [class]="type() === 'success' ? 'success-msg' : 'form-error'"
+      [attr.role]="type() === 'success' ? 'status' : 'alert'"
+    >
       <span class="alert-content"><ng-content /></span>
       @if (dismissible()) {
-        <button type="button" class="alert-dismiss" (click)="close.emit()" aria-label="Dismiss">&times;</button>
+        <button type="button" class="alert-dismiss" (click)="close.emit()" aria-label="Dismiss">
+          &times;
+        </button>
       }
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
-    :host { display: block; }
-    div { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
-    .alert-content { flex: 1; }
+    :host {
+      display: block;
+    }
+    div {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .alert-content {
+      flex: 1;
+    }
     .alert-dismiss {
       flex-shrink: 0;
       font: inherit;
@@ -26,7 +50,9 @@ import { Component, DestroyRef, ElementRef, OnInit, input, output, inject } from
       opacity: 0.6;
       color: inherit;
     }
-    .alert-dismiss:hover { opacity: 1; }
+    .alert-dismiss:hover {
+      opacity: 1;
+    }
   `,
 })
 export class Alert implements OnInit {

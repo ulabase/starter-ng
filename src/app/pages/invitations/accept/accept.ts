@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RhAuthService, getToken } from '@ulabase/kit-ng';
@@ -9,6 +9,7 @@ import { Alert } from '../../../ui/alert/alert';
   selector: 'app-accept',
   imports: [ReactiveFormsModule, Alert],
   templateUrl: './accept.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './accept.css',
 })
 export class Accept {
@@ -42,7 +43,7 @@ export class Accept {
     if (getToken()) this.auth.checkSession().subscribe({ error: () => undefined });
     if (!this.missingParams) {
       this.auth.getInvitation(this.email, this.token).subscribe({
-        next: inv => {
+        next: (inv) => {
           this.invitation.set(inv);
           this.loading.set(false);
         },

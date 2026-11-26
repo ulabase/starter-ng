@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RhAuthService } from '@ulabase/kit-ng';
@@ -8,6 +8,7 @@ import { Alert } from '../../../ui/alert/alert';
   selector: 'app-new-team',
   imports: [ReactiveFormsModule, RouterLink, Alert],
   templateUrl: './new-team.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './new-team.css',
 })
 export class NewTeam {

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { RhAuthService } from '@ulabase/kit-ng';
@@ -8,6 +8,7 @@ import { Alert } from '../../../ui/alert/alert';
   selector: 'app-reset-password',
   imports: [ReactiveFormsModule, RouterLink, Alert],
   templateUrl: './reset-password.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './reset-password.css',
 })
 export class ResetPassword {
@@ -39,15 +40,13 @@ export class ResetPassword {
     this.error.set(null);
     const { password } = this.form.getRawValue();
 
-    this.auth
-      .resetPassword({ email: this.email, token: this.token, password })
-      .subscribe({
-        next: () => this.router.navigateByUrl('/'),
-        error: (err: unknown) => {
-          this.loading.set(false);
-          this.error.set(this.messageFor(err));
-        },
-      });
+    this.auth.resetPassword({ email: this.email, token: this.token, password }).subscribe({
+      next: () => this.router.navigateByUrl('/'),
+      error: (err: unknown) => {
+        this.loading.set(false);
+        this.error.set(this.messageFor(err));
+      },
+    });
   }
 
   private messageFor(err: unknown): string {

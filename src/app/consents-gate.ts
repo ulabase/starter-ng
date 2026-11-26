@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RhAuthService } from '@ulabase/kit-ng';
 import { consentsBlocked } from './consents';
 
@@ -16,6 +16,7 @@ import { consentsBlocked } from './consents';
 @Component({
   selector: 'app-consents-gate',
   templateUrl: './consents-gate.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './consents-gate.css',
 })
 export class ConsentsGate {

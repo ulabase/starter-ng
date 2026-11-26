@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { RhAuthService } from '@ulabase/kit-ng';
@@ -10,6 +10,7 @@ import { Alert } from '../../../ui/alert/alert';
   selector: 'app-signup',
   imports: [ReactiveFormsModule, RouterLink, OauthButtons, Alert],
   templateUrl: './signup.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './signup.css',
 })
 export class Signup {

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { oauthUrl } from '../../../oauth-url';
 
 type Provider = 'google' | 'github' | (string & {});
@@ -7,6 +7,7 @@ type Provider = 'google' | 'github' | (string & {});
   selector: 'app-oauth-buttons',
   imports: [],
   templateUrl: './oauth-buttons.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './oauth-buttons.css',
 })
 export class OauthButtons {

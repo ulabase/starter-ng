@@ -1,4 +1,4 @@
-import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { Component, PLATFORM_ID, inject, ChangeDetectionStrategy } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { RhAuthService } from '@ulabase/kit-ng';
@@ -7,6 +7,7 @@ import { RhAuthService } from '@ulabase/kit-ng';
   selector: 'app-verify',
   imports: [RouterLink],
   templateUrl: './verify.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './verify.css',
 })
 export class Verify {
@@ -26,7 +27,7 @@ export class Verify {
       // Build the verify URL with fragment delivery (Bearer token mode).
       // The backend verifies the token, then 302-redirects the browser
       // back to the frontend with #access_token=... in the URL hash.
-      this.auth.verify(this.email, this.token).subscribe(url => {
+      this.auth.verify(this.email, this.token).subscribe((url) => {
         window.location.href = url;
       });
     }

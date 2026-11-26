@@ -7,7 +7,7 @@
    `home` route in app.routes.ts at it instead.
    ───────────────────────────────────────────────────────────────────────── */
 
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { JsonPipe } from '@angular/common';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
@@ -30,6 +30,7 @@ interface StarterFeature {
   selector: 'app-home',
   imports: [RouterLink, JsonPipe],
   templateUrl: './home.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home.css',
 })
 export class Home {
@@ -44,19 +45,22 @@ export class Home {
     this.demoError.set(null);
     this.demoData.set(null);
 
-    this.auth.api('/demo').pipe(
-      switchMap(res => res.json()),
-      map(json => Array.isArray(json) ? json : []),
-      tap(data => {
-        this.demoData.set(data);
-        this.demoLoading.set(false);
-      }),
-      catchError(err => {
-        this.demoError.set(err.message ?? `HTTP ${err.status ?? '?'}`);
-        this.demoLoading.set(false);
-        return of(null);
-      }),
-    ).subscribe();
+    this.auth
+      .api('/demo')
+      .pipe(
+        switchMap((res) => res.json()),
+        map((json) => (Array.isArray(json) ? json : [])),
+        tap((data) => {
+          this.demoData.set(data);
+          this.demoLoading.set(false);
+        }),
+        catchError((err) => {
+          this.demoError.set(err.message ?? `HTTP ${err.status ?? '?'}`);
+          this.demoLoading.set(false);
+          return of(null);
+        }),
+      )
+      .subscribe();
   }
 
   private readonly features = environment.features;
@@ -104,7 +108,7 @@ export class Home {
    *  page renders; the team list is the fallback for accounts without one. */
   protected routeFor(target: 'team' | 'account'): string[] {
     if (target === 'account') return ['/account'];
-    const active = this.auth.teams().find(t => t.active);
+    const active = this.auth.teams().find((t) => t.active);
     return active ? ['/teams', active.id.$oid] : ['/teams'];
   }
 

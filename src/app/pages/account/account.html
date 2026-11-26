@@ -21,9 +21,13 @@
     </div>
     <div class="form-field">
       <label>Email</label>
-      <input type="email" [value]="auth.user()?._id" disabled />
+      <input type="email" [value]="$safeNavigationMigration(auth.user()?._id)" disabled />
     </div>
-    <button type="submit" class="btn-primary" [disabled]="profileLoading() || !profileForm.dirty || profileSaving()">
+    <button
+      type="submit"
+      class="btn-primary"
+      [disabled]="profileLoading() || !profileForm.dirty || profileSaving()"
+    >
       {{ profileSaving() ? 'Saving…' : 'Save changes' }}
     </button>
   </form>
@@ -43,8 +47,17 @@
     <div class="form-field">
       <label for="current-password">Current password</label>
       <div class="password-field">
-        <input id="current-password" [type]="showCurrentPassword() ? 'text' : 'password'" formControlName="currentPassword" autocomplete="new-password" />
-        <button type="button" class="btn-toggle-password" (click)="showCurrentPassword.update(v => !v)">
+        <input
+          id="current-password"
+          [type]="showCurrentPassword() ? 'text' : 'password'"
+          formControlName="currentPassword"
+          autocomplete="new-password"
+        />
+        <button
+          type="button"
+          class="btn-toggle-password"
+          (click)="showCurrentPassword.update((v) => !v)"
+        >
           {{ showCurrentPassword() ? 'Hide' : 'Show' }}
         </button>
       </div>
@@ -55,8 +68,17 @@
     <div class="form-field">
       <label for="new-password">New password</label>
       <div class="password-field">
-        <input id="new-password" [type]="showNewPassword() ? 'text' : 'password'" formControlName="newPassword" autocomplete="new-password" />
-        <button type="button" class="btn-toggle-password" (click)="showNewPassword.update(v => !v)">
+        <input
+          id="new-password"
+          [type]="showNewPassword() ? 'text' : 'password'"
+          formControlName="newPassword"
+          autocomplete="new-password"
+        />
+        <button
+          type="button"
+          class="btn-toggle-password"
+          (click)="showNewPassword.update((v) => !v)"
+        >
           {{ showNewPassword() ? 'Hide' : 'Show' }}
         </button>
       </div>

@@ -4,7 +4,11 @@ import { provideRhAuth, isValidApiBaseUrl } from '@ulabase/kit-ng';
 
 import { routes, AppTitleStrategy } from './app.routes';
 import { consentsOnError } from './consents';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import {
+  provideClientHydration,
+  withEventReplay,
+  withNoIncrementalHydration,
+} from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 
 // If apiUrl isn't set (or isn't a valid Ulabase URL), provide no
@@ -18,7 +22,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(activeRoutes),
-    provideClientHydration(withEventReplay()),
+    provideClientHydration(withEventReplay(), withNoIncrementalHydration()),
     // onError sees every failure the kit hits, including the ones no caller is
     // waiting on — session restoration among them, which is what the consents
     // rule blocks.
