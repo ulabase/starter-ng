@@ -47,10 +47,10 @@ export const serverRoutes: ServerRoute[] = [
   ...passwordResetRoutes,
   ...invitationRoutes,
   {
-    // Authenticated shell — uses in-memory token, cannot be
-    // prerendered or server-rendered on request.
+    // The public first page: rendered on the server at each request, so it arrives as HTML. The
+    // pages of the signed-in shell fall under '**' below: they use the token in the browser.
     path: '',
-    renderMode: RenderMode.Client,
+    renderMode: RenderMode.Server,
   },
   {
     path: '**',

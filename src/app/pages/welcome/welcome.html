@@ -1,0 +1,140 @@
+<div class="welcome">
+  <header class="welcome-header">
+    <span class="logo">My app</span>
+    <nav class="welcome-nav">
+      <a routerLink="/auth/login" class="btn-secondary">Sign in</a>
+      @if (canSignUp) {
+        <a routerLink="/auth/signup" class="btn-primary">Sign up</a>
+      }
+    </nav>
+  </header>
+
+  <main class="welcome-main">
+    <section class="welcome-hero">
+      <div class="welcome-intro">
+        <p class="eyebrow">Ulabase starter · Angular</p>
+        <h1>A base app, running on your Ulabase service.</h1>
+        <p class="hero-pitch">
+          Sign-up, login, email verification, password reset, teams and invitations already work.
+          The service behind them is yours, on Ulabase.
+        </p>
+        <div class="welcome-actions">
+          @if (canSignUp) {
+            <a routerLink="/auth/signup" class="btn-primary">Sign up</a>
+          }
+          <a routerLink="/auth/login" class="btn-secondary">Sign in</a>
+        </div>
+      </div>
+
+      <aside class="connection" aria-label="The Ulabase service of this app">
+        <div class="connection-head">
+          <span class="eyebrow">Connected to Ulabase</span>
+          <span class="connection-status" [class]="'connection-status status-' + status().replace(' ', '-')">{{ statusLabel() }}</span>
+        </div>
+        <dl class="connection-facts">
+          <dt>Service</dt>
+          <dd><code>{{ serviceId }}</code></dd>
+          <dt>Address</dt>
+          <dd><code>{{ apiUrl }}</code></dd>
+          <dt>Set in</dt>
+          <dd><code>src/environments/environment.dev.ts</code></dd>
+        </dl>
+        <p class="connection-note">
+          This app has no backend code. Accounts, teams and data are on the service, and the app
+          calls its API with the Ulabase Kit.
+        </p>
+        <a href="https://ulabase.com/orgs" target="_blank" rel="noopener">Open the Ulabase console →</a>
+      </aside>
+    </section>
+
+    <section class="card">
+      <h2>What already works</h2>
+      <ul class="welcome-grid">
+        <li><strong>Email sign-up</strong><span class="muted">Registration with an email verification link.</span></li>
+        <li><strong>Google sign-in</strong><span class="muted">When the service has your Google credentials.</span></li>
+        <li><strong>Password reset</strong><span class="muted">Forgot-password email and a reset form.</span></li>
+        <li><strong>Teams and invitations</strong><span class="muted">Members, roles, switching team, invitations by email.</span></li>
+        <li><strong>Account</strong><span class="muted">Name and password.</span></li>
+        <li><strong>Your data</strong><span class="muted">Collections and permissions on the service, called with <code>auth.api()</code>.</span></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Connect your coding agent to the Ulabase docs</h2>
+      <p class="muted">
+        Add the docs MCP server to your agent. The agent reads the Ulabase documentation while it
+        changes this app. It needs no account and no key.
+      </p>
+      <div class="agent-tabs" role="tablist" aria-label="Coding agent">
+        @for (a of agents; track a.id) {
+          <button type="button" role="tab" [attr.aria-selected]="a.id === agent()"
+            [class.active]="a.id === agent()" (click)="agent.set(a.id)">{{ a.name }}</button>
+        }
+      </div>
+      <div role="tabpanel">
+        <p class="agent-where">{{ shown().where }}</p>
+        <pre class="code-block">{{ shown().code }}</pre>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Make it yours</h2>
+      <ol class="steps">
+        <li class="step step-done">
+          <span class="step-mark" aria-hidden="true">✓</span>
+          <div class="step-body">
+            <span class="step-title">Point the app at your Ulabase service</span>
+            <p class="muted">Done: <code>ulabase app new</code> wrote the address in <code>src/environments/environment.dev.ts</code>.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-mark" aria-hidden="true">2</span>
+          <div class="step-body">
+            <span class="step-title">Connect your coding agent to the Ulabase docs</span>
+            <p class="muted">The section above.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-mark" aria-hidden="true">3</span>
+          <div class="step-body">
+            <span class="step-title">Change the look</span>
+            <p class="muted">
+              Tweak the tokens in <code>src/styles.css</code>, or remove that skin and use Material,
+              Tailwind, Spartan or your own, following the map in <code>README.md</code>.
+            </p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-mark" aria-hidden="true">4</span>
+          <div class="step-body">
+            <span class="step-title">Design your navigation and menu</span>
+            <p class="muted">The app frame is in <code>src/app/pages/shell/</code>: the header has a marked place for your links.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-mark" aria-hidden="true">5</span>
+          <div class="step-body">
+            <span class="step-title">Replace this page</span>
+            <p class="muted">It is <code>src/app/pages/welcome/</code>: put your app's own first page there.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-mark" aria-hidden="true">6</span>
+          <div class="step-body">
+            <span class="step-title">Build your first screen</span>
+            <p class="muted">Add it under <code>src/app/pages/</code>, and its route inside the signed-in frame in <code>src/app/app.routes.ts</code>.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="welcome-footer">
+    <span>Built with the Ulabase Angular starter.</span>
+    <span>
+      <a href="https://ulabase.com" target="_blank" rel="noopener">ulabase.com</a> ·
+      <a href="https://ulabase.com/docs" target="_blank" rel="noopener">Docs</a> ·
+      <a href="https://ulabase.com/orgs" target="_blank" rel="noopener">Console</a>
+    </span>
+  </footer>
+</div>

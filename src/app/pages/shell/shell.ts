@@ -119,7 +119,8 @@ export class Shell {
 
   logout(): void {
     this.closeMenu();
-    this.auth.logout().subscribe(() => this.router.navigateByUrl('/auth/login'));
+    // back to the public first page
+    this.auth.logout().subscribe(() => this.router.navigateByUrl('/'));
   }
 
   @HostListener('document:click', ['$event'])

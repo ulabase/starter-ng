@@ -78,12 +78,19 @@ export const routes: Routes = [
         })),
       ]
     : []),
+  // The public first page: what the app is and the service it runs on, rendered on the server.
+  // In the browser a signed-in user goes on to /home.
+  {
+    path: '',
+    pathMatch: 'full',
+    title: 'Welcome',
+    loadComponent: () => import('./pages/welcome/welcome').then(m => m.Welcome),
+  },
   {
     path: '',
     canActivate: [authGuard],
     loadComponent: () => import('./pages/shell/shell').then(m => m.Shell),
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
         title: 'Home',
