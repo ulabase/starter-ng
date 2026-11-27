@@ -41,7 +41,8 @@
   </ul>
 
   <p class="muted feature-note">
-    Toggle these in <code>src/environments/environment.ts</code> to match the
+    Toggle these in <code>src/environments/environment.dev.ts</code> (and <code>environment.ts</code> for
+    production) to match the
     Features settings of your Ulabase service.
   </p>
 </section>
@@ -52,8 +53,8 @@
   </div>
 
   <p class="muted">
-    The kit provides <code>apiFetch</code> — an authenticated <code>fetch</code> wrapper
-    that attaches the bearer token and handles errors. Here is how to use it.
+    <code>RhAuthService.api()</code> is an authenticated <code>fetch</code>, as an Observable: it attaches
+    the bearer token and handles errors. Here is how to use it.
   </p>
 
   <h3>1. Create the <code>demo</code> collection</h3>
