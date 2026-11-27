@@ -98,13 +98,14 @@ GOOGLE_CLIENT_ID=… GOOGLE_CLIENT_SECRET=… ulabase setup --srv <srvId>
 ng serve
 ```
 
-Sign up, check your inbox, and you are in.
+The app opens on its public first page. Sign up, check your inbox, and you are in.
 
 ## Making it yours
 
 The look is a scaffold, meant to be thrown away — `src/styles.css` holds the design tokens and a
-disposable skin, and the home page is a placeholder for your own content. Change the tokens and
-the whole app re-themes, dark mode included.
+disposable skin. The public first page (`src/app/pages/welcome/`) and the home after sign-in
+(`src/app/pages/home/`) are placeholders for your own content. Change the tokens and the whole app
+re-themes, dark mode included.
 
 For the route map, the class hooks to restyle, how to call your own collections with the session
 attached, and how the consents gate works inside, see [NOTES.md](./NOTES.md).
